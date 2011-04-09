@@ -1,0 +1,423 @@
+// Microsoft Visual C++ generated resource script.
+//
+#include "resource.h"
+
+#define APSTUDIO_READONLY_SYMBOLS
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 2 resource.
+//
+#ifndef APSTUDIO_INVOKED
+#include "targetver.h"
+#endif
+#include "afxres.h"
+
+/////////////////////////////////////////////////////////////////////////////
+#undef APSTUDIO_READONLY_SYMBOLS
+
+/////////////////////////////////////////////////////////////////////////////
+// 中文(中华人民共和国) resources
+
+#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_CHS)
+#ifdef _WIN32
+LANGUAGE LANG_CHINESE, SUBLANG_CHINESE_SIMPLIFIED
+#pragma code_page(936)
+#endif //_WIN32
+
+#ifdef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// TEXTINCLUDE
+//
+
+1 TEXTINCLUDE 
+BEGIN
+    "resource.h\0"
+END
+
+2 TEXTINCLUDE 
+BEGIN
+    "#ifndef APSTUDIO_INVOKED\r\n"
+    "#include ""targetver.h""\r\n"
+    "#endif\r\n"
+    "#include ""afxres.h""\r\n"
+    "\0"
+END
+
+3 TEXTINCLUDE 
+BEGIN
+    "#define _AFX_NO_SPLITTER_RESOURCES\r\n"
+    "#define _AFX_NO_OLE_RESOURCES\r\n"
+    "#define _AFX_NO_TRACKER_RESOURCES\r\n"
+    "#define _AFX_NO_PROPERTY_RESOURCES\r\n"
+    "\r\n"
+    "#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_CHS)\r\n"
+    "LANGUAGE 4, 2\r\n"
+    "#pragma code_page(936)\r\n"
+    "#include ""res\\generateline.rc2""  // 非 Microsoft Visual C++ 编辑的资源\r\n"
+    "#include ""l.CHS\\afxres.rc""      // 标准组件\r\n"
+    "#endif\r\n"
+    "\0"
+END
+
+#endif    // APSTUDIO_INVOKED
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Icon
+//
+
+// Icon with lowest ID value placed first to ensure application icon
+// remains consistent on all systems.
+IDR_MAINFRAME           ICON                    "res\\generate-line.ico"
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Dialog
+//
+
+IDD_ABOUTBOX DIALOGEX 0, 0, 167, 62
+STYLE DS_SETFONT | DS_MODALFRAME | DS_FIXEDSYS | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "关于"
+FONT 9, "MS Shell Dlg", 0, 0, 0x1
+BEGIN
+    ICON            IDR_MAINFRAME,IDC_STATIC,14,14,20,20
+    LTEXT           "气象要素实时查询及曲线显示，1.0 版",IDC_STATIC,42,14,114,8,SS_NOPREFIX
+    LTEXT           "Copyright (C)  洛阳市气象台2010",IDC_STATIC,42,26,114,8
+    DEFPUSHBUTTON   "确定",IDOK,110,41,50,14,WS_GROUP
+END
+
+IDD_GENERATELINE_DIALOG DIALOGEX 0, 0, 302, 245
+STYLE DS_SETFONT | DS_MODALFRAME | DS_FIXEDSYS | WS_MINIMIZEBOX | WS_POPUP | WS_VISIBLE | WS_CAPTION | WS_SYSMENU
+EXSTYLE WS_EX_APPWINDOW
+CAPTION "气象要素实时查询及曲线显示"
+FONT 9, "MS Shell Dlg", 0, 0, 0x1
+BEGIN
+    GROUPBOX        "温度",IDC_STATIC,25,17,118,118,BS_LEFT
+    GROUPBOX        "降水",IDC_STATIC,159,17,119,119,BS_LEFT
+    PUSHBUTTON      "温度曲线",IDC_BUTTON1,35,34,96,14
+    PUSHBUTTON      "20-20最高最低温度",IDC_BUTTON5,35,60,96,14
+    PUSHBUTTON      "08-08最高最低温度",IDC_BUTTON6,35,86,96,14
+    PUSHBUTTON      "降水曲线",IDC_BUTTON2,171,34,96,14
+    PUSHBUTTON      "20-20累计降水量",IDC_BUTTON7,171,60,96,14
+    PUSHBUTTON      "08-08累计降水量",IDC_BUTTON11,171,86,96,14
+    GROUPBOX        "其他常用查询",IDC_STATIC,26,148,252,79,BS_LEFT
+    PUSHBUTTON      "气象要素统计查询A",IDC_BUTTON_METEOR_STATISA,40,164,98,16
+    PUSHBUTTON      "气象要素统计查询B",IDC_BUTTON_METEOR_STATISB,162,164,98,16
+    CONTROL         "<a>帮助文档</a>",IDC_SYSLINK1,"SysLink",WS_TABSTOP,233,207,34,12
+END
+
+IDD_TEMPH_LINE DIALOGEX 0, 0, 377, 150
+STYLE DS_SETFONT | DS_MODALFRAME | DS_FIXEDSYS | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "温度曲线"
+FONT 8, "MS Shell Dlg", 400, 0, 0x1
+BEGIN
+    PUSHBUTTON      "取消",IDCANCEL,269,111,91,23
+    GROUPBOX        "选择时段",IDC_STATIC,14,15,348,36
+    CONTROL         "最近3天",IDC_Last3Days,"Button",BS_AUTORADIOBUTTON | WS_GROUP,30,28,46,16
+    CONTROL         "最近10天",IDC_Last10Days,"Button",BS_AUTORADIOBUTTON,88,28,51,16
+    CONTROL         "当月",IDC_CurMonth,"Button",BS_AUTORADIOBUTTON,160,26,49,19
+    CONTROL         "上月",IDC_LastMonth,"Button",BS_AUTORADIOBUTTON,222,31,32,10
+    CONTROL         "任意时段",IDC_AnyTime,"Button",BS_AUTORADIOBUTTON,282,31,48,10
+    CONTROL         "",IDC_DATETIMEPICKER1,"SysDateTimePick32",DTS_RIGHTALIGN | WS_DISABLED | WS_TABSTOP,67,71,59,19
+    EDITTEXT        IDC_BeginHour,133,72,22,19,ES_AUTOHSCROLL | ES_NUMBER | WS_DISABLED
+    CONTROL         "",IDC_DATETIMEPICKER2,"SysDateTimePick32",DTS_RIGHTALIGN | WS_DISABLED | WS_TABSTOP,257,73,59,19
+    EDITTEXT        IDC_EndHour,329,73,22,19,ES_AUTOHSCROLL | ES_NUMBER | WS_DISABLED
+    PUSHBUTTON      "绘制曲线",IDC_DrawLine,16,111,91,23
+    LTEXT           "开始时间",IDC_STATIC,21,75,39,17
+    LTEXT           "结束时间",IDC_STATIC,207,78,40,17
+    GROUPBOX        "时间段",IDC_STATIC,14,61,348,39
+END
+
+IDD_RAIN_LINE DIALOGEX 0, 0, 382, 239
+STYLE DS_SETFONT | DS_MODALFRAME | DS_FIXEDSYS | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "降水曲线"
+FONT 8, "MS Shell Dlg", 400, 0, 0x1
+BEGIN
+    PUSHBUTTON      "绘制曲线",IDC_DrawLine,16,197,91,23
+    PUSHBUTTON      "取消",IDCANCEL,275,197,91,23
+    GROUPBOX        "选择时段",IDC_STATIC,15,17,350,71
+    CONTROL         "最近过程",IDC_LastestRain,"Button",BS_AUTORADIOBUTTON | WS_GROUP,31,30,56,15
+    CONTROL         "最近3小时",IDC_Last3Hour,"Button",BS_AUTORADIOBUTTON,99,30,56,15
+    CONTROL         "最近6小时",IDC_Last6Hour,"Button",BS_AUTORADIOBUTTON,165,30,56,15
+    CONTROL         "最近12小时",IDC_Last12Hour,"Button",BS_AUTORADIOBUTTON,231,30,56,15
+    CONTROL         "最近24小时",IDC_Last24Hour,"Button",BS_AUTORADIOBUTTON,297,30,56,15
+    CONTROL         "今天",IDC_RToday,"Button",BS_AUTORADIOBUTTON,32,60,56,15
+    CONTROL         "昨天",IDC_RYeasterday,"Button",BS_AUTORADIOBUTTON,99,60,56,15
+    CONTROL         "当月",IDC_RCurMonth,"Button",BS_AUTORADIOBUTTON,165,60,56,15
+    CONTROL         "上月",IDC_RLastMonth,"Button",BS_AUTORADIOBUTTON,231,60,56,15
+    CONTROL         "任意时段",IDC_RAnyTime,"Button",BS_AUTORADIOBUTTON,297,60,56,15
+    LTEXT           "开始时间",IDC_STATIC,42,113,39,17
+    CONTROL         "",IDC_DATETIMEPICKER1,"SysDateTimePick32",DTS_RIGHTALIGN | WS_DISABLED | WS_TABSTOP,88,108,59,19
+    EDITTEXT        IDC_BeginHour,150,108,22,19,ES_AUTOHSCROLL | ES_NUMBER | WS_DISABLED
+    LTEXT           "结束时间",IDC_STATIC,193,116,40,17
+    CONTROL         "",IDC_DATETIMEPICKER2,"SysDateTimePick32",DTS_RIGHTALIGN | WS_DISABLED | WS_TABSTOP,243,111,59,19
+    EDITTEXT        IDC_EndHour,307,111,22,19,ES_AUTOHSCROLL | ES_NUMBER | WS_DISABLED
+    GROUPBOX        "显示方式",IDC_STATIC,15,147,350,33
+    CONTROL         "累计降水",IDC_ACCUMULATED,"Button",BS_AUTORADIOBUTTON | WS_GROUP,79,158,54,16
+    CONTROL         "小时降水",IDC_RAINBYHOUR,"Button",BS_AUTORADIOBUTTON,230,155,55,19
+    GROUPBOX        "时间段",IDC_STATIC,15,98,350,39
+END
+
+IDD_METEOR_SEARCH DIALOGEX 0, 0, 400, 334
+STYLE DS_SETFONT | DS_MODALFRAME | DS_FIXEDSYS | WS_MINIMIZEBOX | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "常用气象要素统计查询A"
+FONT 8, "MS Shell Dlg", 400, 0, 0x1
+BEGIN
+    DEFPUSHBUTTON   "查询(Beta)",IDC_BUTTON_BEGIN_SEARCH,25,298,70,21
+    PUSHBUTTON      "取消",IDCANCEL,299,298,70,21
+    CONTROL         "",IDC_DATETIMEPICKER1,"SysDateTimePick32",DTS_RIGHTALIGN | WS_DISABLED | WS_TABSTOP,31,22,64,15
+    EDITTEXT        IDC_EDIT_BEGINHOUR,101,22,21,15,ES_AUTOHSCROLL | WS_DISABLED
+    CONTROL         "",IDC_DATETIMEPICKER2,"SysDateTimePick32",DTS_RIGHTALIGN | WS_DISABLED | WS_TABSTOP,159,22,65,15
+    EDITTEXT        IDC_EDIT_ENDHOUR,231,22,22,15,ES_AUTOHSCROLL | WS_DISABLED
+    PUSHBUTTON      "<--",IDC_BUTTON_BACK,284,22,39,15,NOT WS_VISIBLE
+    PUSHBUTTON      "-->",IDC_BUTTON_FORWARD,332,22,39,15,NOT WS_VISIBLE
+    GROUPBOX        "选择站点",IDC_STATIC_SEL,23,51,348,59
+    CONTROL         "全部",IDC_CHECK_ALLSTATION,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,34,62,31,15
+    CONTROL         "宜阳",IDC_CHECK_YIYANG,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,105,62,31,15
+    CONTROL         "洛宁",IDC_CHECK_LUONING,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,176,62,31,15
+    CONTROL         "新安",IDC_CHECK_XINAN,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,247,62,31,15
+    CONTROL         "孟津",IDC_CHECK_MENGJIN,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,318,62,31,15
+    CONTROL         "伊川",IDC_CHECK_YICHUAN,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,34,88,31,15
+    CONTROL         "偃师",IDC_CHECK_YANSHI,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,105,88,31,15
+    CONTROL         "栾川",IDC_CHECK_LUANCHUAN,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,176,88,31,15
+    CONTROL         "汝阳",IDC_CHECK_RUYANG,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,247,88,31,15
+    CONTROL         "嵩县",IDC_CHECK_SONGXIAN,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,318,88,31,15
+    GROUPBOX        "选择日期",IDC_STATIC,24,125,348,35
+    CONTROL         "今天",IDC_RADIO_TODAY,"Button",BS_AUTORADIOBUTTON | WS_GROUP,35,138,43,16
+    CONTROL         "昨天",IDC_RADIO_YEASTERDAY,"Button",BS_AUTORADIOBUTTON,103,138,42,16
+    CONTROL         "当月",IDC_RADIO_CURMONTH,"Button",BS_AUTORADIOBUTTON,171,138,40,16
+    CONTROL         "上月",IDC_RADIO_LASTMONTH,"Button",BS_AUTORADIOBUTTON,235,138,34,16
+    CONTROL         "任意日期",IDC_RADIO_ANYTIME,"Button",BS_AUTORADIOBUTTON,295,138,49,16
+    GROUPBOX        "选择时段",IDC_STATIC,23,168,347,36
+    CONTROL         "20-20时",IDC_RADIO_20_20,"Button",BS_AUTORADIOBUTTON | WS_GROUP,35,181,49,15
+    CONTROL         "08-08时",IDC_RADIO_08_08,"Button",BS_AUTORADIOBUTTON,161,180,43,16
+    CONTROL         "任意时段",IDC_RADIO_ANYHOUR,"Button",BS_AUTORADIOBUTTON,297,180,58,17
+    GROUPBOX        "选择要素",IDC_STATIC,23,212,348,34
+    CONTROL         "温度",IDC_RADIO_TEMPH,"Button",BS_AUTORADIOBUTTON | WS_GROUP,41,225,33,15
+    CONTROL         "降水量",IDC_RADIO_RAIN,"Button",BS_AUTORADIOBUTTON,85,225,37,15
+    CONTROL         "极大风速",IDC_RADIO_MAX_WIND,"Button",BS_AUTORADIOBUTTON,133,225,49,15
+    CONTROL         "最大风速",IDC_RADIO_MAX_AVG_WIND,"Button",BS_AUTORADIOBUTTON,193,225,49,15
+    CONTROL         "本站气压",IDC_RADIO_STN_PRESS,"Button",BS_AUTORADIOBUTTON,253,225,47,15
+    CONTROL         "相对湿度",IDC_RADIO_RELAT_HUMID,"Button",BS_AUTORADIOBUTTON,311,225,52,15
+    GROUPBOX        "选择统计量",IDC_STATIC,24,254,346,35
+    CONTROL         "最大值",IDC_RADIO_MAX_VALUE,"Button",BS_AUTORADIOBUTTON | WS_GROUP,38,267,43,17
+    CONTROL         "最小值",IDC_RADIO_MIN_VALUE,"Button",BS_AUTORADIOBUTTON,100,266,47,19
+    CONTROL         "平均值",IDC_RADIO_AVG_VALUE,"Button",BS_AUTORADIOBUTTON,168,264,46,20
+    CONTROL         "整点值",IDC_RADIO_HOUR_VALUE,"Button",BS_AUTORADIOBUTTON,234,264,45,20
+    CONTROL         "累计值",IDC_RADIO_ACCUMULATE,"Button",BS_AUTORADIOBUTTON,298,268,45,15
+    PUSHBUTTON      "绘制曲线",IDC_DrawResultLine,162,298,70,21
+END
+
+IDD_SHOW_RESULT DIALOGEX 0, 0, 336, 332
+STYLE DS_SETFONT | DS_FIXEDSYS | WS_MINIMIZEBOX | WS_MAXIMIZEBOX | WS_POPUP | WS_CAPTION | WS_SYSMENU | WS_THICKFRAME
+CAPTION "统计结果显示"
+FONT 8, "MS Shell Dlg", 400, 0, 0x1
+BEGIN
+    DEFPUSHBUTTON   "存储为文本",IDC_SAVEASTEXT,245,14,70,18
+    PUSHBUTTON      "打印结果",IDC_PRINTRESULT,247,46,70,18
+    CONTROL         "",IDC_LIST1,"SysListView32",LVS_REPORT | LVS_ALIGNLEFT | WS_BORDER | WS_TABSTOP,16,14,216,296
+END
+
+IDD_SELECT_DATE DIALOGEX 0, 0, 145, 66
+STYLE DS_SETFONT | DS_MODALFRAME | DS_FIXEDSYS | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "选择日期"
+FONT 8, "MS Shell Dlg", 400, 0, 0x1
+BEGIN
+    DEFPUSHBUTTON   "确定",IDOK,13,39,54,18
+    PUSHBUTTON      "取消",IDCANCEL,79,39,54,18
+    CONTROL         "",IDC_DATETIMEPICKER1,"SysDateTimePick32",DTS_RIGHTALIGN | WS_TABSTOP,13,10,62,19
+END
+
+IDD_METEOR_SEARCH_B DIALOGEX 0, 0, 394, 294
+STYLE DS_SETFONT | DS_MODALFRAME | DS_FIXEDSYS | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "多站多要素查询"
+FONT 8, "MS Shell Dlg", 400, 0, 0x1
+BEGIN
+    DEFPUSHBUTTON   "查询(Beta)",IDC_BUTTON_BEGIN_SEARCH,23,257,70,21
+    PUSHBUTTON      "取消",IDCANCEL,299,255,70,21
+    CONTROL         "",IDC_DATETIMEPICKER1,"SysDateTimePick32",DTS_RIGHTALIGN | WS_DISABLED | WS_TABSTOP,31,22,64,15
+    EDITTEXT        IDC_EDIT_BEGINHOUR,101,22,21,15,ES_AUTOHSCROLL | WS_DISABLED
+    CONTROL         "",IDC_DATETIMEPICKER2,"SysDateTimePick32",DTS_RIGHTALIGN | WS_DISABLED | WS_TABSTOP,159,22,65,15
+    EDITTEXT        IDC_EDIT_ENDHOUR,231,22,22,15,ES_AUTOHSCROLL | WS_DISABLED
+    PUSHBUTTON      "<--",IDC_BUTTON_BACK,284,22,39,15,NOT WS_VISIBLE
+    PUSHBUTTON      "-->",IDC_BUTTON_FORWARD,332,22,39,15,NOT WS_VISIBLE
+    GROUPBOX        "选择站点",IDC_STATIC_SEL,23,51,348,59
+    CONTROL         "全部",IDC_CHECK_ALLSTATION,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,34,62,31,15
+    CONTROL         "宜阳",IDC_CHECK_YIYANG,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,105,62,31,15
+    CONTROL         "洛宁",IDC_CHECK_LUONING,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,176,62,31,15
+    CONTROL         "新安",IDC_CHECK_XINAN,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,247,62,31,15
+    CONTROL         "孟津",IDC_CHECK_MENGJIN,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,318,62,31,15
+    CONTROL         "伊川",IDC_CHECK_YICHUAN,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,34,88,31,15
+    CONTROL         "偃师",IDC_CHECK_YANSHI,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,105,88,31,15
+    CONTROL         "栾川",IDC_CHECK_LUANCHUAN,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,176,88,31,15
+    CONTROL         "汝阳",IDC_CHECK_RUYANG,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,247,88,31,15
+    CONTROL         "嵩县",IDC_CHECK_SONGXIAN,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,318,88,31,15
+    GROUPBOX        "选择统计量",IDC_STATIC,23,170,349,74
+    CONTROL         "最高温度",IDC_CHECK_HIGH_TEMPH,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,128,185,52,16
+    CONTROL         "最低温度",IDC_CHECK_LOW_TEMPH,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,215,183,51,14
+    CONTROL         "极大风速",IDC_CHECK_MAX_WIND,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,297,183,45,14
+    CONTROL         "最大风速",IDC_CHECK_MAX_10WIND,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,42,214,45,22
+    CONTROL         "最高气压",IDC_CHECK_HIGH_STN_PRESS,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,127,215,42,19
+    CONTROL         "最低气压",IDC_CHECK_LOW_STN_PRESS,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,215,218,58,15
+    CONTROL         "累计降水量",IDC_CHECK_ACCU_RAIN,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,295,214,52,20
+    CONTROL         "全选",IDC_CHECK_SELECT_ALL,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,41,183,37,16
+    GROUPBOX        "选择日期",IDC_STATIC,23,121,348,35
+    CONTROL         "今天",IDC_RADIO_TODAY,"Button",BS_AUTORADIOBUTTON | WS_GROUP,35,134,43,16
+    CONTROL         "昨天",IDC_RADIO_YEASTERDAY,"Button",BS_AUTORADIOBUTTON,103,134,42,16
+    CONTROL         "当月",IDC_RADIO_CURMONTH,"Button",BS_AUTORADIOBUTTON,171,134,40,16
+    CONTROL         "上月",IDC_RADIO_LASTMONTH,"Button",BS_AUTORADIOBUTTON,235,134,34,16
+    CONTROL         "任意日期",IDC_RADIO_ANYTIME,"Button",BS_AUTORADIOBUTTON,295,134,49,16
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Version
+//
+
+VS_VERSION_INFO VERSIONINFO
+ FILEVERSION 1,0,5,5
+ PRODUCTVERSION 1,0,0,1
+ FILEFLAGSMASK 0x3fL
+#ifdef _DEBUG
+ FILEFLAGS 0x1L
+#else
+ FILEFLAGS 0x0L
+#endif
+ FILEOS 0x4L
+ FILETYPE 0x1L
+ FILESUBTYPE 0x0L
+BEGIN
+    BLOCK "StringFileInfo"
+    BEGIN
+        BLOCK "080403a8"
+        BEGIN
+            VALUE "CompanyName", "洛阳市气象台"
+            VALUE "FileDescription", "实时气象要素查询及显示"
+            VALUE "FileVersion", "1.0.3.1"
+            VALUE "InternalName", "generate-line.exe"
+            VALUE "LegalCopyright", "洛阳市气象台。保留所有权利。"
+            VALUE "OriginalFilename", "generate-line.exe"
+            VALUE "ProductName", "实时温度降水查询"
+            VALUE "ProductVersion", "1.0.0.1"
+        END
+    END
+    BLOCK "VarFileInfo"
+    BEGIN
+        VALUE "Translation", 0x804, 936
+    END
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// DESIGNINFO
+//
+
+#ifdef APSTUDIO_INVOKED
+GUIDELINES DESIGNINFO 
+BEGIN
+    IDD_ABOUTBOX, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 160
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 55
+    END
+
+    IDD_GENERATELINE_DIALOG, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 295
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 238
+    END
+
+    IDD_TEMPH_LINE, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 370
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 143
+    END
+
+    IDD_RAIN_LINE, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 375
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 232
+    END
+
+    IDD_METEOR_SEARCH, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 393
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 327
+    END
+
+    IDD_SHOW_RESULT, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 329
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 325
+    END
+
+    IDD_SELECT_DATE, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 138
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 59
+    END
+
+    IDD_METEOR_SEARCH_B, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 387
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 287
+    END
+END
+#endif    // APSTUDIO_INVOKED
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// String Table
+//
+
+STRINGTABLE 
+BEGIN
+    IDS_ABOUTBOX            "关于(&A)..."
+END
+
+#endif    // 中文(中华人民共和国) resources
+/////////////////////////////////////////////////////////////////////////////
+
+
+
+#ifndef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 3 resource.
+//
+#define _AFX_NO_SPLITTER_RESOURCES
+#define _AFX_NO_OLE_RESOURCES
+#define _AFX_NO_TRACKER_RESOURCES
+#define _AFX_NO_PROPERTY_RESOURCES
+
+#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_CHS)
+LANGUAGE 4, 2
+#pragma code_page(936)
+#include "res\generateline.rc2"  // 非 Microsoft Visual C++ 编辑的资源
+#include "l.CHS\afxres.rc"      // 标准组件
+#endif
+
+/////////////////////////////////////////////////////////////////////////////
+#endif    // not APSTUDIO_INVOKED
+

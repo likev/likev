@@ -1,0 +1,26 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 10.00
+# Visual Studio 2008
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "AutoGetAwsFile", "AutoGetAwsFile\AutoGetAwsFile.vcproj", "{7BBCB0D1-8B66-4464-833B-75221CEFC421}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "InsertIntoMysql", "InsertIntoMysql\InsertIntoMysql.vcproj", "{10B343C3-234F-41CE-83C1-014838FD7649}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Win32 = Debug|Win32
+		Release|Win32 = Release|Win32
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{7BBCB0D1-8B66-4464-833B-75221CEFC421}.Debug|Win32.ActiveCfg = Debug|Win32
+		{7BBCB0D1-8B66-4464-833B-75221CEFC421}.Debug|Win32.Build.0 = Debug|Win32
+		{7BBCB0D1-8B66-4464-833B-75221CEFC421}.Release|Win32.ActiveCfg = Release|Win32
+		{7BBCB0D1-8B66-4464-833B-75221CEFC421}.Release|Win32.Build.0 = Release|Win32
+		{10B343C3-234F-41CE-83C1-014838FD7649}.Debug|Win32.ActiveCfg = Debug|Win32
+		{10B343C3-234F-41CE-83C1-014838FD7649}.Debug|Win32.Build.0 = Debug|Win32
+		{10B343C3-234F-41CE-83C1-014838FD7649}.Release|Win32.ActiveCfg = Release|Win32
+		{10B343C3-234F-41CE-83C1-014838FD7649}.Release|Win32.Build.0 = Release|Win32
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

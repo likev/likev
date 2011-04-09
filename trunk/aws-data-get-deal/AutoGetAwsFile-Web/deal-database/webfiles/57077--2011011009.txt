@@ -1,0 +1,172 @@
+
+<HTML>
+<HEAD>
+<META NAME="GENERATOR" Content="Microsoft Visual Studio 6.0">
+<title>定时记录查询页面</title> 
+</HEAD>
+<!--LINK REL="stylesheet" TYPE="text/css" HREF="_Themes/cactus/THEME.CSS" VI6.0THEME="Cactus">
+<LINK REL="stylesheet" TYPE="text/css" HREF="_Themes/cactus/GRAPH0.CSS" VI6.0THEME="Cactus">
+<LINK REL="stylesheet" TYPE="text/css" HREF="_Themes/cactus/COLOR0.CSS" VI6.0THEME="Cactus">
+<LINK REL="stylesheet" TYPE="text/css" HREF="_Themes/cactus/CUSTOM.CSS" VI6.0THEME="Cactus"></HEAD-->
+
+<BODY bgColor=#e7e2e6>
+<h2 align="center"><font color="#h00"><b><i>定时记录查询</i></b></font></h2>
+<p align="center"><img height="10" src="_themes/cactus/cacruled.gif" width="300"> </p>
+<p align=center><font face="arial" color="blue" size=4>区站号 57077
+观测时间 2011年01月10日09时</P> 
+<!--以下是从数据库中取出相应的数据一一对应-->
+<table align=center border="1" width="63%" style="HEIGHT: 304px; WIDTH: 610px" background="">
+  <tr>
+    <td width="25%"align=center >干球温度</td>
+    <td width="26%"align=center>-69 </td>
+    <td width="28%"align=center>雨量</td>
+   
+  <td width="21%"align=center>0</td> 
+  </tr>
+  <tr>
+    <td width="25%"align=center>最高温度</td>
+    <td width="26%"align=center>-69 </td>
+    <td width="28%"align=center>最高温度出现时间</td>
+    <td width="21%"align=center>09:00</td>
+  </tr>
+  <tr>
+    <td width="25%"align=center>最低温度</td>
+    <td width="26%"align=center>-99 </td>
+    <td width="28%"align=center>最低温度出现时间</td>
+    <td width="21%"align=center>08:02</td>
+  </tr>
+  <tr>
+    <td width="25%"align=center> 能见度</td>
+    <td width="26%"align=center>   </td>
+    <td width="28%"align=center>相对湿度</td>
+    <td width="21%"align=center>46 </td>
+  </tr>
+  <tr>
+    <td width="25%"align=center>最小相对湿度</td>
+    <td width="26%"align=center>42 </td>
+    <td width="28%"align=center>最小相对湿度出现时间</td>
+    <td width="21%"align=center>08:53</td>
+  </tr>
+  <tr>
+    <td width="25%"align=center>水气压</td>
+    <td width="26%"align=center>17  </td>
+    <td width="28%"align=center>露点温度</td>
+    <td width="21%"align=center>-166</td>
+  </tr>
+  <tr>
+    <td width="25%"align=center>本站气压</td>
+    <td width="26%"align=center>9428 </td>
+    <td width="28%"align=center>海平面气压</td>
+    <td width="21%"align=center>10356</td>
+  </tr>
+  <tr>
+    <td width="25%"align=center>最高本站气压</td>
+    <td width="26%"align=center>9428 </td>
+    <td width="28%"align=center>最高本站气压出现时间</td>
+    <td width="21%"align=center>09:00</td>
+  </tr>
+  <tr>
+    <td width="25%"align=center>最低本站气压</td>
+    <td width="26%"align=center>9422 </td>
+    <td width="28%"align=center>最低本站气压出现时间</td>
+    <td width="21%"align=center>08:12</td>
+  </tr>
+  <tr>
+    <td width="25%"align=center>2分钟风向</td>
+    <td width="26%"align=center>75 </td>
+    <td width="28%"align=center>10分钟风向</td>
+    <td width="21%"align=center>255</td>
+  </tr>
+  <tr>
+    <td width="25%"align=center> 2分钟风速</td>
+    <td width="26%"align=center>6  </td>
+    <td width="28%"align=center>10分钟风速</td>
+    <td width="21%"align=center>12 </td>
+  </tr>
+  <tr>
+    <td width="25%"align=center>最大风速</td>
+    <td width="26%"align=center>20 </td>
+    <td width="28%"align=center>极大风速</td>
+    <td width="21%"align=center>29 </td>
+  </tr>
+  <tr>
+    <td width="25%"align=center>最大风速的风向</td>
+    <td width="26%"align=center>272</td>
+    <td width="28%"align=center>极大风速的风向</td>
+    <td width="21%"align=center>285</td>
+  </tr>
+  <tr>
+    <td width="25%"align=center>最大风速出现的时间</td>
+    <td width="26%"align=center>08:42</td>
+    <td width="28%"align=center>极大风速出现的时间</td>
+    <td width="21%"align=center>08:38</td>
+  </tr>
+  <tr>
+    <td width="25%"align=center> 瞬时风速</td>
+    <td width="26%"align=center>4  </td>
+    <td width="28%"align=center>瞬时风向</td>
+    <td width="21%"align=center>113</td>
+  </tr>
+  <tr>
+    <td width="25%"align=center>地面0cm温度</td>
+    <td width="26%"align=center>-32 </td>
+    <td width="28%"align=center>云高</td>
+    <td width="21%"align=center>                              </td>
+  </tr>
+  <tr>
+    <td width="25%"align=center>地面最高温度</td>
+    <td width="26%"align=center>-32 </td>
+    <td width="28%"align=center>地面最高温度出现时间</td>
+    <td width="21%"align=center>09:00</td>
+  </tr>
+  <tr>
+    <td width="25%"align=center">地面最低温度</td>
+    <td width="26%"align=center>-92 </td>
+    <td width="28%"align=center>地面最低温度出现时间</td>
+    <td width="21%"align=center>08:01</td>
+  </tr>
+  <tr>
+    <td width="25%"align=center>5cm地温</td>
+    <td width="26%"align=center>-25 </td>
+    <td width="28%"align=center>10cm地温</td>
+    <td width="21%"align=center>-4  </td>
+  </tr>
+ <tr>
+    <td width="25%"align=center>15cm地温</td>
+    <td width="26%"align=center>5   </td>
+    <td width="28%"align=center>20cm地温</td>
+    <td width="21%"align=center>11  </td>
+  </tr>
+  <tr>
+    <td width="25%"align=center>40cm地温</td>
+    <td width="26%"align=center>34  </td>
+    <td width="28%"align=center>80cm地温</td>
+    <td width="21%"align=center>61  </td>
+  </tr>
+  <tr>
+    <td width="25%"align=center>160cm地温</td>
+    <td width="26%"align=center>106 </td>
+    <td width="28%"align=center>320cm地温</td>
+    <td width="21%"align=center>148 </td>
+  </tr>
+  <tr>
+    <td width="25%"align=center>大型蒸发</td>
+    <td width="26%"align=center>-   </td>
+     <td width="28%"align=center>总云量</td>
+    <td width="21%"align=center>   </td>
+  </tr>
+  <tr>
+    <td width="25%"align=center>低云量</td>
+    <td width="26%"align=center>   </td>
+    <td width="28%"align=center>云状</td>
+    <td width="21%"align=center>                                             </td>
+  </tr> 
+</table>
+<p align=center><br>&nbsp;&nbsp;&nbsp;<a href=timedata.asp?StationNum=57077&selecttime=2011011008>前一时次</a>&nbsp;&nbsp;&nbsp;<a href=timedata.asp?StationNum=57077&selecttime=2011011010>后一时次</a>&nbsp;&nbsp;&nbsp;</p>
+
+
+<p align=center><font face="arial" color="blue" size=4><a href=SingleStationD.asp?>返回</a>
+<font face="arial" color="blue" size=4><a href=cactus.asp?>返回首页</a>
+</p>
+</BODY>
+</html>

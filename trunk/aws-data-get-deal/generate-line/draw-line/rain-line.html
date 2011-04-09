@@ -1,0 +1,185 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+   "http://www.w3.org/TR/html4/loose.dtd">
+
+<html>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=gb2312">
+  <title>降水曲线</title>
+  <!--[if IE]><script language="javascript" type="text/javascript" src="scripts/excanvas.min.js"></script><![endif]-->
+ 
+  <link rel="stylesheet" type="text/css" href="css/jquery.jqplot.min.css" />
+ 
+  <!-- BEGIN: load jquery -->
+  <script language="javascript" type="text/javascript" src="scripts/jquery.min.js"></script>
+  <!-- END: load jquery -->
+ 
+  <!-- BEGIN: load jqplot -->
+	<script type="text/javascript" src="scripts/jquery.jqplot.min.js"></script>
+	<script type="text/javascript" src="scripts/plugins/jqplot.dateAxisRenderer.min.js"></script>
+	<script type="text/javascript" src="scripts/plugins/jqplot.highlighter.min.js"></script>
+	<script type="text/javascript" src="scripts/plugins/jqplot.cursor.min.js"></script>
+  <!-- END: load jqplot -->
+  
+  <style type="text/css">
+*{
+color:#888888;
+font-family:"Trebuchet MS",Arial,Helvetica,sans-serif;
+}
+.jqplot-axis {
+  font-size: 0.85em;
+}
+.jqplot-title {
+  font-size: 1.3em;
+}
+
+div.contain{
+width:900px;
+}
+
+div.chart { 
+margin-left:50px; 
+width:900px; 
+height:450px;
+float:left;
+}
+
+div.chart-ctrl{
+margin-top:10px;
+margin-left:80px;
+margin-bottom:30px;
+}
+
+div.chart-ctrl label{
+margin-right:20px;
+}
+
+input.ctrl-all{
+margin-left:20px;
+}
+
+.clsboth{
+clear:both;
+}
+
+div.describe {
+color:black;
+margin-top:50px;
+margin-left:80px;
+}
+
+.high-title{
+color:#EF583F;
+margin-top:30px;
+}
+.low-title{
+color:#3192D6;
+margin-top:50px;
+}
+  </style>
+ 
+ <script type="text/javascript" language="javascript">
+var plot;
+  $(document).ready(function(){
+
+   //record-begin
+  var l57065 = [ ['2010-04-13 23:00','0.000000'],['2010-04-14 05:00','0.000000'],['2010-04-14 06:00','1.800000'],['2010-04-14 07:00','1.800000'],['2010-04-14 08:00','1.800000'],['2010-04-14 09:00','2.400000'],['2010-04-14 10:00','3.800000'],['2010-04-14 11:00','6.100000'],['2010-04-14 12:00','6.100000'],['2010-04-14 16:00','6.100000'],['2010-04-14 17:00','6.200000'],['2010-04-14 18:00','0.000000'],['2010-04-15 09:00','0.000000'] ];
+  var l57066 = [ ['2010-04-13 23:00','0.000000'],['2010-04-14 03:00','0.000000'],['2010-04-14 04:00','0.200000'],['2010-04-14 05:00','1.300000'],['2010-04-14 06:00','1.300000'],['2010-04-14 07:00','1.600000'],['2010-04-14 08:00','1.900000'],['2010-04-14 09:00','0.000000'],['2010-04-15 09:00','0.000000'] ];
+  var l57070 = [ ['2010-04-13 23:00','0.000000'],['2010-04-14 05:00','0.000000'],['2010-04-14 06:00','0.100000'],['2010-04-14 07:00','0.100000'],['2010-04-14 13:00','0.100000'],['2010-04-14 14:00','0.200000'],['2010-04-14 15:00','0.000000'],['2010-04-15 09:00','0.000000'] ];
+  var l57071 = [ ['2010-04-13 23:00','0.000000'],['2010-04-14 04:00','0.000000'],['2010-04-14 05:00','0.500000'],['2010-04-14 06:00','1.300000'],['2010-04-14 07:00','0.000000'],['2010-04-15 07:00','0.000000'],['2010-04-15 08:00','0.100000'],['2010-04-15 09:00','0.000000'] ];
+  var l57074 = [ ['2010-04-13 23:00','0.000000'],['2010-04-14 04:00','0.000000'],['2010-04-14 05:00','0.700000'],['2010-04-14 06:00','2.000000'],['2010-04-14 07:00','2.000000'],['2010-04-14 08:00','2.400000'],['2010-04-14 09:00','2.600000'],['2010-04-14 10:00','0.000000'],['2010-04-15 09:00','0.000000'] ];
+  var l57076 = [ ['2010-04-13 23:00','0.000000'],['2010-04-14 04:00','0.000000'],['2010-04-14 05:00','0.200000'],['2010-04-14 06:00','1.900000'],['2010-04-14 07:00','2.500000'],['2010-04-14 08:00','2.600000'],['2010-04-14 09:00','3.100000'],['2010-04-14 10:00','0.000000'],['2010-04-15 09:00','0.000000'] ];
+  var l57077 = [ ['2010-04-13 23:00','0.000000'],['2010-04-14 00:00','0.000000'],['2010-04-14 01:00','0.100000'],['2010-04-14 02:00','0.000000'],['2010-04-15 09:00','0.000000'] ];
+  var l57078 = [ ['2010-04-13 23:00','0.000000'],['2010-04-14 02:00','0.000000'],['2010-04-14 03:00','0.200000'],['2010-04-14 04:00','0.200000'],['2010-04-14 05:00','0.500000'],['2010-04-14 06:00','0.800000'],['2010-04-14 07:00','0.800000'],['2010-04-14 10:00','0.800000'],['2010-04-14 11:00','0.900000'],['2010-04-14 12:00','0.000000'],['2010-04-15 09:00','0.000000'] ];
+  var l57162 = [ ['2010-04-13 23:00','0.000000'],['2010-04-14 00:00','0.100000'],['2010-04-14 01:00','0.100000'],['2010-04-14 02:00','0.100000'],['2010-04-14 03:00','0.200000'],['2010-04-14 04:00','0.300000'],['2010-04-14 05:00','1.100000'],['2010-04-14 06:00','1.400000'],['2010-04-14 07:00','1.400000'],['2010-04-14 08:00','2.400000'],['2010-04-14 09:00','3.200000'],['2010-04-14 10:00','3.900000'],['2010-04-14 11:00','6.400000'],['2010-04-14 12:00','7.600000'],['2010-04-14 13:00','7.700000'],['2010-04-14 14:00','0.000000'],['2010-04-15 09:00','0.000000'] ];
+  var mintime = '2010-04-13 18:00', maxtime= '2010-04-15 14:00';
+  var min_value = -2.140000, max_value = 9.840000, tick_interval =  0.7;
+  var plot_title= '日累计降水曲线' ;
+  //record-end		   
+
+  document.title = plot_title;
+  
+  var plot_data = [l57065,l57066,l57070,l57071,l57074,l57076,l57077,l57078,l57162];
+    //var l2=[["2010-2-24 18:00","14.9"],["2010-2-24 19:00","13.6"],["2010-2-24 20:00","11.8"],["2010-2-24 21:00","10.0"],["2010-2-24 22:00","9.0"],["2010-2-24 23:00","8"]];
+
+      plot = $.jqplot("chart-h01",plot_data,{
+        title: plot_title,
+		axes:{
+			xaxis:{
+			renderer:$.jqplot.DateAxisRenderer,
+			tickOptions: {
+			formatString: '%#d日 %H时'
+			},
+			min:mintime,
+			max:maxtime
+			},
+			yaxis:{min:min_value,max:max_value,tickInterval:tick_interval}
+        },
+		seriesDefaults: {
+		lineWidth:1.5,
+		markerOptions: {
+		size:6
+		}
+		},
+        series:[
+			{label: '宜阳(57065)'},
+			{label: '洛宁(57066)'},
+			{label: '新安(57070)'},
+			{label: '孟津(57071)'},
+			{label: '伊川(57074)'},
+			{label: '偃师(57076)'},
+			{label: '栾川(57077)'},
+			{label: '汝阳(57078)'},
+			{label: '嵩县(57162)'}
+		],
+        legend:{show:true
+		},
+		cursor:{style:'default',zoom:true
+		}
+    });
+
+	
+	$("label.ctrl-one input").change(function(){
+	var i = this.value;
+	var ischecked = $(this).is(":checked");
+	plot.series[i].show = ischecked;
+	plot.redraw();
+	});
+	
+	$("input.ctrl-all").change(function(){
+		var ischecked = $(this).is(":checked");
+		$("label.ctrl-one input").each(function(i){
+		this.checked = ischecked;
+		plot.series[i].show = ischecked;
+		});
+		plot.redraw();
+	});
+	
+  });
+  </script>
+  </head>
+  <body>
+
+  <div class="contain">
+    
+    <div id="chart-ctrl" class="chart-ctrl">
+	<label class='ctrl-one'><input type="checkbox" value="0" checked="checked"/>宜阳</label>
+	<label class='ctrl-one'><input type="checkbox" value="1" checked="checked"/>洛宁</label>
+	<label class='ctrl-one'><input type="checkbox" value="2" checked="checked"/>新安</label>
+	<label class='ctrl-one'><input type="checkbox" value="3" checked="checked"/>孟津</label>
+	<label class='ctrl-one'><input type="checkbox" value="4" checked="checked"/>伊川</label>
+	<label class='ctrl-one'><input type="checkbox" value="5" checked="checked"/>偃师</label>
+	<label class='ctrl-one'><input type="checkbox" value="6" checked="checked"/>栾川</label>
+	<label class='ctrl-one'><input type="checkbox" value="7" checked="checked"/>汝阳</label>
+	<label class='ctrl-one'><input type="checkbox" value="8" checked="checked"/>嵩县</label>
+
+	<span><input  class="ctrl-all" type="checkbox" value="all" checked="checked"/>全部</span>
+	</div>
+	
+	<div id="chart-h01" class="chart"></div>
+    <div class= "clsboth"></div>
+	<div class="describe">
+	使用说明：用鼠标拖动区域可放大，双击可还原。
+	</div>
+</div>
+  </body>
+</html>
