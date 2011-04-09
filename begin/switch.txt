@@ -1,0 +1,7 @@
+	switch(c)                            
+	{                                       
+	case 'm':  ;  break;          
+	case 'n':  ;  break;   
+	case 'h':  ;  break;          
+	default:   ;  break;   
+	}

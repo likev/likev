@@ -1,0 +1,32 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 10.00
+# Visual Studio 2008
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "RunOnce", "RunOnce\RunOnce.vcproj", "{8BDA020F-B8FB-46CE-A127-53E157D1CD6E}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "ShowRainInGMaps", "ShowRainInGMaps\ShowRainInGMaps.vcproj", "{9AB63080-FC63-4C67-8E27-665DFFB1A16C}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "MShowRainInGMaps", "MShowRainInGMaps\MShowRainInGMaps.vcproj", "{9B832805-CAB5-4FDC-AA0A-49A279728C73}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Win32 = Debug|Win32
+		Release|Win32 = Release|Win32
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{8BDA020F-B8FB-46CE-A127-53E157D1CD6E}.Debug|Win32.ActiveCfg = Debug|Win32
+		{8BDA020F-B8FB-46CE-A127-53E157D1CD6E}.Debug|Win32.Build.0 = Debug|Win32
+		{8BDA020F-B8FB-46CE-A127-53E157D1CD6E}.Release|Win32.ActiveCfg = Release|Win32
+		{8BDA020F-B8FB-46CE-A127-53E157D1CD6E}.Release|Win32.Build.0 = Release|Win32
+		{9AB63080-FC63-4C67-8E27-665DFFB1A16C}.Debug|Win32.ActiveCfg = Debug|Win32
+		{9AB63080-FC63-4C67-8E27-665DFFB1A16C}.Debug|Win32.Build.0 = Debug|Win32
+		{9AB63080-FC63-4C67-8E27-665DFFB1A16C}.Release|Win32.ActiveCfg = Release|Win32
+		{9AB63080-FC63-4C67-8E27-665DFFB1A16C}.Release|Win32.Build.0 = Release|Win32
+		{9B832805-CAB5-4FDC-AA0A-49A279728C73}.Debug|Win32.ActiveCfg = Debug|Win32
+		{9B832805-CAB5-4FDC-AA0A-49A279728C73}.Debug|Win32.Build.0 = Debug|Win32
+		{9B832805-CAB5-4FDC-AA0A-49A279728C73}.Release|Win32.ActiveCfg = Release|Win32
+		{9B832805-CAB5-4FDC-AA0A-49A279728C73}.Release|Win32.Build.0 = Release|Win32
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

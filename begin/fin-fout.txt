@@ -1,0 +1,16 @@
+	ifstream fin("text.txt");
+	if(!fin)
+	{ cout<<"Can not open input file.\n";
+	  return;
+	}
+
+
+
+        ofstream fout("text2.txt");
+	if(!fout)
+	{  cout<<"Can't open output file.\n";
+	   return;
+	}
+        fout.close(); 
+
+        

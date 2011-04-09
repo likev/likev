@@ -1,0 +1,7 @@
+; Algthms.def : Declares the module parameters for the DLL.
+
+LIBRARY      "Algthms"
+DESCRIPTION  'Algthms Windows Dynamic Link Library'
+
+EXPORTS
+    ; Explicit exports can go here

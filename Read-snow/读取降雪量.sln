@@ -1,0 +1,26 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 10.00
+# Visual Studio 2008
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "ReadSnowConsole", "ReadSnowConsole\ReadSnowConsole.vcproj", "{97F01282-93A0-43CE-AC63-E5B3BD09656C}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "ReadSnowUI", "ReadSnowUI\ReadSnowUI.vcproj", "{3DECF176-7D2D-481C-A815-22423441F0A7}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Win32 = Debug|Win32
+		Release|Win32 = Release|Win32
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{97F01282-93A0-43CE-AC63-E5B3BD09656C}.Debug|Win32.ActiveCfg = Debug|Win32
+		{97F01282-93A0-43CE-AC63-E5B3BD09656C}.Debug|Win32.Build.0 = Debug|Win32
+		{97F01282-93A0-43CE-AC63-E5B3BD09656C}.Release|Win32.ActiveCfg = Release|Win32
+		{97F01282-93A0-43CE-AC63-E5B3BD09656C}.Release|Win32.Build.0 = Release|Win32
+		{3DECF176-7D2D-481C-A815-22423441F0A7}.Debug|Win32.ActiveCfg = Debug|Win32
+		{3DECF176-7D2D-481C-A815-22423441F0A7}.Debug|Win32.Build.0 = Debug|Win32
+		{3DECF176-7D2D-481C-A815-22423441F0A7}.Release|Win32.ActiveCfg = Release|Win32
+		{3DECF176-7D2D-481C-A815-22423441F0A7}.Release|Win32.Build.0 = Release|Win32
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

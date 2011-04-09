@@ -1,0 +1,22 @@
+﻿<Window x:Class="ContourTracker01.SetContourLevelWindow"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    Title="SetContourLevel" Height="437.734" Width="545.501">
+    <Grid>
+        <Grid Margin="12.221,13.332,0,9.999" Name="grid1">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="257.752*" />
+                <ColumnDefinition Width="253.528*" />
+            </Grid.ColumnDefinitions>
+            <Label Height="28" Margin="16.665,15.554,0,0" Name="label1" VerticalAlignment="Top" HorizontalAlignment="Left" Width="55.55">zMin: </Label>
+            <TextBox Height="24.442" Margin="76.659,15.554,64.438,0" Name="zMinTextBox" VerticalAlignment="Top" />
+            <Label Height="22.22" HorizontalAlignment="Left" Margin="18.887,49.995,0,0" Name="label2" VerticalAlignment="Top" Width="45.551">ZMax: </Label>
+            <TextBox Height="28.886" Margin="76.659,47.773,64.438,0" Name="zMaxTextBox" VerticalAlignment="Top"/>
+            <ListBox Margin="16.665,91.102,9.999,6.666" Name="listBox1">
+                <ListBoxItem />
+                <ListBoxItem />
+                <ListBoxItem />
+            </ListBox>
+        </Grid>
+    </Grid>
+</Window>

@@ -1,0 +1,24 @@
+各数据类型所占字节:                        及取值范围:
+
+  sizeof(char)==           1             -128-----127
+  sizeof(unsigned char)==  1             0-----225
+
+  sizeof(wchar_t)==        2             -32768-----32767
+
+  sizeof(short)==          2             -32768-----32767
+  sizeof(unsigned short)== 2             0-----65535
+
+  sizeof(int)==            4             -2147483648-----2147483647
+  sizeof(signed int)==     4             -2147483648-----2147483647
+  sizeof(unsigned)==       4             0-----4294967295
+
+  sizeof(long)==           4             -2147483648-----2147483647
+  sizeof(unsigned long)==  4             0-----4294967295
+
+  sizeof(float)==          4             3.4e-38-----3.4e38(有效位:6--7)
+  sizeof(double)==         8             1.7e-308-----1.7e308(有效位:15--16)
+  sizeof(long double)==    8             1.7e-308-----1.7e308(有效位:15--16)
+
+
+指针所占的字节为4;
+结构体和类所占的字节按最大数据所占字节从左向右对齐。

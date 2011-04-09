@@ -1,0 +1,253 @@
+//Microsoft Developer Studio generated resource script.
+//
+#include "resource.h"
+
+#define APSTUDIO_READONLY_SYMBOLS
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 2 resource.
+//
+#include "afxres.h"
+
+/////////////////////////////////////////////////////////////////////////////
+#undef APSTUDIO_READONLY_SYMBOLS
+
+/////////////////////////////////////////////////////////////////////////////
+// Chinese (P.R.C.) resources
+
+#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_CHS)
+#ifdef _WIN32
+LANGUAGE LANG_CHINESE, SUBLANG_CHINESE_SIMPLIFIED
+#pragma code_page(936)
+#endif //_WIN32
+
+#ifdef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// TEXTINCLUDE
+//
+
+1 TEXTINCLUDE DISCARDABLE 
+BEGIN
+    "resource.h\0"
+END
+
+2 TEXTINCLUDE DISCARDABLE 
+BEGIN
+    "#include ""afxres.h""\r\n"
+    "\0"
+END
+
+3 TEXTINCLUDE DISCARDABLE 
+BEGIN
+    "#define _AFX_NO_SPLITTER_RESOURCES\r\n"
+    "#define _AFX_NO_OLE_RESOURCES\r\n"
+    "#define _AFX_NO_TRACKER_RESOURCES\r\n"
+    "#define _AFX_NO_PROPERTY_RESOURCES\r\n"
+    "\r\n"
+    "#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_CHS)\r\n"
+    "#ifdef _WIN32\r\n"
+    "LANGUAGE 4, 2\r\n"
+    "#pragma code_page(936)\r\n"
+    "#endif //_WIN32\r\n"
+    "#include ""res\\LECalculator.rc2""  // non-Microsoft Visual C++ edited resources\r\n"
+    "#include ""l.chs\\afxres.rc""          // Standard components\r\n"
+    "#endif\r\n"
+    "\0"
+END
+
+#endif    // APSTUDIO_INVOKED
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Icon
+//
+
+// Icon with lowest ID value placed first to ensure application icon
+// remains consistent on all systems.
+IDR_MAINFRAME           ICON    DISCARDABLE     "res\\LECalculator.ico"
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Dialog
+//
+
+IDD_ABOUTBOX DIALOG DISCARDABLE  0, 0, 235, 55
+STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "关于 LECalculator"
+FONT 9, "宋体"
+BEGIN
+    ICON            IDR_MAINFRAME,IDC_STATIC,11,17,20,20
+    LTEXT           "LECalculator 1.0 版",IDC_STATIC,40,10,119,8,SS_NOPREFIX
+    LTEXT           "版权所有 (C) 2002",IDC_STATIC,40,25,119,8
+    DEFPUSHBUTTON   "确定",IDOK,178,7,50,14,WS_GROUP
+END
+
+IDD_LECALCULATOR_DIALOG DIALOGEX 0, 0, 338, 255
+STYLE DS_MODALFRAME | WS_POPUP | WS_VISIBLE | WS_CAPTION | WS_SYSMENU
+EXSTYLE WS_EX_APPWINDOW
+CAPTION "线性方程组计算器"
+FONT 9, "宋体"
+BEGIN
+    LTEXT           "系数矩阵：",IDC_STATIC,7,7,95,8
+    EDITTEXT        IDC_EDIT1,7,19,141,104,ES_MULTILINE | WS_VSCROLL | 
+                    WS_HSCROLL
+    EDITTEXT        IDC_EDIT2,7,144,141,104,ES_MULTILINE | WS_VSCROLL | 
+                    WS_HSCROLL
+    LTEXT           "常数矩阵：",IDC_STATIC,7,132,50,8
+    PUSHBUTTON      "全选主元高斯消元法",IDC_BUTTON1,156,7,175,14
+    PUSHBUTTON      "全选主元高斯－约当消元法",IDC_BUTTON2,156,23,175,14
+    PUSHBUTTON      "复系数方程组全选主元高斯消元法",IDC_BUTTON3,156,40,175,
+                    14
+    PUSHBUTTON      "复系数方程组全选主元高斯－约当消元法",IDC_BUTTON4,156,
+                    56,175,14
+    PUSHBUTTON      "求解三对角线方程组的追赶法",IDC_BUTTON5,156,72,175,14
+    PUSHBUTTON      "一般带型方程组的求解",IDC_BUTTON6,156,88,175,14
+    PUSHBUTTON      "求解对称方程组的分解法",IDC_BUTTON7,156,104,175,14
+    PUSHBUTTON      "求解对称正定方程组的平方根法",IDC_BUTTON8,156,120,175,
+                    14
+    PUSHBUTTON      "求解大型稀疏方程组的全选主元高斯-约当消元法",
+                    IDC_BUTTON9,156,136,175,14
+    PUSHBUTTON      "求解托伯利兹方程组的列文逊方法",IDC_BUTTON10,156,152,
+                    175,14
+    PUSHBUTTON      "高斯－赛德尔迭代法",IDC_BUTTON11,156,168,175,14
+    PUSHBUTTON      "求解对称正定方程组的共轭梯度法",IDC_BUTTON12,156,184,
+                    175,14
+    PUSHBUTTON      "求解线性最小二乘问题的豪斯荷尔德变换法",IDC_BUTTON13,
+                    156,201,175,14
+    PUSHBUTTON      "求解线性最小二乘问题的广义逆法",IDC_BUTTON14,156,217,
+                    175,14
+    PUSHBUTTON      "病态方程组的求解",IDC_BUTTON15,156,233,175,14
+END
+
+IDD_IMAG_DATA DIALOG DISCARDABLE  0, 0, 233, 151
+STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "输入系数矩阵和常数矩阵的虚部"
+FONT 9, "宋体"
+BEGIN
+    EDITTEXT        IDC_EDIT1,7,19,141,104,ES_MULTILINE | WS_VSCROLL | 
+                    WS_HSCROLL
+    EDITTEXT        IDC_EDIT2,151,19,75,104,ES_MULTILINE | WS_VSCROLL | 
+                    WS_HSCROLL
+    DEFPUSHBUTTON   "OK",IDOK,92,130,50,14
+    LTEXT           "系数矩阵虚部：",IDC_STATIC,7,7,95,8
+    LTEXT           "常数矩阵虚部：",IDC_STATIC,151,7,50,8
+END
+
+
+#ifndef _MAC
+/////////////////////////////////////////////////////////////////////////////
+//
+// Version
+//
+
+VS_VERSION_INFO VERSIONINFO
+ FILEVERSION 1,0,0,1
+ PRODUCTVERSION 1,0,0,1
+ FILEFLAGSMASK 0x3fL
+#ifdef _DEBUG
+ FILEFLAGS 0x1L
+#else
+ FILEFLAGS 0x0L
+#endif
+ FILEOS 0x4L
+ FILETYPE 0x1L
+ FILESUBTYPE 0x0L
+BEGIN
+    BLOCK "StringFileInfo"
+    BEGIN
+        BLOCK "080404B0"
+        BEGIN
+            VALUE "CompanyName", "\0"
+            VALUE "FileDescription", "LECalculator Microsoft 基础类应用程序\0"
+            VALUE "FileVersion", "1, 0, 0, 1\0"
+            VALUE "InternalName", "LECalculator\0"
+            VALUE "LegalCopyright", "版权所有 (C) 2002\0"
+            VALUE "LegalTrademarks", "\0"
+            VALUE "OriginalFilename", "LECalculator.EXE\0"
+            VALUE "ProductName", "LECalculator 应用程序\0"
+            VALUE "ProductVersion", "1, 0, 0, 1\0"
+        END
+    END
+    BLOCK "VarFileInfo"
+    BEGIN
+        VALUE "Translation", 0x804, 1200
+    END
+END
+
+#endif    // !_MAC
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// DESIGNINFO
+//
+
+#ifdef APSTUDIO_INVOKED
+GUIDELINES DESIGNINFO DISCARDABLE 
+BEGIN
+    IDD_ABOUTBOX, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 228
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 48
+    END
+
+    IDD_LECALCULATOR_DIALOG, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 331
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 248
+    END
+
+    IDD_IMAG_DATA, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 226
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 144
+    END
+END
+#endif    // APSTUDIO_INVOKED
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// String Table
+//
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    IDS_ABOUTBOX            "关于 LECalculator(&A)..."
+END
+
+#endif    // Chinese (P.R.C.) resources
+/////////////////////////////////////////////////////////////////////////////
+
+
+
+#ifndef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 3 resource.
+//
+#define _AFX_NO_SPLITTER_RESOURCES
+#define _AFX_NO_OLE_RESOURCES
+#define _AFX_NO_TRACKER_RESOURCES
+#define _AFX_NO_PROPERTY_RESOURCES
+
+#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_CHS)
+#ifdef _WIN32
+LANGUAGE 4, 2
+#pragma code_page(936)
+#endif //_WIN32
+#include "res\LECalculator.rc2"  // non-Microsoft Visual C++ edited resources
+#include "l.chs\afxres.rc"          // Standard components
+#endif
+
+/////////////////////////////////////////////////////////////////////////////
+#endif    // not APSTUDIO_INVOKED
+

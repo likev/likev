@@ -1,0 +1,53 @@
+[2011-02-10 17:55:16]: login dsbwdown@172.18.172.5 success...
+[2011-02-10 17:55:16]: set current directory: /baowen/snow
+[2011-02-10 17:55:16]: will find fileZ_SURF_C_BEZZ_2011021000*_O_SNOW-TEMP.TXT
+[2011-02-10 17:55:39]: find file Z_SURF_C_BEZZ_20110210001713_O_SNOW-TEMP.TXT
+[2011-02-10 17:55:44]: close ftp
+[2011-02-11 13:25:04]: ERROR: A connection with the server could not be established
+
+[2011-02-11 13:25:25]: ERROR: A connection with the server could not be established
+
+[2011-02-11 13:25:46]: ERROR: A connection with the server could not be established
+
+[2011-02-11 13:26:07]: ERROR: A connection with the server could not be established
+
+[2011-02-11 13:26:28]: ERROR: A connection with the server could not be established
+
+[2011-02-11 13:26:49]: ERROR: A connection with the server could not be established
+
+[2011-02-11 13:27:10]: ERROR: A connection with the server could not be established
+
+[2011-02-11 13:27:31]: ERROR: A connection with the server could not be established
+
+[2011-02-11 13:27:52]: ERROR: A connection with the server could not be established
+
+[2011-02-11 13:28:13]: ERROR: A connection with the server could not be established
+
+[2011-02-11 13:28:34]: ERROR: A connection with the server could not be established
+
+[2011-02-11 13:28:55]: ERROR: A connection with the server could not be established
+
+[2011-02-11 13:31:26]: ERROR: A connection with the server could not be established
+
+[2011-02-11 13:31:47]: ERROR: A connection with the server could not be established
+
+[2011-02-11 13:32:08]: ERROR: A connection with the server could not be established
+
+[2011-02-11 13:32:29]: ERROR: A connection with the server could not be established
+
+[2011-02-11 13:32:50]: ERROR: A connection with the server could not be established
+
+[2011-02-11 13:33:11]: ERROR: A connection with the server could not be established
+
+[2011-02-11 13:33:32]: ERROR: A connection with the server could not be established
+
+[2011-02-11 13:33:53]: ERROR: A connection with the server could not be established
+
+[2011-02-11 13:34:14]: ERROR: A connection with the server could not be established
+
+[2011-02-11 13:34:35]: ERROR: A connection with the server could not be established
+
+[2011-02-11 13:34:56]: ERROR: A connection with the server could not be established
+
+[2011-02-11 13:35:17]: ERROR: A connection with the server could not be established
+
