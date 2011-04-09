@@ -1,0 +1,3 @@
+[autorun]
+open=notepad readme.txt
+icon=notepad.exe

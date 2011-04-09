@@ -1,0 +1,85 @@
+<html>
+<body>
+<pre>
+<h1>Build Log</h1>
+<h3>
+--------------------Configuration: AlgthmsS - Win32 Release--------------------
+</h3>
+<h3>Command Lines</h3>
+Creating temporary file "C:\DOCUME~1\DARIN~1.INT\LOCALS~1\Temp\RSPF6.tmp" with contents
+[
+/nologo /MD /W3 /GX /O2 /D "WIN32" /D "NDEBUG" /D "_WINDOWS" /D "_MBCS" /D "_AFXDLL" /Fp"Release/AlgthmsS.pch" /Yu"stdafx.h" /Fo"Release/" /Fd"Release/" /FD /c 
+"F:\My Documents\zzf\Books\Algorithms гн VC\Source\Chapter7\AlgthmsS\Complex.cpp"
+"F:\My Documents\zzf\Books\Algorithms гн VC\Source\Chapter7\AlgthmsS\Integral.cpp"
+"F:\My Documents\zzf\Books\Algorithms гн VC\Source\Chapter7\AlgthmsS\Interpolate.cpp"
+"F:\My Documents\zzf\Books\Algorithms гн VC\Source\Chapter7\AlgthmsS\LEquations.cpp"
+"F:\My Documents\zzf\Books\Algorithms гн VC\Source\Chapter7\AlgthmsS\Matrix.cpp"
+"F:\My Documents\zzf\Books\Algorithms гн VC\Source\Chapter7\AlgthmsS\NLequation.cpp"
+]
+Creating command line "cl.exe @C:\DOCUME~1\DARIN~1.INT\LOCALS~1\Temp\RSPF6.tmp" 
+Creating temporary file "C:\DOCUME~1\DARIN~1.INT\LOCALS~1\Temp\RSPF7.tmp" with contents
+[
+/nologo /MD /W3 /GX /O2 /D "WIN32" /D "NDEBUG" /D "_WINDOWS" /D "_MBCS" /D "_AFXDLL" /Fp"Release/AlgthmsS.pch" /Yc"stdafx.h" /Fo"Release/" /Fd"Release/" /FD /c 
+"F:\My Documents\zzf\Books\Algorithms гн VC\Source\Chapter7\AlgthmsS\StdAfx.cpp"
+]
+Creating command line "cl.exe @C:\DOCUME~1\DARIN~1.INT\LOCALS~1\Temp\RSPF7.tmp" 
+Creating command line "link.exe -lib /nologo /out:"Release\AlgthmsS.lib"  ".\Release\Complex.obj" ".\Release\Integral.obj" ".\Release\Interpolate.obj" ".\Release\LEquations.obj" ".\Release\Matrix.obj" ".\Release\NLequation.obj" ".\Release\StdAfx.obj" "
+<h3>Output Window</h3>
+Compiling...
+StdAfx.cpp
+Compiling...
+Complex.cpp
+Integral.cpp
+Interpolate.cpp
+LEquations.cpp
+Matrix.cpp
+NLequation.cpp
+Generating Code...
+Creating library...
+
+
+
+<h3>Results</h3>
+AlgthmsS.lib - 0 error(s), 0 warning(s)
+<h3>
+--------------------Configuration: AlgthmsS - Win32 Debug--------------------
+</h3>
+<h3>Command Lines</h3>
+Creating temporary file "C:\DOCUME~1\DARIN~1.INT\LOCALS~1\Temp\RSPF8.tmp" with contents
+[
+/nologo /MDd /W3 /Gm /GX /ZI /Od /D "WIN32" /D "_DEBUG" /D "_WINDOWS" /D "_MBCS" /D "_AFXDLL" /Fp"Debug/AlgthmsS.pch" /Yu"stdafx.h" /Fo"Debug/" /Fd"Debug/" /FD /GZ /c 
+"F:\My Documents\zzf\Books\Algorithms гн VC\Source\Chapter7\AlgthmsS\Complex.cpp"
+"F:\My Documents\zzf\Books\Algorithms гн VC\Source\Chapter7\AlgthmsS\Integral.cpp"
+"F:\My Documents\zzf\Books\Algorithms гн VC\Source\Chapter7\AlgthmsS\Interpolate.cpp"
+"F:\My Documents\zzf\Books\Algorithms гн VC\Source\Chapter7\AlgthmsS\LEquations.cpp"
+"F:\My Documents\zzf\Books\Algorithms гн VC\Source\Chapter7\AlgthmsS\Matrix.cpp"
+"F:\My Documents\zzf\Books\Algorithms гн VC\Source\Chapter7\AlgthmsS\NLequation.cpp"
+]
+Creating command line "cl.exe @C:\DOCUME~1\DARIN~1.INT\LOCALS~1\Temp\RSPF8.tmp" 
+Creating temporary file "C:\DOCUME~1\DARIN~1.INT\LOCALS~1\Temp\RSPF9.tmp" with contents
+[
+/nologo /MDd /W3 /Gm /GX /ZI /Od /D "WIN32" /D "_DEBUG" /D "_WINDOWS" /D "_MBCS" /D "_AFXDLL" /Fp"Debug/AlgthmsS.pch" /Yc"stdafx.h" /Fo"Debug/" /Fd"Debug/" /FD /GZ /c 
+"F:\My Documents\zzf\Books\Algorithms гн VC\Source\Chapter7\AlgthmsS\StdAfx.cpp"
+]
+Creating command line "cl.exe @C:\DOCUME~1\DARIN~1.INT\LOCALS~1\Temp\RSPF9.tmp" 
+Creating command line "link.exe -lib /nologo /out:"Debug\AlgthmsSD.lib"  ".\Debug\Complex.obj" ".\Debug\Integral.obj" ".\Debug\Interpolate.obj" ".\Debug\LEquations.obj" ".\Debug\Matrix.obj" ".\Debug\NLequation.obj" ".\Debug\StdAfx.obj" "
+<h3>Output Window</h3>
+Compiling...
+StdAfx.cpp
+Compiling...
+Complex.cpp
+Integral.cpp
+Interpolate.cpp
+LEquations.cpp
+Matrix.cpp
+NLequation.cpp
+Generating Code...
+Creating library...
+
+
+
+<h3>Results</h3>
+AlgthmsSD.lib - 0 error(s), 0 warning(s)
+</pre>
+</body>
+</html>

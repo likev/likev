@@ -1,0 +1,44 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 10.00
+# Visual Studio 2008
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "test1", "world hello\world hello.vcproj", "{BFB94E35-A41A-4BA3-9D27-08B32CF4B30F}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "ContourFillA", "ContourFillA\ContourFillA.vcproj", "{1AA82AAE-D297-4AF5-9C9A-194C3B544B21}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "ContourTrackerA", "ContourTrackerA\ContourTrackerA.vcproj", "{4A5084FD-92AC-4377-84D4-48E3706C0FC8}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "contour_track_01", "contour_track_01\contour_track_01.vcproj", "{202635C1-7017-4FF4-AB31-4AE7DE8EB0AE}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "isPointInRgn", "isPointInRgn\isPointInRgn.vcproj", "{1CA15C1A-DEE1-4504-84AB-7C54F393FB45}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Win32 = Debug|Win32
+		Release|Win32 = Release|Win32
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{BFB94E35-A41A-4BA3-9D27-08B32CF4B30F}.Debug|Win32.ActiveCfg = Debug|Win32
+		{BFB94E35-A41A-4BA3-9D27-08B32CF4B30F}.Debug|Win32.Build.0 = Debug|Win32
+		{BFB94E35-A41A-4BA3-9D27-08B32CF4B30F}.Release|Win32.ActiveCfg = Release|Win32
+		{BFB94E35-A41A-4BA3-9D27-08B32CF4B30F}.Release|Win32.Build.0 = Release|Win32
+		{1AA82AAE-D297-4AF5-9C9A-194C3B544B21}.Debug|Win32.ActiveCfg = Debug|Win32
+		{1AA82AAE-D297-4AF5-9C9A-194C3B544B21}.Debug|Win32.Build.0 = Debug|Win32
+		{1AA82AAE-D297-4AF5-9C9A-194C3B544B21}.Release|Win32.ActiveCfg = Release|Win32
+		{1AA82AAE-D297-4AF5-9C9A-194C3B544B21}.Release|Win32.Build.0 = Release|Win32
+		{4A5084FD-92AC-4377-84D4-48E3706C0FC8}.Debug|Win32.ActiveCfg = Debug|Win32
+		{4A5084FD-92AC-4377-84D4-48E3706C0FC8}.Debug|Win32.Build.0 = Debug|Win32
+		{4A5084FD-92AC-4377-84D4-48E3706C0FC8}.Release|Win32.ActiveCfg = Release|Win32
+		{4A5084FD-92AC-4377-84D4-48E3706C0FC8}.Release|Win32.Build.0 = Release|Win32
+		{202635C1-7017-4FF4-AB31-4AE7DE8EB0AE}.Debug|Win32.ActiveCfg = Debug|Win32
+		{202635C1-7017-4FF4-AB31-4AE7DE8EB0AE}.Debug|Win32.Build.0 = Debug|Win32
+		{202635C1-7017-4FF4-AB31-4AE7DE8EB0AE}.Release|Win32.ActiveCfg = Release|Win32
+		{202635C1-7017-4FF4-AB31-4AE7DE8EB0AE}.Release|Win32.Build.0 = Release|Win32
+		{1CA15C1A-DEE1-4504-84AB-7C54F393FB45}.Debug|Win32.ActiveCfg = Debug|Win32
+		{1CA15C1A-DEE1-4504-84AB-7C54F393FB45}.Debug|Win32.Build.0 = Debug|Win32
+		{1CA15C1A-DEE1-4504-84AB-7C54F393FB45}.Release|Win32.ActiveCfg = Release|Win32
+		{1CA15C1A-DEE1-4504-84AB-7C54F393FB45}.Release|Win32.Build.0 = Release|Win32
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

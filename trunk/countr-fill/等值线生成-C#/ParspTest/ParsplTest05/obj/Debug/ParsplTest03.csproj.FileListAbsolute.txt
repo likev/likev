@@ -1,0 +1,9 @@
+E:\WPFStudy\ContourTracker\ParsplTest03\bin\Debug\ParsplTest03.exe
+E:\WPFStudy\ContourTracker\ParsplTest03\bin\Debug\ParsplTest03.pdb
+E:\WPFStudy\ContourTracker\ParsplTest03\obj\Debug\ResolveAssemblyReference.cache
+E:\WPFStudy\ContourTracker\ParsplTest03\obj\Debug\ParsplTest03.Properties.Resources.resources
+E:\WPFStudy\ContourTracker\ParsplTest03\obj\Debug\ParsplTest03.csproj.GenerateResource.Cache
+E:\WPFStudy\ContourTracker\ParsplTest03\obj\Debug\ParsplTest03.exe
+E:\WPFStudy\ContourTracker\ParsplTest03\obj\Debug\ParsplTest03.pdb
+E:\WPFStudy\ContourTracker\ParsplTest05\obj\Debug\ParsplTest03.exe
+E:\WPFStudy\ContourTracker\ParsplTest05\obj\Debug\ParsplTest03.pdb

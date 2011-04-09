@@ -1,0 +1,1 @@
+g++ `wx-config --cppflags --libs`  -o mainapp main-frame.cpp main-app.cpp change-instance.cpp disaster-instance.cpp search-condition.cpp

@@ -1,0 +1,73 @@
+<html>
+<body>
+<pre>
+<h1>Build Log</h1>
+<h3>
+--------------------Configuration: Sample - Win32 Release--------------------
+</h3>
+<h3>Command Lines</h3>
+Creating command line "rc.exe /l 0x804 /fo"Release/Sample.res" /d "NDEBUG" /d "_AFXDLL" "F:\My Documents\zzf\Books\Algorithms гн VC\Source\Chapter7\Sample\Sample.rc"" 
+Creating temporary file "C:\DOCUME~1\DARIN~1.INT\LOCALS~1\Temp\RSPEE.tmp" with contents
+[
+/nologo /MD /W3 /GX /O2 /D "WIN32" /D "NDEBUG" /D "_WINDOWS" /D "_AFXDLL" /D "_MBCS" /Fp"Release/Sample.pch" /Yu"stdafx.h" /Fo"Release/" /Fd"Release/" /FD /c 
+"F:\My Documents\zzf\Books\Algorithms гн VC\Source\Chapter7\Sample\Sample.cpp"
+"F:\My Documents\zzf\Books\Algorithms гн VC\Source\Chapter7\Sample\SampleDlg.cpp"
+]
+Creating command line "cl.exe @C:\DOCUME~1\DARIN~1.INT\LOCALS~1\Temp\RSPEE.tmp" 
+Creating temporary file "C:\DOCUME~1\DARIN~1.INT\LOCALS~1\Temp\RSPEF.tmp" with contents
+[
+/nologo /MD /W3 /GX /O2 /D "WIN32" /D "NDEBUG" /D "_WINDOWS" /D "_AFXDLL" /D "_MBCS" /Fp"Release/Sample.pch" /Yc"stdafx.h" /Fo"Release/" /Fd"Release/" /FD /c 
+"F:\My Documents\zzf\Books\Algorithms гн VC\Source\Chapter7\Sample\StdAfx.cpp"
+]
+Creating command line "cl.exe @C:\DOCUME~1\DARIN~1.INT\LOCALS~1\Temp\RSPEF.tmp" 
+Creating command line "link.exe Algthms.lib /nologo /subsystem:windows /incremental:no /pdb:"Release/Sample.pdb" /machine:I386 /out:"Release/Sample.exe"  ".\Release\Sample.obj" ".\Release\SampleDlg.obj" ".\Release\StdAfx.obj" ".\Release\Sample.res" "
+<h3>Output Window</h3>
+Compiling resources...
+Compiling...
+StdAfx.cpp
+Compiling...
+Sample.cpp
+SampleDlg.cpp
+Generating Code...
+Linking...
+
+
+
+<h3>Results</h3>
+Sample.exe - 0 error(s), 0 warning(s)
+<h3>
+--------------------Configuration: Sample - Win32 Debug--------------------
+</h3>
+<h3>Command Lines</h3>
+Creating command line "rc.exe /l 0x804 /fo"Debug/Sample.res" /d "_DEBUG" /d "_AFXDLL" "F:\My Documents\zzf\Books\Algorithms гн VC\Source\Chapter7\Sample\Sample.rc"" 
+Creating temporary file "C:\DOCUME~1\DARIN~1.INT\LOCALS~1\Temp\RSPF1.tmp" with contents
+[
+/nologo /MDd /W3 /Gm /GX /ZI /Od /D "WIN32" /D "_DEBUG" /D "_WINDOWS" /D "_AFXDLL" /D "_MBCS" /Fp"Debug/Sample.pch" /Yu"stdafx.h" /Fo"Debug/" /Fd"Debug/" /FD /GZ /c 
+"F:\My Documents\zzf\Books\Algorithms гн VC\Source\Chapter7\Sample\Sample.cpp"
+"F:\My Documents\zzf\Books\Algorithms гн VC\Source\Chapter7\Sample\SampleDlg.cpp"
+]
+Creating command line "cl.exe @C:\DOCUME~1\DARIN~1.INT\LOCALS~1\Temp\RSPF1.tmp" 
+Creating temporary file "C:\DOCUME~1\DARIN~1.INT\LOCALS~1\Temp\RSPF2.tmp" with contents
+[
+/nologo /MDd /W3 /Gm /GX /ZI /Od /D "WIN32" /D "_DEBUG" /D "_WINDOWS" /D "_AFXDLL" /D "_MBCS" /Fp"Debug/Sample.pch" /Yc"stdafx.h" /Fo"Debug/" /Fd"Debug/" /FD /GZ /c 
+"F:\My Documents\zzf\Books\Algorithms гн VC\Source\Chapter7\Sample\StdAfx.cpp"
+]
+Creating command line "cl.exe @C:\DOCUME~1\DARIN~1.INT\LOCALS~1\Temp\RSPF2.tmp" 
+Creating command line "link.exe algthmsD.lib /nologo /subsystem:windows /incremental:yes /pdb:"Debug/Sample.pdb" /debug /machine:I386 /out:"Debug/Sample.exe" /pdbtype:sept  ".\Debug\Sample.obj" ".\Debug\SampleDlg.obj" ".\Debug\StdAfx.obj" ".\Debug\Sample.res" "
+<h3>Output Window</h3>
+Compiling resources...
+Compiling...
+StdAfx.cpp
+Compiling...
+Sample.cpp
+SampleDlg.cpp
+Generating Code...
+Linking...
+
+
+
+<h3>Results</h3>
+Sample.exe - 0 error(s), 0 warning(s)
+</pre>
+</body>
+</html>

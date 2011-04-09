@@ -1,0 +1,82 @@
+Microsoft (R) Incremental Linker Version 9.00.21022.08
+Copyright (C) Microsoft Corporation.  All rights reserved.
+
+ 用法: LINK [选项] [文件] [@commandfile]
+
+   选项:
+
+      /ALIGN:#
+      /ALLOWBIND[:NO]
+      /ALLOWISOLATION[:NO]
+      /ASSEMBLYDEBUG[:DISABLE]
+      /ASSEMBLYLINKRESOURCE:文件名
+      /ASSEMBLYMODULE:文件名
+      /ASSEMBLYRESOURCE:文件名[,[名称][,PRIVATE]]
+      /BASE:{地址[,大小]|@文件名,键}
+      /CLRIMAGETYPE:{IJW|PURE|SAFE}
+      /CLRSUPPORTLASTERROR[:{NO|SYSTEMDLL}]
+      /CLRTHREADATTRIBUTE:{STA|MTA|NONE}
+      /CLRUNMANAGEDCODECHECK[:NO]
+      /DEBUG
+      /DEF:文件名
+      /DEFAULTLIB:库
+      /DELAY:{NOBIND|UNLOAD}
+      /DELAYLOAD:dll
+      /DELAYSIGN[:NO]
+      /DLL
+      /DRIVER[:{UPONLY|WDM}]
+      /DYNAMICBASE[:NO]
+      /ENTRY:符号
+      /ERRORREPORT:{NONE|PROMPT|QUEUE|SEND}
+      /EXPORT:符号
+      /FIXED[:NO]
+      /FORCE[:{MULTIPLE|UNRESOLVED}]
+      /FUNCTIONPADMIN[:大小]
+      /HEAP:reserve[,commit]
+      /IDLOUT:文件名
+      /IGNOREIDL
+      /IMPLIB:文件名
+      /INCLUDE:符号
+      /INCREMENTAL[:NO]
+      /KEYCONTAINER:name
+      /KEYFILE:文件名
+      /LARGEADDRESSAWARE[:NO]
+      /LIBPATH:目录
+      /LTCG[:{NOSTATUS|PGINSTRUMENT|PGOPTIMIZE|PGUPDATE|STATUS}]
+      /MACHINE:{ARM|EBC|IA64|MIPS|MIPS16|MIPSFPU|MIPSFPU16|
+                SH4|THUMB|X64|X86}
+      /MANIFEST[:NO]
+      /MANIFESTDEPENDENCY:manifest dependency
+      /MANIFESTFILE:文件名
+      /MANIFESTUAC[:{NO|UAC 片段}]
+      /MAP[:文件名]
+      /MAPINFO:{EXPORTS}
+      /MERGE:from=to
+      /MIDL:@commandfile
+      /NOASSEMBLY
+      /NODEFAULTLIB[:库]
+      /NOENTRY
+      /NOLOGO
+      /NXCOMPAT[:NO]
+      /OPT:{ICF[=迭代数]|NOICF|NOREF|REF}
+      /ORDER:@文件名
+      /OUT:文件名
+      /PDB:文件名
+      /PDBSTRIPPED:文件名
+      /PGD:文件名
+      /PROFILE
+      /RELEASE
+      /SAFESEH[:NO]
+      /SECTION:name,[[!]{DEKPRSW}][,ALIGN=#]
+      /STACK:reserve[,commit]
+      /STUB:文件名
+      /SUBSYSTEM:{BOOT_APPLICATION|CONSOLE|EFI_APPLICATION|
+                  EFI_BOOT_SERVICE_DRIVER|EFI_ROM|EFI_RUNTIME_DRIVER|
+                  NATIVE|POSIX|WINDOWS|WINDOWSCE}[,#[.##]]
+      /SWAPRUN:{CD|NET}
+      /TLBID:#
+      /TLBOUT:文件名
+      /TSAWARE[:NO]
+      /VERBOSE[:{ICF|LIB|REF|SAFESEH}]
+      /VERSION:#[.#]
+      /WX[:NO]

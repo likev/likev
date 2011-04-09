@@ -1,0 +1,7 @@
+[2011-02-12 01:49:18]: 打开文件luoyang-stations.txt失败
+[2011-02-12 01:49:46]: 查询时间段：2011年2月9日06时 -- 10日06时
+[2011-02-12 01:49:46]: 查询洛阳地区
+[2011-02-12 01:50:07]: ERROR: A connection with the server could not be established
+
+[2011-02-12 01:50:29]: ERROR: A connection with the server could not be established
+

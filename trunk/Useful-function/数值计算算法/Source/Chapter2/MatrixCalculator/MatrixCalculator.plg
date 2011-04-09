@@ -1,0 +1,67 @@
+<html>
+<body>
+<pre>
+<h1>Build Log</h1>
+<h3>
+--------------------Configuration: MatrixCalculator - Win32 Release--------------------
+</h3>
+<h3>Command Lines</h3>
+Creating temporary file "C:\DOCUME~1\DARIN~1.INT\LOCALS~1\Temp\RSP60.tmp" with contents
+[
+/nologo /MD /W3 /GX /O2 /D "WIN32" /D "NDEBUG" /D "_WINDOWS" /D "_AFXDLL" /D "_MBCS" /Fp"Release/MatrixCalculator.pch" /Yu"stdafx.h" /Fo"Release/" /Fd"Release/" /FD /c 
+"F:\My Documents\zzf\Books\Algorithms гн VC\Source\Chapter2\MatrixCalculator\Matrix.cpp"
+]
+Creating command line "cl.exe @C:\DOCUME~1\DARIN~1.INT\LOCALS~1\Temp\RSP60.tmp" 
+Creating temporary file "C:\DOCUME~1\DARIN~1.INT\LOCALS~1\Temp\RSP61.tmp" with contents
+[
+/nologo /subsystem:windows /incremental:no /pdb:"Release/MatrixCalculator.pdb" /machine:I386 /out:"Release/MatrixCalculator.exe" 
+".\Release\Complex.obj"
+".\Release\Matrix.obj"
+".\Release\MatrixCalculator.obj"
+".\Release\MatrixCalculatorDlg.obj"
+".\Release\StdAfx.obj"
+".\Release\MatrixCalculator.res"
+]
+Creating command line "link.exe @C:\DOCUME~1\DARIN~1.INT\LOCALS~1\Temp\RSP61.tmp"
+<h3>Output Window</h3>
+Compiling...
+Matrix.cpp
+Linking...
+
+
+
+<h3>Results</h3>
+MatrixCalculator.exe - 0 error(s), 0 warning(s)
+<h3>
+--------------------Configuration: MatrixCalculator - Win32 Debug--------------------
+</h3>
+<h3>Command Lines</h3>
+Creating temporary file "C:\DOCUME~1\DARIN~1.INT\LOCALS~1\Temp\RSP63.tmp" with contents
+[
+/nologo /MDd /W3 /Gm /GX /ZI /Od /D "WIN32" /D "_DEBUG" /D "_WINDOWS" /D "_AFXDLL" /D "_MBCS" /Fp"Debug/MatrixCalculator.pch" /Yu"stdafx.h" /Fo"Debug/" /Fd"Debug/" /FD /GZ /c 
+"F:\My Documents\zzf\Books\Algorithms гн VC\Source\Chapter2\MatrixCalculator\Matrix.cpp"
+]
+Creating command line "cl.exe @C:\DOCUME~1\DARIN~1.INT\LOCALS~1\Temp\RSP63.tmp" 
+Creating temporary file "C:\DOCUME~1\DARIN~1.INT\LOCALS~1\Temp\RSP64.tmp" with contents
+[
+/nologo /subsystem:windows /incremental:yes /pdb:"Debug/MatrixCalculator.pdb" /debug /machine:I386 /out:"Debug/MatrixCalculator.exe" /pdbtype:sept 
+".\Debug\Complex.obj"
+".\Debug\Matrix.obj"
+".\Debug\MatrixCalculator.obj"
+".\Debug\MatrixCalculatorDlg.obj"
+".\Debug\StdAfx.obj"
+".\Debug\MatrixCalculator.res"
+]
+Creating command line "link.exe @C:\DOCUME~1\DARIN~1.INT\LOCALS~1\Temp\RSP64.tmp"
+<h3>Output Window</h3>
+Compiling...
+Matrix.cpp
+Linking...
+
+
+
+<h3>Results</h3>
+MatrixCalculator.exe - 0 error(s), 0 warning(s)
+</pre>
+</body>
+</html>
