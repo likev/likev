@@ -1,0 +1,284 @@
+// Microsoft Visual C++ generated resource script.
+//
+#include "resource.h"
+
+#define APSTUDIO_READONLY_SYMBOLS
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 2 resource.
+//
+#ifndef APSTUDIO_INVOKED
+#include "targetver.h"
+#endif
+#include "afxres.h"
+
+/////////////////////////////////////////////////////////////////////////////
+#undef APSTUDIO_READONLY_SYMBOLS
+
+/////////////////////////////////////////////////////////////////////////////
+// 中文(中华人民共和国) resources
+
+#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_CHS)
+#ifdef _WIN32
+LANGUAGE LANG_CHINESE, SUBLANG_CHINESE_SIMPLIFIED
+#pragma code_page(936)
+#endif //_WIN32
+
+#ifdef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// TEXTINCLUDE
+//
+
+1 TEXTINCLUDE 
+BEGIN
+    "resource.h\0"
+END
+
+2 TEXTINCLUDE 
+BEGIN
+    "#ifndef APSTUDIO_INVOKED\r\n"
+    "#include ""targetver.h""\r\n"
+    "#endif\r\n"
+    "#include ""afxres.h""\r\n"
+    "\0"
+END
+
+3 TEXTINCLUDE 
+BEGIN
+    "#define _AFX_NO_SPLITTER_RESOURCES\r\n"
+    "#define _AFX_NO_OLE_RESOURCES\r\n"
+    "#define _AFX_NO_TRACKER_RESOURCES\r\n"
+    "#define _AFX_NO_PROPERTY_RESOURCES\r\n"
+    "\r\n"
+    "#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_CHS)\r\n"
+    "LANGUAGE 4, 2\r\n"
+    "#pragma code_page(936)\r\n"
+    "#include ""res\\MessAtoB.rc2""  // 非 Microsoft Visual C++ 编辑的资源\r\n"
+    "#include ""l.CHS\\afxres.rc""      // 标准组件\r\n"
+    "#endif\r\n"
+    "\0"
+END
+
+#endif    // APSTUDIO_INVOKED
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Icon
+//
+
+// Icon with lowest ID value placed first to ensure application icon
+// remains consistent on all systems.
+IDR_MAINFRAME           ICON                    "res\\MessAtoB.ico"
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Dialog
+//
+
+IDD_ABOUTBOX DIALOGEX 0, 0, 182, 65
+STYLE DS_SETFONT | DS_MODALFRAME | DS_FIXEDSYS | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "关于 MessAtoB"
+FONT 9, "MS Shell Dlg", 0, 0, 0x1
+BEGIN
+    ICON            IDR_MAINFRAME,IDC_STATIC,14,14,20,20
+    LTEXT           "MessAtoB，3.0 版",IDC_STATIC,42,14,114,8,SS_NOPREFIX
+    LTEXT           "Copyright (C) 2010   洛阳市气象台",IDC_STATIC,42,26,114,8
+    DEFPUSHBUTTON   "确定",IDOK,125,44,50,14,WS_GROUP
+    LTEXT           "xu_work@qq.com",IDC_STATIC,43,43,70,15
+END
+
+IDD_MESSATOB_DIALOG DIALOGEX 0, 0, 437, 237
+STYLE DS_SETFONT | DS_3DLOOK | WS_MINIMIZEBOX | WS_MAXIMIZEBOX | WS_POPUP | WS_VISIBLE | WS_CAPTION | WS_SYSMENU | WS_THICKFRAME
+EXSTYLE WS_EX_APPWINDOW
+CAPTION "城镇报-->县区预报"
+FONT 9, "Microsoft Sans Serif", 400, 0, 0x0
+BEGIN
+    DEFPUSHBUTTON   "转换",ID_CHE,10,9,61,20
+    EDITTEXT        IDC_EDIT1,8,39,418,189,ES_MULTILINE | ES_AUTOVSCROLL | ES_AUTOHSCROLL | ES_WANTRETURN | WS_VSCROLL
+    PUSHBUTTON      "天气状况",IDC_BUTTON_WET,88,9,61,20,NOT WS_VISIBLE
+    PUSHBUTTON      "送网",IDC_BUTTON_SEND,187,9,61,20,NOT WS_VISIBLE
+    PUSHBUTTON      "生成喷药指数",IDC_GENERATE_PY,348,9,61,20,NOT WS_VISIBLE
+    PUSHBUTTON      "上传个人预报",IDC_BUTTON_SelfForcast,264,9,61,20
+END
+
+IDD_DIALOG_WET DIALOGEX 0, 0, 370, 186
+STYLE DS_SETFONT | DS_MODALFRAME | DS_FIXEDSYS | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "设置天气状况"
+FONT 8, "MS Shell Dlg", 400, 0, 0x1
+BEGIN
+    EDITTEXT        IDC_EDIT1,67,15,194,19,ES_AUTOHSCROLL
+    EDITTEXT        IDC_EDIT2,67,48,194,19,ES_AUTOHSCROLL
+    EDITTEXT        IDC_EDIT3,67,81,194,19,ES_AUTOHSCROLL | WS_DISABLED
+    EDITTEXT        IDC_EDIT4,67,114,194,19,ES_AUTOHSCROLL | WS_DISABLED
+    DEFPUSHBUTTON   "确定",IDOK,66,154,76,23
+    PUSHBUTTON      "取消",IDCANCEL,192,154,76,23
+    LTEXT           "12小时天气",IDC_STATIC,18,18,42,15
+    LTEXT           "24小时天气",IDC_STATIC,18,50,42,15
+    LTEXT           "36小时天气",IDC_STATIC,18,82,42,15
+    LTEXT           "48小时天气",IDC_STATIC,18,114,42,15
+    GROUPBOX        "",IDC_STATIC,8,3,262,141
+    CONTROL         "市区",IDC_CHECK1,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,281,62,27,8
+    CONTROL         "吉利",IDC_CHECK2,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,318,62,27,8
+    CONTROL         "孟津",IDC_CHECK3,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,318,40,27,8
+    CONTROL         "偃师",IDC_CHECK4,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,318,18,27,8
+    CONTROL         "伊川",IDC_CHECK5,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,318,84,27,8
+    CONTROL         "汝阳",IDC_CHECK6,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,318,106,27,8
+    CONTROL         "新安",IDC_CHECK7,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,281,40,27,8
+    CONTROL         "宜阳",IDC_CHECK8,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,281,84,27,8
+    CONTROL         "洛宁",IDC_CHECK9,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,281,106,27,8
+    CONTROL         "嵩县",IDC_CHECK10,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,318,128,27,8
+    CONTROL         "栾川",IDC_CHECK11,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,281,128,27,8
+    GROUPBOX        "12小时",IDC_STATIC_SEL,277,3,75,141
+    CONTROL         "全部",IDC_CHECK12,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,281,18,27,8
+END
+
+IDD_DIALOG_PY DIALOGEX 0, 0, 264, 201
+STYLE DS_SETFONT | DS_MODALFRAME | DS_FIXEDSYS | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "上传喷药指数"
+FONT 8, "MS Shell Dlg", 400, 0, 0x1
+BEGIN
+    DEFPUSHBUTTON   "上传",IDOK,184,16,61,28
+    PUSHBUTTON      "取消",IDCANCEL,184,60,61,28
+    EDITTEXT        IDC_EDIT1,18,15,149,168,ES_MULTILINE | ES_AUTOHSCROLL
+END
+
+IDD_DLG_SelfForcast DIALOGEX 0, 0, 432, 251
+STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "上传个人预报"
+FONT 10, "Microsoft Sans Serif", 400, 0, 0x0
+BEGIN
+    DEFPUSHBUTTON   "开始上传",IDOK,15,224,60,18
+    PUSHBUTTON      "取消",IDCANCEL,90,224,60,18
+    COMBOBOX        IDC_COMBO_Names,90,12,84,48,CBS_DROPDOWNLIST | CBS_SORT | WS_VSCROLL | WS_TABSTOP
+    RTEXT           "选择预报员姓名",IDC_STATIC,17,13,60,12
+    EDITTEXT        IDC_EDIT_FileContent,15,41,405,174,ES_MULTILINE | ES_AUTOVSCROLL | ES_AUTOHSCROLL | WS_VSCROLL
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Version
+//
+
+VS_VERSION_INFO VERSIONINFO
+ FILEVERSION 3,0,11,16
+ PRODUCTVERSION 1,2,0,1
+ FILEFLAGSMASK 0x3fL
+#ifdef _DEBUG
+ FILEFLAGS 0x1L
+#else
+ FILEFLAGS 0x0L
+#endif
+ FILEOS 0x4L
+ FILETYPE 0x1L
+ FILESUBTYPE 0x0L
+BEGIN
+    BLOCK "StringFileInfo"
+    BEGIN
+        BLOCK "080403a8"
+        BEGIN
+            VALUE "CompanyName", "洛阳市气象台"
+            VALUE "FileDescription", "生成县区预报"
+            VALUE "FileVersion", "3.0.5.25"
+            VALUE "InternalName", "MessAtoB.exe"
+            VALUE "LegalCopyright", "洛阳市气象台保留所有权利。"
+            VALUE "OriginalFilename", "MessAtoB.exe"
+            VALUE "ProductName", "城镇报-->县区预报"
+            VALUE "ProductVersion", "1.2.0.1"
+        END
+    END
+    BLOCK "VarFileInfo"
+    BEGIN
+        VALUE "Translation", 0x804, 936
+    END
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// DESIGNINFO
+//
+
+#ifdef APSTUDIO_INVOKED
+GUIDELINES DESIGNINFO 
+BEGIN
+    IDD_ABOUTBOX, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 175
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 58
+    END
+
+    IDD_MESSATOB_DIALOG, DIALOG
+    BEGIN
+        LEFTMARGIN, 2
+        RIGHTMARGIN, 434
+        TOPMARGIN, 2
+        BOTTOMMARGIN, 236
+    END
+
+    IDD_DIALOG_WET, DIALOG
+    BEGIN
+        LEFTMARGIN, 2
+        RIGHTMARGIN, 364
+        TOPMARGIN, 3
+        BOTTOMMARGIN, 180
+    END
+
+    IDD_DIALOG_PY, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 257
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 194
+    END
+
+    IDD_DLG_SelfForcast, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 425
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 244
+    END
+END
+#endif    // APSTUDIO_INVOKED
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// String Table
+//
+
+STRINGTABLE 
+BEGIN
+    IDS_ABOUTBOX            "关于 MessAtoB(&A)..."
+END
+
+#endif    // 中文(中华人民共和国) resources
+/////////////////////////////////////////////////////////////////////////////
+
+
+
+#ifndef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 3 resource.
+//
+#define _AFX_NO_SPLITTER_RESOURCES
+#define _AFX_NO_OLE_RESOURCES
+#define _AFX_NO_TRACKER_RESOURCES
+#define _AFX_NO_PROPERTY_RESOURCES
+
+#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_CHS)
+LANGUAGE 4, 2
+#pragma code_page(936)
+#include "res\MessAtoB.rc2"  // 非 Microsoft Visual C++ 编辑的资源
+#include "l.CHS\afxres.rc"      // 标准组件
+#endif
+
+/////////////////////////////////////////////////////////////////////////////
+#endif    // not APSTUDIO_INVOKED
+
