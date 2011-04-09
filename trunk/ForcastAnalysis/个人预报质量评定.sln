@@ -1,0 +1,32 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 10.00
+# Visual Studio 2008
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Person-forcast-analyze", "版本1--评定2008年质量\pointsdeal.vcproj", "{D84D213A-DC6B-42F8-A1BD-ACB5680C5631}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "ForcastAnalysis2", "ForcastAnalysis2\ForcastAnalysis2.vcproj", "{F9A645E7-1B45-49A3-9E60-0E8C6E6C0C76}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "file_code", "..\hello\file_code\file_code.vcproj", "{43EA1CA0-C1C6-4E3E-9E48-57CCF3CCE0B5}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Win32 = Debug|Win32
+		Release|Win32 = Release|Win32
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{D84D213A-DC6B-42F8-A1BD-ACB5680C5631}.Debug|Win32.ActiveCfg = Debug|Win32
+		{D84D213A-DC6B-42F8-A1BD-ACB5680C5631}.Debug|Win32.Build.0 = Debug|Win32
+		{D84D213A-DC6B-42F8-A1BD-ACB5680C5631}.Release|Win32.ActiveCfg = Release|Win32
+		{D84D213A-DC6B-42F8-A1BD-ACB5680C5631}.Release|Win32.Build.0 = Release|Win32
+		{F9A645E7-1B45-49A3-9E60-0E8C6E6C0C76}.Debug|Win32.ActiveCfg = Debug|Win32
+		{F9A645E7-1B45-49A3-9E60-0E8C6E6C0C76}.Debug|Win32.Build.0 = Debug|Win32
+		{F9A645E7-1B45-49A3-9E60-0E8C6E6C0C76}.Release|Win32.ActiveCfg = Release|Win32
+		{F9A645E7-1B45-49A3-9E60-0E8C6E6C0C76}.Release|Win32.Build.0 = Release|Win32
+		{43EA1CA0-C1C6-4E3E-9E48-57CCF3CCE0B5}.Debug|Win32.ActiveCfg = Debug|Win32
+		{43EA1CA0-C1C6-4E3E-9E48-57CCF3CCE0B5}.Debug|Win32.Build.0 = Debug|Win32
+		{43EA1CA0-C1C6-4E3E-9E48-57CCF3CCE0B5}.Release|Win32.ActiveCfg = Release|Win32
+		{43EA1CA0-C1C6-4E3E-9E48-57CCF3CCE0B5}.Release|Win32.Build.0 = Release|Win32
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
