@@ -1,0 +1,293 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312" />
+<title>灾情直报->查看</title>
+<style type="text/css">
+
+<!--
+body {
+	margin-left: 0px;
+	margin-top: 0px;
+	margin-right: 0px;
+	margin-bottom: 0px;
+}
+-->
+
+</style>
+<!--<link href="css.css" rel="stylesheet" type="text/css" />-->
+<link href="./images/css.css" rel="stylesheet" type="text/css" />
+</head>
+
+<body>
+<table width="735" border="0" align="center" cellpadding="0" cellspacing="0">
+  <tr>
+    <td><img src="images/er-banner.gif" width="735" height="81" /></td>
+  </tr>
+</table>
+<table width="735" border="0" align="center" cellpadding="0" cellspacing="0">
+  <tr>
+    <td align="center" bgcolor="#FFFFFF"><img src="images/e-19.gif" /></td>
+  </tr>
+</table>
+<table width="735" border="0" align="center" cellpadding="0" cellspacing="0" bgcolor="#FFFFFF">
+  <tr>
+    <td height="5" colspan="3"></td>
+  </tr>
+  <tr>
+    <td width="26">&nbsp;</td>
+    <td width="683"><table width="100%" border="0" cellpadding="1" cellspacing="1" bgcolor="#8cb8e9">
+      <tr>
+        <td height="36" valign="top" bgcolor="#ebf3fc"><table width="100%" height="24" border="0" cellpadding="0" cellspacing="0">
+           
+
+         <tr bgcolor="#E6E8E6">		
+            <td width="219" height="24" align="right" background="images/b-left-01.gif" class="bg">灾情直报信息编号&nbsp;&nbsp;&nbsp;</td>
+            <td  width="460" align="left"  class="hei">&nbsp;&nbsp;201008021005570663002010 </td>
+          </tr>
+		   
+
+         <tr bgcolor="#FFFFFF">		
+            <td width="219" height="24" align="right" background="images/b-left-01.gif" class="bg">省份&nbsp;&nbsp;&nbsp;</td>
+            <td  width="460" align="left"  class="hei">&nbsp;&nbsp;河南省</td>
+          </tr>
+		   
+
+         <tr bgcolor="#E6E8E6">		
+            <td width="219" height="24" align="right" background="images/b-left-01.gif" class="bg">市（地，州）&nbsp;&nbsp;&nbsp;</td>
+            <td  width="460" align="left"  class="hei">&nbsp;&nbsp;洛阳市</td>
+          </tr>
+		   
+
+         <tr bgcolor="#FFFFFF">		
+            <td width="219" height="24" align="right" background="images/b-left-01.gif" class="bg">县（区，市）&nbsp;&nbsp;&nbsp;</td>
+            <td  width="460" align="left"  class="hei">&nbsp;&nbsp;洛宁县</td>
+          </tr>
+		   
+
+         <tr bgcolor="#E6E8E6">		
+            <td width="219" height="24" align="right" background="images/b-left-01.gif" class="bg">站号&nbsp;&nbsp;&nbsp;</td>
+            <td  width="460" align="left"  class="hei">&nbsp;&nbsp;570663</td>
+          </tr>
+		   
+
+         <tr bgcolor="#FFFFFF">		
+            <td width="219" height="24" align="right" background="images/b-left-01.gif" class="bg">报告人 &nbsp;&nbsp;&nbsp;</td>
+            <td  width="460" align="left"  class="hei">&nbsp;&nbsp;李志勇</td>
+          </tr>
+		   
+
+         <tr bgcolor="#E6E8E6">		
+            <td width="219" height="24" align="right" background="images/b-left-01.gif" class="bg">签发人&nbsp;&nbsp;&nbsp;</td>
+            <td  width="460" align="left"  class="hei">&nbsp;&nbsp;王林香</td>
+          </tr>
+		   
+
+         <tr bgcolor="#FFFFFF">		
+            <td width="219" height="24" align="right" background="images/b-left-01.gif" class="bg">联系电话&nbsp;&nbsp;&nbsp;</td>
+            <td  width="460" align="left"  class="hei">&nbsp;&nbsp;0379-66231209</td>
+          </tr>
+		   
+
+         <tr bgcolor="#E6E8E6">		
+            <td width="219" height="24" align="right" background="images/b-left-01.gif" class="bg">灾情类别&nbsp;&nbsp;&nbsp;</td>
+            <td  width="460" align="left"  class="hei">&nbsp;&nbsp;暴雨</td>
+          </tr>
+		   
+
+         <tr bgcolor="#FFFFFF">		
+            <td width="219" height="24" align="right" background="images/b-left-01.gif" class="bg">灾害发生地名称&nbsp;&nbsp;&nbsp;</td>
+            <td  width="460" align="left"  class="hei">&nbsp;&nbsp;洛宁县</td>
+          </tr>
+		   
+
+         <tr bgcolor="#E6E8E6">		
+            <td width="219" height="24" align="right" background="images/b-left-01.gif" class="bg">灾害发生经度&nbsp;&nbsp;&nbsp;</td>
+            <td  width="460" align="left"  class="hei">&nbsp;&nbsp;111.67</td>
+          </tr>
+		   
+
+         <tr bgcolor="#FFFFFF">		
+            <td width="219" height="24" align="right" background="images/b-left-01.gif" class="bg">灾害发生纬度&nbsp;&nbsp;&nbsp;</td>
+            <td  width="460" align="left"  class="hei">&nbsp;&nbsp;34.38</td>
+          </tr>
+		   
+
+         <tr bgcolor="#E6E8E6">		
+            <td width="219" height="24" align="right" background="images/b-left-01.gif" class="bg">灾害影响描述 &nbsp;&nbsp;&nbsp;</td>
+            <td  width="460" align="left"  class="hei">&nbsp;&nbsp;灾情发生后，每日有新灾情上报，统计数据不断变化，今日灾情核报。7月23日至24日，洛宁遭受暴雨灾害。造成64766人受灾，损坏耕地498亩，烟叶16375亩；玉米17391亩，大豆9222.5亩，谷子6625亩，苹果2310亩，西瓜250亩，其他30亩，树木96804棵，倒塌损坏房屋3380间，因灾死亡大牲畜29头。冲毁河堤2010米，冲毁道路12505.7米，公路塌方1843.6立方，桥19座，电线杆73根，移动通讯一度中断。直接经济损失5862.9万元。</td>
+          </tr>
+		   
+
+         <tr bgcolor="#FFFFFF">		
+            <td width="219" height="24" align="right" background="images/b-left-01.gif" class="bg">直接经济损失 &nbsp;&nbsp;&nbsp;</td>
+            <td  width="460" align="left"  class="hei">&nbsp;&nbsp;5863万元</td>
+          </tr>
+		   
+
+         <tr bgcolor="#E6E8E6">		
+            <td width="219" height="24" align="right" background="images/b-left-01.gif" class="bg">死亡人数 &nbsp;&nbsp;&nbsp;</td>
+            <td  width="460" align="left"  class="hei">&nbsp;&nbsp;1人</td>
+          </tr>
+		   
+
+         <tr bgcolor="#FFFFFF">		
+            <td width="219" height="24" align="right" background="images/b-left-01.gif" class="bg">预报服务描述 &nbsp;&nbsp;&nbsp;</td>
+            <td  width="460" align="left"  class="hei">&nbsp;&nbsp;23日8时40分发布气象短信内参：23日到25日我县有一次分布不均匀的强降雨过程，局部有暴雨。23日16时43分发布暴雨蓝色预警信，并向县委、县政府、防汛办等发送传真；24日6时35分发布暴雨黄色预警信号；24日8时40分发布暴雨红色预警信号，并电话告知。24日早8时向县领导、防汛办等发布雨情短信；24日10时又向县委、县政府、防汛办发布气象内参雨情传真。24日15时15分发布雷电黄色预警、雨情，均通过传真发送到县委、县政府、防汛办。24日早下乡调查灾情，24日上午初报，下午续报，25日继续调查灾情。24日上午、下午、25日上午多次发布雨情内参，报送县委、县政府、防汛办、安监局。
+
+</td>
+          </tr>
+		   
+
+         <tr bgcolor="#E6E8E6">		
+            <td width="219" height="24" align="right" background="images/b-left-01.gif" class="bg">灾情实况图片标识&nbsp;&nbsp;&nbsp;</td>
+            <td  width="460" align="left"  class="hei">&nbsp;&nbsp;0</td>
+          </tr>
+		   
+
+         <tr bgcolor="#FFFFFF">		
+            <td width="219" height="24" align="right" background="images/b-left-01.gif" class="bg">灾情实况录像标识&nbsp;&nbsp;&nbsp;</td>
+            <td  width="460" align="left"  class="hei">&nbsp;&nbsp;0</td>
+          </tr>
+		   
+
+         <tr bgcolor="#E6E8E6">		
+            <td width="219" height="24" align="right" background="images/b-left-01.gif" class="bg">灾情直报原始标识&nbsp;&nbsp;&nbsp;</td>
+            <td  width="460" align="left"  class="hei">&nbsp;&nbsp;201007241128570663002010 </td>
+          </tr>
+		   
+
+         <tr bgcolor="#FFFFFF">		
+            <td width="219" height="24" align="right" background="images/b-left-01.gif" class="bg">数据记录变更标识&nbsp;&nbsp;&nbsp;</td>
+            <td  width="460" align="left"  class="hei">&nbsp;&nbsp;再次上报</td>
+          </tr>
+		   
+
+         <tr bgcolor="#E6E8E6">		
+            <td width="219" height="24" align="right" background="images/b-left-01.gif" class="bg">数据记录标识符&nbsp;&nbsp;&nbsp;</td>
+            <td  width="460" align="left"  class="hei">&nbsp;&nbsp;非最后一条记录</td>
+          </tr>
+		   
+
+         <tr bgcolor="#FFFFFF">		
+            <td width="219" height="24" align="right" background="images/b-left-01.gif" class="bg">开始时间&nbsp;&nbsp;&nbsp;</td>
+            <td  width="460" align="left"  class="hei">&nbsp;&nbsp;2010年7月23日8时0分</td>
+          </tr>
+		   
+
+         <tr bgcolor="#E6E8E6">		
+            <td width="219" height="24" align="right" background="images/b-left-01.gif" class="bg">结束时间&nbsp;&nbsp;&nbsp;</td>
+            <td  width="460" align="left"  class="hei">&nbsp;&nbsp;2010年7月25日8时0分</td>
+          </tr>
+		   
+
+         <tr bgcolor="#FFFFFF">		
+            <td width="219" height="24" align="right" background="images/b-left-01.gif" class="bg">上报时间&nbsp;&nbsp;&nbsp;</td>
+            <td  width="460" align="left"  class="hei">&nbsp;&nbsp;2010年8月2日10时5分</td>
+          </tr>
+		   
+
+         <tr bgcolor="#E6E8E6">		
+            <td width="219" height="24" align="right" background="images/b-left-01.gif" class="bg">受灾总人数&nbsp;&nbsp;&nbsp;</td>
+            <td  width="460" align="left"  class="hei">&nbsp;&nbsp;64766人</td>
+          </tr>
+		   
+
+         <tr bgcolor="#FFFFFF">		
+            <td width="219" height="24" align="right" background="images/b-left-01.gif" class="bg">失踪人数&nbsp;&nbsp;&nbsp;</td>
+            <td  width="460" align="left"  class="hei">&nbsp;&nbsp;0人</td>
+          </tr>
+		   
+
+         <tr bgcolor="#E6E8E6">		
+            <td width="219" height="24" align="right" background="images/b-left-01.gif" class="bg">受伤人数&nbsp;&nbsp;&nbsp;</td>
+            <td  width="460" align="left"  class="hei">&nbsp;&nbsp;0人</td>
+          </tr>
+		   
+
+         <tr bgcolor="#FFFFFF">		
+            <td width="219" height="24" align="right" background="images/b-left-01.gif" class="bg">被困人数&nbsp;&nbsp;&nbsp;</td>
+            <td  width="460" align="left"  class="hei">&nbsp;&nbsp;0人</td>
+          </tr>
+		   
+
+         <tr bgcolor="#E6E8E6">		
+            <td width="219" height="24" align="right" background="images/b-left-01.gif" class="bg">转移安置人数&nbsp;&nbsp;&nbsp;</td>
+            <td  width="460" align="left"  class="hei">&nbsp;&nbsp;2945人</td>
+          </tr>
+		   
+
+         <tr bgcolor="#FFFFFF">		
+            <td width="219" height="24" align="right" background="images/b-left-01.gif" class="bg">农业受灾作物名称&nbsp;&nbsp;&nbsp;</td>
+            <td  width="460" align="left"  class="hei">&nbsp;&nbsp;烟叶、玉米、大豆、谷子、苹果、西瓜</td>
+          </tr>
+		   
+
+         <tr bgcolor="#E6E8E6">		
+            <td width="219" height="24" align="right" background="images/b-left-01.gif" class="bg">农业受灾面积 &nbsp;&nbsp;&nbsp;</td>
+            <td  width="460" align="left"  class="hei">&nbsp;&nbsp;3480公顷</td>
+          </tr>
+		   
+
+         <tr bgcolor="#FFFFFF">		
+            <td width="219" height="24" align="right" background="images/b-left-01.gif" class="bg">饮水困难人数 &nbsp;&nbsp;&nbsp;</td>
+            <td  width="460" align="left"  class="hei">&nbsp;&nbsp;0人</td>
+          </tr>
+		   
+
+         <tr bgcolor="#E6E8E6">		
+            <td width="219" height="24" align="right" background="images/b-left-01.gif" class="bg">倒塌损坏房屋&nbsp;&nbsp;&nbsp;</td>
+            <td  width="460" align="left"  class="hei">&nbsp;&nbsp;3380间</td>
+          </tr>
+		   
+
+         <tr bgcolor="#FFFFFF">		
+            <td width="219" height="24" align="right" background="images/b-left-01.gif" class="bg">铁路公路损坏长度&nbsp;&nbsp;&nbsp;</td>
+            <td  width="460" align="left"  class="hei">&nbsp;&nbsp;13公里</td>
+          </tr>
+		   
+
+         <tr bgcolor="#E6E8E6">		
+            <td width="219" height="24" align="right" background="images/b-left-01.gif" class="bg">损坏桥梁涵洞情况 &nbsp;&nbsp;&nbsp;</td>
+            <td  width="460" align="left"  class="hei">&nbsp;&nbsp;20</td>
+          </tr>
+		   
+
+         <tr bgcolor="#FFFFFF">		
+            <td width="219" height="24" align="right" background="images/b-left-01.gif" class="bg">电力倒杆 &nbsp;&nbsp;&nbsp;</td>
+            <td  width="460" align="left"  class="hei">&nbsp;&nbsp;73</td>
+          </tr>
+		   
+
+         <tr bgcolor="#E6E8E6">		
+            <td width="219" height="24" align="right" background="images/b-left-01.gif" class="bg">牲畜损失 &nbsp;&nbsp;&nbsp;</td>
+            <td  width="460" align="left"  class="hei">&nbsp;&nbsp;29头</td>
+          </tr>
+		   
+
+         <tr bgcolor="#FFFFFF">		
+            <td width="219" height="24" align="right" background="images/b-left-01.gif" class="bg">树林损失数&nbsp;&nbsp;&nbsp;</td>
+            <td  width="460" align="left"  class="hei">&nbsp;&nbsp;10</td>
+          </tr>
+		          </table></td>
+        </tr>
+      <tr>
+        <td height="19" align="center" bgcolor="#ebf3fc"><p align="center">
+          </p>
+          <p>&nbsp;</p></td>
+      </tr>
+      <tr>
+        <td height="19" align="center" bgcolor="#ebf3fc"><a href="index.php?action=DisasterInfo_print_word&amp;ID=201008021005570663002010" target="_blank"><img src="images/word_print.jpg" width="65" height="25" border="0" /></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="index.php?action=DisasterInfo_print&amp;ID=201008021005570663002010" target="_blank"><img src="images/web_print.jpg" width="65" height="25" border="0" /></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="images/b-bottom-03_close.gif" width="65" height="25" border="0" onclick="window.close()"/></td>
+      </tr>
+    </table>
+   </td>
+    <td width="26">&nbsp;</td>
+  </tr>
+  <tr>
+    <td bgcolor="#FFFFFF">&nbsp;</td>
+    <td bgcolor="#FFFFFF">&nbsp;</td>
+    <td bgcolor="#FFFFFF">&nbsp;</td>
+  </tr>
+</table>
+</body>
+</html>
