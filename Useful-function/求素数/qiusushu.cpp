@@ -5,7 +5,7 @@
 using namespace std;
 //----------------------------
 
-bool prime(int n)
+bool isprime(int n)
 {
 	bool flag=true;
 	for(int k=2;k<=sqrt(double(n))&&flag==true;k++)
@@ -18,7 +18,7 @@ int main()
 {   
 	int m=0;   //记录素数的个数
 	for(int i=1001;i<=10000;i+=2)   //如果想求很大的i值可以改为long int
-		if(prime(i))
+		if(isprime(i))
 		{
 			if(m%5==0) cout<<endl;
 			m++;
