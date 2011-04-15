@@ -13,6 +13,7 @@ bool isprime(int n)
 	return flag;
 }
 
+/*
 //-----------------------------
 int main()
 {   
@@ -31,3 +32,4 @@ int main()
 	 cout<<clock()<<endl; 
 	 cin.get();
 }
+*/

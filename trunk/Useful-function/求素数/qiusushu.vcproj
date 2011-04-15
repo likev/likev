@@ -215,6 +215,10 @@
 				/>
 			</FileConfiguration>
 		</File>
+		<File
+			RelativePath=".\qiusushu2.cpp"
+			>
+		</File>
 	</Files>
 	<Globals>
 	</Globals>
