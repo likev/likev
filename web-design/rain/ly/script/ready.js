@@ -23,8 +23,8 @@ function initialize() {
 	var ctaLayer = new google.maps.KmlLayer('http://lyqx.de/jingdian/luoyang.kml');
 	ctaLayer.setMap(googleMap);
 	
-	lyRain.reloadData();
-    window.setInterval("lyRain.reloadData()",60*1000);
+	lyRain.reloadData((new Date()).getTime());
+    window.setInterval("lyRain.reloadData((new Date()).getTime())",60*1000);
 	
 	$(window).resize(setContainerSize);
 	
@@ -129,7 +129,7 @@ function initialize() {
 		$("#ajax-info").text("修改已生效 将重新加载数据");
 		$('.rain-overlay').remove();
 		$(".rain-info").not('#alarm-info').hide();
-		lyRain.reloadData();
+		lyRain.reloadData((new Date()).getTime());
 	}) ;
 	
 	$("#alarm-info").mousemove(function(){

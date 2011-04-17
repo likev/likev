@@ -6,6 +6,7 @@ var lyRain={
 
     isSetAlarm: false,
 	isSuccess:false,
+	endRequestTime:0,
     alarmValue:30,
 	levelValue:[0.1,10,25,50,100,250],
 	levelCount:[],
@@ -23,9 +24,10 @@ var lyRain={
 		return time.getFullYear()+"-"+this.to2(time.getMonth()+1)+"-"+this.to2(time.getDate())+" "
 				+this.to2(time.getHours())+":"+this.to2(time.getMinutes())+":"+this.to2(time.getSeconds());
 	},
-    reloadData: function(){//刷新数据并显示
-
-		this.isSuccess = false;
+    reloadData: function(requestTime){//刷新数据并显示
+		
+		this.endRequestTime = requestTime
+		
 		$("#ajax-info").text("正在请求数据...");
 			
 		var jsonUrl = "http://lyqx.de/rain/ly/raininfo.php";
@@ -43,45 +45,48 @@ var lyRain={
 			jsonUrl = "http://lyqx.de/rain/ly/raininfo.php?history=true&startTime="+beginTimeStr+"&endTime="+endTimeStr;
 		}
 
-		$.getJSON(jsonUrl,$.proxy(this,'ajaxSuccess') );
+		$.getJSON(jsonUrl,$.proxy(this.ajaxSuccess(requestTime),this) );
 
     },
-	ajaxSuccess:function(jsonRain){
-		
-		this.isSuccess = true;
-		this.jsonRain = jsonRain;
-        
-        this.titleStr = "实时数据 更新时间: ";
-        if($("#setend").is(":checked")){
-        	this.titleStr = "历史数据 更新时间: ";
-        }
-		
-		var now = new Date();
-
-		this.titleStr += now.getFullYear()+"-"+(now.getMonth()+1)+"-"+now.getDate()+" "
-						+this.to2(now.getHours())+":"+this.to2(now.getMinutes())+":"+this.to2(now.getSeconds());
-		
-		$('.rain-overlay').remove();
-		$.each(jsonRain, function(key,value){
-			//alert(lonlat[1]+' '+lonlat[0]);
-			//var text = (Math.random()*100).toFixed(1);
-			if(value>0){
-				var text = value;
-				var lonlat = allLonLats[key].lonlat ||[-60,90];
-				var pos = new google.maps.LatLng(lonlat[1], lonlat[0]);
-				var overlay = new RainOverlay(window.googleMap, pos, text, key);
+	ajaxSuccess:function (requestTime){
+	
+		return function(jsonRain){
+			
+			this.isSuccess = true;
+			this.jsonRain = jsonRain;
+			
+			this.titleStr = "实时数据 更新时间: ";
+			if($("#setend").is(":checked")){
+				this.titleStr = "历史数据 更新时间: ";
 			}
-		});
-		
-        if(! this.isSuccess) return;
-        
-		$("#ajax-info").text("请求数据完成！");
-		$("#title").text(this.titleStr);
-		
-		this.calcLevelRain();
-		this.setSortRainInfo();
-					
-		this.dealAlarm();
+			
+			var now = new Date();
+
+			this.titleStr += now.getFullYear()+"-"+(now.getMonth()+1)+"-"+now.getDate()+" "
+							+this.to2(now.getHours())+":"+this.to2(now.getMinutes())+":"+this.to2(now.getSeconds());
+			
+			$('.rain-overlay').remove();
+			$.each(jsonRain, function(key,value){
+				//alert(lonlat[1]+' '+lonlat[0]);
+				//var text = (Math.random()*100).toFixed(1);
+				if(value>0){
+					var text = value;
+					var lonlat = allLonLats[key].lonlat ||[-60,90];
+					var pos = new google.maps.LatLng(lonlat[1], lonlat[0]);
+					var overlay = new RainOverlay(window.googleMap, pos, text, key);
+				}
+			});
+			
+			if(this.endRequestTime != requestTime) return;
+			
+			$("#ajax-info").text("请求数据完成！");
+			$("#title").text(this.titleStr);
+			
+			this.calcLevelRain();
+			this.setSortRainInfo();
+						
+			this.dealAlarm();
+		}
 	},
     alarmedStation:new Array(),
     dealAlarm:function(current){
