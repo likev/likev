@@ -4,6 +4,7 @@
 	Version="9.00"
 	Name="qiusushu"
 	ProjectGUID="{8453A9D6-2782-40E3-9859-996FF9D193C4}"
+	RootNamespace="qiusushu"
 	TargetFrameworkVersion="131072"
 	>
 	<Platforms>
@@ -217,6 +218,10 @@
 		</File>
 		<File
 			RelativePath=".\qiusushu2.cpp"
+			>
+		</File>
+		<File
+			RelativePath=".\unsigned_pow.cpp"
 			>
 		</File>
 	</Files>

@@ -9,17 +9,17 @@ using namespace std;
 void out_prime(unsigned end_range)
 {
 	std::vector<unsigned> primes;
-	primes.push_back(2);
-	cout<<2;
 
-	for(unsigned n=3; n != end_range; n++)
+	unsigned count=0;
+
+	for(unsigned n=2; n <= end_range; n++)
 	{
 		bool is_prime = true;
 
 		for(unsigned index=0;index != primes.size(); index++)
 		{
-			int m = primes[index];
-			if( m <= int(std::sqrt(double(n)) ) )
+			unsigned m = primes[index];
+			if( m <= unsigned(std::sqrt(double(n)) ) )
 			{
 				if(!(n%m))
 				{
@@ -32,16 +32,26 @@ void out_prime(unsigned end_range)
 
 		if(is_prime)
 		{
+			primes.push_back(n);
+			
 			std::cout.width(8);
 			std::cout<<n;
-			primes.push_back(n);
+			if(!(++count % 100)) std::cout<<endl;
+			
 		}
+	}
+	cout<<endl;
+
+}
+/*
+int main()
+{
+	unsigned m=1;
+	while(m)
+	{
+		out_prime(m);
+		std::cin>>m;
 	}
 
 }
-
-int main()
-{
-	out_prime(10e5);
-
-}
+*/
