@@ -51,6 +51,7 @@ var lyRain={
 	ajaxSuccess:function (requestTime){
 	
 		return function(jsonRain){
+			if(this.endRequestTime != requestTime) return;
 			
 			this.isSuccess = true;
 			this.jsonRain = jsonRain;
@@ -76,9 +77,7 @@ var lyRain={
 					var overlay = new RainOverlay(window.googleMap, pos, text, key);
 				}
 			});
-			
-			if(this.endRequestTime != requestTime) return;
-			
+						
 			$("#ajax-info").text("请求数据完成！");
 			$("#title").text(this.titleStr);
 			
