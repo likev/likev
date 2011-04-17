@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+<head>
+<!--
+	last edit time:2011 3 9 22:40
+-->
+<meta name="viewport" content="initial-scale=1.0, user-scalable=no" />
+<meta http-equiv="content-type" content="text/html; charset=UTF-8"/>
+<title>洛阳乡镇雨量站显示</title>
+<link href="lyrain_files/main.css" rel="stylesheet" type="text/css" />
+
+<script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=false"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.5.1/jquery.min.js"></script>
+<script src="lyrain_files/lonlatdatas.js"></script>
+<script src="lyrain_files/user-overlay.js"></script>
+<script src="lyrain_files/lyRain.js"></script>
+<script src="lyrain_files/ready.js"></script>
+<script>
+
+$(initialize);
+
+</script>
+
+</head>
+<body>
+<div class="tips"><span>您的浏览器版本过低，不支持报警，建议切换 <a href="http://firefox.com.cn/download/">firefox</a>  或 <a href="http://www.google.com/chrome?hl=zh-CN">chrome</a> 浏览器！</span></div>
+	<div id='map_head'>
+	    
+		<h3 id="title">洛阳乡镇雨量站实时数据</h3>
+		<div id="set">
+		    <div class="set-part">
+			    <label><input type="checkbox" name="set-alarm" id="set-alarm"/>报警</label>
+			    <input type="text" disabled="disabled" name="alarm-num" id="alarm-num" size='3' maxlength='3'/>
+			</div>
+		    <div class="set-part">
+			    <label><input type="checkbox" name="setbegin" id="setbegin"/>起始时间</label>
+			    <input type="text" disabled="disabled" name="beginTime" id="beginTime"/>
+			</div>
+			<div class="set-part">
+			    <label><input type="checkbox" name="setend" id="setend"/>结束时间</label>
+			    <input type="text" disabled="disabled" name="endTime" id="endTime"/>
+			</div>
+		</div>
+		<div class="cls"></div>
+	</div>
+	
+	<div id="toolbar">
+		<div id="map-toolbar">
+			<a id="collaps" href="#"></a>
+			<h4 id="ajax-info">等待加载数据</h4>	
+		</div>
+		<div id="info-toolbar">
+			<a id="expand" href="#"></a>
+			<ul class="header">
+				<li><a href="#" style="display:none" mapid="#stat-info">统计结果</a><span style="display:inline">统计结果</span></li>
+				<li><a href="#" mapid="#sort-info">雨量排序</a><span>雨量排序</span></li>
+				<li><a href="#" mapid="#alarm-info">报警信息</a><span>报警信息</span></li>
+			</ul>
+		</div>
+		<div class="cls"></div>
+	</div>
+	
+	<div id="container">
+		<div id="left">
+			<div id="map_canvas" ></div>
+		</div>
+		
+		<div id="right">
+			<div id="stat-info" class="rain-info"></div>	
+			<div id="sort-info" class="rain-info"></div>
+			<div id="alarm-info" class="rain-info"></div>
+			
+		</div>
+	</div>
+	
+	<audio id="alarm-sound" >
+        <source src="sound/alarm.ogg" type="audio/ogg" />
+        <source src="sound/alarm.mp3" type="audio/mp3" />
+    </audio>
+</body>
+</html>
