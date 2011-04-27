@@ -25,13 +25,17 @@ var lyRain={
 		return time.getFullYear()+"-"+this.to2(time.getMonth()+1)+"-"+this.to2(time.getDate())+" "
 				+this.to2(time.getHours())+":"+this.to2(time.getMinutes())+":"+this.to2(time.getSeconds());
 	},
+	removeLock:false,
 	removeRain:function(){
+		if(! this.removeLock) this.removeLock = true;
+		else return false;
 		if (this.rainOverlayArray) {
 			for (var i in this.rainOverlayArray) {
 				this.rainOverlayArray[i].setMap(null);
 			}
 			this.rainOverlayArray.length = 0;
 		}
+		this.removeLock = false;
 	},
 	displayRain: function(){
 		//$('.rain-overlay').remove();//去掉之前的内容
