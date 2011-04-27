@@ -54,7 +54,7 @@ var lyRain={
 					var lonlat = allLonLats[key].lonlat ||[-60,90];
 
 				}else{
-					console.log(key);
+					//console.log(key);
 				}
 				var pos = new google.maps.LatLng(lonlat[1], lonlat[0]);
 				if(curBound.contains(pos) ){
