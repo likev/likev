@@ -32,8 +32,7 @@ var lyRain={
 			}
 			this.rainOverlayArray.length = 0;
 		}
-
-	}
+	},
 	displayRain: function(){
 		//$('.rain-overlay').remove();//去掉之前的内容
 		this.removeRain();
