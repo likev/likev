@@ -129,7 +129,7 @@ function initialize() {
 	
 	$("#set input").change(function(){
 		$("#ajax-info").text("修改已生效 将重新加载数据");
-		$('.rain-overlay').remove();
+		lyRain.removeRain();
 		$(".rain-info").not('#alarm-info').hide();
 		lyRain.reloadData((new Date()).getTime());
 	}) ;
