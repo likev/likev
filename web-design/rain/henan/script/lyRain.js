@@ -11,6 +11,7 @@ var lyRain={
 	levelValue:[0.1,10,25,50,100,250],
 	levelCount:[],
 	levelRain:[],
+	rainOverlayArray:[],
     to2:function (n){
             return n>=10 ? n : '0'+n;
         },
@@ -24,8 +25,18 @@ var lyRain={
 		return time.getFullYear()+"-"+this.to2(time.getMonth()+1)+"-"+this.to2(time.getDate())+" "
 				+this.to2(time.getHours())+":"+this.to2(time.getMinutes())+":"+this.to2(time.getSeconds());
 	},
+	removeRain:function(){
+		if (this.rainOverlayArray) {
+			for (var i in this.rainOverlayArray) {
+				this.rainOverlayArray[i].setMap(null);
+			}
+			this.rainOverlayArray.length = 0;
+		}
+
+	}
 	displayRain: function(){
-		$('.rain-overlay').remove();//去掉之前的内容
+		//$('.rain-overlay').remove();//去掉之前的内容
+		this.removeRain();
 		var count = 0;
 		var curBound = window.googleMap.getBounds();
 		for(var key in this.jsonRain){//  
@@ -38,6 +49,7 @@ var lyRain={
 				key = key.toUpperCase();
 				if(key in allLonLats){
 					var lonlat = allLonLats[key].lonlat ||[-60,90];
+
 				}else{
 					console.log(key);
 				}
@@ -46,6 +58,7 @@ var lyRain={
 					count++;
 					//if(!$('.rain-overlay[stationid='+key+']').length){
 						var overlay = new RainOverlay(window.googleMap, pos, text, key);
+						this.rainOverlayArray.push(overlay);
 					//}
 				}
 			}
