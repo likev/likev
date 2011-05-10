@@ -1,11 +1,12 @@
 <?php
+if(extension_loaded('zlib')) ob_start('ob_gzhandler');
 header("Content-Type: application/json; charset=utf-8");
 
-$match_patten = "#<tr class='tContent'><td>(HN[A-Z0-9]+\d+)</td><td>\S+</td><td>\d+</td><td>[:\d\s-]+</td><td>(\d+\.+\d*)</td></tr>#";
+$match_patten = "#<tr class='tContent'><td>(HN[A-Z0-9]+\d+)</td><td>\S+</td><td>\d+</td><td>[:\d\s-]+</td><td>([1-9]\d*\.?\d*|0\.\d*[1-9])</td></tr>#";
 if($_GET['history']){
 //$history_rain_url = "http://www.hnaws.com/infodisplay.asp?Cityflag=HN&InfoT=historical&DispT=intable&StartT=2011-2-28%2020:00&EndT=2011-3-1%2015:32";
 	$rain_info_url = "http://www.hnaws.com/infodisplay.asp?Cityflag=HN&InfoT=historical&DispT=intable&StartT=".rawurlencode($_GET['startTime'])."&EndT=".rawurlencode($_GET['endTime']);	
-	$match_patten = "#<tr class='tContent'><td>(HN[A-Z0-9]+\d+)</td><td>\S+</td><td>\d+</td><td>(\d+\.+\d*)</td></tr>#";
+	$match_patten = "#<tr class='tContent'><td>(HN[A-Z0-9]+\d+)</td><td>\S+</td><td>\d+</td><td>([1-9]\d*\.?\d*|0\.\d*[1-9])</td></tr>#";
 }
 else{
 	$rain_info_url = "http://www.hnaws.com/infodisplay.asp?Cityflag=HN&InfoT=realtime&DispT=intable&StartT=undefined&EndT=undefined";
