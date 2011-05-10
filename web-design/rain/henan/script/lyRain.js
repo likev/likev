@@ -1,4 +1,3 @@
-
 //处理Ajax
 //最后修改 last edit time:2011 3 8 18:00
 
@@ -44,7 +43,7 @@ var lyRain={
 		var curBound = window.googleMap.getBounds();
 		for(var key in this.jsonRain){//  
             var value = Number(this.jsonRain[key]);
-			if(count>100) break;
+			if(count>400) break;
 			//alert(lonlat[1]+' '+lonlat[0]);
 			//var text = (Math.random()*100).toFixed(1);
 			if(value>0){
@@ -55,6 +54,7 @@ var lyRain={
 
 				}else{
 					//console.log(key);
+					continue;
 				}
 				var pos = new google.maps.LatLng(lonlat[1], lonlat[0]);
 				if(curBound.contains(pos) ){
