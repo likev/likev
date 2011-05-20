@@ -136,6 +136,11 @@ function initialize() {
 		$("#alarm-sound")[0].pause();
 	});
 	
+	$("#test-volumn").click(function(){
+		$('#alarm-sound')[0].play();
+		setTimeout("$('#alarm-sound')[0].pause();",3000);
+	});
+	
 	//某些浏览器不支持audio loop
 	$('#alarm-sound').bind('ended',function(){
 		this.play();
