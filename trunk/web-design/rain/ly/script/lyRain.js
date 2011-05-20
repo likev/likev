@@ -30,7 +30,7 @@ var lyRain={
 		
 		$("#ajax-info").text("正在请求数据...");
 			
-		var jsonUrl = "http://lyqx.de/rain/ly/raininfo.php";
+		var jsonUrl = "raininfo.php";
 		
 		//改变请求url
 		if($("#setbegin").is(":checked")){
@@ -42,7 +42,7 @@ var lyRain={
 			var beginTimeStr = $("#beginTime").val(),
 				endTimeStr = $("#endTime").val();
 
-			jsonUrl = "http://lyqx.de/rain/ly/raininfo.php?history=true&startTime="+beginTimeStr+"&endTime="+endTimeStr;
+			jsonUrl = "raininfo.php?history=true&startTime="+beginTimeStr+"&endTime="+endTimeStr;
 		}
 
 		$.getJSON(jsonUrl,$.proxy(this.ajaxSuccess(requestTime),this) );
