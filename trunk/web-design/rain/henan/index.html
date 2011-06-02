@@ -29,7 +29,31 @@ $(initialize);
 		$("#toggle-temph")
 			.parent()
 				.buttonset();
-
+		
+		function changeDivIcon(div,icon_string){
+			$(div).button( "option" , "icons", {primary: icon_string});
+		}
+		
+		$( "#toggle-temph,#toggle-wind,#toggle-alarm" )
+			.toggle(
+					function(){
+						changeDivIcon(this,"ui-icon-check");
+					},
+					function(){
+						changeDivIcon(this,null);
+					}
+			);
+		$("#toggle-rain")
+			.button("option", "icons", { primary: "ui-icon-check" })
+			.toggle(
+					function(){
+						changeDivIcon(this,null);
+					},
+					function(){
+						changeDivIcon(this,"ui-icon-check");
+					}
+			);
+		
 		$( "#desc-time" )
 			.button()
 			.next()
@@ -44,7 +68,8 @@ $(initialize);
 				})
 				.toggle(
 					function(){
-						$(this).button( "option" , "icons", {primary: "ui-icon-triangle-1-n"});
+						changeDivIcon(this,"ui-icon-triangle-1-n");
+						//$(this).button( "option" , "icons", {primary: "ui-icon-triangle-1-n"});
 					},
 					function(){
 						$(this).button( "option" , "icons", {primary: "ui-icon-triangle-1-s"});
@@ -69,6 +94,11 @@ $(initialize);
 		$( "#time-slider" ).slider({max:0, min:-100, value:0});
 		
 		$("#set-alarm-dialog" ).dialog({ autoOpen: false, modal:true, width:700, height:300});
+		
+		$("#alarm-volume-test").click(function(){
+			$('#alarm-sound')[0].play();
+			setTimeout("$('#alarm-sound')[0].pause();",3000);
+		});
 	});
 </script>
 
@@ -112,8 +142,32 @@ margin-left:20px;
 .set-alarm-part-content {
 	padding:5px 20px;
 }
+
+.wind-overlay{
+position:absolute;
+}
 </style>
+
+<script>
+$(function(){
+	var count=0;
+	for(var key in allLonLats){
+		if(count++ > 500) break;
+		var value = (Math.random()*30).toFixed(1);
+		var direction = (Math.random()*360).toFixed(1);
+		
+		var lonlat = allLonLats[key].lonlat ||[-60,90];
+		var pos = new google.maps.LatLng(lonlat[1], lonlat[0]);
+		
+		
+		var overlay2 = new TemphOverlay(window.googleMap, pos, direction, key);
+		var overlay3 = new RainOverlay(window.googleMap, pos, value,direction, key);
+		var overlay = new WindOverlay(window.googleMap, pos, [value,direction], key);
+	}
+});
+</script>
 </head>
+
 <body>
 <!--
 <div class="tips"><span>您的浏览器版本过低，不支持报警，建议切换 <a href="http://firefox.com.cn/download/">firefox</a>  或 <a href="http://www.google.com/chrome?hl=zh-CN">chrome</a> 浏览器！</span></div>
@@ -148,7 +202,7 @@ margin-left:20px;
 			<button id="set-alarm">报警设置</button>
 		</div>
 		
-		<div class="tool-group" id="set-time-range">
+		<div class="tool-group cls" id="set-time-range">
 			<input type="text" value="2011-01-26 10:10" size="17" disabled="disabled" name="beginTime" id="begin-time" class="show-time ui-like ui-widget ui-state-default ui-corner-left ui-corner-right"/>
 			<div id="time-slider" class="show-time"></div>
 			<input type="text" value="2011-01-26 10:10" size="17" name="endTime" id="end-time" class="show-time ui-like ui-widget ui-state-default ui-corner-left ui-corner-right"/>
@@ -158,23 +212,23 @@ margin-left:20px;
 			<div class="set-alarm-part">
 				<h4>报警条件</h4>
 				<div class='set-alarm-part-content'>
-					<label><input type="checkbox" name="rain-alarm-check" id="rain-alarm-check"/>雨量值(mm)</label>
-					<label><input type="text" size="10" value="5 10 20" name="rain-alarm-value" id="rain-alarm-value"/></label>
+					<label><input type="checkbox" checked="checked" name="rain-alarm-check" id="rain-alarm-check"/>雨量值(mm)</label>
+					<label><input type="text" size="10" value="10 30 50" name="rain-alarm-value" id="rain-alarm-value"/></label>
 					
-					<label><input type="checkbox" name="temph-alarm-check" id="temph-alarm-check"/>气温(°C)</label>
-					<label><input type="text" size="10" value="35 37 40" name="temph-alarm-value" id="temph-alarm-value"/></label>
+					<label><input type="checkbox" checked="checked" name="temph-alarm-check" id="temph-alarm-check"/>气温(°C)</label>
+					<label><input type="text" size="10" value="37 40 42" name="temph-alarm-value" id="temph-alarm-value"/></label>
 					
-					<label><input type="checkbox" name="wind-alarm-check" id="wind-alarm-check"/>风速(m/s)</label>
-					<label><input type="text" size="10"  value="8 12 16" name="wind-alarm-value" id="wind-alarm-value"/></label>
+					<label><input type="checkbox" checked="checked" name="wind-alarm-check" id="wind-alarm-check"/>风速(m/s)</label>
+					<label><input type="text" size="10"  value="12 16 20" name="wind-alarm-value" id="wind-alarm-value"/></label>
 				</div>
 			</div> <!-- end set-alarm-part -->
 			
 			<div class="set-alarm-part">
 				<h4>报警方式</h4>
 				<div class='set-alarm-part-content'>
-					<label><input type="checkbox" name="wind-alarm-volume" id="wind-alarm-volume"/>声音(<a href="#" id="alarm-volume-test">测试</a>)</label>
+					<label><input type="checkbox" checked="checked" name="alarm-volume-check" id="alarm-volume-check"/>声音(<a href="#" id="alarm-volume-test">测试</a>)</label>
 					
-					<label><input type="checkbox" name="wind-alarm-sms" id="wind-alarm-sms"/>短信(<a href="#" id="alarm-sms-test">测试</a>)</label>
+					<label><input type="checkbox" disabled="disabled" name="alarm-sms-check" id="alarm-sms-check"/>短信(<a href="#" id="alarm-sms-test">测试</a>)</label>
 					<label><input type="text" size="40" value="13698835392 13663880026" name="wind-alarm-tel" id="wind-alarm-tel"/></label>
 				</div>
 			</div> <!-- end set-alarm-part -->

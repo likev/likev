@@ -1,11 +1,12 @@
 //自定义层
 
+//--- 雨量层 ---
 RainOverlay.prototype = new google.maps.OverlayView();
 
-function RainOverlay(map, swBound, text, stationId) {
+function RainOverlay(map, pointLatlon, text, stationId) {
 
 	// Now initialize all properties.
-	this.swBound_ = swBound;
+	this.pointLatlon_ = pointLatlon;
 	this.stationId_ = stationId;
 	this.map_ = map;
 	this.text_ = text;
@@ -22,12 +23,7 @@ function RainOverlay(map, swBound, text, stationId) {
 
 RainOverlay.prototype.onAdd = function() {
 
-	// Note: an overlay's receipt of add() indicates that
-	// the map's panes are now available for attaching
-	// the overlay to the map via the DOM.
-
-	// Create the DIV and set some basic attributes.
-	 var div = document.createElement('DIV');
+	var div = document.createElement('DIV');
 
 	$(div).css({"font-family":"Arial,Helvetica,sans-serif",
 				"border":"none",
@@ -44,28 +40,6 @@ RainOverlay.prototype.onAdd = function() {
 
 	var content = "<span>"+ this.text_ +"</span>";
 	$(div).html(content).bind('contextmenu',function(e){
-		var cur = new Date();
-		if(cur.getHours()>=20){
-			cur.setDate(cur.getDate()+1);
-		}
-		
-		function to2num(m){
-			if(m<10) 
-				return '0'+m;
-			else
-				return m;
-		}
-		
-		var year = cur.getFullYear(), month = to2num(cur.getMonth()+1), day = cur.getDate();
-		var stationId=$(this).attr('stationId');
-		
-		var url = 'http://www.hnaws.com/HNAWS/MSinfo/MSinfodisp.asp?Sel_TY='
-					+year+'&Sel_TM='+month+'&Sel_TD='+day+'&StationNo='+stationId+'&StationName=Select Station';
-		$('a.rain-table').attr('href',url);
-		
-		var scrollTop = $(document).scrollTop(),
-			topValue = e.pageY-scrollTop-15;
-		$('#moreinfo').css({left:e.pageX+'px',top:topValue+'px'}).show();
 		//return false;
 	}).mouseout(function(){
 		window.setTimeout("$('#moreinfo').hide();",4000);
@@ -91,7 +65,7 @@ RainOverlay.prototype.draw = function() {
 	// Retrieve the southwest and northeast coordinates of this overlay
 	// in latlngs and convert them to pixels coordinates.
 	// We'll use these coordinates to resize the DIV.
-	var sw = overlayProjection.fromLatLngToDivPixel(this.swBound_);
+	var sw = overlayProjection.fromLatLngToDivPixel(this.pointLatlon_);
 	// var ne = overlayProjection.fromLatLngToDivPixel(this.bounds_.getNorthEast());
 
 	// Resize the image's DIV to fit the indicated dimensions.
@@ -177,4 +151,252 @@ function getRainColor(value,hourSpan){
 			return colorArray[6];
 		}
 	}
+}
+
+//--- 温度层 ---
+TemphOverlay.prototype = new google.maps.OverlayView();
+
+function TemphOverlay(map, pointLatlon, text, stationId) {
+
+	// 初始化.
+	this.pointLatlon_ = pointLatlon;
+	this.stationId_ = stationId;
+	this.map_ = map;
+	this.text_ = text;
+
+	this.div_ = null;
+
+	this.setMap(map);
+}
+
+TemphOverlay.prototype.onAdd = function() {
+	
+	//向panes.overlayImage中添加div元素
+	var div = document.createElement('DIV');
+
+	$(div).css({"font-family":"Arial,Helvetica,sans-serif",
+				"border":"none",
+				"padding":"3px",
+				"border-width":"0px",
+				"position":"absolute",
+				"opacity":"0.7",
+				"font-size":"18px",
+				"color":"red",
+				"background-color":"white"//
+	});
+	//$(div).height(30).width(40);
+	$(div).addClass("temph-overlay").attr('stationId',this.stationId_);
+
+	var content = "<span>"+ this.text_ +"</span>";
+	$(div).html(content);
+	this.div_ = div;
+
+	var panes = this.getPanes();
+	panes.overlayImage.appendChild(this.div_);
+}
+
+//在指定位置绘制元素
+TemphOverlay.prototype.draw = function() {
+	
+	var overlayProjection = this.getProjection();
+	var sw = overlayProjection.fromLatLngToDivPixel(this.pointLatlon_);
+
+	var div = this.div_;
+	div.style.left = sw.x-40 + 'px';
+	div.style.bottom = -sw.y + 'px';
+}
+
+//删除元素
+TemphOverlay.prototype.onRemove = function() {
+	this.div_.parentNode.removeChild(this.div_);
+}
+
+	// Note that the visibility property must be a string enclosed in quotes
+TemphOverlay.prototype.hide = function() {
+	if (this.div_) {
+	  this.div_.style.visibility = "hidden";
+	}
+}
+
+TemphOverlay.prototype.show = function() {
+	if (this.div_) {
+	  this.div_.style.visibility = "visible";
+	}
+}
+
+TemphOverlay.prototype.toggle = function() {
+	if (this.div_) {
+	  if (this.div_.style.visibility == "hidden") {
+		this.show();
+	  } else {
+		this.hide();
+	  }
+	}
+}
+
+TemphOverlay.prototype.toggleDOM = function() {
+	if (this.getMap()) {
+	  this.setMap(null);
+	} else {
+	  this.setMap(this.map_);
+	}
+}
+
+//--- 风矢量层 ---
+WindOverlay.prototype = new google.maps.OverlayView();
+
+function WindOverlay(map, pointLatlon, wind, stationId) {
+
+	this.pointLatlon_ = pointLatlon;
+	this.stationId_ = stationId;
+	this.map_ = map;
+	this.wind_ = wind;
+
+	this.div_ = null;
+
+	this.setMap(map);
+}
+
+WindOverlay.prototype.onAdd = function() {
+
+	var wind_canvas = $('<canvas id="myCanvas" width="160" height="160"></canvas>')[0];
+	var div = $('<div/>')[0];
+	
+
+	$(div).addClass("wind-overlay").attr('stationId',this.stationId_).append(wind_canvas);
+	//console.dir(div);
+	var dc= wind_canvas.getContext("2d");
+	
+	drawWind(dc, 80, 80, this.wind_[0], this.wind_[1]);
+	
+	this.div_ = div;
+
+	var panes = this.getPanes();
+	panes.floatShadow.appendChild(this.div_);//overlayImage
+}
+
+WindOverlay.prototype.draw = function() {
+
+	var overlayProjection = this.getProjection();
+	var sw = overlayProjection.fromLatLngToDivPixel(this.pointLatlon_);
+	
+	var div = this.div_;
+	div.style.left = sw.x-80 + 'px';
+	div.style.bottom = -sw.y-80 + 'px';
+
+}
+
+WindOverlay.prototype.onRemove = function() {
+	this.div_.parentNode.removeChild(this.div_);
+}
+
+	// Note that the visibility property must be a string enclosed in quotes
+WindOverlay.prototype.hide = function() {
+	if (this.div_) {
+	  this.div_.style.visibility = "hidden";
+	}
+}
+
+WindOverlay.prototype.show = function() {
+	if (this.div_) {
+	  this.div_.style.visibility = "visible";
+	}
+}
+
+WindOverlay.prototype.toggle = function() {
+	if (this.div_) {
+	  if (this.div_.style.visibility == "hidden") {
+		this.show();
+	  } else {
+		this.hide();
+	  }
+	}
+}
+
+WindOverlay.prototype.toggleDOM = function() {
+	if (this.getMap()) {
+	  this.setMap(null);
+	} else {
+	  this.setMap(this.map_);
+	}
+}
+
+function drawWind(dc, posX, posY, value, direction)
+{
+	dc.DrawLine = function(x1,y1,x2,y2){
+		this.moveTo(x1,y1);
+		this.lineTo(x2,y2);
+	}
+
+	var pi = 3.14159265358979;
+
+	function sind(d)
+	{
+		return Math.sin(d*pi/180);
+	}
+	function cosd(d)
+	{
+		return Math.cos(d*pi/180);
+	}
+	
+	if(value > 1000 ) return;
+    
+    var l=40, s=10, w=20;
+    var ax = posX+l*sind(direction),
+    	   ay = posY-l*cosd(direction);
+    
+    dc.DrawLine(posX,posY,ax, ay);
+    
+    var rest = value+1;
+    var n20=Math.floor(rest/20);
+	
+	console.log(n20);
+    
+    for(var i=0;i<n20;i++)
+    {
+    	var bx = ax - i*s*sind(direction),
+    		   by = ay + i*s*cosd(direction),
+    		   
+    		   cx = bx + w*cosd(direction),
+    		   cy = by + w*sind(direction),
+    		   
+    		   dx = bx - s*sind(direction),
+    		   dy = by + s*cosd(direction);
+    		   
+    	dc.DrawLine(bx,by,cx,cy);
+    	dc.DrawLine(cx,cy,dx,dy);	
+    }
+    
+    ax -= n20*s*sind(direction);
+    ay += n20*s*cosd(direction);
+    
+    s = 8;
+    rest -= n20*20;
+    var n4 = Math.floor(rest/4);
+    for(var i=0;i<n4;i++)
+    {
+    	var bx = ax - i*s*sind(direction),
+    		   by = ay + i*s*cosd(direction),
+    		   
+    		   cx = bx + w*cosd(direction),
+    		   cy = by + w*sind(direction);
+    		   
+    	dc.DrawLine(bx,by,cx,cy);	
+    }
+    
+    rest -= n4*4;
+    
+    if(rest >= 2 )
+    {
+    	var bx = ax - n4*s*sind(direction),
+    		   by = ay + n4*s*cosd(direction),
+    		   
+    		   cx = bx + w*cosd(direction)/2,
+    		   cy = by + w*sind(direction)/2;
+    		   
+    	dc.DrawLine(bx,by,cx,cy);
+    }
+    
+	dc.stroke();
+    // Look at the wxDC docs to learn how to draw other stuff
 }
