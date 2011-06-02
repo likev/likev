@@ -12,6 +12,9 @@
 
 <script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=false"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.5.1/jquery.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.13/jquery-ui.min.js"></script>
+<link href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.13/themes/ui-lightness/jquery-ui.css" type="text/css" rel="stylesheet" />
+
 <script src="script/lonlatdatas.js"></script>
 <script src="script/user-overlay.js"></script>
 <script src="script/lyRain.js"></script>
@@ -21,13 +24,163 @@
 $(initialize);
 
 </script>
+<script>
+	$(function() {
+		$("#toggle-temph")
+			.parent()
+				.buttonset();
 
+		$( "#desc-time" )
+			.button()
+			.next()
+				.button( {
+					text: false,
+					icons: {
+						primary: "ui-icon-triangle-1-s"
+					}
+				})
+				.click(function() {
+					alert( "Could display a menu to select an action" );
+				})
+				.parent()
+					.buttonset();
+		$( "#toggle-alarm" ).button();
+		$( "#set-alarm" ).button( {
+				text: false,
+				icons: {
+					primary: "ui-icon-gear"
+				}
+			})
+			.click(function() {
+				$("#set-alarm-dialog" ).dialog("open");
+			})
+			.parent()
+				.buttonset();
+				
+		$( "#time-slider" ).slider({max:0, min:-100, value:0});
+		
+		$("#set-alarm-dialog" ).dialog({ autoOpen: false, modal:true, width:700, height:300});
+	});
+</script>
+
+<style>
+#main-toolbar {
+	margin: 10px 0px;
+	padding: 8px 4px;
+}
+
+.ui-like {
+	border: 1px solid #CCCCCC;
+    color: #1C94C4;
+    font-weight: bold;
+	padding:0.4em 0;
+	text-align:center;
+}
+
+.tool-group {
+float:left;
+margin-left:20px;
+}
+
+#set-time-range {
+margin:10px 0  0;
+}
+
+#time-slider {
+ margin-top: 10px;
+ width: 600px;
+}
+
+.show-time {
+float:left;
+margin-left:20px;
+}
+
+.set-alarm-part {
+	margin:10px 0 20px;
+}
+.set-alarm-part-content {
+	padding:5px 20px;
+}
+</style>
 </head>
 <body>
 <!--
 <div class="tips"><span>您的浏览器版本过低，不支持报警，建议切换 <a href="http://firefox.com.cn/download/">firefox</a>  或 <a href="http://www.google.com/chrome?hl=zh-CN">chrome</a> 浏览器！</span></div>
 -->
-	<div id='map_head'>
+	<div id="main-toolbar" class="ui-widget-header ui-corner-all">
+		<div class="tool-group">
+			<input type="checkbox" id="toggle-temph"/><label for="toggle-temph">气温</label>
+			<input type="checkbox" id="toggle-wind"/><label for="toggle-wind">风</label>
+			<input type="checkbox" id="toggle-rain"/><label for="toggle-rain">降水</label>
+		</div>
+	
+		<div class="tool-group">
+			<select name="rain-range" id="rain-range" class="ui-like ui-widget ui-state-default ui-corner-left ui-corner-right">
+				<option value="after20">20时以来</option>
+				<option value="30">30分钟</option>
+				<option value="1">1小时</option>
+				<option selected="" value="3">3小时</option> 
+				<option value="6">6小时</option>
+				<option value="12">12小时</option>
+				<option value="24">24小时</option>
+				<option value="n">任意时段</option>
+			</select>
+		</div>
+		
+		<div class="tool-group">
+			<button id="desc-time">最新</button>
+			<button id="select-time">设置时间范围</button>
+		</div>
+		
+		<div class="tool-group">
+			<input type="checkbox" id="toggle-alarm"/><label for="toggle-alarm">报警</label>
+			<button id="set-alarm">报警设置</button>
+		</div>
+		
+		<div class="tool-group" id="set-time-range">
+			<input type="text" value="2011-01-26 10:10" size="17" disabled="disabled" name="beginTime" id="begin-time" class="show-time ui-like ui-widget ui-state-default ui-corner-left ui-corner-right"/>
+			<div id="time-slider" class="show-time"></div>
+			<input type="text" value="2011-01-26 10:10" size="17" name="endTime" id="end-time" class="show-time ui-like ui-widget ui-state-default ui-corner-left ui-corner-right"/>
+		</div>
+		
+		<div id="set-alarm-dialog" title="报警设置">
+			<div class="set-alarm-part">
+				<h4>报警条件</h4>
+				<div class='set-alarm-part-content'>
+					<label><input type="checkbox" name="rain-alarm-check" id="rain-alarm-check"/>雨量值(mm)</label>
+					<label><input type="text" size="10" value="5 10 20" name="rain-alarm-value" id="rain-alarm-value"/></label>
+					
+					<label><input type="checkbox" name="temph-alarm-check" id="temph-alarm-check"/>气温(°C)</label>
+					<label><input type="text" size="10" value="35 37 40" name="temph-alarm-value" id="temph-alarm-value"/></label>
+					
+					<label><input type="checkbox" name="wind-alarm-check" id="wind-alarm-check"/>风速(m/s)</label>
+					<label><input type="text" size="10"  value="8 12 16" name="wind-alarm-value" id="wind-alarm-value"/></label>
+				</div>
+			</div> <!-- end set-alarm-part -->
+			
+			<div class="set-alarm-part">
+				<h4>报警方式</h4>
+				<div class='set-alarm-part-content'>
+					<label><input type="checkbox" name="wind-alarm-volume" id="wind-alarm-volume"/>声音(<a href="#" id="alarm-volume-test">测试</a>)</label>
+					
+					<label><input type="checkbox" name="wind-alarm-sms" id="wind-alarm-sms"/>短信(<a href="#" id="alarm-sms-test">测试</a>)</label>
+					<label><input type="text" size="40" value="13698835392 13663880026" name="wind-alarm-tel" id="wind-alarm-tel"/></label>
+				</div>
+			</div> <!-- end set-alarm-part -->
+			
+			<div class="set-alarm-part">
+				<h4>报警区域(<a href="#" id="set-alarm-area" title="开始后在地图上点击鼠标右键开始和结束">开始设置</a>)</h4>
+				<div class='set-alarm-part-content'>
+					中心：（<span id="alarm-">111.5,45.2</span>） 半径：<span>50km</span>
+				</div>
+			</div> <!-- end set-alarm-part -->
+		</div>
+		
+		<div class="cls"></div>
+	</div> <!-- end #main-toolbar -->
+	
+	<div id='map_head' style="display:none">
 	    
 		<h3 id="title">河南乡镇雨量站实时数据</h3>
 		<div id="set">
@@ -80,11 +233,11 @@ $(initialize);
 		</div>
 	-->
 	</div>
-<!--	
+<!--	-->
 	<audio id="alarm-sound" >
         <source src="sound/alarm.ogg" type="audio/ogg" />
         <source src="sound/alarm.mp3" type="audio/mp3" />
     </audio>
--->
+
 </body>
 </html>
