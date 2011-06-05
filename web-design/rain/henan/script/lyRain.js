@@ -22,7 +22,7 @@ var lyRain={
 		time = time ? time : new Date();
 
 		return time.getFullYear()+"-"+this.to2(time.getMonth()+1)+"-"+this.to2(time.getDate())+" "
-				+this.to2(time.getHours())+":"+this.to2(time.getMinutes())+":"+this.to2(time.getSeconds());
+				+this.to2(time.getHours())+":"+this.to2(time.getMinutes());//+":"+this.to2(time.getSeconds())
 	},
 	removeLock:false,
 	removeRain:function(){
