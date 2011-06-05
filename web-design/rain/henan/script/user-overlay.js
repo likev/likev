@@ -341,7 +341,7 @@ function drawWind(dc, posX, posY, value, direction)
 	
 	if(value > 1000 ) return;
     
-    var l=40, s=10, w=20;
+    var l=32, s=10, w=18;
     var ax = posX+l*sind(direction),
     	   ay = posY-l*cosd(direction);
     
@@ -350,7 +350,7 @@ function drawWind(dc, posX, posY, value, direction)
     var rest = value+1;
     var n20=Math.floor(rest/20);
 	
-	console.log(n20);
+	//console.log(n20);
     
     for(var i=0;i<n20;i++)
     {

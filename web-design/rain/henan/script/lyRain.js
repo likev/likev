@@ -36,6 +36,8 @@ var lyRain={
 		}
 		this.removeLock = false;
 	},
+	
+	maxDisplayStations:400,
 	displayRain: function(){
 		//$('.rain-overlay').remove();//去掉之前的内容
 		this.removeRain();
@@ -43,7 +45,7 @@ var lyRain={
 		var curBound = window.googleMap.getBounds();
 		for(var key in this.jsonRain){//  
             var value = Number(this.jsonRain[key]);
-			if(count>400) break;
+			if(count > this.maxDisplayStations) break;
 			//alert(lonlat[1]+' '+lonlat[0]);
 			//var text = (Math.random()*100).toFixed(1);
 			if(value>0){
@@ -67,11 +69,100 @@ var lyRain={
 			}
 		}
 	},
-    reloadData: function(requestTime){//刷新数据并显示
+	
+	wind2OverlayArray:[],
+	removeWind2:function(){
+		if(! this.removeLock) this.removeLock = true;
+		else return false;
+		if (this.wind2OverlayArray) {
+			for (var i in this.wind2OverlayArray) {
+				this.wind2OverlayArray[i].setMap(null);
+			}
+			this.wind2OverlayArray.length = 0;
+		}
+		this.removeLock = false;
+	},
+	displayWind2: function(){
+		//$('.rain-overlay').remove();//去掉之前的内容
+		this.removeWind2();
+		var count = 0;
+		var curBound = window.googleMap.getBounds();
+		for(var key in this.jsonWind2){//  
+            var value = Number(this.jsonWind2[key][1]);
+			var direction = Number(this.jsonWind2[key][0])
+			if(count > this.maxDisplayStations) break;
+			//alert(lonlat[1]+' '+lonlat[0]);
+			//var text = (Math.random()*100).toFixed(1);
+			if(value >= 0){
+				var text = value;
+				key = key.toUpperCase();
+				if(key in allLonLats){
+					var lonlat = allLonLats[key].lonlat ||[-60,90];
+
+				}else{
+					//console.log(key);
+					continue;
+				}
+				var pos = new google.maps.LatLng(lonlat[1], lonlat[0]);
+				if(curBound.contains(pos) ){
+					count++;
+					//if(!$('.rain-overlay[stationid='+key+']').length){
+						var overlay = new WindOverlay(window.googleMap, pos, [value,direction], key);
+						this.wind2OverlayArray.push(overlay);
+					//}
+				}
+			}
+		}
+	},
+	
+	temphOverlayArray:[],
+	removeTemph:function(){
+		if(! this.removeLock) this.removeLock = true;
+		else return false;
+		if (this.temphOverlayArray) {
+			for (var i in this.temphOverlayArray) {
+				this.temphOverlayArray[i].setMap(null);
+			}
+			this.temphOverlayArray.length = 0;
+		}
+		this.removeLock = false;
+	},
+	displayTemph: function(){
+		//$('.rain-overlay').remove();//去掉之前的内容
+		this.removeTemph();
+		var count = 0;
+		var curBound = window.googleMap.getBounds();
+		for(var key in this.jsonTemph){//  
+            var value = Number(this.jsonTemph[key]);
+			if(count > this.maxDisplayStations) break;
+			//alert(lonlat[1]+' '+lonlat[0]);
+			//var text = (Math.random()*100).toFixed(1);
+			if(value>-30 && value<50){
+				var text = value;
+				key = key.toUpperCase();
+				if(key in allLonLats){
+					var lonlat = allLonLats[key].lonlat ||[-60,90];
+
+				}else{
+					//console.log(key);
+					continue;
+				}
+				var pos = new google.maps.LatLng(lonlat[1], lonlat[0]);
+				if(curBound.contains(pos) ){
+					count++;
+					//if(!$('.rain-overlay[stationid='+key+']').length){
+						var overlay = new TemphOverlay(window.googleMap, pos, text, key);
+						this.temphOverlayArray.push(overlay);
+					//}
+				}
+			}
+		}
+	},
+    reloadRainData: function(requestTime){//刷新数据并显示
 		
-		this.endRequestTime = requestTime
+		this.endRequestTime = requestTime;
 		
-		$("#ajax-info").text("正在请求数据...");
+		$("#ajax-info").text("正在请求雨量数据...");
 			
 		var jsonUrl = "raininfo.php";
 		
@@ -88,10 +179,34 @@ var lyRain={
 			jsonUrl = "raininfo.php?history=true&startTime="+beginTimeStr+"&endTime="+endTimeStr;
 		}
 
-		$.getJSON(jsonUrl,$.proxy(this.ajaxSuccess(requestTime),this) );
+		$.getJSON(jsonUrl,$.proxy(this.ajaxRainSuccess(requestTime),this) );
 
     },
-	ajaxSuccess:function (requestTime){
+	
+	isLatestRequest:true,
+	reloadTemphWind2Data: function(requestTime){//刷新数据并显示
+		
+		this.endTemphWind2RequestTime = requestTime;
+		
+		$("#ajax-info").text("正在请求温度和风场数据...");
+			
+		var jsonUrl = "lib/t-wind2.php";
+		
+		//改变请求url
+		if(! this.isLatestRequest){
+			
+			var beginTimeStr = $("#beginTime").val(),
+				endTimeStr = $("#endTime").val();
+
+			jsonUrl = "lib/t-wind2.php?history=true&wind2Time="+endTimeStr;
+		}
+
+		$.getJSON(jsonUrl,$.proxy(this.ajaxTemphWind2Success(requestTime),this) );
+
+    },
+	
+	isDisplayRain:true,
+	ajaxRainSuccess:function (requestTime){
 	
 		return function(jsonRain){
 			if(this.endRequestTime != requestTime) return;
@@ -110,10 +225,37 @@ var lyRain={
 							+this.to2(now.getHours())+":"+this.to2(now.getMinutes())+":"+this.to2(now.getSeconds());
 			
 			
-			this.displayRain();
+			if(this.isDisplayRain) this.displayRain();
 						
 			$("#ajax-info").text("请求数据完成！");
 			$("#title").text(this.titleStr);
+			
+			//this.calcLevelRain();
+			//this.setSortRainInfo();
+						
+			//this.dealAlarm();
+		}
+	},
+	
+	isDisplayTemph:false,
+	isDisplayWind2:false,
+	ajaxTemphWind2Success:function (requestTime){
+	
+		return function(jsonTemphWind2){
+			if(this.endTemphWind2RequestTime != requestTime) return;
+			
+			this.jsonTemph = {};
+			this.jsonWind2 = {};
+			for(var key in jsonTemphWind2){
+				this.jsonTemph[key] = jsonTemphWind2[key][0];
+				this.jsonWind2[key] = new Array(jsonTemphWind2[key][1],jsonTemphWind2[key][2]);
+			}
+			
+			if(this.isDisplayTemph) this.displayTemph();
+			if(this.isDisplayWind2) this.displayWind2();
+						
+			//$("#ajax-info").text("请求数据完成！");
+			//$("#title").text(this.titleStr);
 			
 			//this.calcLevelRain();
 			//this.setSortRainInfo();

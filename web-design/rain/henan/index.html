@@ -34,26 +34,57 @@ $(initialize);
 			$(div).button( "option" , "icons", {primary: icon_string});
 		}
 		
-		$( "#toggle-temph,#toggle-wind,#toggle-alarm" )
+		$( "#toggle-temph" )
 			.toggle(
 					function(){
+						lyRain.isDisplayTemph = true;
+						lyRain.removeTemph();
 						changeDivIcon(this,"ui-icon-check");
 					},
 					function(){
+						lyRain.isDisplayTemph = false;
+						lyRain.displayTemph();
 						changeDivIcon(this,null);
 					}
 			);
+		$( "#toggle-wind" )
+			.toggle(
+					function(){
+						lyRain.isDisplayWind2 = true;
+						lyRain.displayWind2();
+						changeDivIcon(this,"ui-icon-check");
+					},
+					function(){
+						lyRain.isDisplayWind2 = false;
+						lyRain.removeWind2();
+						changeDivIcon(this,null);
+					}
+			);
+		
 		$("#toggle-rain")
 			.button("option", "icons", { primary: "ui-icon-check" })
 			.toggle(
 					function(){
+						lyRain.isDisplayRain = false;
+						lyRain.removeRain();
 						changeDivIcon(this,null);
 					},
 					function(){
+						lyRain.isDisplayRain = true;
+						lyRain.displayRain();
 						changeDivIcon(this,"ui-icon-check");
 					}
 			);
-		
+		$( "#toggle-alarm" )
+			.toggle(
+					function(){
+						changeDivIcon(this,"ui-icon-check");
+					},
+					function(){
+						changeDivIcon(this,null);
+					}
+			);
+			
 		$( "#desc-time" )
 			.button()
 			.next()
@@ -150,6 +181,7 @@ position:absolute;
 
 <script>
 $(function(){
+/*
 	var count=0;
 	for(var key in allLonLats){
 		if(count++ > 500) break;
@@ -164,6 +196,7 @@ $(function(){
 		var overlay3 = new RainOverlay(window.googleMap, pos, value,direction, key);
 		var overlay = new WindOverlay(window.googleMap, pos, [value,direction], key);
 	}
+	*/
 });
 </script>
 </head>
