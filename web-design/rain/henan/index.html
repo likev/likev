@@ -38,12 +38,12 @@ $(initialize);
 			.toggle(
 					function(){
 						lyRain.isDisplayTemph = true;
-						lyRain.removeTemph();
+						lyRain.displayTemph();
 						changeDivIcon(this,"ui-icon-check");
 					},
 					function(){
 						lyRain.isDisplayTemph = false;
-						lyRain.displayTemph();
+						lyRain.removeTemph();
 						changeDivIcon(this,null);
 					}
 			);
