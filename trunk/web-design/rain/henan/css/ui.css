@@ -1,0 +1,43 @@
+#main-toolbar {
+	margin: 10px 0px;
+	padding: 8px 4px;
+}
+
+.ui-like {
+	border: 1px solid #CCCCCC;
+    color: #1C94C4;
+    font-weight: bold;
+	padding:0.4em 0;
+	text-align:center;
+}
+
+.tool-group {
+float:left;
+margin-left:20px;
+}
+
+#set-time-range {
+display:none;
+margin:10px 0  0;
+}
+
+#time-slider {
+ margin-top: 10px;
+ width: 600px;
+}
+
+.show-time {
+float:left;
+margin-left:20px;
+}
+
+.set-alarm-part {
+	margin:10px 0 20px;
+}
+.set-alarm-part-content {
+	padding:5px 20px;
+}
+
+.wind-overlay{
+position:absolute;
+}
