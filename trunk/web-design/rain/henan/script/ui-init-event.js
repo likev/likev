@@ -51,15 +51,48 @@ $(function() {
 						changeDivIcon(this,"ui-icon-check");
 					}
 			);
+		
+		lyRain.alarmOption = {
+			isAlarmSet:false,
+			alarmCondition:{
+				rain:[10,30,50],
+				temph:[37,40,42],
+				wind:[12,16,20]
+			},
+			alarmWay:{
+				sound:true,
+				sms:false,
+				phone:[13698835392,13663880026]
+			},
+			alarmArea:{
+				isSetBegin:false,
+				isSetting:false,
+				center:new google.maps.LatLng(34.323907, 112.109291),
+				radius:100,
+				circle:null
+				
+			}
+		};
+		
 		$( "#toggle-alarm" )
+			.button()
 			.toggle(
 					function(){
 						changeDivIcon(this,"ui-icon-check");
+						lyRain.alarmOption.isAlarmSet = true;
+						lyRain.alarmOption.alarmArea.circle.setMap(window.googleMap);
 					},
 					function(){
 						changeDivIcon(this,null);
+						lyRain.alarmOption.isAlarmSet = false;
+						lyRain.alarmOption.alarmArea.circle.setMap(null);
 					}
 			);
+		$("#set-alarm-area")
+			.click(function(){
+				lyRain.alarmOption.alarmArea.isSetting = true;
+				$("#set-alarm-dialog" ).dialog("close");
+			});
 			
 		$( "#desc-time" )
 			.button()
@@ -86,7 +119,7 @@ $(function() {
 				)
 				.parent()
 					.buttonset();
-		$( "#toggle-alarm" ).button();
+		
 		$( "#set-alarm" ).button( {
 				text: false,
 				icons: {
@@ -242,4 +275,6 @@ $(function() {
 			$('#alarm-sound')[0].play();
 			setTimeout("$('#alarm-sound')[0].pause();",3000);
 		});
+		
+		
 	});

@@ -12,6 +12,60 @@ function initialize() {
 
 	window.googleMap = new google.maps.Map($("#map_canvas")[0],myOptions);
 	
+	var alarmCircleOptions = {
+		  strokeColor: "#FF0000",
+		  strokeOpacity: 0.8,
+		  strokeWeight: 2,
+		  fillColor: "#FF0000",
+		  fillOpacity: 0.2,
+		  map: null,
+		  clickable:false,
+		center:new google.maps.LatLng(34.323907, 112.109291),
+		  radius: 100000
+	};
+	lyRain.alarmOption.alarmArea.circle = new google.maps.Circle(alarmCircleOptions);
+	google.maps.event.addListener(window.googleMap,
+		'rightclick', 
+		function(e) {
+			if(lyRain.alarmOption.alarmArea.isSetting){
+				if(lyRain.alarmOption.alarmArea.isSetBegin){
+						lyRain.alarmOption.alarmArea.isSetBegin = false;
+						lyRain.alarmOption.alarmArea.isSetting = false;
+						
+						$("#alarm-center").text(lyRain.alarmOption.alarmArea.center.lng().toFixed(3)
+								+", "+lyRain.alarmOption.alarmArea.center.lng().toFixed(3));
+						$("#alarm-radius").text(lyRain.alarmOption.alarmArea.radius.toFixed(3)+"km");
+						$("#set-alarm-dialog" ).dialog("open");
+						if(! lyRain.alarmOption.isAlarmSet) lyRain.alarmOption.alarmArea.circle.setMap(null);
+				}else{
+						lyRain.alarmOption.alarmArea.isSetBegin = true;
+						lyRain.alarmOption.alarmArea.center = e.latLng;
+						
+						lyRain.alarmOption.alarmArea.circle.setCenter(e.latLng);
+						lyRain.alarmOption.alarmArea.circle.setMap(window.googleMap);
+				}
+				
+			}
+		});
+	google.maps.event.addListener(window.googleMap, 
+		'mousemove', 
+		function(e) {
+			if(lyRain.alarmOption.alarmArea.isSetting){
+				if(lyRain.alarmOption.alarmArea.isSetBegin){
+					var tor = Math.PI/180;
+					var a1 = lyRain.alarmOption.alarmArea.center.lng()*tor,
+						b1 = lyRain.alarmOption.alarmArea.center.lat()*tor,
+						a2 = e.latLng.lng()*tor,
+						b2 = e.latLng.lat()*tor;
+
+					//var radius = 100000*Math.abs(e.latLng.lat()-populationOptions.center.lat());
+					var rads = 6300000*Math.acos(Math.cos(b1)*Math.cos(b2)*Math.cos(a1-a2)+Math.sin(b1)*Math.sin(b2) );
+					lyRain.alarmOption.alarmArea.radius = rads/1000;
+					lyRain.alarmOption.alarmArea.circle.setRadius(rads);
+				}
+			}
+		});
+	
 	//设置地图外围容器高度和宽度
 	lyRain.setContainerSize = function (){
 		var newMapHeight = $(window).height()-$("#container").offset().top;
