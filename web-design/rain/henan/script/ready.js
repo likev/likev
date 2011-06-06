@@ -3,14 +3,6 @@
 //最后修改 last edit time: 2011 3 9 22:40
 
 function initialize() {
-    
-	function setContainerSize(){
-		var newMapHeight = $(window).height()-$("#container").offset().top;
-		$("#container").height(newMapHeight).width($(window).width());
-	}
-	
-	setContainerSize();
-	
     var myLatLng = new google.maps.LatLng(34.323907, 112.109291);
     var myOptions = {
       zoom: 9,
@@ -19,8 +11,19 @@ function initialize() {
     };
 
 	window.googleMap = new google.maps.Map($("#map_canvas")[0],myOptions);
-	//显示范围改变时
 	
+	//设置地图外围容器高度和宽度
+	lyRain.setContainerSize = function (){
+		var newMapHeight = $(window).height()-$("#container").offset().top;
+		$("#container").height(newMapHeight).width($(window).width());
+		
+		google.maps.event.trigger(window.googleMap, 'resize');
+	}
+	
+	lyRain.setContainerSize();
+	$(window).resize(lyRain.setContainerSize);
+	
+	//显示范围改变时
 	google.maps.event.addListener(window.googleMap, 
 			'bounds_changed', 
 			function(){
@@ -34,9 +37,7 @@ function initialize() {
 	
 	lyRain.reloadAllData((new Date()).getTime());
     window.setInterval("lyRain.reloadAllData((new Date()).getTime())",60*1000);
-	
-	$(window).resize(setContainerSize);
-	
+		
 	$("#alarm-num").val(lyRain.alarmValue);
 	var beginTime = new Date();
 	if(beginTime.getHours()<20) beginTime.setDate(beginTime.getDate()-1);
