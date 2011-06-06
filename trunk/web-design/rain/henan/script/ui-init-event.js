@@ -57,7 +57,11 @@ $(function() {
 			alarmCondition:{
 				rain:[10,30,50],
 				temph:[37,40,42],
-				wind:[12,16,20]
+				wind:[12,16,20],
+				
+				rainAlarm:true,
+				temphAlarm:true,
+				windAlarm:true
 			},
 			alarmWay:{
 				sound:true,
@@ -139,48 +143,50 @@ $(function() {
 		
 		$("#begin-time")
 			.val(lyRain.format_time(lyRain.beginTime))
+			.keypress(function(){
+				lyRain.isBeginTimeChangedByUser = true;
+			})
 			.change(function(){
-					lyRain.beginTime = lyRain.get_time_from_str(this.value);
-					//重新请求雨量和风温度场
-					lyRain.reloadAllData((new Date()).getTime());
+					if(lyRain.isBeginTimeChangedByUser ){
+						lyRain.beginTime = lyRain.get_time_from_str(this.value);
+						//重新请求雨量和风温度场
+						lyRain.reloadAllData((new Date()).getTime());
+						
+						lyRain.isBeginTimeChangedByUser = false;
+					}
 				});
 		$("#end-time")
 			.val(lyRain.format_time(lyRain.endTime))
+			.keypress(function(){
+				lyRain.isEndTimeChangedByUser = true;
+			})
 			.change(function(){
-					lyRain.endTime = lyRain.get_time_from_str(this.value);
-					
-					if(! $("#time-slider").slider( "option","disabled" )){
+					if(lyRain.isEndTimeChangedByUser){
+						lyRain.endTime = lyRain.get_time_from_str(this.value);
+
 						var timeSpan = ((new Date()).getTime() - lyRain.endTime.getTime())/(1000*60);
 						
 						var value = -timeSpan/lyRain.slideSpan;//可能小于-100
 						$("#time-slider").slider( "value" , value);
-						lyRain.setSliderTime(value);
+						lyRain.setTimeFromSlider(value);
+						
+						//重新请求雨量和风温度场
+						lyRain.reloadAllData((new Date()).getTime());
+						
+						lyRain.isEndTimeChangedByUser = false;
 					}
-					//重新请求雨量和风温度场
-					lyRain.reloadAllData((new Date()).getTime());
 				});		
 		
 		lyRain.isFromLast20 = false;
 		lyRain.slideSpan = 12;
 		lyRain.rainTimeSpan = 180;
 		$("#rain-range").change(function(){
+			lyRain.isBeginTimeChangedByUser = false;
+			lyRain.isEndTimeChangedByUser = false;
+			
 			var value = $(this).val();
 			if( value == 'after20'){
-				lyRain.isFromLast20 = true;
-				
-				lyRain.beginTime = new Date();
-				lyRain.endTime = new Date();
-			
-				if(lyRain.beginTime.getHours()<20) lyRain.beginTime.setDate(lyRain.beginTime.getDate()-1);
-				lyRain.beginTime.setHours(20,0,0);
-								
-				$("#begin-time").val(lyRain.format_time(lyRain.beginTime));
-				$("#end-time").val(lyRain.format_time(lyRain.endTime));
-				
-				$("#begin-time").attr("readonly","readonly");
-				$("#end-time").attr("readonly","readonly");
-				
-				$("#time-slider").slider('value',0);
+					
 			}else if(value == '30m'){
 				lyRain.slideSpan = 2;
 				lyRain.rainTimeSpan = 30;
@@ -200,51 +206,62 @@ $(function() {
 				lyRain.slideSpan = 48;
 				lyRain.rainTimeSpan = 1440;
 			}else{
-				lyRain.slideSpan = 60;
-				$("#begin-time").removeAttr("readonly");
-				$("#end-time").removeAttr("readonly");
+				lyRain.slideSpan = 60;				
 			}
-			
-			if( value == 'after20' || value == 'any'){
-				$("#time-slider").slider( "disable" );
-			}else{
-				$("#time-slider").slider( "enable" );
-				
-				lyRain.beginTime = new Date(lyRain.endTime);
-				lyRain.beginTime.setMinutes(lyRain.endTime.getMinutes() - lyRain.rainTimeSpan);
-					
-				$("#begin-time").val(lyRain.format_time(lyRain.beginTime));
-				
+						
+			if( value == 'after20' ){
+				lyRain.isFromLast20 = true;
+
+				$("#time-slider").slider( "disable" );					
 				$("#begin-time").attr("readonly","readonly");
-				$("#end-time").removeAttr("readonly");
+				$("#end-time").attr("readonly","readonly");
+			}else{ 
+				lyRain.isFromLast20 = false;
+				
+				if(value == 'any'){
+					$("#time-slider").slider( "disable" );
+					$("#begin-time").removeAttr("readonly");
+					$("#end-time").removeAttr("readonly");
+				}else{
+					$("#time-slider").slider( "enable" );									
+					$("#begin-time").attr("readonly","readonly");
+					$("#end-time").removeAttr("readonly");
+				}
 			}
 			
-			if( value != 'after20' ) lyRain.isFromLast20 = false;
+			$("#time-slider").slider( "value" , 0);
+			lyRain.setTimeFromSlider();
 			
-			if( value == "any" ){
-				$("#time-slider").slider( "value" , -50);
-				lyRain.isLatestRequest = false;
-			}
-			else{
-				$("#time-slider").slider( "value" , 0);
-				lyRain.isLatestRequest = true;				
-			}
+			//重新请求雨量和风温度场
+			lyRain.reloadAllData((new Date()).getTime());
 		});
 		
 		//根据滑块位置和雨量范围设置时间范围
-		lyRain.setSliderTime = function(sliderValue){
+		lyRain.setTimeFromSlider = function(sliderValue){
+		
 				if(typeof(sliderValue) === 'undefined') sliderValue = $("#time-slider").slider( "value" );
 				
 				var now = new Date();
 				lyRain.endTime = new Date(now);
 				lyRain.endTime.setMinutes(now.getMinutes() + sliderValue*lyRain.slideSpan);
 				
-				lyRain.beginTime = new Date(lyRain.endTime);
-				lyRain.beginTime.setMinutes(lyRain.endTime.getMinutes() - lyRain.rainTimeSpan);
-				
-				$("#begin-time").val(lyRain.format_time(lyRain.beginTime));
 				$("#end-time").val(lyRain.format_time(lyRain.endTime));
-			}
+				
+				var rrv = $("#rain-range").val();
+				if(rrv != 'after20' && rrv != 'any'){
+					lyRain.beginTime = new Date(lyRain.endTime);
+					lyRain.beginTime.setMinutes(lyRain.endTime.getMinutes() - lyRain.rainTimeSpan);
+					
+					$("#begin-time").val(lyRain.format_time(lyRain.beginTime));
+				}else if(rrv == 'after20'){
+					lyRain.beginTime = new Date();
+			
+					if(lyRain.beginTime.getHours()<20) lyRain.beginTime.setDate(lyRain.beginTime.getDate()-1);
+					lyRain.beginTime.setHours(20,0,0);
+								
+					$("#begin-time").val(lyRain.format_time(lyRain.beginTime));
+				}
+			};
 		$( "#time-slider" ).slider({
 				max:0, 
 				min:-100, 
@@ -252,7 +269,7 @@ $(function() {
 				step:0.01,
 				slide: function(event, ui) {
 					
-					lyRain.setSliderTime(ui.value);
+					lyRain.setTimeFromSlider(ui.value);
 				},
 				change: function(event, ui) {
 					
