@@ -25,11 +25,8 @@ function initialize() {
 	var ctaLayer = new google.maps.KmlLayer('http://lyqx.de/jingdian/luoyang.kml');
 	ctaLayer.setMap(googleMap);
 	
-	lyRain.reloadRainData((new Date()).getTime());
-    window.setInterval("lyRain.reloadRainData((new Date()).getTime())",60*1000);
-	
-	lyRain.reloadTemphWind2Data((new Date()).getTime());
-    window.setInterval("lyRain.reloadTemphWind2Data((new Date()).getTime())",60*1000);
+	lyRain.reloadAllData((new Date()).getTime());
+    window.setInterval("lyRain.reloadAllData((new Date()).getTime())",60*1000);
 	
 	$(window).resize(setContainerSize);
 	
