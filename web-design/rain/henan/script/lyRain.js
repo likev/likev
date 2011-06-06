@@ -170,14 +170,14 @@ var lyRain={
 		
 		this.endRainRequestTime = requestTime;
 		
-		$("#ajax-info").text("正在请求雨量数据...");
+		$("#ajax-rain-info").text("正在请求雨量数据...");
 			
 		var jsonUrl = "raininfo.php";
 		
 		if(! this.isFromLast20){
 			if(this.isLatestRequest){
 				
-				this.setSliderTime();			
+				this.setTimeFromSlider();			
 			}
 			
 			jsonUrl = "raininfo.php?history=true&startTime="+this.format_time(this.beginTime)+"&endTime="+this.format_time(this.endTime);
@@ -192,14 +192,13 @@ var lyRain={
 		
 		this.endTemphWind2RequestTime = requestTime;
 		
-		$("#ajax-info").text("正在请求温度和风场数据...");
+		$("#ajax-wind-temph-info").text("正在请求温度和风场数据...");
 			
 		var jsonUrl = "lib/t-wind2.php";
 		
 		//改变请求url
 		if(this.isLatestRequest){
-			this.setSliderTime();
-			jsonUrl = "lib/t-wind2.php";
+			this.setTimeFromSlider();
 		}else{
 			jsonUrl = "lib/t-wind2.php?history=true&wind2Time="+this.format_time(this.endTime);
 		}
@@ -230,7 +229,7 @@ var lyRain={
 			
 			if(this.isDisplayRain) this.displayRain();
 						
-			$("#ajax-info").text("请求数据完成！");
+			$("#ajax-rain-info").text("请求雨量数据完成！");
 			$("#title").text(this.titleStr);
 			
 			//this.calcLevelRain();
@@ -257,7 +256,7 @@ var lyRain={
 			if(this.isDisplayTemph) this.displayTemph();
 			if(this.isDisplayWind2) this.displayWind2();
 						
-			//$("#ajax-info").text("请求数据完成！");
+			$("#ajax-wind-temph-info").text("请求温度和风场数据完成！");
 			//$("#title").text(this.titleStr);
 			
 			//this.calcLevelRain();
