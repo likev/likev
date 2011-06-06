@@ -20,7 +20,14 @@ function initialize() {
 
 	window.googleMap = new google.maps.Map($("#map_canvas")[0],myOptions);
 	//显示范围改变时
-	google.maps.event.addListener(window.googleMap, 'bounds_changed', $.proxy(lyRain.displayRain,lyRain));
+	
+	google.maps.event.addListener(window.googleMap, 
+			'bounds_changed', 
+			function(){
+				if(lyRain.isDisplayRain) lyRain.displayRain();
+				if(lyRain.isDisplayTemph) lyRain.displayTemph();
+				if(lyRain.isDisplayWind2) lyRain.displayWind2();
+			});
    //设置县界
 	var ctaLayer = new google.maps.KmlLayer('http://lyqx.de/jingdian/luoyang.kml');
 	ctaLayer.setMap(googleMap);
