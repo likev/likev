@@ -71,7 +71,9 @@ $(function() {
 					}
 				})
 				.click(function() {
+					
 					$("#set-time-range").toggle();
+					lyRain.setContainerSize();
 				})
 				.toggle(
 					function(){
