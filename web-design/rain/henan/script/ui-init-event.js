@@ -1,5 +1,5 @@
 /*
-	����UI��ʼ�����¼���Ӧ
+	设置UI初始化和事件响应
 */
 $(function() {
 		
@@ -102,14 +102,50 @@ $(function() {
 		lyRain.endTime = new Date();
 		lyRain.beginTime.setHours(lyRain.endTime.getHours() - 3);
 		
-		$("#begin-time").val(lyRain.format_time(lyRain.beginTime));
-		$("#end-time").val(lyRain.format_time(lyRain.endTime));		
+		$("#begin-time")
+			.val(lyRain.format_time(lyRain.beginTime))
+			.change(function(){
+					lyRain.beginTime = lyRain.get_time_from_str(this.value);
+					//重新请求雨量和风温度场
+					lyRain.reloadAllData((new Date()).getTime());
+				});
+		$("#end-time")
+			.val(lyRain.format_time(lyRain.endTime))
+			.change(function(){
+					lyRain.endTime = lyRain.get_time_from_str(this.value);
+					
+					if(! $("#time-slider").slider( "option","disabled" )){
+						var timeSpan = ((new Date()).getTime() - lyRain.endTime.getTime())/(1000*60);
+						
+						var value = -timeSpan/lyRain.slideSpan;//可能小于-100
+						$("#time-slider").slider( "value" , value);
+						lyRain.setSliderTime(value);
+					}
+					//重新请求雨量和风温度场
+					lyRain.reloadAllData((new Date()).getTime());
+				});		
 		
+		lyRain.isFromLast20 = false;
 		lyRain.slideSpan = 12;
 		lyRain.rainTimeSpan = 180;
 		$("#rain-range").change(function(){
 			var value = $(this).val();
 			if( value == 'after20'){
+				lyRain.isFromLast20 = true;
+				
+				lyRain.beginTime = new Date();
+				lyRain.endTime = new Date();
+			
+				if(lyRain.beginTime.getHours()<20) lyRain.beginTime.setDate(lyRain.beginTime.getDate()-1);
+				lyRain.beginTime.setHours(20,0,0);
+								
+				$("#begin-time").val(lyRain.format_time(lyRain.beginTime));
+				$("#end-time").val(lyRain.format_time(lyRain.endTime));
+				
+				$("#begin-time").attr("readonly","readonly");
+				$("#end-time").attr("readonly","readonly");
+				
+				$("#time-slider").slider('value',0);
 			}else if(value == '30m'){
 				lyRain.slideSpan = 2;
 				lyRain.rainTimeSpan = 30;
@@ -130,6 +166,8 @@ $(function() {
 				lyRain.rainTimeSpan = 1440;
 			}else{
 				lyRain.slideSpan = 60;
+				$("#begin-time").removeAttr("readonly");
+				$("#end-time").removeAttr("readonly");
 			}
 			
 			if( value == 'after20' || value == 'any'){
@@ -141,31 +179,58 @@ $(function() {
 				lyRain.beginTime.setMinutes(lyRain.endTime.getMinutes() - lyRain.rainTimeSpan);
 					
 				$("#begin-time").val(lyRain.format_time(lyRain.beginTime));
+				
+				$("#begin-time").attr("readonly","readonly");
+				$("#end-time").removeAttr("readonly");
+			}
+			
+			if( value != 'after20' ) lyRain.isFromLast20 = false;
+			
+			if( value == "any" ){
+				$("#time-slider").slider( "value" , -50);
+				lyRain.isLatestRequest = false;
+			}
+			else{
+				$("#time-slider").slider( "value" , 0);
+				lyRain.isLatestRequest = true;				
 			}
 		});
 		
+		//根据滑块位置和雨量范围设置时间范围
+		lyRain.setSliderTime = function(sliderValue){
+				if(typeof(sliderValue) === 'undefined') sliderValue = $("#time-slider").slider( "value" );
+				
+				var now = new Date();
+				lyRain.endTime = new Date(now);
+				lyRain.endTime.setMinutes(now.getMinutes() + sliderValue*lyRain.slideSpan);
+				
+				lyRain.beginTime = new Date(lyRain.endTime);
+				lyRain.beginTime.setMinutes(lyRain.endTime.getMinutes() - lyRain.rainTimeSpan);
+				
+				$("#begin-time").val(lyRain.format_time(lyRain.beginTime));
+				$("#end-time").val(lyRain.format_time(lyRain.endTime));
+			}
 		$( "#time-slider" ).slider({
 				max:0, 
 				min:-100, 
 				value:0,
 				step:0.01,
 				slide: function(event, ui) {
-					var now = new Date();
-					lyRain.endTime = new Date(now);
-					lyRain.endTime.setMinutes(now.getMinutes() + ui.value*lyRain.slideSpan);
 					
-					lyRain.beginTime = new Date(lyRain.endTime);
-					lyRain.beginTime.setMinutes(lyRain.endTime.getMinutes() - lyRain.rainTimeSpan);
-					
-					$("#begin-time").val(lyRain.format_time(lyRain.beginTime));
-					$("#end-time").val(lyRain.format_time(lyRain.endTime));
+					lyRain.setSliderTime(ui.value);
 				},
-				change: function(event, ui) { 
+				change: function(event, ui) {
+					
 					if(ui.value){
 						lyRain.isLatestRequest = false;
+						$("#desc-time span.ui-button-text").text("["+$("#begin-time").val()+" , "+$("#end-time").val()+"]");
 					}else{
 						lyRain.isLatestRequest = true;
+						$("#desc-time span.ui-button-text").text("最新");
 					}
+					
+					//重新请求雨量和风温度场
+					lyRain.reloadAllData((new Date()).getTime());
 				}
 			});
 		

@@ -5,7 +5,7 @@ var lyRain={
 
     isSetAlarm: false,
 	isSuccess:false,
-	endRequestTime:0,
+	endRainRequestTime:0,
     alarmValue:30,
 	levelValue:[0.1,10,25,50,100,250],
 	levelCount:[],
@@ -23,6 +23,10 @@ var lyRain={
 
 		return time.getFullYear()+"-"+this.to2(time.getMonth()+1)+"-"+this.to2(time.getDate())+" "
 				+this.to2(time.getHours())+":"+this.to2(time.getMinutes());//+":"+this.to2(time.getSeconds())
+	},
+	get_time_from_str:function(timeStr){
+		var a = timeStr.split(/-|:|\s/);
+		return new Date(a[0],a[1]-1,a[2],a[3],a[4],0,0);
 	},
 	removeLock:false,
 	removeRain:function(){
@@ -158,25 +162,25 @@ var lyRain={
 			}
 		}
 	},
+	reloadAllData:function(requestTime){
+		this.reloadRainData(requestTime);
+		this.reloadTemphWind2Data(requestTime);
+	},
     reloadRainData: function(requestTime){//刷新数据并显示
 		
-		this.endRequestTime = requestTime;
+		this.endRainRequestTime = requestTime;
 		
 		$("#ajax-info").text("正在请求雨量数据...");
 			
 		var jsonUrl = "raininfo.php";
 		
-		//改变请求url
-		if($("#setbegin").is(":checked")){
-
-			if(!$("#setend").is(":checked")){
-				$("#endTime").val(this.format_time());
+		if(! this.isFromLast20){
+			if(this.isLatestRequest){
+				
+				this.setSliderTime();			
 			}
 			
-			var beginTimeStr = $("#beginTime").val(),
-				endTimeStr = $("#endTime").val();
-
-			jsonUrl = "raininfo.php?history=true&startTime="+beginTimeStr+"&endTime="+endTimeStr;
+			jsonUrl = "raininfo.php?history=true&startTime="+this.format_time(this.beginTime)+"&endTime="+this.format_time(this.endTime);
 		}
 
 		$.getJSON(jsonUrl,$.proxy(this.ajaxRainSuccess(requestTime),this) );
@@ -193,12 +197,11 @@ var lyRain={
 		var jsonUrl = "lib/t-wind2.php";
 		
 		//改变请求url
-		if(! this.isLatestRequest){
-			
-			var beginTimeStr = $("#beginTime").val(),
-				endTimeStr = $("#endTime").val();
-
-			jsonUrl = "lib/t-wind2.php?history=true&wind2Time="+endTimeStr;
+		if(this.isLatestRequest){
+			this.setSliderTime();
+			jsonUrl = "lib/t-wind2.php";
+		}else{
+			jsonUrl = "lib/t-wind2.php?history=true&wind2Time="+this.format_time(this.endTime);
 		}
 
 		$.getJSON(jsonUrl,$.proxy(this.ajaxTemphWind2Success(requestTime),this) );
@@ -209,7 +212,7 @@ var lyRain={
 	ajaxRainSuccess:function (requestTime){
 	
 		return function(jsonRain){
-			if(this.endRequestTime != requestTime) return;
+			if(this.endRainRequestTime != requestTime) return;
 			
 			this.isSuccess = true;
 			this.jsonRain = jsonRain;
