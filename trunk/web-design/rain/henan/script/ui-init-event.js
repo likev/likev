@@ -229,11 +229,11 @@ $(function() {
 				}
 			}
 			
-			$("#time-slider").slider( "value" , 0);
-			lyRain.setTimeFromSlider();
-			
+			lyRain.setTimeFromSlider(0);
+			$("#time-slider").slider( "value" , 0);//将触发slider-change事件
+
 			//重新请求雨量和风温度场
-			lyRain.reloadAllData((new Date()).getTime());
+			//lyRain.reloadAllData((new Date()).getTime());
 		});
 		
 		//根据滑块位置和雨量范围设置时间范围
