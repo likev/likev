@@ -391,7 +391,7 @@ var lyRain={
 					continue;
 				}
 				
-				var value = Number(this.jsonWind[key]);
+				var value = Number(this.jsonWind[key][1]);
 				
 				if(value >= alarmValue && $.inArray(key,this.windAlarmedStations[index])== -1){
 					n++;

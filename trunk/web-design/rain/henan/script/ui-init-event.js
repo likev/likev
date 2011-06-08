@@ -368,7 +368,7 @@ $(function() {
 				.dialog({autoOpen: false, 
 					width:700, height:300,
 					resize: function(event, ui) {
-						$( "#log-info-tabs" ).height($(this).height()-80);
+						$( "#log-info-tabs .ui-tabs-panel" ).height($(this).height()-80);
 					}
 				});
 		/**/
