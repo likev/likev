@@ -37,7 +37,7 @@ function initialize() {
 						$("#ajax-info").children().show();
 						
 						$("#alarm-center").text(lyRain.alarmOption.alarmArea.center.lng().toFixed(3)
-								+", "+lyRain.alarmOption.alarmArea.center.lng().toFixed(3));
+								+", "+lyRain.alarmOption.alarmArea.center.lat().toFixed(3));
 						$("#alarm-radius").text(lyRain.alarmOption.alarmArea.radius.toFixed(3)+"km");
 												
 						if(lyRain.alarmOption.isAlarmSet){
@@ -64,7 +64,7 @@ function initialize() {
 			if(lyRain.alarmOption.alarmArea.isSetting){
 				if(lyRain.alarmOption.alarmArea.isSetBegin){
 				
-					var rads = lyRain.SphericalDistance(lyRain.alarmOption.alarmArea.center,e.latLng);
+					var rads = lyRain.sphericalDistance(lyRain.alarmOption.alarmArea.center,e.latLng);
 					lyRain.alarmOption.alarmArea.radius = rads;
 					lyRain.alarmOption.alarmArea.circle.setRadius(rads*1000);
 				}

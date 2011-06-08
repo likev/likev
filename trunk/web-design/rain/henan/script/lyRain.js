@@ -270,7 +270,7 @@ var lyRain={
 	},
 	
 	
-	SphericalDistance: function(latLonA,latLonB){
+	sphericalDistance: function(latLonA,latLonB){
 		var tor = Math.PI/180;
 		var a1 = latLonA.lng()*tor,
 			b1 = latLonA.lat()*tor,
@@ -328,7 +328,7 @@ var lyRain={
 				}
 				
 				var pos = new google.maps.LatLng(lonlat[1], lonlat[0]);
-				if(this.SphericalDistance(this.alarmOption.alarmArea.center, pos) 
+				if(this.sphericalDistance(this.alarmOption.alarmArea.center, pos) 
 					> this.alarmOption.alarmArea.radius ){
 					continue;
 				}
@@ -385,7 +385,7 @@ var lyRain={
 				}
 				
 				var pos = new google.maps.LatLng(lonlat[1], lonlat[0]);
-				if(this.SphericalDistance(this.alarmOption.alarmArea.center, pos) 
+				if(this.sphericalDistance(this.alarmOption.alarmArea.center, pos) 
 					> this.alarmOption.alarmArea.radius ){
 					continue;
 				}
@@ -441,7 +441,7 @@ var lyRain={
 				}
 				
 				var pos = new google.maps.LatLng(lonlat[1], lonlat[0]);
-				if(this.SphericalDistance(this.alarmOption.alarmArea.center, pos) 
+				if(this.sphericalDistance(this.alarmOption.alarmArea.center, pos) 
 					> this.alarmOption.alarmArea.radius ){
 					continue;
 				}
