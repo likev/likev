@@ -300,6 +300,20 @@ $(function() {
 			});
 		
 		$("#set-alarm-dialog" ).dialog({ autoOpen: false, modal:true, width:700, height:300});
+
+
+		$( "#log-info-tabs" ).tabs().parent().dialog({autoOpen: false, width:700, height:300});
+		/**/
+		$( ".tabs-bottom .ui-tabs-nav, .tabs-bottom .ui-tabs-nav > *" )
+			.removeClass( "ui-corner-all ui-corner-top" )
+			.addClass( "ui-corner-bottom" );
+		
+		$("#log-info-button")
+			.button({icons: { primary: "ui-icon-info" } })
+			.click(function() {
+				$( "#log-info-dialog" ).dialog("open");
+			});
+			
 		
 		$("#alarm-volume-test").click(function(){
 			$('#alarm-sound')[0].play();

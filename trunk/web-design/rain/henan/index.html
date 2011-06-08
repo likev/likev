@@ -31,6 +31,12 @@ $(initialize);
 
 
 <style>
+<!--	#tabs { height: 800px; width:600px} -->
+	.tabs-bottom { position: relative; } 
+	.tabs-bottom .ui-tabs-panel { height: 140px; overflow: auto; } 
+	.tabs-bottom .ui-tabs-nav { position: absolute !important; left: 0; bottom: 0; right:0; padding: 0 0.2em 0.2em 0; } 
+	.tabs-bottom .ui-tabs-nav li { margin-top: -2px !important; margin-bottom: 1px !important; border-top: none; border-bottom-width: 1px; }
+	.ui-tabs-selected { margin-top: -3px !important; }
 
 </style>
 
@@ -91,6 +97,10 @@ $(function(){
 			<button id="set-alarm">报警设置</button>
 		</div>
 		
+		<div class="tool-group">
+			<button id="log-info-button">信息</button>
+		</div>
+		
 		<div class="tool-group cls" id="set-time-range">
 			<input type="text" value="2011-01-26 10:10" size="17" readonly="readonly" name="beginTime" id="begin-time" class="show-time ui-like ui-widget ui-state-default ui-corner-left ui-corner-right"/>
 			<div id="time-slider" class="show-time"></div>
@@ -129,6 +139,36 @@ $(function(){
 				</div>
 			</div> <!-- end set-alarm-part -->
 		</div>
+		
+		<div id="log-info-dialog"  title="日志信息">
+
+			<div id="log-info-tabs" class="tabs-bottom">
+				<ul>
+					<li><a href="#temph-alarm-log">气温报警</a></li>
+					<li><a href="#wind-alarm-log">风速报警</a></li>
+					<li><a href="#rain-alarm-log">雨量报警</a></li>
+					<li><a href="#user-operate-log">用户操作</a></li>
+					<li><a href="#ajax-data-log">数据请求</a></li>
+				</ul>
+				<div id="temph-alarm-log">
+				气温
+				</div>
+				<div id="wind-alarm-log">
+				风速
+				</div>
+				<div id="rain-alarm-log">
+				雨量
+				</div>
+				
+				<div id="user-operate-log">
+				用户操作
+				</div>
+				
+				<div id="ajax-data-log">
+				数据请求
+				</div>
+			</div>
+		</div><!-- End log-info-dialog -->
 		
 		<div class="cls"></div>
 	</div> <!-- end #main-toolbar -->

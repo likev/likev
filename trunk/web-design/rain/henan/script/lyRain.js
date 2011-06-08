@@ -265,6 +265,62 @@ var lyRain={
 			//this.dealAlarm();
 		}
 	},
+	
+	temphAlarmedStations:new Array(),
+	windAlarmedStations:new Array(),
+	rainAlarmedStations:new Array(),
+	
+	dealTemphAlarm:function(current){
+		if(!this.alarmOption.isAlarmSet 
+		|| !this.alarmOption.alarmCondition.temphAlarm ) return;
+		
+		var count=0;
+        var resultStr = "";
+		var addStr = current ? "] 目前有 " : "] 新增 ";
+		
+		for(var index in this.alarmOption.alarmCondition.temph){
+			var infoStr="";
+			var n = 0;
+			var alarmValue = this.alarmOption.alarmCondition.temph[index];
+			
+			for(var key in this.jsonTemph){//  
+				var value = Number(this.jsonTemph[key]);
+				
+				if(value >= alarmValue && $.inArray(key,this.temphAlarmedStations[index])== -1){
+					n++;
+					this.temphAlarmedStations[index].push(key);
+				   				   
+					infoStr += "<tr><td>"+this.getStationName(key)+"</td><td>"+value+"</td></tr>";
+				}			
+			}
+			
+			count += n;
+			infoStr = "<div class='new-alarm-info'><h4>[" + this.format_time() + addStr+ n +" 个四要素站的气温 ≥ "+ alarmValue
+								+" mm</h4><table>" + infoStr+'</table></div>';
+			
+			resultStr = infoStr + resultStr;
+        };
+
+        if(! count) return;
+       
+		var oldAlarmHtml = $("#alarm-info").html();
+		$("#alarm-info").html(infoStr + oldAlarmHtml);
+        
+		$("#info-toolbar a[mapid='#alarm-info']").click();
+        
+		var alarm = $("#alarm-sound")[0];
+        var ispaused = alarm.paused, isended = alarm.ended;
+
+        if(ispaused || isended){ 
+            alarm.play();
+			if(current) setTimeout("$('#alarm-sound')[0].pause();",1000);
+        }
+	},
+	dealWindAlarm:function(current){
+	},
+	dealRainAlarm:function(current){
+	},
+	
     alarmedStation:new Array(),
     dealAlarm:function(current){
     
