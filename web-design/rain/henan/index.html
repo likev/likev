@@ -172,44 +172,11 @@ $(function(){
 		
 		<div class="cls"></div>
 	</div> <!-- end #main-toolbar -->
-	
-	<div id='map_head' style="display:none">
-	    
-		<h3 id="title">河南乡镇雨量站实时数据</h3>
-		<div id="set">
-		<!--
-		    <div class="set-part">
-			    <label><input type="checkbox" name="set-alarm" id="set-alarm"/>报警</label>
-			    <input type="text" disabled="disabled" name="alarm-num" id="alarm-num" size='3' maxlength='3'/>
-			</div>
-		-->
-		    <div class="set-part">
-			    <label><input type="checkbox" name="setbegin" id="setbegin"/>起始时间</label>
-			    <input type="text" disabled="disabled" name="beginTime" id="beginTime"/>
-			</div>
-			<div class="set-part">
-			    <label><input type="checkbox" name="setend" id="setend"/>结束时间</label>
-			    <input type="text" disabled="disabled" name="endTime" id="endTime"/>
-			</div>
-		</div>
-		<div class="cls"></div>
-	</div>
-	
+		
 	<div id="toolbar">
 		<div id="map-toolbar">
-			<a id="collaps" href="#"></a>
 			<h4 id="ajax-info"><span id="ajax-rain-info">等待加载数据</span> <span id="ajax-wind-temph-info"></span></h4>	
 		</div>
-	<!--
-		<div id="info-toolbar">
-			<a id="expand" href="#"></a>
-			<ul class="header">
-				<li><a href="#" style="display:none" mapid="#stat-info">统计结果</a><span style="display:inline">统计结果</span></li>
-				<li><a href="#" mapid="#sort-info">雨量排序</a><span>雨量排序</span></li>
-				<li><a href="#" mapid="#alarm-info">报警信息</a><span>报警信息</span></li>
-			</ul>
-		</div>
-	-->
 		<div class="cls"></div>
 	</div>
 	
@@ -217,14 +184,6 @@ $(function(){
 		<div id="left">
 			<div id="map_canvas" ></div>
 		</div>
-	<!--
-		<div id="right">
-			<div id="stat-info" class="rain-info"></div>	
-			<div id="sort-info" class="rain-info"></div>
-			<div id="alarm-info" class="rain-info"></div>
-			
-		</div>
-	-->
 	</div>
 <!--	-->
 	<audio id="alarm-sound" >
