@@ -29,44 +29,9 @@ $(initialize);
 
 </script>
 
-
-<style>
-<!--	#tabs { height: 800px; width:600px} -->
-	.tabs-bottom { position: relative; } 
-	.tabs-bottom .ui-tabs-panel { height: 140px; overflow: auto; } 
-	.tabs-bottom .ui-tabs-nav { position: absolute !important; left: 0; bottom: 0; right:0; padding: 0 0.2em 0.2em 0; } 
-	.tabs-bottom .ui-tabs-nav li { margin-top: -2px !important; margin-bottom: 1px !important; border-top: none; border-bottom-width: 1px; }
-	.ui-tabs-selected { margin-top: -3px !important; }
-
-</style>
-
-<script>
-$(function(){
-/*
-	//测试代码
-	var count=0;
-	for(var key in allLonLats){
-		if(count++ > 500) break;
-		var value = (Math.random()*30).toFixed(1);
-		var direction = (Math.random()*360).toFixed(1);
-		
-		var lonlat = allLonLats[key].lonlat ||[-60,90];
-		var pos = new google.maps.LatLng(lonlat[1], lonlat[0]);
-		
-		
-		var overlay2 = new TemphOverlay(window.googleMap, pos, direction, key);
-		var overlay3 = new RainOverlay(window.googleMap, pos, value, key);
-		var overlay = new WindOverlay(window.googleMap, pos, [value,direction], key);
-	}
-	*/
-});
-</script>
 </head>
 
 <body>
-<!--
-<div class="tips"><span>您的浏览器版本过低，不支持报警，建议切换 <a href="http://firefox.com.cn/download/">firefox</a>  或 <a href="http://www.google.com/chrome?hl=zh-CN">chrome</a> 浏览器！</span></div>
--->
 	<div id="main-toolbar" class="ui-widget-header ui-corner-all">
 		<div class="tool-group">
 			<input type="checkbox" id="toggle-temph"/><label for="toggle-temph">气温</label>
@@ -98,7 +63,7 @@ $(function(){
 		</div>
 		
 		<div class="tool-group">
-			<button id="log-info-button">信息</button>
+			<button id="log-info-button">信息|帮助</button>
 		</div>
 		
 		<div class="tool-group cls" id="set-time-range">
@@ -149,23 +114,53 @@ $(function(){
 					<li><a href="#rain-alarm-log">雨量报警</a></li>
 					<li><a href="#user-operate-log">用户操作</a></li>
 					<li><a href="#ajax-data-log">数据请求</a></li>
+					<li><a href="#user-help-info">使用说明</a></li>
 				</ul>
-				<div id="temph-alarm-log">
-				气温
-				</div>
-				<div id="wind-alarm-log">
-				风速
-				</div>
-				<div id="rain-alarm-log">
-				雨量
-				</div>
+				<div id="temph-alarm-log">气温</div>
+				<div id="wind-alarm-log">风速</div>
+				<div id="rain-alarm-log">雨量</div>
 				
-				<div id="user-operate-log">
-				用户操作
-				</div>
+				<div id="user-operate-log">用户操作</div>
 				
-				<div id="ajax-data-log">
-				数据请求
+				<div id="ajax-data-log">数据请求</div>
+				
+				<div id="user-help-info">
+					<h3>使用说明</h3>
+					<ul>
+						<li>
+							<h4>程序简介</h4>
+							<p>此程序可以实现在<a href="http://maps.google.com/">Google Maps</a>上面显示河南全省最新以及历史的四要素站温度、风、雨量以及所有乡镇雨量站的雨量信息，并可设置各项分级报警，目前支持声音和信息框报警，短信报警正在实现中。</p>
+						</li>
+						<li>
+							<h4>一般操作</h4>
+							<p>点击气温、风、降水按钮可以在地图上显示或隐藏相应要素</p>
+							<p>点击下拉菜单可选择显示3小时或6小时等降水，点击 最新 按钮后面的向下箭头可以利用滑块选择时间，比如选择时间为2011-06-08 09:00，并选择3小时降水，将会显示9点的风和气温以及6点到9点的雨量</p>
+							<p>下拉菜单选择 20时以来 时，将会显示20时以来的总雨量和最新的气温风场等；选择任意时段则可以手动输入起始和结束时间，并显示这段时间的总雨量和结束时间的风速</p>
+							<p>当按钮显示 最新 时，程序会自动每隔1分钟请求最新的雨量和风温度等数据</p>
+						</li>
+						<li>
+							<h4>报警设置</h4>
+							<p>点击报警按钮可以启动或关闭所有报警</p>
+							<p>点击报警按钮后面的小按钮可以详细设置报警参数。例如可以反勾选气温项程序将不对气温进行报警。</p>
+							<p>程序可以实现分级报警，比如要对雨量进行分级报警，可以在雨量值输入框内将各分级参数以空格分隔，可设定任意多的级别，已报警的站点程序会自动记录</p>
+							<p>目前程序支持声音报警，所以一定要勾选声音前面的选框。短信报警功能正在实现中，敬请期待！</p>
+							<p>可以很方便在地图上设置报警区域，点击 开始设置 即可。</p>
+							<p>各项报警条件修改后程序可自动保存</p>
+						</li>
+						<li>
+							<h4>信息面板</h4>
+							<p>信息面板记录程序运行的各项信息（报警，用户操作，数据请求等），程序帮助文件也在此查看</p>
+							<p>当有新的站点达到报警值时，程序会自动记录站点及量值，开启声音并弹出信息面板。用鼠标在信息面板滑过即可关闭声音。</p>
+							<p>信息面板中的用户操作页面记录了所有用户的操作，数据请求页记录了所有程序自动请求数据的动作</p>
+						</li>
+						<li>
+							<h4>其他说明</h4>
+							<p>前三个按钮 气温风降水 仅仅选择是否在地图上显示这些数据，并不影响报警。也就是说即使不在地图上显示温度，只要勾选了气温报警，程序依然可以自动报警</p>
+							<p>点击报警按钮开启报警后用户将不能修改雨量范围和时间范围</p>
+							<p>只要点击报警按钮开启报警，即使不选择声音报警，程序依然会监测数据并在气温等达到报警级别时自动弹出信息面板</p>
+							<p>其他问题及建议请邮件联系：xu_work@qq.com</p>
+						</li>
+					</ul>
 				</div>
 			</div>
 		</div><!-- End log-info-dialog -->

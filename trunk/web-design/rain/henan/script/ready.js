@@ -118,3 +118,24 @@ function initialize() {
 		this.play();
 	});
 }
+
+/*
+$(function(){
+
+	//测试代码
+	var count=0;
+	for(var key in allLonLats){
+		if(count++ > 500) break;
+		var value = (Math.random()*30).toFixed(1);
+		var direction = (Math.random()*360).toFixed(1);
+		
+		var lonlat = allLonLats[key].lonlat ||[-60,90];
+		var pos = new google.maps.LatLng(lonlat[1], lonlat[0]);
+		
+		
+		var overlay2 = new TemphOverlay(window.googleMap, pos, direction, key);
+		var overlay3 = new RainOverlay(window.googleMap, pos, value, key);
+		var overlay = new WindOverlay(window.googleMap, pos, [value,direction], key);
+	}
+	
+});*/

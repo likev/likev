@@ -366,7 +366,7 @@ $(function() {
 			.tabs()
 			.parent()
 				.dialog({autoOpen: false, 
-					width:700, height:300,
+					width:800, height:300,
 					resize: function(event, ui) {
 						$( "#log-info-tabs .ui-tabs-panel" ).height($(this).height()-60);
 					}
