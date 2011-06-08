@@ -32,17 +32,28 @@ function initialize() {
 						lyRain.alarmOption.alarmArea.isSetBegin = false;
 						lyRain.alarmOption.alarmArea.isSetting = false;
 						
+						
+						$("#set-alarm-area-tips").remove();
+						$("#ajax-info").children().show();
+						
 						$("#alarm-center").text(lyRain.alarmOption.alarmArea.center.lng().toFixed(3)
 								+", "+lyRain.alarmOption.alarmArea.center.lng().toFixed(3));
 						$("#alarm-radius").text(lyRain.alarmOption.alarmArea.radius.toFixed(3)+"km");
-						$("#set-alarm-dialog" ).dialog("open");
-						if(! lyRain.alarmOption.isAlarmSet) lyRain.alarmOption.alarmArea.circle.setMap(null);
+												
+						if(lyRain.alarmOption.isAlarmSet){
+							lyRain.dealAllAlarm(true);
+						}else{ 
+							lyRain.alarmOption.alarmArea.circle.setMap(null);
+							$("#set-alarm-dialog" ).dialog("open");
+						}
 				}else{
 						lyRain.alarmOption.alarmArea.isSetBegin = true;
 						lyRain.alarmOption.alarmArea.center = e.latLng;
 						
 						lyRain.alarmOption.alarmArea.circle.setCenter(e.latLng);
 						lyRain.alarmOption.alarmArea.circle.setMap(window.googleMap);
+						
+						$("#set-alarm-area-tips").text("移动鼠标选择报警范围，点击右键结束设置...");
 				}
 				
 			}
@@ -55,7 +66,7 @@ function initialize() {
 				
 					var rads = lyRain.SphericalDistance(lyRain.alarmOption.alarmArea.center,e.latLng);
 					lyRain.alarmOption.alarmArea.radius = rads;
-					lyRain.alarmOption.alarmArea.circle.setRadius(rads);
+					lyRain.alarmOption.alarmArea.circle.setRadius(rads*1000);
 				}
 			}
 		});
