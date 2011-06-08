@@ -353,9 +353,8 @@ var lyRain={
         };
 
         if(! count) return;
-       
-		var oldAlarmHtml = $("#temph-alarm-log").html();
-		$("#temph-alarm-log").html(resultStr + oldAlarmHtml);
+
+		$("#temph-alarm-log").prepend(resultStr);
         
 		$( "#log-info-tabs" ).tabs("select" , "#temph-alarm-log");
 		$( "#log-info-dialog" ).dialog("open");
@@ -412,8 +411,7 @@ var lyRain={
 
         if(! count) return;
        
-		var oldAlarmHtml = $("#wind-alarm-log").html();
-		$("#wind-alarm-log").html(resultStr + oldAlarmHtml);
+		$("#wind-alarm-log").prepend(resultStr);
         
 		$( "#log-info-tabs" ).tabs("select" , "#wind-alarm-log");
 		$( "#log-info-dialog" ).dialog("open");
@@ -469,8 +467,7 @@ var lyRain={
 
         if(! count) return;
        
-		var oldAlarmHtml = $("#rain-alarm-log").html();
-		$("#rain-alarm-log").html(resultStr + oldAlarmHtml);
+		$("#rain-alarm-log").prepend(resultStr);
         
 		$( "#log-info-tabs" ).tabs("select" , "#rain-alarm-log");
 		$( "#log-info-dialog" ).dialog("open");
@@ -512,8 +509,7 @@ var lyRain={
         infoStr = "<div class='new-alarm-info'><h4>[" + this.format_time() + addStr+count+" 个雨量站的雨量 ≥ "+this.alarmValue
 				  +" mm</h4><table>" + infoStr+'</table></div>';
         
-		var oldAlarmHtml = $("#alarm-info").html();
-		$("#alarm-info").html(infoStr + oldAlarmHtml);
+		$("#alarm-info").prepend(infoStr);
         
 		$("#info-toolbar a[mapid='#alarm-info']").click();
         
