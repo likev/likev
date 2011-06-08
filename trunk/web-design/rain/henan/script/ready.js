@@ -110,7 +110,11 @@ function initialize() {
 	//检测是否支持报警
 	if(!('play' in $("<audio/>")[0]) ){
 	    $("#alarm-volume-check").attr({checked:false, disabled:"disabled"});
-		$("#alarm-volume-test").text("您的浏览器不支持报警，请切换firefox或chrome浏览器");
+		$("#alarm-volume-test").text("浏览器不支持");
+	}
+	//检测是否支持绘图
+	if(!('getContext' in $("<canvas/>")[0]) ){
+	    $("#toggle-wind").button( "disable" );
 	}
 
 	//某些浏览器不支持audio loop
