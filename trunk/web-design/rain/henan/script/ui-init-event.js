@@ -78,8 +78,10 @@ $(function() {
 			}
 		};
 		
-		function onAlarmValueChange(dom,value,as){			
-			value = $.trim($(dom).val()).split(/\s+/);
+		function onAlarmValueChange(dom,attr,as){
+		
+			var value = $.trim($(dom).val()).split(/\s+/);
+			lyRain.alarmOption.alarmCondition[attr] = value;
 			
 			//alarmedStations
 			as.length = value.length;
@@ -91,27 +93,25 @@ $(function() {
 		
 		$("#rain-alarm-value")
 			.change(function(){
-				onAlarmValueChange(this,
-				lyRain.alarmOption.alarmCondition.rain,
+				//console.log(onAlarmValueChange);
+				onAlarmValueChange(this, 'rain',
 				lyRain.rainAlarmedStations );
 				
-				dealRainAlarm(true);
+				lyRain.dealRainAlarm(true);
 			});
 		$("#wind-alarm-value")
 			.change(function(){
-				onAlarmValueChange(this,
-				lyRain.alarmOption.alarmCondition.wind,
+				onAlarmValueChange(this, 'wind',
 				lyRain.windAlarmedStations );
 				
-				dealWindAlarm(true);
+				lyRain.dealWindAlarm(true);
 			});
 		$("#temph-alarm-value")
 			.change(function(){
-				onAlarmValueChange(this,
-				lyRain.alarmOption.alarmCondition.temph,
+				onAlarmValueChange(this, 'temph',
 				lyRain.temphAlarmedStations );
 				
-				dealTemphAlarm(true);
+				lyRain.dealTemphAlarm(true);
 			});
 		
 		$("#rain-alarm-check").click(function(){
@@ -365,7 +365,12 @@ $(function() {
 			})
 			.tabs()
 			.parent()
-				.dialog({autoOpen: false, width:700, height:300});
+				.dialog({autoOpen: false, 
+					width:700, height:300,
+					resize: function(event, ui) {
+						$( "#log-info-tabs" ).height($(this).height()-80);
+					}
+				});
 		/**/
 		$( ".tabs-bottom .ui-tabs-nav, .tabs-bottom .ui-tabs-nav > *" )
 			.removeClass( "ui-corner-all ui-corner-top" )
