@@ -295,14 +295,19 @@ $(function() {
 					$("#desc-time span.ui-button-text").text(buttonText);
 					
 					//重新请求雨量和风温度场
-					lyRain.reloadAllData((new Date()).getTime());
+					lyRain.reloadAllData((new Date()).getTime(), true);
 				}
 			});
 		
 		$("#set-alarm-dialog" ).dialog({ autoOpen: false, modal:true, width:700, height:300});
 
-
-		$( "#log-info-tabs" ).tabs().parent().dialog({autoOpen: false, width:700, height:300});
+		$( "#log-info-tabs" )
+			.mousemove(function(){
+				$("#alarm-sound")[0].pause();
+			})
+			.tabs()
+			.parent()
+				.dialog({autoOpen: false, width:700, height:300});
 		/**/
 		$( ".tabs-bottom .ui-tabs-nav, .tabs-bottom .ui-tabs-nav > *" )
 			.removeClass( "ui-corner-all ui-corner-top" )

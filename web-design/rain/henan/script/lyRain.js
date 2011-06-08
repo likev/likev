@@ -162,46 +162,48 @@ var lyRain={
 			}
 		}
 	},
-	reloadAllData:function(requestTime){
-		this.reloadRainData(requestTime);
-		this.reloadTemphWind2Data(requestTime);
+	reloadAllData:function(requestTime,once){
+		this.reloadRainData(requestTime,once);
+		this.reloadTemphWind2Data(requestTime,once);
 	},
-    reloadRainData: function(requestTime){//刷新数据并显示
-		
-		this.endRainRequestTime = requestTime;
-		
-		$("#ajax-rain-info").text("正在请求雨量数据...");
-			
+    reloadRainData: function(requestTime,once){//刷新数据并显示
+				
 		var jsonUrl = "raininfo.php";
 		
 		if(! this.isFromLast20){
 			if(this.isLatestRequest){
 				
 				this.setTimeFromSlider();			
+			}else if(!once){
+				return;
 			}
 			
 			jsonUrl = "raininfo.php?history=true&startTime="+this.format_time(this.beginTime)+"&endTime="+this.format_time(this.endTime);
-		}
+		}		
+		
+		this.endRainRequestTime = requestTime;		
+		$("#ajax-rain-info").text("正在请求雨量数据...");
 
 		$.getJSON(jsonUrl,$.proxy(this.ajaxRainSuccess(requestTime),this) );
 
     },
 	
 	isLatestRequest:true,
-	reloadTemphWind2Data: function(requestTime){//刷新数据并显示
-		
-		this.endTemphWind2RequestTime = requestTime;
-		
-		$("#ajax-wind-temph-info").text("正在请求温度和风场数据...");
-			
+	reloadTemphWind2Data: function(requestTime,once){//刷新数据并显示
+							
 		var jsonUrl = "lib/t-wind2.php";
 		
 		//改变请求url
 		if(this.isLatestRequest){
 			this.setTimeFromSlider();
-		}else{
+		}else if(once){
 			jsonUrl = "lib/t-wind2.php?history=true&wind2Time="+this.format_time(this.endTime);
+		}else{
+			return;
 		}
+		
+		this.endTemphWind2RequestTime = requestTime;
+		$("#ajax-wind-temph-info").text("正在请求温度和风场数据...");
 
 		$.getJSON(jsonUrl,$.proxy(this.ajaxTemphWind2Success(requestTime),this) );
 
@@ -266,9 +268,33 @@ var lyRain={
 		}
 	},
 	
-	temphAlarmedStations:new Array(),
-	windAlarmedStations:new Array(),
-	rainAlarmedStations:new Array(),
+	
+	SphericalDistance: function(latLonA,latLonB){
+		var tor = Math.PI/180;
+		var a1 = latLonA.lng()*tor,
+			b1 = latLonA.lat()*tor,
+			a2 = latLonB.lng()*tor,
+			b2 = latLonB.lat()*tor;
+
+		//var radius = 100000*Math.abs(e.latLng.lat()-populationOptions.center.lat());
+		var rads = 6300*Math.acos(Math.cos(b1)*Math.cos(b2)*Math.cos(a1-a2)+Math.sin(b1)*Math.sin(b2) );
+		
+		return rads;//km
+	},
+	
+	startSoundAlarm:function(current){
+		var alarm = $("#alarm-sound")[0];
+        var ispaused = alarm.paused, isended = alarm.ended;
+
+        if(ispaused || isended){ 
+            alarm.play();
+			if(current) setTimeout("$('#alarm-sound')[0].pause();",3000);
+        }
+	},
+	
+	temphAlarmedStations:new Array(3),
+	windAlarmedStations:new Array(3),
+	rainAlarmedStations:new Array(3),
 	
 	dealTemphAlarm:function(current){
 		if(!this.alarmOption.isAlarmSet 
@@ -283,7 +309,21 @@ var lyRain={
 			var n = 0;
 			var alarmValue = this.alarmOption.alarmCondition.temph[index];
 			
-			for(var key in this.jsonTemph){//  
+			for(var key in this.jsonTemph){//
+				
+				var lonlat;
+				if(key in allLonLats){
+					lonlat = allLonLats[key].lonlat;
+				}else{
+					continue;
+				}
+				
+				var pos = new google.maps.LatLng(lonlat[1], lonlat[0]);
+				if(this.SphericalDistance(this.alarmOption.alarmArea.center, pos) 
+					> this.alarmOption.alarmArea.radius ){
+					continue;
+				}
+				
 				var value = Number(this.jsonTemph[key]);
 				
 				if(value >= alarmValue && $.inArray(key,this.temphAlarmedStations[index])== -1){
@@ -303,18 +343,14 @@ var lyRain={
 
         if(! count) return;
        
-		var oldAlarmHtml = $("#alarm-info").html();
-		$("#alarm-info").html(infoStr + oldAlarmHtml);
+		var oldAlarmHtml = $("#temph-alarm-log").html();
+		$("#temph-alarm-log").html(resultStr + oldAlarmHtml);
         
-		$("#info-toolbar a[mapid='#alarm-info']").click();
-        
-		var alarm = $("#alarm-sound")[0];
-        var ispaused = alarm.paused, isended = alarm.ended;
-
-        if(ispaused || isended){ 
-            alarm.play();
-			if(current) setTimeout("$('#alarm-sound')[0].pause();",1000);
-        }
+		$( "#log-info-tabs" ).tabs("select" , "#temph-alarm-log");
+		$( "#log-info-dialog" ).dialog("open");
+		
+		this.startSoundAlarm(current);
+        	
 	},
 	dealWindAlarm:function(current){
 	},
@@ -383,8 +419,8 @@ var lyRain={
 		var key = this.getCountyId(stationID);
 		return allLyCounty[key].name;
 	},
-	getStationName:function(stationID){
-		return allLonLats[stationID].name;
+	getStationName:function(stationID){		
+		return (stationID in allLonLats) ? allLonLats[stationID].name : stationID;
 	},
 	setSortRainInfo:function(){
 
