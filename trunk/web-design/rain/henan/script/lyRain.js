@@ -376,7 +376,7 @@ var lyRain={
 			var n = 0;
 			var alarmValue = this.alarmOption.alarmCondition.wind[index];
 			
-			for(var key in this.jsonWind){//
+			for(var key in this.jsonWind2){//
 				
 				var lonlat;
 				if(key in allLonLats){
@@ -391,7 +391,7 @@ var lyRain={
 					continue;
 				}
 				
-				var value = Number(this.jsonWind[key][1]);
+				var value = Number(this.jsonWind2[key][1]);
 				
 				if(value >= alarmValue && $.inArray(key,this.windAlarmedStations[index])== -1){
 					n++;
