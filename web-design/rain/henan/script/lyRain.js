@@ -264,7 +264,7 @@ var lyRain={
 			//this.calcLevelRain();
 			//this.setSortRainInfo();
 						
-			//this.dealAlarm();
+			if(this.alarmOption.isAlarmSet) this.dealTemphAlarm();
 		}
 	},
 	

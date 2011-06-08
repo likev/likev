@@ -92,6 +92,8 @@ $(function() {
 						$( "#select-time" ).button( "disable" );
 						$("#rain-range").attr("disabled","disabled");
 						
+						lyRain.dealTemphAlarm();
+						
 						lyRain.setTimeFromSlider(0);
 						$("#time-slider").slider( "value" , 0);
 					},
