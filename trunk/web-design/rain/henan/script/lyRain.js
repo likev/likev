@@ -237,7 +237,7 @@ var lyRain={
 			//this.calcLevelRain();
 			//this.setSortRainInfo();
 						
-			//this.dealAlarm();
+			this.dealRainAlarm();
 		}
 	},
 	
@@ -264,7 +264,8 @@ var lyRain={
 			//this.calcLevelRain();
 			//this.setSortRainInfo();
 						
-			if(this.alarmOption.isAlarmSet) this.dealTemphAlarm();
+			this.dealTemphAlarm();
+			this.dealWindAlarm();
 		}
 	},
 	
@@ -283,6 +284,8 @@ var lyRain={
 	},
 	
 	startSoundAlarm:function(current){
+		if(! lyRain.alarmOption.alarmWay.sound) return;
+		
 		var alarm = $("#alarm-sound")[0];
         var ispaused = alarm.paused, isended = alarm.ended;
 
@@ -292,9 +295,15 @@ var lyRain={
         }
 	},
 	
-	temphAlarmedStations:new Array(3),
-	windAlarmedStations:new Array(3),
-	rainAlarmedStations:new Array(3),
+	temphAlarmedStations:new Array(new Array(),new Array(),new Array()),
+	windAlarmedStations:new Array(new Array(),new Array(),new Array()),
+	rainAlarmedStations:new Array(new Array(),new Array(),new Array()),
+	
+	dealAllAlarm: function(current){
+		this.dealTemphAlarm(current);
+		this.dealWindAlarm(current);
+		this.dealRainAlarm(current);
+	},
 	
 	dealTemphAlarm:function(current){
 		if(!this.alarmOption.isAlarmSet 
@@ -334,11 +343,13 @@ var lyRain={
 				}			
 			}
 			
-			count += n;
-			infoStr = "<div class='new-alarm-info'><h4>[" + this.format_time() + addStr+ n +" 个四要素站的气温 ≥ "+ alarmValue
-								+" mm</h4><table>" + infoStr+'</table></div>';
-			
-			resultStr = infoStr + resultStr;
+			if(n){			
+				count += n;
+				infoStr = "<div class='new-alarm-info'><h4>[" + this.format_time() + addStr+ n +" 个四要素站的气温 ≥ "+ alarmValue
+									+" mm</h4><table>" + infoStr+'</table></div>';
+				
+				resultStr = infoStr + resultStr;
+			}
         };
 
         if(! count) return;
@@ -353,8 +364,118 @@ var lyRain={
         	
 	},
 	dealWindAlarm:function(current){
+		if(!this.alarmOption.isAlarmSet 
+		|| !this.alarmOption.alarmCondition.windAlarm ) return;
+		
+		var count=0;
+        var resultStr = "";
+		var addStr = current ? "] 目前有 " : "] 新增 ";
+		
+		for(var index in this.alarmOption.alarmCondition.wind){
+			var infoStr="";
+			var n = 0;
+			var alarmValue = this.alarmOption.alarmCondition.wind[index];
+			
+			for(var key in this.jsonWind){//
+				
+				var lonlat;
+				if(key in allLonLats){
+					lonlat = allLonLats[key].lonlat;
+				}else{
+					continue;
+				}
+				
+				var pos = new google.maps.LatLng(lonlat[1], lonlat[0]);
+				if(this.SphericalDistance(this.alarmOption.alarmArea.center, pos) 
+					> this.alarmOption.alarmArea.radius ){
+					continue;
+				}
+				
+				var value = Number(this.jsonWind[key]);
+				
+				if(value >= alarmValue && $.inArray(key,this.windAlarmedStations[index])== -1){
+					n++;
+					this.windAlarmedStations[index].push(key);
+				   				   
+					infoStr += "<tr><td>"+this.getStationName(key)+"</td><td>"+value+"</td></tr>";
+				}			
+			}
+			
+			if(n){			
+				count += n;
+				infoStr = "<div class='new-alarm-info'><h4>[" + this.format_time() + addStr+ n +" 个四要素站的风速 ≥ "+ alarmValue
+									+" mm</h4><table>" + infoStr+'</table></div>';
+				
+				resultStr = infoStr + resultStr;
+			}
+        };
+
+        if(! count) return;
+       
+		var oldAlarmHtml = $("#wind-alarm-log").html();
+		$("#wind-alarm-log").html(resultStr + oldAlarmHtml);
+        
+		$( "#log-info-tabs" ).tabs("select" , "#wind-alarm-log");
+		$( "#log-info-dialog" ).dialog("open");
+		
+		this.startSoundAlarm(current);
 	},
 	dealRainAlarm:function(current){
+		if(!this.alarmOption.isAlarmSet 
+		|| !this.alarmOption.alarmCondition.rainAlarm ) return;
+		
+		var count=0;
+        var resultStr = "";
+		var addStr = current ? "] 目前有 " : "] 新增 ";
+		
+		for(var index in this.alarmOption.alarmCondition.rain){
+			var infoStr="";
+			var n = 0;
+			var alarmValue = this.alarmOption.alarmCondition.rain[index];
+			
+			for(var key in this.jsonRain){//
+				
+				var lonlat;
+				if(key in allLonLats){
+					lonlat = allLonLats[key].lonlat;
+				}else{
+					continue;
+				}
+				
+				var pos = new google.maps.LatLng(lonlat[1], lonlat[0]);
+				if(this.SphericalDistance(this.alarmOption.alarmArea.center, pos) 
+					> this.alarmOption.alarmArea.radius ){
+					continue;
+				}
+				
+				var value = Number(this.jsonRain[key]);
+				
+				if(value >= alarmValue && $.inArray(key,this.rainAlarmedStations[index])== -1){
+					n++;
+					this.rainAlarmedStations[index].push(key);
+				   				   
+					infoStr += "<tr><td>"+this.getStationName(key)+"</td><td>"+value+"</td></tr>";
+				}			
+			}
+			
+			if(n){			
+				count += n;
+				infoStr = "<div class='new-alarm-info'><h4>[" + this.format_time() + addStr+ n +" 个雨量站的雨量 ≥ "+ alarmValue
+									+" mm</h4><table>" + infoStr+'</table></div>';
+				
+				resultStr = infoStr + resultStr;
+			}
+        };
+
+        if(! count) return;
+       
+		var oldAlarmHtml = $("#rain-alarm-log").html();
+		$("#rain-alarm-log").html(resultStr + oldAlarmHtml);
+        
+		$( "#log-info-tabs" ).tabs("select" , "#rain-alarm-log");
+		$( "#log-info-dialog" ).dialog("open");
+		
+		this.startSoundAlarm(current);
 	},
 	
     alarmedStation:new Array(),

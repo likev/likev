@@ -78,6 +78,59 @@ $(function() {
 			}
 		};
 		
+		function onAlarmValueChange(dom,value,as){			
+			value = $.trim($(dom).val()).split(/\s+/);
+			
+			//alarmedStations
+			as.length = value.length;
+			
+			for(var i in as){
+				as[i] = new Array();//清空站点
+			}
+		};
+		
+		$("#rain-alarm-value")
+			.change(function(){
+				onAlarmValueChange(this,
+				lyRain.alarmOption.alarmCondition.rain,
+				lyRain.rainAlarmedStations );
+				
+				dealRainAlarm(true);
+			});
+		$("#wind-alarm-value")
+			.change(function(){
+				onAlarmValueChange(this,
+				lyRain.alarmOption.alarmCondition.wind,
+				lyRain.windAlarmedStations );
+				
+				dealWindAlarm(true);
+			});
+		$("#temph-alarm-value")
+			.change(function(){
+				onAlarmValueChange(this,
+				lyRain.alarmOption.alarmCondition.temph,
+				lyRain.temphAlarmedStations );
+				
+				dealTemphAlarm(true);
+			});
+		
+		$("#rain-alarm-check").click(function(){
+			lyRain.alarmOption.alarmCondition.rainAlarm
+				= this.checked;
+		});
+		$("#temph-alarm-check").click(function(){
+			lyRain.alarmOption.alarmCondition.temphAlarm
+				= this.checked;
+		});
+		$("#wind-alarm-check").click(function(){
+			lyRain.alarmOption.alarmCondition.windAlarm
+				= this.checked;
+		});
+		$("#alarm-volume-check").click(function(){
+			lyRain.alarmOption.alarmWay.sound = this.checked;
+		});
+		
+		
 		$( "#toggle-alarm" )
 			.button()
 			.toggle(
@@ -92,7 +145,7 @@ $(function() {
 						$( "#select-time" ).button( "disable" );
 						$("#rain-range").attr("disabled","disabled");
 						
-						lyRain.dealTemphAlarm();
+						lyRain.dealAllAlarm(true);
 						
 						lyRain.setTimeFromSlider(0);
 						$("#time-slider").slider( "value" , 0);
@@ -110,6 +163,9 @@ $(function() {
 			.click(function(){
 				lyRain.alarmOption.alarmArea.isSetting = true;
 				$("#set-alarm-dialog" ).dialog("close");
+				
+				$("#ajax-info").children().hide();
+				$("#ajax-info").append("<span id='set-alarm-area-tips' >在地图上点击鼠标右键开始设置报警中心！</span>" );
 			});
 			
 		$( "#select-time" )
