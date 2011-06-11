@@ -346,7 +346,7 @@ var lyRain={
 			if(n){			
 				count += n;
 				infoStr = "<div class='new-alarm-info'><h4>[" + this.format_time() + addStr+ n +" 个四要素站的气温 ≥ "+ alarmValue
-									+" mm</h4><table>" + infoStr+'</table></div>';
+									+" °C</h4><table>" + infoStr+'</table></div>';
 				
 				resultStr = infoStr + resultStr;
 			}
@@ -403,7 +403,7 @@ var lyRain={
 			if(n){			
 				count += n;
 				infoStr = "<div class='new-alarm-info'><h4>[" + this.format_time() + addStr+ n +" 个四要素站的风速 ≥ "+ alarmValue
-									+" mm</h4><table>" + infoStr+'</table></div>';
+									+" m/s</h4><table>" + infoStr+'</table></div>';
 				
 				resultStr = infoStr + resultStr;
 			}
