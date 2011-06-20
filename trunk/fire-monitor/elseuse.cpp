@@ -24,11 +24,11 @@ UINT MyThreadProc(LPVOID pParam ) //报警线程
 	return 0;   // thread completed successfully
 }
 
-//发送短信 调用飞信接口
+//发送短信 调用tui3接口
 bool sendmes(string message, string sendto)
 {
-	string murl="http://sms.api.bz/fetion.php?username=13663880026&password=qxt0307";
-	murl +=  "&sendto="+sendto+"&message="+message;
+	string murl="http://www.tui3.com/api/send/?k=321898d573024997301345c36bc9606f&r=json&p=1";
+	murl +=  "&t="+sendto+"&cn="+message+" lyqx";
 
 	try
 	{

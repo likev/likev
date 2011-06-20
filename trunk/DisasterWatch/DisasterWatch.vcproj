@@ -214,7 +214,7 @@
 				</FileConfiguration>
 			</File>
 			<File
-				RelativePath="..\..\common-files\string-trans.cpp"
+				RelativePath="..\common-files\string-trans.cpp"
 				>
 			</File>
 			<File
@@ -270,7 +270,7 @@
 				>
 			</File>
 			<File
-				RelativePath="..\..\common-files\XPStyle.manifest"
+				RelativePath="..\common-files\XPStyle.manifest"
 				>
 			</File>
 		</Filter>

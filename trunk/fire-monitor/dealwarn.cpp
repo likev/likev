@@ -8,7 +8,7 @@ void dealfire(string firecity,string filename)
 
 	cout<<"正在发送短信...     ";
 
-	if(sendmes(firemes))
+	if(sendmes(firemes,"13663880026,13698835392") )
 		cout<<"短信已发出"<<endl;
 	else
 		cout<<"发送失败"<<endl;
