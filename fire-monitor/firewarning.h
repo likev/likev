@@ -37,7 +37,7 @@ public:
 
 //ÉùÃ÷º¯Êý
 UINT MyThreadProc(LPVOID pParam );
-bool sendmes(string message="begin", string sendto="13663880026");
+bool sendmes(string message, string sendto);
 bool FtpConnect(CTime& lastTime);
 void dealfire(string firecity,string filename);
 bool dealfile(CFtpFileFind & finder, CFtpConnection* pConnect, CTime & lastTime, CTime & nowTime);

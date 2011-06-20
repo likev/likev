@@ -11,9 +11,13 @@ int main()
 	LYname s;
 	CTime lastTime;
 
-	cout<<"火点监测程序  许方璐于2009年9月23日\n\n"
-		     "发现问题或者有好的意见请在网站xufanglu.cn上面留言\n"
+	cout<<"火点监测程序2.0  许方璐于2011年6月20日\n\n"
+		     "发现问题或者有好的意见请在网站 lyqx.de 上面留言\n"
 			 "-----------------------------------------------------------------\n\n";
+
+	//dealfire("测 试","bas txt");
+	//return 0;
+
 	while(1)
 	{
 		cout<<"正在检测......   当前时间:"<<CTime::GetCurrentTime().Format("%c").GetBuffer()<<endl<<endl;
