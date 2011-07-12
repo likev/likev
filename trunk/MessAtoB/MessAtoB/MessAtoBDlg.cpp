@@ -10,6 +10,7 @@
 #include "setinfo.h"
 #include "PYDlg.h"
 #include "SelfForcast.h"
+#include "ShortForcast.h"
 
 #ifdef _DEBUG
 #define new DEBUG_NEW
@@ -87,6 +88,7 @@ BEGIN_MESSAGE_MAP(CMessAtoBDlg, CDialog)
 	ON_WM_SIZE()
 	ON_BN_CLICKED(IDC_GENERATE_PY, &CMessAtoBDlg::OnBnClickedGeneratePy)
 	ON_BN_CLICKED(IDC_BUTTON_SelfForcast, &CMessAtoBDlg::OnBnClickedButtonSelfforcast)
+	ON_BN_CLICKED(IDC_BUTTON_SHORTFORCAST, &CMessAtoBDlg::OnBnClickedButtonShortforcast)
 END_MESSAGE_MAP()
 
 
@@ -723,4 +725,14 @@ std::string CMessAtoBDlg::GetFtpFilename(void)
 	}
 
 	return ftp_filename;
+}
+
+void CMessAtoBDlg::OnBnClickedButtonShortforcast()
+{
+	ShortForcast *sf_dlg = new ShortForcast();
+	
+
+	sf_dlg->Create(IDD_DLG_ShortForcast);
+	sf_dlg->ShowWindow(SW_SHOW);
+
 }

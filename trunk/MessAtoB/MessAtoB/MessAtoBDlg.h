@@ -75,4 +75,5 @@ public:
 	afx_msg void OnBnClickedButtonSelfforcast();
 	// 获取当前时次城镇报的文件名
 	std::string GetFtpFilename(void);
+	afx_msg void OnBnClickedButtonShortforcast();
 };
