@@ -1,0 +1,93 @@
+<!doctype html>
+<html>
+<head>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+
+<script src="script/jquery-1.6.2.min.js"></script>
+<script src="script/jquery-ui-1.8.15.custom.min.js"></script>
+<link href="css/ui-lightness/jquery-ui-1.8.15.custom.css" type="text/css" rel="stylesheet" />
+
+<script src="script/json2.js"></script>
+
+<script src="script/webCzb.js"></script>
+
+<script src="script/option.js"></script>
+<script src="script/onready.js"></script>
+
+<link href="css/main.css" rel="stylesheet" type="text/css" />
+
+<script>
+
+</script>
+
+</head>
+<body>
+<!-- <a href='http://lyqx.sinaapp.com'>返回首页</a> -->
+<span id="toolbar" class="ui-widget-header ui-corner-all">
+
+	<span id='select-day'>
+	<input type="radio" id="toggle-today" name="day"  checked="checked"/><label for="toggle-today">今天</label><input type="radio" id="toggle-tomorrow" name="day" /><label for="toggle-tomorrow">明天</label>
+	</span>
+
+	<span id="select-message">
+<input type="radio" id="toggle-first" name="radio" /><label for="toggle-first">04:35</label><input type="radio" id="toggle-second" name="radio" /><label for="toggle-second">06:20</label><input type="radio" id="toggle-third" name="radio" /><label for="toggle-third">10:05</label><input type="radio" id="toggle-forth" name="radio"/><label for="toggle-forth">16:05</label>
+	</span>
+	
+	<span id='prev-next-time'>
+		<button id='prev-time'>&lt;&lt;--</button><button id='next-time'>--&gt;&gt;</button>
+	</span>
+	
+	<button id='view-message'>生成报文</button>
+</span>
+
+<div id="dialog-preview">
+	<div id="preview-czb">
+	</div>
+</div>
+
+<div id='new-czb'>
+<div id='time-select'>
+	<div id='cur-forcast-span'>预报时段</div>
+	<div id='time-select-mark'>
+		<ul>
+			<li timeValue='12'>12</li>
+			<li timeValue='24'>24</li>
+			<li timeValue='36'>36</li>
+			<li timeValue='48'>48</li>
+			<li timeValue='60'>60</li>
+			<li timeValue='72'>72</li>
+			<li timeValue='84'>84</li>
+			<li timeValue='96'>96</li>
+			<li timeValue='108'>108</li>
+			<li timeValue='120'>120</li>
+			<li timeValue='132'>132</li>
+			<li timeValue='144'>144</li>
+			<li timeValue='156'>156</li>
+			<li timeValue='168'>168</li>
+		</ul>
+	</div>
+	<div id="time-slider"></div>
+</div>
+<ul class="edit-czb">
+	<li class='title'>
+		<ul>
+			<li  titlefor='name'><h4>站点</h4></li>
+			<li  titlefor='weather'><h4>天气</h4></li>
+			<li  titlefor='wind-dire'><h4>风向</h4></li>
+			<li  titlefor='wind-level'><h4>最大风速</h4></li>
+			<li  titlefor='high-t'><h4>最高气温</h4></li>
+			<li  titlefor='low-t'><h4>最低气温</h4></li>
+		</ul>
+	</li>
+
+</ul><!-- end edit-czb -->
+</div>
+<div id='forcast-select'>
+<ul id='weather-select'  selectfor='weather'></ul>
+<ul id='wind-dire-select'  selectfor='wind-dire'></ul>
+<ul id='wind-level-select'  selectfor='wind-level'></ul>
+<ul id='high-t-select'  selectfor='high-t'></ul>
+<ul id='low-t-select'  selectfor='low-t'></ul>
+</div>
+</body>
+</html>
