@@ -65,11 +65,13 @@ function WebCzb(option) {
 	
 	this.timeValue = 12; //保存当前预报时次
 	
-	var forcastJsonCode = []; //预报值保存在这个数组里
-	var lastForcastJson = [];//保存上次预报值
+	var forcastJsonCode = {}; //预报值保存在这个数组里
+	var lastForcastJson = {};//保存上次预报值
  
 	var forcastEditTime = new Date(); //制作预报的时间
 	var forcastBeginTime = new Date(); //预报的起始时刻
+	
+	var lastForcastBegin = forcastBeginTime; 
 	
 	var weatherMap = {
 		"0.0": '晴天', 
@@ -122,7 +124,25 @@ function WebCzb(option) {
 		"7.0": '9-10级',
 		"8.0": '10-11级',
 		"9.0": '11-12级'
-	}
+	};
+	
+	var getLastJson = function(){
+
+		var jqxhr = $.post("service/service.php", 
+			{	
+				action:'getLast'
+			},
+			function(json) {
+			  alert("success");
+			  lastForcastJson = json.forcastJson;
+			  lastForcastBegin = json.forcastBegin;
+			},'json')
+		.done(function() { alert("second success"); })
+		.fail(function() { alert("error"); })
+		.always(function() { alert("complete"); });
+	};
+	
+	getLastJson();
 	
 	this.getWeatherMap = function(){
 		return weatherMap;
@@ -271,29 +291,27 @@ function WebCzb(option) {
 	this.initForcastCode = function(){
 	
 		initForcastTime();
-
-		forcastJsonCode.length = 0;
 		
-		var i=0;
+		var weatherOffset=0,highTOffset = 0, lowTOffset = 0;
+
+		forcastJsonCode  = {};
+		
 		for(var attr in stationMap){
-			//single code
-			forcastJsonCode[i] = {
-				id:attr,
-				forcast: []
-			}
+			//single station code
+			forcastJsonCode[attr] = [];
+			var last = lastForcastJson[attr] ? lastForcastJson[attr] : [];
 			
+			//每个时次
 			for(var index=0; index < possibleMaxPeriod/12; index++){
-				//var last = lastForcastJson[i] ? lastForcastJson[i].forcast : [];
-				forcastJsonCode[i].forcast[index] = {
-						weather:'0.0',
-						dire:'0.0',
-						level:'0.0',
-						highT:'32',
-						lowT:'21'
+				
+				forcastJsonCode[attr][index] = {
+						weather: last[index+weatherOffset] ? last[index+weatherOffset].weather : '0.0',
+						dire: last[index+weatherOffset] ? last[index+weatherOffset].dire : '0.0',
+						level: last[index+weatherOffset] ? last[index+weatherOffset].level : '0.0',
+						highT: last[index+highTOffset] ? last[index+highTOffset].highT : '25',
+						lowT: last[index+lowTOffset] ? last[index+lowTOffset].lowT : '18'
 					}
 			}
-			
-			i++;
 		}
 	}
 	
@@ -311,11 +329,11 @@ function WebCzb(option) {
 	this.updateUIFromCode = function(){
 		updateCurForcastSpanText(this.timeValue);
 
-		for(var i in forcastJsonCode){
-			var singleCode= forcastJsonCode[i];
-			var forcast = singleCode.forcast[this.timeValue/12 - 1];
+		for(var id in forcastJsonCode){
+			var singleCode= forcastJsonCode[id];
+			var forcast = singleCode[this.timeValue/12 - 1];
 			
-			var jdom = $('li.station[num="'+ singleCode.id +'"]');
+			var jdom = $('li.station[num="'+ id +'"]');
 						
 			$('input[name="weather"]',jdom).attr('code',forcast.weather).val(weatherMap[forcast.weather]);
 			$('input[name="wind-dire"]',jdom).attr('code',forcast.dire).val(windDireMap[forcast.dire]);
@@ -335,11 +353,10 @@ function WebCzb(option) {
 		
 		var times = this.timeValue/12 - 1;
 		
-		for(var i=0; i < forcastJsonCode.length; i++){
-			var id = forcastJsonCode[i].id;
+		for(var id in forcastJsonCode){
 			var lidom = $('li.station[num="'+ id +'"]');
 			
-			var f = forcastJsonCode[i].forcast[times];
+			var f = forcastJsonCode[id][times];
 			
 			f.weather = $('input[name="weather"]', lidom).attr('code');
 			f.dire = $('input[name="wind-dire"]', lidom).attr('code');
@@ -350,11 +367,11 @@ function WebCzb(option) {
 		}
 	}
 	
-	this.generateSingleForcast = function(obj){
+	this.generateSingleForcast = function(id, f){
 		
 		var spans = isSingleForcast ? this.maxPeriod/12 : possibleMaxPeriod/12 ;
 		
-		var f  = obj.forcast, id = obj.id, str='';
+		var str='';
 		str += id + ' ' + stationMap[id].lon + ' ' + stationMap[id].lat + ' ' + stationMap[id].height + ' ' + spans + ' ' + forcastElements + '\r\n';
 		
 		for(var i=0; i<spans; i++){
@@ -453,13 +470,13 @@ function WebCzb(option) {
 		str += isSingleForcast ? '1' : (forcastJsonCode.length-1);
 		str += '\r\n';
 		
-		for(var i=0; i < forcastJsonCode.length; i++){
-			if(forcastJsonCode[i].id == '00000') continue;
+		for(var id in forcastJsonCode){
+			if(id == '00000') continue;
 			
 			if(isSingleForcast){
-				if(forcastJsonCode[i].id != singleCityID) continue;
+				if(id != singleCityID) continue;
 			}
-			str += this.generateSingleForcast(forcastJsonCode[i]);
+			str += this.generateSingleForcast(id, forcastJsonCode[id]);
 		}
 		
 		str += 'NNNN';
