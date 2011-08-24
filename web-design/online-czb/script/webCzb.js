@@ -55,6 +55,14 @@ function WebCzb(option) {
 		return html;
 	}
 	
+	var stationCount = (function(){
+		var count = 0;
+		for(var attr in stationMap){
+			if('00000' !== attr) count++;
+		}
+		return count;
+	})();
+	
 	var forcastElements = option.forcastElements;
 	var possibleMaxPeriod = option.possibleMaxPeriod;
 	
@@ -126,6 +134,12 @@ function WebCzb(option) {
 		"9.0": '11-12级'
 	};
 	
+	var getDateFromStr = function(str){
+		var value = $.trim(str).split('-');
+		
+		return new Date(value[0],value[1]-1,value[2],value[3],0,0)
+	}
+	
 	var getLastJson = function(){
 
 		var jqxhr = $.post("service/service.php", 
@@ -133,13 +147,16 @@ function WebCzb(option) {
 				action:'getLast'
 			},
 			function(json) {
-			  alert("success");
-			  lastForcastJson = json.forcastJson;
-			  lastForcastBegin = json.forcastBegin;
+			  //alert("success");
+			  lastForcastJson = $.parseJSON(json.forcastJson);
+			  lastForcastBegin = getDateFromStr(json.forcastBegin);
 			},'json')
-		.done(function() { alert("second success"); })
-		.fail(function() { alert("error"); })
-		.always(function() { alert("complete"); });
+		.done(function() { //alert("second success"); 
+		})
+		.fail(function() { //alert("error"); 
+		})
+		.always(function() { //alert("complete"); 
+		});
 	};
 	
 	getLastJson();
@@ -288,28 +305,49 @@ function WebCzb(option) {
 		
 	}
 	
+	var getForcastOffset = function(thisBegin,lastBegin){
+		var diffHours = (thisBegin.getTime() - lastBegin.getTime())/1000/3600;
+		var lastHour = lastBegin.getHours();
+		
+		var offset = {
+				weather : Number( (diffHours/12).toFixed(0) ),
+				highT : 0, 
+				lowT : 0
+			};
+		
+		if( 20 == lastHour ){
+			offset.highT = Math.floor(diffHours/24)*2;
+			offset.lowT = Math.ceil(diffHours/24)*2;
+		}else if( 8 == lastHour){
+			offset.highT = Math.ceil(diffHours/24)*2; 
+			offset.lowT = Math.floor(diffHours/24)*2;
+		}
+		
+		return offset;
+	}
+	
 	this.initForcastCode = function(){
 	
 		initForcastTime();
 		
-		var weatherOffset=0,highTOffset = 0, lowTOffset = 0;
+		var offset = getForcastOffset(forcastBeginTime,lastForcastBegin);
 
 		forcastJsonCode  = {};
 		
 		for(var attr in stationMap){
 			//single station code
 			forcastJsonCode[attr] = [];
-			var last = lastForcastJson[attr] ? lastForcastJson[attr] : [];
+			var last = (lastForcastJson[attr] ? lastForcastJson[attr] : []);
+			
 			
 			//每个时次
 			for(var index=0; index < possibleMaxPeriod/12; index++){
-				
 				forcastJsonCode[attr][index] = {
-						weather: last[index+weatherOffset] ? last[index+weatherOffset].weather : '0.0',
-						dire: last[index+weatherOffset] ? last[index+weatherOffset].dire : '0.0',
-						level: last[index+weatherOffset] ? last[index+weatherOffset].level : '0.0',
-						highT: last[index+highTOffset] ? last[index+highTOffset].highT : '25',
-						lowT: last[index+lowTOffset] ? last[index+lowTOffset].lowT : '18'
+						weather: last[index+offset.weather] ? last[index+offset.weather].weather : '0.0',
+						dire: last[index+offset.weather] ? last[index+offset.weather].dire : '0.0',
+						level: last[index+offset.weather] ? last[index+offset.weather].level : '0.0',
+						highT: last[index+offset.highT] ? last[index+offset.highT].highT : '25',
+						lowT: last[index+offset.lowT] ? last[index+offset.lowT].lowT : '18'
 					}
 			}
 		}
@@ -467,7 +505,7 @@ function WebCzb(option) {
 		str += getUTCTimeStr(forcastBeginTime,true,true) + 
 				'时' + cityName + '订正预报产品\r\n';
 		str += 'SPCC '+ getUTCTimeStr(forcastBeginTime,true,true) +'\r\n';
-		str += isSingleForcast ? '1' : (forcastJsonCode.length-1);
+		str += isSingleForcast ? '1' : stationCount;
 		str += '\r\n';
 		
 		for(var id in forcastJsonCode){

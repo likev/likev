@@ -20,7 +20,8 @@ else if($action == 'postCzb')
 }
 else
 {
-	echo 'wrong!';
+	$messages1 = EditCZB::readLastest();
+	echo json_encode($messages1);
 }
 
 

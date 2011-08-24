@@ -105,7 +105,7 @@ class DB
 		while($obj = mysql_fetch_object($rs))
 		{
 			if($obj)
-			{
+			{//每一行为一个对象
 				$objList[] = $obj;
 			}
 		}

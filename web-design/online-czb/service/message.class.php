@@ -64,18 +64,10 @@ class EditCZB
 	public static function readLastest()
 	{
 		$db = new DB();
-		$lastest = $db->getObjListBySql('select postTime,forcastBegin,forcastJson,editName from czbEdit where postTime = 
+		$lastest = $db->getObjListBySql('select postTime,DATE_FORMAT(forcastBegin,"%Y-%c-%e-%k") as forcastBegin,forcastJson,editName from czbEdit where postTime = 
 										(select max(postTime) from czbEdit)');
 		
-		if($lastest){
-			$lastest = $lastest[0];
-			$result = array('postTime'=>$lastest[0], 'forcastBegin'=>$lastest[1], 'forcastJson'=>$lastest[2], 'editName'=>$lastest[3]);
-		}
-		else{
-			$result = false;
-		}
-		
-		return $result;
+		return $lastest[0] ;
 	}
 	/*
 	 * 方法名：insert()
