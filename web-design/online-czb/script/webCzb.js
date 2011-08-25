@@ -24,10 +24,10 @@ function WebCzb(option) {
 		return false;
 	}
 	
-	this.getUIHtml = function(){
+	this.getUIHtml = function(part){
 		var html="";
 		
-		html += this.getSingleHtml('00000');
+		if('#edit-czb' == part) html += this.getSingleHtml('00000');
 		for(var id in stationMap){
 			if( id=='00000') continue;
 			html += this.getSingleHtml(id);
@@ -161,6 +161,47 @@ function WebCzb(option) {
 	
 	getLastJson();
 	
+	var lastestZdbForcast = {};
+	var lastestZdbBegin;
+	
+	var lastestZdbFilename;
+	this.getZdbName = function(){
+		return lastestZdbFilename;
+	}
+	
+	var transZdbBegin = function(str){
+		var year = Number(str.slice(0,4)), month = Number(str.slice(4,6))-1, day = Number(str.slice(6,8)), hour = Number(str.slice(8,10));
+		var begin = new Date();
+		begin.setUTCFullYear(year,month,day,hour,0,0);
+		
+		return begin;
+	}
+	
+	this.getLatestZdb = function(){
+
+		var jqxhr = $.post("service/service.php", 
+			{	
+				action:'getZdb'
+			},
+			function(json) {
+			  //alert("success");
+			  lastestZdbForcast = json.forcast;
+			  lastestZdbBegin = transZdbBegin(json.zdbBegin);
+			  lastestZdbFilename = json.fileName;
+			  
+			  $('#zdb-title').text(json.fileName);
+			},'json')
+		.done(function() { //alert("second success"); 
+		})
+		.fail(function() { //alert("error");
+			$('#zdb-title').html('获取指导报失败,请稍后<a href="#" id="regain-zdb">重新获取</a>');
+		})
+		.always(function() { //alert("complete"); 
+		});
+	};
+	
+	this.getLatestZdb();
+	
 	this.getWeatherMap = function(){
 		return weatherMap;
 	}
@@ -249,14 +290,14 @@ function WebCzb(option) {
 		if(! ($(dom).parents("li.base").length ) ) return;
 		
 		if( 'high-t' == dom.name){
-			$('input[name="high-t"]').each(function(){
+			$('#edit-czb input[name="high-t"]').each(function(){
 				if(this != dom){
 					var diff = stationMap[$(this).parent('li.station').attr('num')].highTdiff
 					this.value = dom.value - (-diff);
 				}
 			})
 		}else if( 'low-t' == dom.name){
-			$('input[name="low-t"]').each(function(){
+			$('#edit-czb input[name="low-t"]').each(function(){
 				if(this != dom){
 					var diff = stationMap[$(this).parent('li.station').attr('num')].lowTdiff
 					this.value = dom.value - (-diff);
@@ -264,7 +305,7 @@ function WebCzb(option) {
 			})
 		}else{
 			//console.log(dom.name + dom.value + $(dom).attr('code'));
-			$('.station input[name="' + dom.name + '"]')
+			$('#edit-czb  input[name="' + dom.name + '"]')
 				.val(dom.value)
 				.attr('code',$(dom).attr('code'));
 		}
@@ -353,6 +394,34 @@ function WebCzb(option) {
 		}
 	}
 	
+	this.updateZDBFromCode = function(){
+
+		for(var id in lastestZdbForcast){
+			var last = lastestZdbForcast[id] ? lastestZdbForcast[id] : [];
+			
+			var offset = getForcastOffset(forcastBeginTime,lastestZdbBegin);
+			
+			var index = this.timeValue/12 - 1;
+			var forcast = {
+						weather: last[index+offset.weather] ? last[index+offset.weather].weather : '0.0',
+						dire: last[index+offset.weather] ? last[index+offset.weather].dire : '0.0',
+						level: last[index+offset.weather] ? last[index+offset.weather].level : '0.0',
+						highT: last[index+offset.highT] ? last[index+offset.highT].highT : '',
+						lowT: last[index+offset.lowT] ? last[index+offset.lowT].lowT : ''
+					};
+					
+			//console.log(forcast);
+			var jdom = $('#zdb li.station[num="'+ id +'"]');
+						
+			$('input[name="weather"]',jdom).attr('code',forcast.weather).val(weatherMap[forcast.weather]);
+			$('input[name="wind-dire"]',jdom).attr('code',forcast.dire).val(windDireMap[forcast.dire]);
+			$('input[name="wind-level"]',jdom).attr('code',forcast.level).val(windLevelMap[forcast.level]);
+			$('input[name="high-t"]',jdom).val(Number(forcast.highT).toFixed(0) );
+			$('input[name="low-t"]',jdom).val(Number(forcast.lowT).toFixed(0) );
+			
+		}
+	}
+	
 	var updateCurForcastSpanText = function(timeValue){
 		var forcastTime = new Date(forcastBeginTime.getTime());
 		
@@ -371,7 +440,7 @@ function WebCzb(option) {
 			var singleCode= forcastJsonCode[id];
 			var forcast = singleCode[this.timeValue/12 - 1];
 			
-			var jdom = $('li.station[num="'+ id +'"]');
+			var jdom = $('#edit-czb li.station[num="'+ id +'"]');
 						
 			$('input[name="weather"]',jdom).attr('code',forcast.weather).val(weatherMap[forcast.weather]);
 			$('input[name="wind-dire"]',jdom).attr('code',forcast.dire).val(windDireMap[forcast.dire]);
@@ -380,6 +449,8 @@ function WebCzb(option) {
 			$('input[name="low-t"]',jdom).val(forcast.lowT);
 			
 		}
+		
+		this.updateZDBFromCode();
 		
 		if((this.timeValue/12)%2){
 			$('.station input[name="high-t"]').val('');
@@ -392,7 +463,7 @@ function WebCzb(option) {
 		var times = this.timeValue/12 - 1;
 		
 		for(var id in forcastJsonCode){
-			var lidom = $('li.station[num="'+ id +'"]');
+			var lidom = $('#edit-czb li.station[num="'+ id +'"]');
 			
 			var f = forcastJsonCode[id][times];
 			
@@ -542,12 +613,13 @@ function WebCzb(option) {
 				ftime: getTimeStr(forcastBeginTime,true,true,true,true)
 			},
 			function(data) {
-			  alert("success");
 			  $('#preview-czb').html(data);
 			  $('#dialog-preview').dialog( "option" , {title:''}).dialog( "open" );
 			},'text')
-		.done(function() { alert("second success"); })
-		.fail(function() { alert("error"); })
-		.always(function() { alert("complete"); });
+		.done(function() { //alert("second success"); 
+		})
+		.fail(function() { alert("网络连接异常，请稍后重试！"); })
+		.always(function() { //alert("complete"); 
+		});
 	}
 }

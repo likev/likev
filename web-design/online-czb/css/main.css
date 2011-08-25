@@ -56,15 +56,15 @@ width:0.7em;
 }
 
 #new-czb {
-margin:20px 10px;
+margin:15px 10px;
 }
 
-.edit-czb{
+#edit-czb{
 float:left;
 list-style:none;
 }
 
-.title ul{
+#edit-czb .title ul{
 list-style:none;
 margin:0 0 0 -10px;
 padding:8px 10px;
@@ -74,17 +74,17 @@ border:solid 1px #ddd;
 border-radius: 4px;
 }
 
-.title li{
+#edit-czb .title li{
 display:inline-block;
 padding:5px 10px 5px 0;
 position:absolute;
 }
 
-.title h4{
+#edit-czb .title h4{
 margin:0;
 }
 
-.station {
+#edit-czb .station {
     border-radius: 4px 4px 4px 4px;
     font-size: 1.2em;
     height: 30px;
@@ -92,19 +92,19 @@ margin:0;
     padding: 5px 15px;
 }
 
-.station:hover{
+#edit-czb .station:hover{
 background-color:#fee;
 }
 
-.base{
+#edit-czb .base{
 margin:20px 0 30px 0
 }
 
-.station .name{
+#edit-czb .station .name{
 margin:0 10px 0 0;
 }
 
-.station input{
+#edit-czb  input{
 padding:5px 8px;
 margin:0 0 0 20px;
 font-size:0.9em;
@@ -112,14 +112,14 @@ text-align: right;
 background-color: #fff;
 }
 
-.station input[disabled] {
+#edit-czb  input[disabled] {
     background-color: #EEEEEE;
 }
 
-input.high-t{
+#edit-czb input.high-t{
 margin:0 10px 0 50px;
 }
-input.low-t{
+#edit-czb input.low-t{
 margin:0 20px 0 25px;
 }
 
@@ -145,4 +145,40 @@ border:solid 1px #ECE9D8;
 
 #forcast-select .curValue {
 	background-color:#fee;
+}
+
+#zdb {
+	list-style:none;
+	float:left;
+	clear:both;
+	margin:0 0 0 180px;
+	padding:10px 5px 15px 20px;
+	background-color: #eee;
+}
+#zdb li {
+	padding:0 10px 0 20px;
+	margin:0;
+}
+#zdb li.title {
+	padding:10px 0 15px 0;
+}
+
+#zdb input {
+	padding:5px 20px 5px 30px;
+	margin:0 0 0 0px;
+	font-size:0.9em;
+	text-align: right;
+	background-color: transparent;
+	border:1px solid #ddf;
+}
+
+#zdb .name{
+margin-right:20px;
+}
+
+#zdb input.high-t{
+	padding:5px 10px 5px 50px;
+}
+#zdb input.low-t{
+	padding:5px 10px 5px 50px;
 }
