@@ -4,6 +4,13 @@
 
 $(function(){
 
+	$('#edit-czb').append(app.getUIHtml('#edit-czb'));
+	//$('#edit-czb .station:odd').css('background-color','#eee');
+	app.setTitlePosition();
+	
+	$('#zdb').append(app.getUIHtml('#zdb'));
+	$('#zdb-title').text(app.getZdbName());
+
 	var now = new Date();
 	$('label[for="toggle-today"]').text(now.getDate()+'/'+(now.getMonth()+1));
 	now.setDate(now.getDate()+1);
@@ -60,7 +67,7 @@ $(function(){
 				});
 			
 			//首先移除所有li,input[disabled]元素 仅当04时次时添加disabled属性
-			$('.station').each(function(index,dom){
+			$('#edit-czb .station').each(function(index,dom){
 				$(this).removeAttr('disabled');
 				$('input',this).removeAttr('disabled');
 				
@@ -94,6 +101,7 @@ $(function(){
 					app.PostMessage();
 				},
 				"上传个人城镇报": function() {
+					alert('很快将实现此功能...');
 					$( this ).dialog( "close" );
 				}
 			}
@@ -113,23 +121,23 @@ $(function(){
 		$( "#time-slider" ).slider('value', -nextValue);
 	})
 	
-	$('.edit-czb').append(app.getUIHtml());
-	//$('.edit-czb .station:odd').css('background-color','#eee');
-	app.setTitlePosition();
-	
-	$('.base input').change(function(){
-
-	})
+	$('#edit-czb .station').hover(
+		function(){
+			$('#zdb .station').css('background-color','transparent');
+			$('#zdb .station[num="'+$(this).attr('num')+'"]').css('background-color','#fde');
+		},function(){
+			$('#zdb .station').css('background-color','transparent');
+		});
 	
 	$('.station input').keydown(function(){
 		return false;
 	});
 	
-	$('.station input').focus(function(){		
+	$('#edit-czb .station input').focus(function(){		
 		app.focusDom = this;
 	});
 	
-	$('.station input').click(function(){
+	$('#edit-czb .station input').click(function(){
 		$('#forcast-select ul').hide();
 		
 		var inputname = this.name;
@@ -169,6 +177,10 @@ $(function(){
 		
 		//必需手动触发
 		app.onBaseChange(app.focusDom);
+	});
+	
+	$('#zdb-title').delegate("#regain-zdb", "click", function(){
+		app.getLatestZdb();
 	});
 	
 	$( "#time-slider" ).slider({

@@ -1,5 +1,11 @@
 <?php
 require_once('db.class.php');		//引入db.class.php
+
+$require_stations = array('57065' , '57066' , '57070' , '57071' , '57073' , '57074' , '57076' , '57077' , '57078' , '57162');
+function filter_czb($name)
+{
+	return !!preg_match('/\S*\d{8}(08|20)\.ZDB\S*/',$name);
+}
 /*
  * 类名：EditCZB
  * 说明：留言类
@@ -97,27 +103,92 @@ class EditCZB
 		$local_file = 'local.txt';
 		$remote_file = iconv("UTF-8", "GB2312", $this->forcastTitle );
 		
-		$size = file_put_contents($remote_file, $content);//$local_file
-		return $size;
+		$size = file_put_contents($local_file, $content);//$local_file
+		
+		$ftp_server = '172.18.152.5';
+		$ftp_user_name = 'luoyang';
+		$ftp_user_pass = 'luoyang';
+		$ftp_path = '/';
 
 		// set up basic connection
-		$conn_id = ftp_connect($ftp_server);
-
-		// login with username and password
-		$login_result = ftp_login($conn_id, $ftp_user_name, $ftp_user_pass);
+		if(!($conn_id = ftp_connect($ftp_server, 21, 10)) ) return false;
+		
+		if(!ftp_login($conn_id, $ftp_user_name, $ftp_user_pass) ) return false;
+		
+		ftp_chdir($conn_id, $ftp_path);
 
 		// upload a file
-		if (ftp_put($conn_id, $remote_file, $local_file, FTP_ASCII)) {
-			echo "successfully uploaded $file\n";
-		} else {
-			echo "There was a problem while uploading $file\n";
-		}
+		$result = ftp_put($conn_id, $remote_file, $local_file, FTP_BINARY);
 
 		// close the connection
 		ftp_close($conn_id);
 		
-		return $size;
+		return $result;
 	
+	}
+	
+	public static function getZdb(){
+		$ftp_server = '172.18.152.5';
+		$ftp_user_name = 'dsbwdown';
+		$ftp_user_pass = 'dsbw2004';
+		$ftp_path = '/baowen/zdb/zz/';
+
+		if(!($conn_id = ftp_connect($ftp_server, 21, 10)) ) return false;
+
+		// login with username and password
+		$login_result = ftp_login($conn_id, $ftp_user_name, $ftp_user_pass);
+
+		ftp_chdir($conn_id, $ftp_path);
+		
+		$list = ftp_nlist($conn_id, ".");
+			
+		if(!$list) return false;
+		
+		$list = array_filter($list, 'filter_czb');
+		
+		$server_file =  max($list) ;
+		$local_file = 'zdb.txt';
+		if (!ftp_get($conn_id, $local_file, $server_file, FTP_ASCII)) return false;
+		
+		ftp_close($conn_id);
+		
+		$content = file_get_contents($local_file);
+		
+		preg_match_all('/^SPCC\s+(\d+)/m',$content,$matchs,PREG_PATTERN_ORDER);
+		
+		$result = array();
+		$result['fileName'] = $server_file;
+		$result['zdbBegin'] = $matchs[1][0];
+		$result['forcast'] = array();
+		
+		//匹配但不捕获子模式 否则可能由于内部循环太多而出错
+		preg_match_all('/\n[\t\040]+(\d{5})(?:[\t\040]+[\d.]+){5}[\t\040\r]*(?:\n[\t\040]*(?:[\d.]+[\t\040]+){21}[\d.]+[\t\040\r]*)+/',$content,$matchs,PREG_PATTERN_ORDER);//
+		
+		/*
+			$matchs[0] 包含各个站的多时次预报
+			$matchs[1] 仅包含所有站号
+		*/
+		
+		$forcast = array();
+		global $require_stations;
+		for($i = 0; $i < count($matchs[1]); $i++){
+			$num = $matchs[1][$i];
+			if(in_array($num,$require_stations) ){
+				$forcast[$num] = $matchs[0][$i];
+			}
+		}
+		
+		foreach($forcast as $key => $value){
+			preg_match_all('/\n[\t\040]*(?:[\d.]+[\t\040]+){11}([\d.]+)[\t\040]+([\d.]+)[\t\040]+(?:[\d.]+[\t\040]+){6}([\d.]+)[\t\040]+([\d.]+)[\t\040]+([\d.]+)[\t\040\r]*/',$value,$matchs,PREG_SET_ORDER);//
+			
+			$result['forcast'][$key] = array();
+			foreach($matchs as $key2 => $value2){
+				$result['forcast'][$key][] = array('highT'=>$value2[1],'lowT'=>$value2[2],'weather'=>$value2[3],'dire'=>$value2[4],'level'=>$value2[5]);
+			}
+
+		}
+		
+		return $result;
 	}
 }
 ?>
