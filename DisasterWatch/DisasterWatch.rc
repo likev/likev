@@ -83,7 +83,7 @@ CAPTION "关于 DisasterWatch"
 FONT 9, "MS Shell Dlg", 0, 0, 0x1
 BEGIN
     ICON            IDR_MAINFRAME,IDC_STATIC,14,14,20,20
-    LTEXT           "灾情监视，2.0 版",IDC_STATIC,42,14,114,8,SS_NOPREFIX
+    LTEXT           "灾情监视，3.2版",IDC_STATIC,42,14,114,8,SS_NOPREFIX
     LTEXT           "洛阳市气象台Copyright (C) 2010",IDC_STATIC,42,26,114,8
     DEFPUSHBUTTON   "确定",IDOK,113,41,50,14,WS_GROUP
 END
@@ -108,7 +108,7 @@ END
 //
 
 VS_VERSION_INFO VERSIONINFO
- FILEVERSION 3,0,8,6
+ FILEVERSION 3,0,10,3
  PRODUCTVERSION 3,0,1,1
  FILEFLAGSMASK 0x3fL
 #ifdef _DEBUG
@@ -126,7 +126,7 @@ BEGIN
         BEGIN
             VALUE "CompanyName", "洛阳市气象台"
             VALUE "FileDescription", "灾情直报网页监视2011"
-            VALUE "FileVersion", "3.1.0.1"
+            VALUE "FileVersion", "3.2.0.1"
             VALUE "InternalName", "DisasterWatch.exe"
             VALUE "LegalCopyright", "洛阳市气象台。保留所有权利。"
             VALUE "OriginalFilename", "DisasterWatch.exe"

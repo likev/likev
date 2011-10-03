@@ -87,7 +87,7 @@ bool DownloadHttpPage(LPCTSTR pszServerName, LPCTSTR pszURL, LPCTSTR pszLocalFil
 		//catch errors from WinInet
 		char pszError[1000];
 		pEx->GetErrorMessage(pszError, 1000);
-		AfxMessageBox(pszError);
+		//AfxMessageBox(pszError); //为了自动化 当读取超时等出错时不弹出错误信息
 		return false;
 	}
 	session.Close();

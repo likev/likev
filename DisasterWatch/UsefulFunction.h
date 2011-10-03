@@ -82,7 +82,7 @@ public:
 		sms += type;
 		sms += " ¾­¼ÃËğÊ§"+economic_loss;
 		sms += " ËÀÍö"+dead_number;
-		sms += " "+describe.substr(0,130)+"...";
+		sms += " "+describe.substr(0,120)+"...";
 
 		return sms;
 	}
