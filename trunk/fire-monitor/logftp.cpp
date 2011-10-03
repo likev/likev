@@ -12,7 +12,7 @@ bool FtpConnect(CTime& lastTime)
 		cout<<"正在登陆服务器......"<<endl;
 		
 		CInternetSession sess("My FTP Session");
-		CFtpConnection* pConnect =  sess.GetFtpConnection("172.18.152.245");//匿名登录
+		CFtpConnection* pConnect =  sess.GetFtpConnection("172.18.152.243");//匿名登录
 
 		if(pConnect) 
 			cout<<"登录服务器成功 正在查找新文件......\n\n";
