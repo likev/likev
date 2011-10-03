@@ -16,7 +16,7 @@ void dealfire(string firecity,string filename)
 	tdquit=0;//全局char 控制线程关闭
 
 	CWinThread * hthread = AfxBeginThread(MyThreadProc,NULL);
-	cout<<"\n   按任意键停止声音... ";
+	cout<<"\n   按任意键然后回车即可停止声音... ";
 
 	WaitForSingleObject(hMutex,INFINITE);
 	cin>>tdquit;
