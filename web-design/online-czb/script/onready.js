@@ -93,7 +93,7 @@ $(function(){
 	$('#dialog-preview')
 		.dialog({
 			height:640,
-			width:900,
+			width:940,
 			autoOpen: false,
 			modal: true,
 			buttons: {
