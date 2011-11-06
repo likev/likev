@@ -1,12 +1,13 @@
-	
-	
-	var app = new WebCzb(czbConfig);
 
 $(function(){
-
+	
+	var app = new WebCzb(czbConfig);
+	
 	$('#edit-czb').append(app.getUIHtml('#edit-czb'));
 	//$('#edit-czb .station:odd').css('background-color','#eee');
 	app.setTitlePosition();
+	
+	app.getLastJson();
 	
 	$('#zdb').append(app.getUIHtml('#zdb'));
 	$('#zdb-title').text(app.getZdbName());
@@ -81,6 +82,8 @@ $(function(){
 			
 			app.changeMessage = true;
 			$( "#time-slider" ).slider('value', -12);
+			
+			app.haveSelectMessage = true;
 		});
 	
 	$('#prev-next-time').buttonset();
@@ -138,6 +141,11 @@ $(function(){
 	});
 	
 	$('#edit-czb .station input').click(function(){
+		if(!app.haveSelectMessage){
+			window.alert("请首先选择预报时次");
+			return;
+		}
+	
 		$('#forcast-select ul').hide();
 		
 		var inputname = this.name;
