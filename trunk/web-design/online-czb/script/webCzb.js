@@ -141,6 +141,7 @@ function WebCzb(option) {
 	}
 	
 	var getLastJson = function(){
+		$('#toolbar,#new-czb').hide();
 
 		var jqxhr = $.post("service/service.php", 
 			{	
@@ -155,7 +156,9 @@ function WebCzb(option) {
 		})
 		.fail(function() { //alert("error"); 
 		})
-		.always(function() { //alert("complete"); 
+		.always(function() { //alert("complete");
+			$('#load-info').hide();
+			$('#toolbar,#new-czb').show();			
 		});
 	};
 	
@@ -387,8 +390,8 @@ function WebCzb(option) {
 						weather: last[index+offset.weather] ? last[index+offset.weather].weather : '0.0',
 						dire: last[index+offset.weather] ? last[index+offset.weather].dire : '0.0',
 						level: last[index+offset.weather] ? last[index+offset.weather].level : '0.0',
-						highT: last[index+offset.highT] ? last[index+offset.highT].highT : '25',
-						lowT: last[index+offset.lowT] ? last[index+offset.lowT].lowT : '18'
+						highT: last[index+offset.highT] ? last[index+offset.highT].highT : '18',
+						lowT: last[index+offset.lowT] ? last[index+offset.lowT].lowT : '10'
 					}
 			}
 		}
