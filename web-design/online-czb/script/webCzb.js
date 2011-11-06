@@ -69,6 +69,8 @@ function WebCzb(option) {
 	this.timeout = 0; //保存控制预报列表隐藏的定时器
 	this.focusDom = null; //保存最近的焦点输入dom
 	this.maxPeriod = 168; //保存当前最大预报时次
+	this.haveSelectMessage = false;
+	
 	var isSingleForcast = false; //当前是否在制作单站预报
 	
 	this.timeValue = 12; //保存当前预报时次
@@ -79,7 +81,7 @@ function WebCzb(option) {
 	var forcastEditTime = new Date(); //制作预报的时间
 	var forcastBeginTime = new Date(); //预报的起始时刻
 	
-	var lastForcastBegin = forcastBeginTime; 
+	var lastForcastBegin = forcastBeginTime;
 	
 	var weatherMap = {
 		"0.0": '晴天', 
@@ -140,7 +142,7 @@ function WebCzb(option) {
 		return new Date(value[0],value[1]-1,value[2],value[3],0,0)
 	}
 	
-	var getLastJson = function(){
+	this.getLastJson = function(){
 		$('#toolbar,#new-czb').hide();
 
 		var jqxhr = $.post("service/service.php", 
@@ -161,8 +163,6 @@ function WebCzb(option) {
 			$('#toolbar,#new-czb').show();			
 		});
 	};
-	
-	getLastJson();
 	
 	var lastestZdbForcast = {};
 	var lastestZdbBegin;
