@@ -1,0 +1,47 @@
+<pre><p>_SERVER<br>Array
+(
+    [MEF_PROXY_ADDR] => 10.67.15.12
+    [has_apphash] => 1
+    [ApplimitOutOfCon] => 0
+    [ApplimitOutOfMem] => 0
+    [SCRIPT_URL] => /post.php
+    [SCRIPT_URI] => http://current.sinaapp.com/post.php
+    [HTTP_X_FORWARDED_FOR] => 61.163.56.16, 172.16.6.115
+    [HTTP_HOST] => current.sinaapp.com
+    [HTTP_APPNAME] => current
+    [HTTP_APPVERSION] => 1
+    [HTTP_ACCESSKEY] => j03jljyn13
+    [HTTP_SECRETKEY] => 21zymzm12z25lwizi2yl5kxmhmzjiyj434yjkl1y
+    [HTTP_APPHASH] => 869
+    [HTTP_MYSQLPORT] => 3307
+    [HTTP_APPCOOKIE] => default_version=1;xhprof=;debug=,1;
+    [HTTP_CONNECTION] => close
+    [CONTENT_TYPE] => application/x-www-form-urlencoded
+    [HTTP_USER_AGENT] => Mozilla/5.0 (Windows; U; Windows NT 5.1; zh-CN; rv:1.9.2) Gecko/20100115 Firefox/3.6
+    [CONTENT_LENGTH] => 16
+    [HTTP_PRAGMA] => no-cache
+    [PATH] => /usr/kerberos/sbin:/usr/kerberos/bin:/usr/local/sbin:/usr/local/bin:/sbin:/bin:/usr/sbin:/usr/bin:/root/bin
+    [SERVER_SIGNATURE] => 
+    [SERVER_SOFTWARE] => Apache
+    [SERVER_NAME] => current.sinaapp.com
+    [SERVER_ADDR] => 10.67.15.24
+    [SERVER_PORT] => 80
+    [REMOTE_ADDR] => 61.163.56.16
+    [DOCUMENT_ROOT] => /data1/www/htdocs/869/current/1
+    [SERVER_ADMIN] => saesupport@sina.cn
+    [SCRIPT_FILENAME] => /data1/www/htdocs/869/current/1/post.php
+    [REMOTE_PORT] => 59175
+    [GATEWAY_INTERFACE] => CGI/1.1
+    [SERVER_PROTOCOL] => HTTP/1.0
+    [REQUEST_METHOD] => POST
+    [QUERY_STRING] => 
+    [REQUEST_URI] => /post.php
+    [SCRIPT_NAME] => /post.php
+    [PHP_SELF] => /post.php
+    [REQUEST_TIME] => 1320805063
+)
+<p>_POST<br>Array
+(
+    [ad] => de dd 
+  mied
+)
