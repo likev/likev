@@ -169,7 +169,7 @@ bool scan_plot_dir()
 	}
 	BOOL bWorking = finder.FindFile( (dir+ "*.000").c_str() );
 
-	CTime last, ftime;
+	CTime lastest(1), ftime;
 	std::string result;
 	//
 
@@ -183,20 +183,33 @@ bool scan_plot_dir()
 			&& PostHttpPage("current.sinaapp.com","update-mysql-from-post.php","app-content="+result)
 			)
 		{
-			last = ftime > last ? ftime : last;
+			lastest = ftime > lastest ? ftime : lastest;
+			
+			display_post_result("wait 2 minute...");
+			Sleep(2*1000*60);
+			display_post_result("continue next file find...");
 		}
 	}
 
-	return set_latest_time(last);
+	if(CTime(1) != lastest ) 
+	{
+		return set_latest_time(lastest);
+	}
+
+	return false;
 }
 
 int main(void)
 {
-
+	std::cout<<"version 1  2011-11-09\n"
+		<<"-------------------------------------\n";
 	while(true)
 	{
 		scan_plot_dir();
-		Sleep(2000);
+
+		display_post_result("wait 5 minute...");
+		Sleep(5*1000*60);
+		display_post_result("continue next plot dir scan...");
 	}
 
 }
