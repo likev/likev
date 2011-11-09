@@ -179,10 +179,18 @@ bool scan_plot_dir()
 		
 		if(finder.GetLastWriteTime(ftime) 
 			&& ftime > last_time 
-			&& deal_plot_file(finder.GetFilePath().GetBuffer(), result)
-			&& PostHttpPage("current.sinaapp.com","update-mysql-from-post.php","app-content="+result)
+			&& deal_plot_file(finder.GetFilePath().GetBuffer(), result) 
 			)
 		{
+			bool is_post_success = 
+				PostHttpPage("current.sinaapp.com","update-mysql-from-post.php","app-content="+result);
+			
+			if(!is_post_success) 
+			{
+				display_post_result("post maybe failure...");
+				return false;
+			}
+			
 			lastest = ftime > lastest ? ftime : lastest;
 			
 			display_post_result("wait 2 minute...");
@@ -201,7 +209,7 @@ bool scan_plot_dir()
 
 int main(void)
 {
-	std::cout<<"version 1  2011-11-09\n"
+	std::cout<<"version 1.1  2011-11-09\n"
 		<<"-------------------------------------\n";
 	while(true)
 	{
