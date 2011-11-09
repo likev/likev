@@ -36,6 +36,9 @@ bool PostHttpPage(const std::string& hostName, const std::string& pathName, cons
 		CHttpFile* pFile = pServer->OpenRequest(CHttpConnection::HTTP_VERB_POST, pathName.c_str());
 
 		CString strHeaders = "Content-Type: application/x-www-form-urlencoded"; // 请求头
+		
+		display_post_result("posting data...");
+		
 		pFile->SendRequest(strHeaders,(LPVOID)postData.c_str(),postData.size());
 		pFile->QueryInfoStatusCode(dwRet);
 
@@ -49,7 +52,7 @@ bool PostHttpPage(const std::string& hostName, const std::string& pathName, cons
 				result += newline+"\r\n";
 			}
 
-			display_post_result(result.GetBuffer());
+			display_post_result(("back:"+result).GetBuffer());
 		}
 		else
 		{
@@ -74,13 +77,17 @@ bool PostHttpPage(const std::string& hostName, const std::string& pathName, cons
 	return true;
 }
 
-std::string& deal_plot_file(const std::string &orgine_name, std::string &result)
+bool deal_plot_file(std::string orgine_name, std::string &result)
 {
 	std::ifstream fin(orgine_name.c_str());
 	if(!fin.is_open())
 	{
 		display_post_result("打开文件"+orgine_name+"失败！");
+		return false;
 	}
+	
+	display_post_result("dealing "+orgine_name+"...");
+
 	result = "";
 	std::string linestr, number;
 
@@ -110,49 +117,86 @@ std::string& deal_plot_file(const std::string &orgine_name, std::string &result)
 		}
 	}
 
-	return result;
+	return true;
 }
 
-void get_file_info(const std::string &orgine_name)
+CTime get_last_time()
 {
+	int year,month,day,hour,minute,second;
+
+	year   = GetPrivateProfileInt("lastest","year",1970,"./scan.ini");
+	month  = GetPrivateProfileInt("lastest","month",1,"./scan.ini");
+	day    = GetPrivateProfileInt("lastest","day",2,"./scan.ini");
+	hour   = GetPrivateProfileInt("lastest","hour",0,"./scan.ini");
+	minute = GetPrivateProfileInt("lastest","minute",0,"./scan.ini");
+	second = GetPrivateProfileInt("lastest","second",0,"./scan.ini");
+
+	return CTime(year,month,day,hour,minute,second);
+}
+
+bool set_latest_time(const CTime &latest)
+{
+	BOOL year,month,day,hour,minute,second;
+
+	year   = WritePrivateProfileString("lastest","year",latest.Format("%Y"),"./scan.ini");
+	month  = WritePrivateProfileString("lastest","month",latest.Format("%#m"),"./scan.ini");
+	day    = WritePrivateProfileString("lastest","day",latest.Format("%#d"),"./scan.ini");
+	hour   = WritePrivateProfileString("lastest","hour",latest.Format("%#H"),"./scan.ini");
+	minute = WritePrivateProfileString("lastest","minute",latest.Format("%#M"),"./scan.ini");
+	second = WritePrivateProfileString("lastest","second",latest.Format("%#S"),"./scan.ini");
+
+	return year && month && day && hour && minute && second;
+}
+
+std::string get_plot_dir()
+{
+	char dir_buf[1024] ;
+	DWORD result = GetPrivateProfileString("path","plotdir","Z:/surface/plot/",dir_buf,1000,"./scan.ini");
+	
+	return dir_buf;
+}
+
+bool scan_plot_dir()
+{
+	CTime last_time = get_last_time();
+	
 	CFileFind finder;
-	BOOL bWorking = finder.FindFile(orgine_name.c_str());
+
+	std::string dir = get_plot_dir();
+	if('\\' != dir[dir.size()-1 ] && '/' != dir[dir.size()-1 ] )
+	{
+		dir += '/';
+	}
+	BOOL bWorking = finder.FindFile( (dir+ "*.000").c_str() );
+
+	CTime last, ftime;
+	std::string result;
+	//
 
 	while (bWorking)
 	{
 		bWorking = finder.FindNextFile();
-		CTime ftime;
-
-		std::cout<<"\nGetFileName: "<<finder.GetFileName()
-			<<"\nGetFilePath: "<<finder.GetFilePath()
-			<<"\nGetFileTitle: "<<finder.GetFileTitle()
-			<<"\nGetFileURL: "<<finder.GetFileURL()
-			<<"\nIsDirectory: "<<finder.IsDirectory();
 		
-
-		finder.GetCreationTime(ftime);
-		std::cout<<"\nGetCreationTime:"<<ftime.Format("[%Y-%m-%d %H:%M:%S]");
-		
-		finder.GetLastWriteTime(ftime);
-		std::cout<<"\nGetLastWriteTime: "<<ftime.Format("[%Y-%m-%d %H:%M:%S]");
-		
-		finder.GetLastAccessTime(ftime);
-		std::cout<<"\nGetLastAccessTime:"<<ftime.Format("[%Y-%m-%d %H:%M:%S]");
-
-		std::cout<<std::endl;
+		if(finder.GetLastWriteTime(ftime) 
+			&& ftime > last_time 
+			&& deal_plot_file(finder.GetFilePath().GetBuffer(), result)
+			&& PostHttpPage("current.sinaapp.com","update-mysql-from-post.php","app-content="+result)
+			)
+		{
+			last = ftime > last ? ftime : last;
+		}
 	}
 
+	return set_latest_time(last);
 }
 
 int main(void)
 {
-	std::cout<<"ok!";
-	//PostHttpPage("current.sinaapp.com","post.php","ad=de dd \n  mied&ed=ad dd \n dde");
-	
-	std::string result;
-	//deal_plot_file("Z:/surface/plot/11110908.000",result);
 
-	//display_post_result(result);
-	get_file_info("Z:/surface/plot");
-	get_file_info("Z:/surface/plot/11110911.000");
+	while(true)
+	{
+		scan_plot_dir();
+		Sleep(2000);
+	}
+
 }
