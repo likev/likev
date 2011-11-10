@@ -2,9 +2,13 @@
 
 #include <iostream>
 #include <afxinet.h>
-#include <string>
+
 #include <fstream>
 #include <sstream>
+#include <vector>
+#include <algorithm>
+
+#include "filename-time.h"
 
 void display_post_result(std::string result)
 {
@@ -156,6 +160,37 @@ std::string get_plot_dir()
 	return dir_buf;
 }
 
+bool deal_file_list(std::vector<FilenameTime> &file_list)
+{
+	std::sort(file_list.begin(), file_list.end(), time_less_than);
+	
+	std::string result;
+	//
+	for(size_t i=0; i != file_list.size(); i++)
+	{
+		deal_plot_file(file_list[i].get_name(), result);
+
+		bool is_post_success = 
+			PostHttpPage("current.sinaapp.com","update-mysql-from-post.php","app-content="+result);
+		
+		if(!is_post_success) 
+		{
+			display_post_result("post maybe failure...");
+			return false;
+		}
+		else
+		{
+			set_latest_time(file_list[i].get_time());
+			
+			display_post_result("wait 2 minute...");
+			Sleep(2*1000*60);
+			display_post_result("continue next file find...");
+		}
+	}
+
+	return true;
+}
+
 bool scan_plot_dir()
 {
 	CTime last_time = get_last_time();
@@ -167,49 +202,34 @@ bool scan_plot_dir()
 	{
 		dir += '/';
 	}
+	
+	std::replace(dir.begin(),dir.end(),'\\','/');
+
 	BOOL bWorking = finder.FindFile( (dir+ "*.000").c_str() );
 
-	CTime lastest(1), ftime;
-	std::string result;
-	//
+	CTime ftime;
+
+	std::vector<FilenameTime> file_list;
 
 	while (bWorking)
 	{
 		bWorking = finder.FindNextFile();
 		
 		if(finder.GetLastWriteTime(ftime) 
-			&& ftime > last_time 
-			&& deal_plot_file(finder.GetFilePath().GetBuffer(), result) 
-			)
+			&& ftime > last_time )
 		{
-			bool is_post_success = 
-				PostHttpPage("current.sinaapp.com","update-mysql-from-post.php","app-content="+result);
-			
-			if(!is_post_success) 
-			{
-				display_post_result("post maybe failure...");
-				return false;
-			}
-			
-			lastest = ftime > lastest ? ftime : lastest;
-			
-			display_post_result("wait 2 minute...");
-			Sleep(2*1000*60);
-			display_post_result("continue next file find...");
+			file_list.push_back(FilenameTime(finder.GetFilePath().GetBuffer(), ftime));
 		}
 	}
 
-	if(CTime(1) != lastest ) 
-	{
-		return set_latest_time(lastest);
-	}
-
-	return false;
+	bool all_success = deal_file_list(file_list);
+	
+	return all_success;
 }
 
 int main(void)
 {
-	std::cout<<"version 1.1  2011-11-09\n"
+	std::cout<<"version 1.2  2011-11-10\n"
 		<<"-------------------------------------\n";
 	while(true)
 	{
