@@ -30,7 +30,8 @@ bool PostHttpPage(const std::string& hostName, const std::string& pathName, cons
 
 	CInternetSession session("Mozilla/5.0 (Windows; U; Windows NT 5.1; zh-CN; rv:1.9.2) Gecko/20100115 Firefox/3.6");
 
-	session.SetOption(INTERNET_OPTION_SEND_TIMEOUT, 100*1000);
+	session.SetOption(INTERNET_OPTION_SEND_TIMEOUT, 60*1000);
+	session.SetOption(INTERNET_OPTION_RECEIVE_TIMEOUT, 60*1000);
 
 	try
 	{
@@ -230,7 +231,7 @@ bool scan_plot_dir()
 
 int main(void)
 {
-	std::cout<<"version 1.3  2011-11-10\n"
+	std::cout<<"version 1.4  2011-11-10\n"
 		<<"-------------------------------------\n";
 	while(true)
 	{
