@@ -32,7 +32,8 @@ public:
 	
 private:
 	wxDirPickerCtrl *dir_pick_from, *dir_pick_to;
-	wxCheckBox *check1, *check2, *check3, *check4, *check5, *check6;
+	wxCheckBox *check1, *check2, *check3, *check4, *check5,
+				*check6, *check7, *check8, *check9, *check10;
 	wxDatePickerCtrl *pick_begin, *pick_end;
 	wxButton *begin_copy;
 	

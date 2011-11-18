@@ -45,6 +45,11 @@ MyFrame::MyFrame(const wxString& title, const wxPoint& pos, const wxSize& size)
     check4 = new wxCheckBox(base_panel,-1,wxT("EC"));
     check5 = new wxCheckBox(base_panel,-1,wxT("T213"));
     check6 = new wxCheckBox(base_panel,-1,wxT("physic"));
+	check7 = new wxCheckBox(base_panel,-1,wxT("T639"));
+
+	check8 = new wxCheckBox(base_panel,-1,wxT("日本降水"));
+    check9 = new wxCheckBox(base_panel,-1,wxT("德国降水"));
+	check10 = new wxCheckBox(base_panel,-1,wxT("全部"));
     
    	sizer2 -> Add(check1,1,wxALL,10);
    	sizer2 -> Add(check2,1,wxALL,10);
@@ -52,6 +57,10 @@ MyFrame::MyFrame(const wxString& title, const wxPoint& pos, const wxSize& size)
    	sizer2 -> Add(check4,1,wxALL,10);
    	sizer2 -> Add(check5,1,wxALL,10);
    	sizer2 -> Add(check6,1,wxALL,10);
+	sizer2 -> Add(check7,1,wxALL,10);
+   	sizer2 -> Add(check8,1,wxALL,10);
+   	sizer2 -> Add(check9,1,wxALL,10);
+   	sizer2 -> Add(check10,1,wxALL,10);
    	
    	//3 pane
    	wxStaticBox *box3 = new wxStaticBox(base_panel, wxID_ANY, _T("选择时间范围"));
@@ -94,6 +103,10 @@ void MyFrame::BeginCopy(wxCommandEvent& event)
 	if(check4->IsChecked()) CopyALLFile(wxT("ecmwf"));
 	if(check5->IsChecked()) CopyALLFile(wxT("T213"));
 	if(check6->IsChecked()) CopyALLFile(wxT("physic"));
+	if(check7->IsChecked()) CopyALLFile(wxT("T639GSI"));
+	if(check8->IsChecked()) CopyALLFile(wxT("japan"));
+	if(check9->IsChecked()) CopyALLFile(wxT("germany"));
+	if(check10->IsChecked()) CopyALLFile(wxT(""));
 
 	begin_copy -> SetLabel(wxT("复制文件完成！") );
 	wxMessageBox(wxT("复制文件完成！"), wxT("完成！"), wxOK|wxICON_INFORMATION);
