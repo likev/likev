@@ -12,7 +12,7 @@ bool MyApp::OnInit()
   	wxConfigBase::Set(pConfig1);
   	wxConfigBase::Get() -> SetRecordDefaults();
     
-    MyFrame *frame = new MyFrame(wxT("Micaps资料复制"), wxPoint(-1,-1), wxSize(940,400));
+    MyFrame *frame = new MyFrame(wxT("Micaps资料复制(2.0)"), wxPoint(-1,-1), wxSize(940,400));
 	
     
     //frame->SetAutoLayout(true);
