@@ -390,8 +390,8 @@ function WebCzb(option) {
 						weather: last[index+offset.weather] ? last[index+offset.weather].weather : '0.0',
 						dire: last[index+offset.weather] ? last[index+offset.weather].dire : '0.0',
 						level: last[index+offset.weather] ? last[index+offset.weather].level : '0.0',
-						highT: last[index+offset.highT] ? last[index+offset.highT].highT : '20',
-						lowT: last[index+offset.lowT] ? last[index+offset.lowT].lowT : '10'
+						highT: last[index+offset.highT] ? last[index+offset.highT].highT : '6',
+						lowT: last[index+offset.lowT] ? last[index+offset.lowT].lowT : '-1'
 					}
 			}
 		}
