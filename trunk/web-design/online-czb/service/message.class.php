@@ -161,8 +161,8 @@ class EditCZB
 		$result['zdbBegin'] = $matchs[1][0];
 		$result['forcast'] = array();
 		
-		//匹配但不捕获子模式 否则可能由于内部循环太多而出错
-		preg_match_all('/\n[\t\040]+(\d{5})(?:[\t\040]+[\d.]+){5}[\t\040\r]*(?:\n[\t\040]*(?:[\d.]+[\t\040]+){21}[\d.]+[\t\040\r]*)+/',$content,$matchs,PREG_PATTERN_ORDER);//
+		//用尽量简单清晰的正则表达式 捕获两个站号之间的文本
+		preg_match_all('/^[\t\040]+(\d{5}).+^[\t\040]+(\d{5})/smU',$content,$matchs,PREG_PATTERN_ORDER);//
 		
 		/*
 			$matchs[0] 包含各个站的多时次预报
@@ -179,7 +179,7 @@ class EditCZB
 		}
 		
 		foreach($forcast as $key => $value){
-			preg_match_all('/\n[\t\040]*(?:[\d.]+[\t\040]+){11}([\d.]+)[\t\040]+([\d.]+)[\t\040]+(?:[\d.]+[\t\040]+){6}([\d.]+)[\t\040]+([\d.]+)[\t\040]+([\d.]+)[\t\040\r]*/',$value,$matchs,PREG_SET_ORDER);//
+			preg_match_all('/\n[\t\040]*(?:[\d.]+[\t\040]+){11}(-?[\d.]+)[\t\040]+(-?[\d.]+)[\t\040]+(?:[\d.]+[\t\040]+){6}([\d.]+)[\t\040]+([\d.]+)[\t\040]+([\d.]+)[\t\040\r]*/',$value,$matchs,PREG_SET_ORDER);//
 			
 			$result['forcast'][$key] = array();
 			foreach($matchs as $key2 => $value2){
