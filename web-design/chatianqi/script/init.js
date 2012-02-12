@@ -111,7 +111,7 @@ $(function(){
 	
 	$('#addoneDate').datepicker({
 			dateFormat: 'yy-mm-dd',
-			minDate:'2007-01-01',
+			minDate:'2004-01-01',
 			maxDate:'2012-01-31',
 			changeMonth: true,
 			changeYear: true,

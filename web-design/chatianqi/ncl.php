@@ -74,6 +74,18 @@ if(isset($_GET['centerlon']) ){
 	
 	$ncl = preg_replace('/^;;mpLambertMeridianF/m','res@mpLambertMeridianF = '.$_GET['centerlon'], $ncl, 1 );
 }
+if(isset($_GET['showtemph']) ){
+	$ncl = preg_replace('/^;;showtemph/m','showtemph = True', $ncl, 1 );
+}
+if(isset($_GET['showheight']) ){
+	$ncl = preg_replace('/^;;showheight/m','showheight = True', $ncl, 1 );
+}
+if(isset($_GET['showwind']) ){
+	$ncl = preg_replace('/^;;showwind/m','showwind = True', $ncl, 1 );
+}
+if(isset($_GET['showhumidity']) ){
+	$ncl = preg_replace('/^;;showhumidity/m','showhumidity = True', $ncl, 1 );
+}
 
 $tmpnclname = tempnam("./", "ncl");
 unlink($tmpnclname);
