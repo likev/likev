@@ -1,0 +1,96 @@
+<!doctype html>
+<html>
+<head>
+	<meta charset="utf-8">
+
+	<title>FNL资料下载</title>
+	
+	<style>
+		*{
+			margin:0;
+			padding:0;
+			font-family: "微软雅黑",Arial,sans-serif;
+		}
+		
+		#content{
+			margin:30px 30px;
+		}
+		
+		#content input,#get{
+			font-family: "微软雅黑",Arial,sans-serif;
+			font-size:1.2em;
+			padding:0px 10px;
+			height:50px;
+		}
+		#out{
+			margin-top:50px;
+		}
+	</style>
+	
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7/jquery.min.js"></script>
+
+	
+	<script>
+	
+		$(function(){
+			function toTime(timestr){
+				var a = timestr.split(/-|\s|:/);
+				var newdate = new Date(a[0],a[1]-1,a[2],a[3],0,0);
+				return newdate; 
+			}
+			
+			function getOne(time){
+				function to2(m){
+				return m>9 ? m : '0'+m ;
+				}
+				
+				var str = 'wget -N --load-cookies auth.dss.ucar.edu http://dss.ucar.edu/dsszone/ds083.2/grib1/';
+				
+				var year = time.getFullYear(),
+				month = to2(time.getMonth()+1),
+				day = to2(time.getDate() ),
+				hour = to2(time.getHours() );
+				
+				str += year +'/' + year +'.'+month+'/' + 'fnl_'+year+month+day+'_'+hour+'_00';
+				
+				var time2 = new Date(2008,8,30,12);
+				
+				if(time >= time2){
+					str += '_c';
+				}
+				
+				return str;
+			}
+
+			$('#get').click(function(){
+				$('#out').html('');
+				var loginstr = 'wget -O /dev/null --save-cookies auth.dss.ucar.edu --post-data="email=lymhbmxr@163.com&passwd=19741976&action=login" https://dss.ucar.edu/cgi-bin/login';
+				
+				$('#out').append(loginstr+'<br><br>');
+				
+				var begin = toTime($('#beginDate').val() ), end = toTime($('#endDate').val() );
+				for(var a=begin; a<=end; a.setHours(a.getHours()+6)){
+					var line = getOne(a);
+					$('#out').append(line+'<br>');
+				}
+				
+				$('#out').append('  <br>');
+			})
+			
+		})
+	</script>
+
+</head>
+
+<body>
+	<div id=content>
+		<label for='beginDate'>开始日期：</label><input type="text" id="beginDate" value='2012-01-01 00:00' />
+		<label for='endDate'>结束日期：</label><input type="text" id="endDate" value='2012-01-31 18:00' />
+		<button id='get'>生成</button>
+		
+		<div id='out'>
+		</div>
+
+	</div>
+</body>
+</html>
