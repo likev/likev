@@ -1,4 +1,8 @@
 <?php
-echo "<pre>".phpinfo();
-echo file_put_contents('put1.txt','test1');
+echo "<pre>";
+$output = shell_exec('ls');
+echo "shell_exec :<br>$output";
+
+exec('ls',$output);
+echo "exec :<br>$output";
 ?>
