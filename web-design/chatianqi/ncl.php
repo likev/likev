@@ -1,5 +1,17 @@
 <?php
 
+include_once('sysinfo.php');
+
+$cpufree = get_cpufree();
+$memfree = get_memfree();
+
+while($cpufree<30.0 || $memfree<35.0){
+	// wait for 0.1 seconds
+	usleep(0.1*1000000);
+	$cpufree = get_cpufree();
+	$memfree = get_memfree();
+};
+
 $tmpfname = tempnam("./", "FNL");
 unlink($tmpfname);
 $tmpfname = basename($tmpfname);
