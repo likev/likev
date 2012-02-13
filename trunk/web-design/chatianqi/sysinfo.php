@@ -20,4 +20,12 @@ function get_memfree(){
 	
 	return $memfree;
 }
+
+function get_proc_count($name){
+	$cmd =  "ps -e";
+	$output = shell_exec($cmd);
+
+	$result = substr_count($output, ' '.$name);
+	return $result;
+}
 ?>
