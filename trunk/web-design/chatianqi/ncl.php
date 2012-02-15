@@ -10,8 +10,8 @@ $memfree = get_memfree();
 $nclcount = get_proc_count('ncl');
 
 while($nclcount>=2 || $cpufree<30.0 || $memfree<35.0){
-	// wait for 0.1 seconds
-	usleep(0.1*1000000);
+	// wait for 1 seconds
+	usleep(1*1000000);
 	$cpufree = get_cpufree();
 	$memfree = get_memfree();
 	$nclcount = get_proc_count('ncl');
