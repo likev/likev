@@ -5,16 +5,10 @@ include_once('sysinfo.php');
 $randdelay = rand(1, 20);
 usleep($randdelay*50000);
 
-$cpufree = get_cpufree();
-$memfree = get_memfree();
-$nclcount = get_proc_count('ncl');
-
-while($nclcount>=2 || $cpufree<30.0 || $memfree<35.0){
+while(get_proc_count('ncl')>=2 || get_memfree()<35.0 || get_cpufree()<30.0){
 	// wait for 1 seconds
 	usleep(1*1000000);
-	$cpufree = get_cpufree();
-	$memfree = get_memfree();
-	$nclcount = get_proc_count('ncl');
+	
 };
 
 $tmpfname = tempnam("./", "FNL");
