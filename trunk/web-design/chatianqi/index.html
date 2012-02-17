@@ -42,7 +42,38 @@
 </head>
 
 <body>
+	<div id=toolbar>
+		<!-- <div class='back-color'></div>
+		
+		<div id='button-set'><button id='moveleft'><</button><button id=moveright>></button></div>
+		
+		-->
+		<h1>查天气形势</h1>	
+		
+		<div id="search-bar" class='home-search'>
+			<div id='select-date'>
+				<label for='addoneDate'>选择日期</label><input type="date" size='12' maxlength="10" id="addoneDate" value='2011-06-24' />
+				<select id='addoneHour'>
+					<option value="00" selected>00时</option>
+					<option value="06">06时</option>
+					<option value="12">12时</option>
+					<option value="18">18时</option>
+				</select>
+			</div>
+			<button id='addone'  title='增加一个时次'>查看</button>
+		</div>
+		
+		<div id="set-bar">
+			<button id='display-set'>设置</button>
+			<button id='apply-set'>应用</button>
+			<button id='cancle-set'>取消</button>
+		</div>
+
+		<div class='cls'></div>
+	</div>
+	
 	<div id=content>
+		
 		<div id='app-set'>
 			<div id='element-set'>
 				<h3>要素</h3>
@@ -59,7 +90,7 @@
 					<li><input type=checkbox id='show200hPa' overlay=200><label for='show200hPa'>200hPa</label></li>
 					<li><input type=checkbox id='show500hPa' overlay=500 checked><label for='show500hPa'>500hPa</label></li>
 					<li><input type=checkbox id='show700hPa' overlay=700 checked><label for='show700hPa'>700hPa</label></li>
-					<li><input type=checkbox id='show850hPa' overlay=850 checked><label for='show850hPa'>850hPa</label></li>
+					<li><input type=checkbox id='show850hPa'><label for='show850hPa'>850hPa</label></li>
 					<li><input type=checkbox id='show925hPa' overlay=925><label for='show925hPa'>925hPa</label></li>
 					<li><input type=checkbox id='show1000hPa' overlay=1000><label for='show1000hPa'>海平面</label></li>
 				</ul>
@@ -90,9 +121,7 @@
 		</div>
 		
 		<div id=description>
-			<div for=500>500hPa</div>
-			<div for=700>700hPa</div>
-			<div for=850>850hPa</div>
+
 		</div>
 		
 		<div id=nextone class='onetime' timestr=2015062406>
@@ -109,30 +138,17 @@
 				</div>
 			</div>
 		</div>
-		
-		<div id='timeline'>
-			<iframe frameborder="0" scrolling="no" src="http://show.v.t.qq.com/index.php?c=show&a=index&n=chatianqi_org&w=0&h=552&fl=2&l=30&o=21&co=0" width="100%" height="100%"></iframe>
-		</div>
-		
-		<div id=toolbar>
-			<div class='back-color'></div>
-			<button id='display-set'>设置</button>
-			<button id='apply-set'>应用</button>
-			<button id='cancle-set'>取消</button>
-			<div id='button-set'><button id='moveleft'><</button><button id=moveright>></button></div>
-			<button id='addone'  title='增加一个时次'>+</button>
-			<div id="select-datetime-dialog" title="选择时间">
-				<label for='addoneDate'>日期：</label><input type="date" id="addoneDate" value='2011-06-24' />
-				<select id='addoneHour'>
-					<option value="00" selected>00时</option>
-					<option value="06">06时</option>
-					<option value="12">12时</option>
-					<option value="18">18时</option>
-				</select>
-			</div>
-			<div class='cls'></div>
-		</div>
+
 		<div class='cls'></div>
 	</div>
+	<div id='footbar'>
+		<a class='donate' href='http://me.alipay.com/wait' title='您的捐助将有助于我把网站做得更好' >捐助</a>
+		<div class='fright'>
+			    <a href='http://t.qq.com/chatianqi_org'><img src='./pics/qq-weibo.png'></a>
+				<a href='http://weibo.com/nzty'><img src='./pics/sina-weibo.png'></a>
+				<a href='https://twitter.com/#!/likev'><img src='./pics/logo_twitter.png'></a>
+		</div>
+	</div> 
+
 </body>
 </html>

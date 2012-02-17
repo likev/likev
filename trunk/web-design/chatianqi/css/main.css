@@ -13,8 +13,8 @@ input,button,p,h1,h2,h3,h4,h5,h6,ul,select{
 }
 
 #content{
-	padding:30px 0px 100px 0px;
 	width:1000px;
+	padding:100px 0 0 0;
 }
 
 #app-set{
@@ -23,6 +23,7 @@ input,button,p,h1,h2,h3,h4,h5,h6,ul,select{
 }
 
 #description{
+	display:none;
 	padding-top:30px;
 }
 
@@ -88,10 +89,25 @@ input,button,p,h1,h2,h3,h4,h5,h6,ul,select{
 #toolbar{
 	position:fixed;
 	left:0;
-	bottom:0px;
-	padding:10px 20px 0 20px;
+	top:0;
+	
+	background-color:#3C8DC5;
+	
+	width:100%;
+	padding:10px 0;
 	z-index:1000;
+	font-size:22px;
+	
+    border-bottom: 1px solid #E5E5E5;
+	box-shadow:1px 2px 2px #D3D3D3;
+}
 
+#toolbar h1{
+	float:left;
+	margin:0;
+	padding:0 20px;
+	color: #FFFFFF;
+	font-family:Arial,sans-serif;
 }
 
 .back-color{
@@ -108,15 +124,58 @@ input,button,p,h1,h2,h3,h4,h5,h6,ul,select{
 	clear:both;
 }
 
-#toolbar button{
-	font-size:1.5em;
-	display: block;
-    float: left;
-	padding:18px 20px;
-	margin-right:20px;
+.home-search{
+	position:fixed;
+	left:50%;
+	margin-left:-250px;
+	top:300px;
 }
 
-#toolbar #apply-set, #toolbar #cancle-set{
+.top-search{
+	float:left;
+	margin-left:100px;
+}
+
+#addone{
+	font-size:22px;
+	display: inline-block;
+	padding:5px 20px;
+	margin-left:20px;
+
+	box-shadow:2px 2px 5px gray;
+}
+
+#select-date {
+	float:left;
+	vertical-align:bottom;
+	background-color: #FFFFFF;
+	padding:8px 15px;
+	border:1px solid gray;
+	border-radius: 4px 4px 4px 4px;
+	box-shadow:2px 2px 5px gray;
+}
+
+#select-date input, #select-date select{
+	display:inline-block;
+	font-size:22px;
+	border:0px;
+	border-left:1px solid #d0d0d0;
+	text-align:right;
+}
+
+#set-bar{
+	float: right;
+}
+
+#set-bar button{
+	display: inline-block;
+	padding:5px 15px;
+	margin-right:10px;
+	font-size:22px;
+	box-shadow:2px 2px 5px gray;
+}
+
+#set-bar #apply-set, #set-bar #cancle-set{
 	display:none;
 }
 
@@ -126,7 +185,7 @@ input,button,p,h1,h2,h3,h4,h5,h6,ul,select{
 	border-radius: 4px 4px 4px 4px;
 }
 
-#toolbar #moveleft,#toolbar #moveright{
+#set-bar #moveleft,#set-bar #moveright{
 	font-size:3em;
 	padding:6px 20px;
 	margin:0;
@@ -134,17 +193,51 @@ input,button,p,h1,h2,h3,h4,h5,h6,ul,select{
 	background-color:#e0e0e0;
 }
 
-#toolbar #moveleft:hover,#toolbar #moveright:hover{
+#set-bar #moveleft:hover,#set-bar #moveright:hover{
 	background-color:#a0a0a0;
-}
-
-#toolbar #addone{
-	font-size:3em;
-	padding:5px 20px;
-	margin-left:20px;
 }
 
 #nextone{
 	display:none;
 }
 
+#footbar{
+	background-color:#FEFEFE;
+		
+	position:fixed;
+	left:0;
+	bottom:0;
+	
+	padding:5px 0;
+	font-size:20px;
+	
+	border-top:1px solid #d3d3d3;
+	
+	width:100%;
+	z-index:100;
+	box-shadow:2px -1px 3px gray;
+}
+
+#footbar img{
+	height:24px;
+	width:auto;
+	margin-left:5px;
+	border:none;
+}
+
+.donate{
+	margin-left:20px;
+
+}
+
+#footbar a{
+	text-decoration:none;
+}
+
+#footbar a:hover{
+	text-decoration:underline;
+}
+
+.fright{
+	float:right;
+}
