@@ -3,9 +3,9 @@
 include_once('sysinfo.php');
 
 $randdelay = rand(1, 20);
-usleep($randdelay*50000);
+usleep($randdelay*100000);
 
-while(get_proc_count('ncl')>=2 || get_memfree()<35.0 || get_cpufree()<30.0){
+while(get_proc_count('ncl')>=1 || get_memfree()<35.0 || get_cpufree()<30.0){
 	// wait for 1 seconds
 	usleep(1*1000000);
 	
@@ -105,6 +105,8 @@ file_put_contents($tmpnclname, $ncl);
 
 $last_line = exec('export NCARG_ROOT=/home/ubuntu/mydata/soft/ncl/;export PATH=/home/ubuntu/mydata/soft/ncl/bin:$PATH ;ncl '.$tmpnclname, $out, $retval);
 unlink($tmpnclname);
+
+//$last_line = exec('optipng '.$tmpfname.'.png');
 
 header('Content-type: image/png');
 readfile($tmpfname.'.png');
