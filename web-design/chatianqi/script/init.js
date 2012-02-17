@@ -38,6 +38,7 @@ $(function(){
 	}
 	
 	function addone(timestr){
+		
 	
 		var newone = $('#nextone')
 						.clone()
@@ -57,7 +58,7 @@ $(function(){
 		//var para = $('#app-set input,#app-set select').serialize();//$.param(setSaved) //
 		
 		$('#overlay-set input:checked').each(function(){
-			var url = 'ncl.php?overlay='+$(this).attr('overlay')+ '&datetime='+ timestr + '&imgheight=' + $('#imgwidth').val() + '&' + paramSaved;
+			var url = 'http://chatianqi.org/ncl.php?overlay='+$(this).attr('overlay')+ '&datetime='+ timestr + '&imgheight=' + $('#imgwidth').val() + '&' + paramSaved;
 			
 			newoverlay.find('img.fnlpic').attr('src',url);
 			
@@ -159,16 +160,23 @@ $(function(){
 		
 		if(!$('.onetime:visible').length){
 			$('#description').hide();
+			$('#search-bar').removeClass('top-search').addClass('home-search');
 		}
 		
 		resizePageWidth();
 	})
 	
 	$('#addone').click(function(){
-		$("#select-datetime-dialog" ).dialog('open');
+		var timestr = $.trim($('#addoneDate').val() ).replace(/-/g,'');
+		timestr += $('#addoneHour').val();
+		
+		addone(timestr);
+
+		$('#description').show();
+		$('#search-bar').removeClass('home-search').addClass('top-search');
 	})
 	
 	//exec
 	saveSet();
-	addone('2012010100');
+//	addone('2012010100');
 })
