@@ -53,7 +53,7 @@ end do
    Time=u@initial_time
    p=t@lv_ISBL3
    
-;   rh = a->R_H_3_ISBL_10(A(i),:,:)//no rh
+   rh = a->R_H_3_ISBL_10(17,:,:)
    
    
 ;------------------------------------------------------
