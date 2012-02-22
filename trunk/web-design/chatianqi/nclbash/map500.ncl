@@ -51,7 +51,12 @@ end do
    wrf_smooth_2d( t, 3)  
    wrf_smooth_2d( H, 3 )  
    Time=u@initial_time
-   p=t@lv_ISBL3
+   
+	if(isatt(t,"lv_ISBL3") ) then
+		p=t@lv_ISBL3
+	else
+		p=t@lv_ISBL2
+	end if
    
    rh = a->R_H_3_ISBL_10(8,:,:)
    
@@ -222,11 +227,12 @@ end if
  rhres@cnLabelBarEndStyle = "ExcludeOuterBoxes"
  
  rhres@lbLabelBarOn = True
+ rhres@lbLabelFont = "helvetica"
  rhres@lbOrientation = "Horizontal" ;"Vertical"
  rhres@lbTopMarginF = 0.01
  rhres@lbBottomMarginF = 0.4
 ; rhres@lbLabelAngleF = -20
- rhres@lbLabelOffsetF = -0.05
+ rhres@lbLabelOffsetF = -0.1
 
   showhumidity = False
 ;;showhumidity

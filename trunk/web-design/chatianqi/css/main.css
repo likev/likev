@@ -14,7 +14,7 @@ input,button,p,h1,h2,h3,h4,h5,h6,ul,select{
 
 #content{
 	width:1000px;
-	padding:100px 0 0 0;
+	padding:100px 0 50px 0;
 }
 
 #app-set{
