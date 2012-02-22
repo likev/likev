@@ -46,7 +46,7 @@ begin
 ;   t=t-273                   
    u = a->U_GRD_3_HTGL_10 (:,:)  
    v = a->V_GRD_3_HTGL_10(:,:)  
-   H = a->PRES_3_MSL_10(:,:)  
+   H = a->PRMSL_3_MSL_10(:,:)  
    ;wrf_smooth_2d( t, 5)  
    H=H/100
    wrf_smooth_2d( H, 5 )  
