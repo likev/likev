@@ -8,7 +8,13 @@ $(function(){
 	
 	function saveSet(){
 		$('#app-set input,#app-set select').each(function(){
-			setSaved[this.id] = $(this).val();
+			var target = $(this);
+			
+			if(target.is(':checkbox') ){
+				setSaved[this.id] = this.checked;
+			}else{
+				setSaved[this.id] = $(this).val();
+			}	
 		})
 		
 		paramSaved = $('#app-set input,#app-set select').serialize();
@@ -33,7 +39,14 @@ $(function(){
 	
 	function cancleSet(){
 		$('#app-set input,#app-set select').each(function(){
-			$(this).val( setSaved[this.id] );
+			var target = $(this);
+			
+			if(target.is(':checkbox') ){
+				this.checked =  setSaved[this.id];
+			}else{
+				$(this).val( setSaved[this.id] );
+			}
+			
 		})
 	}
 	

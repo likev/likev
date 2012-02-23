@@ -18,7 +18,7 @@ input,button,p,h1,h2,h3,h4,h5,h6,ul,select{
 }
 
 #app-set{
-	padding:0 20px 0 10px;
+	padding:30px 20px 0 10px;
 	display:none;
 }
 
@@ -99,7 +99,7 @@ input,button,p,h1,h2,h3,h4,h5,h6,ul,select{
 	font-size:22px;
 	
     border-bottom: 1px solid #E5E5E5;
-	box-shadow:1px 2px 2px #D3D3D3;
+	box-shadow:#D3D3D3 1px 2px 2px 0;
 }
 
 #toolbar h1{
@@ -128,7 +128,7 @@ input,button,p,h1,h2,h3,h4,h5,h6,ul,select{
 	position:fixed;
 	left:50%;
 	margin-left:-250px;
-	top:300px;
+	top:30%;
 }
 
 .top-search{
@@ -136,14 +136,7 @@ input,button,p,h1,h2,h3,h4,h5,h6,ul,select{
 	margin-left:100px;
 }
 
-#addone{
-	font-size:22px;
-	display: inline-block;
-	padding:5px 20px;
-	margin-left:20px;
 
-	box-shadow:2px 2px 5px gray;
-}
 
 #select-date {
 	float:left;
@@ -152,7 +145,7 @@ input,button,p,h1,h2,h3,h4,h5,h6,ul,select{
 	padding:8px 15px;
 	border:1px solid gray;
 	border-radius: 4px 4px 4px 4px;
-	box-shadow:2px 2px 5px gray;
+	box-shadow:#808080 2px 2px 5px 0;
 }
 
 #select-date input, #select-date select{
@@ -167,16 +160,72 @@ input,button,p,h1,h2,h3,h4,h5,h6,ul,select{
 	float: right;
 }
 
-#set-bar button{
-	display: inline-block;
-	padding:5px 15px;
-	margin-right:10px;
-	font-size:22px;
-	box-shadow:2px 2px 5px gray;
+#addone, #set-bar button, #apply-set, #cancle-set{
+    background-color: #F0F0F0;
+    background-image: url("http://chatianqi.org/pics/button-back.png");
+	background-position: center center;
+    border: 1px solid #666666;
+
+    display: inline-block;
+    font-size: 22px;
+    margin-right: 10px;
+    padding: 5px 15px;
+	
+    border-radius: 3px 3px 3px 3px;
+    box-shadow: #808080 2px 2px 5px 0;	
 }
 
-#set-bar #apply-set, #set-bar #cancle-set{
+#addone:hover, #set-bar button:hover, #apply-set:hover, #cancle-set:hover{
+    background-image: url("http://chatianqi.org/pics/button-hover.png");
+}
+
+#addone{
+	font-size:22px;
+
+	padding:8px 25px;
+	margin-left:20px;
+	
+	color:#000000;
+	text-decoration:none;
+}
+
+#setchange {
+	background-color:#FEFEFE;
+	text-align:left;
+	position:fixed;
+	left:0px;
+	top:70px;
+	padding:20px 10px 12px 10px;
+	border:none;
+	border-bottom:1px solid gray;
+	width:230px;
+	z-index:102;
+}
+
+#apply-set, #cancle-set{
 	display:none;
+	padding:3px 10px;
+	margin-right:10px;
+	font-size:20px;
+}
+
+#image-set input{
+	width:60px;
+}
+
+#app-set h3{
+	margin:30px 0 10px 0;
+}
+
+#app-set ul{
+	margin:0;
+}
+#app-set li{
+	margin:3px 0 0 0;
+}
+
+#app-set h4{
+	margin:10px 0 5px 0;
 }
 
 #button-set{
@@ -215,7 +264,7 @@ input,button,p,h1,h2,h3,h4,h5,h6,ul,select{
 	
 	width:100%;
 	z-index:100;
-	box-shadow:2px -1px 3px gray;
+	box-shadow:#808080 2px -1px 3px 0;
 }
 
 #footbar img{
