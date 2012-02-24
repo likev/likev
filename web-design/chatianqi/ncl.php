@@ -3,7 +3,7 @@
 include_once('sysinfo.php');
 
 $randdelay = rand(1, 20);
-usleep($randdelay*100000);
+//usleep($randdelay*100000);
 
 while(get_proc_count('ncl')>=1 || get_memfree()<35.0 || get_cpufree()<30.0){
 	// wait for 1 seconds
