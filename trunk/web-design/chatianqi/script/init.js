@@ -3,8 +3,28 @@ $(function(){
 	
 	var setSaved = {};
 	var paramSaved;
+	var imgSet = [];
 	
 	//core function
+	function loadNextImg(set, i){
+		if(i >= set.length ) return;
+		//console.log(imgSet);
+		var loadnext = (function(j){
+				return function(e){
+					//setTimeout(function(){;console.log(j)},1000);
+					loadNextImg(set, j);
+				}
+			})(i+1);
+		
+		if( ! set[i] ){ 
+			loadnext();
+			return;
+		}
+		
+		var img = set[i].jdom;
+		imgReady(set[i].url, loadnext);
+		img.attr('src',set[i].url);
+	}
 	
 	function saveSet(){
 		$('#app-set input,#app-set select').each(function(){
@@ -18,13 +38,7 @@ $(function(){
 		})
 		
 		paramSaved = $('#app-set input,#app-set select').serialize();
-		
-		$('.onetime:visible').each(function(){//retrive all
-			var timestr = $(this).attr('timestr');
-			$(this).remove();
-			addone(timestr);
-		})
-		
+				
 		$('#description').html('');
 		$('#overlay-set input:checked').each(function(){
 			
@@ -35,6 +49,14 @@ $(function(){
 			$('#description').append(html);
 		})
 		$('#description > div').height(Number($('#imgheight').val() )+10 );//$('.overlay').innerHeight()
+		
+		$('.onetime:visible').each(function(){//retrive all
+			var timestr = $(this).attr('timestr');
+			$(this).remove();
+			addone(timestr);
+		})
+		
+		
 	}
 	
 	function cancleSet(){
@@ -66,19 +88,25 @@ $(function(){
 		
 		newone.find('.time-title h3').text(title);
 		
-		var newoverlay = $('#nextone .overlay').clone();
+		//load each overlay
 
-		//var para = $('#app-set input,#app-set select').serialize();//$.param(setSaved) //
-		
 		$('#overlay-set input:checked').each(function(){
+			//pics/logo_twitter.png
 			var url = 'http://chatianqi.org/ncl.php?overlay='+$(this).attr('overlay')+ '&datetime='+ timestr + '&imgheight=' + $('#imgwidth').val() + '&' + paramSaved;
 			
-			newoverlay.find('img.fnlpic').attr('src',url);
+			var newoverlay = $('#nextone .overlay').clone();
+
+			var img = newoverlay.find('img.fnlpic');
 			
-			newone.append(newoverlay.clone());	
+			newone.append(newoverlay);
+			
+			imgSet.push({jdom: img, url: url});
+
 		});
 		
+
 		
+		//load one time
 		$('.onetime').each(function(){
 		
 			if( $(this).attr('timestr') > timestr){
@@ -152,12 +180,18 @@ $(function(){
 	
 	$('#apply-set').click(function(){
 	
-		saveSet();
-	
 		$('#apply-set').hide();
 		$('#cancle-set').hide();
 		$('#app-set').hide();
 		$('#display-set').show();
+		
+		var index;
+		for(index in imgSet){
+			imgSet[index] = null;
+		}
+		
+		saveSet();
+		loadNextImg(imgSet,0);
 	});
 	$('#cancle-set').click(function(){
 		cancleSet();
@@ -169,7 +203,16 @@ $(function(){
 	});
 	
 	$('#content').on('click', '.delete-one', function(){
-		$(this).parents('.onetime').remove();
+		var jdom = $(this).parents('.onetime');
+		
+		jdom.find('img.fnlpic').each(function(){
+			var index;
+			for(index in imgSet){
+				if(imgSet[index] && this === imgSet[index].jdom[0] ) imgSet[index] = null;
+			}
+		})
+		//console.log(imgSet);
+		jdom.remove();
 		
 		if(!$('.onetime:visible').length){
 			$('#description').hide();
@@ -182,14 +225,16 @@ $(function(){
 	$('#addone').click(function(){
 		var timestr = $.trim($('#addoneDate').val() ).replace(/-/g,'');
 		timestr += $('#addoneHour').val();
-		
-		addone(timestr);
 
 		$('#description').show();
 		$('#search-bar').removeClass('home-search').addClass('top-search');
+		
+		addone(timestr);
+		loadNextImg(imgSet,0);
 	})
 	
 	//exec
 	saveSet();
 //	addone('2012010100');
+
 })
