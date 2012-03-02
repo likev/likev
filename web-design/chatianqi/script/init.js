@@ -154,7 +154,7 @@ $(function(){
 	$('#addoneDate').datepicker({
 			dateFormat: 'yy-mm-dd',
 			minDate:'2000-01-01',
-			maxDate:'2012-01-31',
+			maxDate:'2012-03-01',
 			changeMonth: true,
 			changeYear: true,
 			//showButtonPanel: true,
