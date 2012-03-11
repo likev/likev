@@ -1,0 +1,2357 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="gbk" />
+<title>洛阳城事-大河论坛 - Powered by phpwind</title>
+<meta name="generator" content="phpwind v8.7(20110928)" />
+<meta name="description" content="大河论坛" />
+<meta name="keywords" content="洛阳城事 - 大河论坛" />
+<base id="headbase" href="http://bbs.dahe.cn/" />
+<link rel="stylesheet" href="images/pw_core.css?20110928" />
+<!--css-->
+<style type="text/css">
+/*Spacing*/
+.pdD{padding:.3em .5em}
+.pd5{padding:0 5px;}
+.pd15{padding:0 15px;}
+/*form*/
+input.btn,input.bt{cursor:pointer;padding:.1em 1em;*padding:0 1em;font-size:9pt; line-height:130%; overflow:visible;}
+input.btn{border:1px solid #ff5500;background:#ff8800;margin:0 3px;color:#fff;}
+input.bt{border:1px solid #c2d8ee;background:#fff;margin:0 3px;color:#333;}
+/*layout*/
+html{background-color:#fff;overflow-y:scroll;}
+body{font:12px/1.5 Arial; color:#333;background:#fff;min-height:500px;}
+.wrap,#top{min-width:820px;margin:auto;}
+/*全局链接*/
+a{text-decoration:none;color:#1B5790;}
+a:hover,.alink a,.link{text-decoration:underline;}
+/*链接按钮*/
+.bta{cursor:pointer;color:#1B5790;padding:0 5px;margin:0 3px;white-space:nowrap;border:1px solid #d5e6ed;line-height:22px;background:#fff;}
+.bta:hover{border:1px solid #cad9ea;text-decoration:none;}
+/*main color 数值自定义*/
+.f_one,.t_one,.r_one{background:#fff;}
+.f_two,.t_two,.r_two{background:#f3f9fb;}
+/*头部*/
+#head,.main-wrap,#footer,#searchA,#navA,#navB,.top{width:990px;margin:0 auto;}
+#top{height:23px;border-bottom:1px solid #fff;background:url(images/dhshizheng/topbar.png) 0 bottom repeat-x;_background:#e9f1f4;line-height:23px;overflow:hidden;}
+.top li{float:left;margin-right:10px;}
+.top a{color:#666;}
+#head{height:90px;}
+.logo{width:270px; float:left; padding:15px 0 0 10px; }
+.logo_ad{width:600px; height:65px; float:left; overflow:hidden; padding-top:15px;}
+/*导航*/
+#navA{height:34px;}
+#td_mymenu{background:url(images/dhshizheng/navA.png?20110802) 999em 999em no-repeat;}
+.navA{ background:url(images/dhshizheng/nav_3.gif) repeat-x left top;height:34px;overflow:hidden; padding-right:10px;}
+.navA ul{font-size:14px;overflow:hidden;}
+.navA li{float:left;margin-left:-1px;}
+.navA li a{float:left;color:#ffffff;padding:0 15px;height:34px;line-height:34px;outline:none;font-weight:700;}
+.navA li a:hover{text-decoration:underline;color:#ffea00;}
+.navA li.current a{padding:0 25px;}
+.navA .current a,.navA .current:hover a,.navA .current a:hover{background:url(images/dhshizheng/nav_2.gif) repeat-x left top;display:inline;text-decoration:none;text-shadow:none;}
+/*快捷导航*/
+#td_mymenu{ background-position:-20px -150px;cursor:pointer;float:right;width:75px;color:#fff;height:23px;overflow:hidden;line-height:23px;padding-left:10px;margin:5px 2px 0 0;_display:inline}
+#fast_menu .menuList{width:81px;}
+.navB,.navBbg{background:url(images/dhshizheng/navB.png) right bottom repeat-x;}
+.navBbg{padding:0;background-position:left bottom;margin-right:4px;_position:relative;}
+.navB ul{padding:4px 4px 4px 16px;}
+.navB li{float:left;height:25px;line-height:25px;margin:0 10px 0 0;}
+.navB li a{display:block;padding:0 5px; font-size:14px;}
+.navB li a:hover{ text-decoration:none;color:#014c90;}
+/*搜索*/
+#searchA{margin:0 auto 10px;height:41px;overflow:hidden;}
+#searchA,.searchA_right{background:url(images/dhshizheng/searchA.png) no-repeat;}
+.searchA_right{ background-position:right 0;height:41px;width:5px;}
+.searchA{padding:8px 0 0 55px;}
+.searchA .ip,.s_select{background:#fff url(images/dhshizheng/search_input.png) left top no-repeat;}
+.searchA .ip{width:300px;float:left;border:1px solid #dddddd;height:20px;padding:4px 5px 0;overflow:hidden;}
+.searchA .ip input{border:0;background:none;padding:0;line-height:16px; font-size:14px;width:100%;float:left;margin:0;}
+.s_select{float:left;border:1px solid #dddddd;border-left:0;margin-right:7px;width:49px; background-position:-40px 0;}
+.s_select h6{display:block;padding:0 15px 0 10px;height:24px;line-height:24px;cursor:pointer;background:url(images/dhshizheng/down.png) 35px center no-repeat;color:#666;}
+.s_select ul{ position:absolute;border:1px solid #dddddd;background:#fff;line-height:22px;width:49px;margin:24px 0 0 -1px;display:none;z-index:1;}
+.s_select ul li{padding:0 10px;cursor:pointer;white-space:nowrap;}
+.s_select ul li:hover{background:#f7f7f7;}
+.searchA button{width:45px;height:25px;border:0 none;background:url(images/dhshizheng/search_btn.png) no-repeat; font-size:14px; font-weight:700;line-height:25px;padding:0 0 3px 0;}
+.s_tags{padding:3px 0 0 30px; font-size:14px;height:20px;line-height:20px;overflow:hidden;margin:0;}
+.s_tags a{margin:0 8px 0 0;}
+/*站点信息*/
+#infobox .fr li,#breadCrumb .fr li{float:left;}
+#infobox .fr li a,#breadCrumb .fr li a{float:left;}
+/*面包屑*/
+#breadCrumb{zoom:1;margin-bottom:10px;}
+#breadCrumb em{ font-family:Simsun;margin:0 5px;}
+#breadCrumb .breadEm{float:left;width:0;position:absolute;}
+#breadCrumb img.breadHome{float:left;margin:0 5px 0 0;}
+/*站点信息*/
+.pw_ulC{padding-left:5px;}
+.pw_ulC li{float:left;border-right:1px solid #ddd;padding:0 5px;}
+.pw_ulC li em{color:#666;-webkit-transition: all 0.2s ease-out;-o-transition: all 0.2s ease-out;padding-left:5px;background:url(images/dhshizheng/colon.png) 0 5px no-repeat;margin-left:2px;}
+.pw_ulC li em a{color:#666;}
+.pw_ulC li:hover em{-webkit-transform: scale(1.5);-o-transform: scale(1.5);}
+.pw_ulC li.none{border:0;}
+/*文字广告*/
+.textMes{margin:0 auto 10px;border:1px solid #d5e6ed;border-bottom:0;background:#fff;}
+.textMes .tr3 td,.textMes .tr3 th{border-bottom:1px solid #d5e6ed;padding:.4em .6em;border-top:0;}
+/*中间内容*/
+#pw_content{background:#fff;border:1px solid #CAD9EA;}
+.t{border:1px solid #cad9ea;padding:1px;_display:inline-block;margin-bottom:10px;background:#fff;}
+.tTable{}
+.t_dh{background:#f5fafe;}
+#pw_content .t{border:0;padding:0;margin:0;}
+/*首页热榜*/
+.newInfor{padding-bottom:10px;}
+.newInfor h4{font-weight:700;overflow:hidden;color:#666;}
+.newInfor .switchItem .view-hover,.newInfor .switchItem .view-current{min-height:240px;_height:240px;}
+.newflash{width:360px;height:240px;overflow:hidden;}
+.flashimg img{height:240px;margin-bottom:8px;}
+.flashimg p a{color:#fff;font-weight:700;text-shadow:1px 1px 0px #333;}
+.flashimg p{overflow:hidden;width:260px;bottom:4px;position:absolute;text-indent:12px;z-index:2;left:0;}
+.flashBg{ position:absolute;bottom:0;width:100%;height:27px;background:#000;filter:alpha(opacity=60);-moz-opacity:0.6;opacity:0.6; z-index:1;}
+.an{ position:absolute;right:5px;z-index:2;bottom:5px;}
+.an li{float:left;margin-left:5px;}
+.an li a{float:left;background:#fff;color:#333;overflow:hidden;line-height:16px;padding:0 3px;-webkit-transition: all 0.2s ease-out;-o-transition: all 0.2s ease-out;}
+.an li.current a,.an li a:hover{background:#ff6600;color:#fff; text-decoration:none;}
+.an li a:hover{-webkit-transform: scale(1.4);-o-transform: scale(1.4);}
+.newHotA dd{padding:5px 0;}
+.newHotA{width:500px;}
+.newHotB li{float:left;width:47.5%;padding-right:2%;line-height:22px;height:22px;overflow:hidden;}
+.newHotB li em a{ font-family:Simsun;margin-right:5px;}
+/*公告*/
+.noticebg{padding:5px 10px;}
+#notice{padding:5px;}
+#notice li{white-space:nowrap;padding-left:20px;height:18px;float:left;}
+#notice a{padding-right:.5em;}
+#notice0{height:18px;line-height:18px;overflow:hidden;background:url(images/dhshizheng/file/anc.gif) 0 0 no-repeat;}
+.noticebg_newinfo{position:absolute;top:3px;right:5px;padding:0;}
+.noticebg_newinfo #notice0{float:right;}
+/*通用标题栏*/
+/*.h{border-bottom:1px solid #c6d9e7;background:#eaf1f7 url(images/dhshizheng/h.png) 0 0 repeat-x;color:#1b72af;padding:5px 10px;overflow:hidden;}*/
+.h{background:#005451;color:#FFF;padding:0px 10px;overflow:hidden; height:23px; line-height:23px;}
+.h a{color:#fff}
+.h span a,.h span{color:#fff;}
+.closeicon{*margin-top:4px;height:10px;}
+.cate_fold{padding:0 5px 0 5px;text-decoration:none;}
+.cate_fold:hover{text-decoration:none;}
+/*内容区域顶部标题栏*/
+.hB{background:url(images/dhshizheng/hB.png) 0 bottom repeat-x;height:33px;line-height:33px;overflow:hidden;padding:0 10px;}
+/*标题栏内tab切换*/
+.tabB{margin-top:4px;height:32px;padding-left:10px;}
+.tabB li{float:left;}
+.tabB li a{font-weight:100;padding:0 15px;float:left;line-height:23px;height:27px;padding-top:2px;}
+.tabB li.current a{border:1px solid #dcdcdc;border-bottom:0;background:#fff;padding-top:1px; font-weight:700;}
+.tabB li a:hover{ text-decoration:none;}
+/*h2版块名，h3分类版块名*/
+h2{font-weight:700;display:inline;}
+h2 a{color:#394E7E;}
+h3{font-weight:700;display:inline;}
+h3 a:hover{ text-decoration:none;color:#fff;}
+/*table表格*/
+.tr3 td,.tr3 th{border-bottom:1px solid #e4e4e4;}
+.tr3none th,.tr3none td{border-bottom:none;}
+.tr3Bc th,.tr3Bc td{background:#F6F6F6;}
+.tr3 .old,.tr3 .new,.tr3 .lock{padding:10px 5px 10px 55px;color:#444;font-weight:100;height:35px;}
+.tr3 .old{background:url(images/dhshizheng/old.gif) 15px center no-repeat;}/*旧主题版块*/
+.tr3 .new{background:url(images/dhshizheng/new.gif) 15px center no-repeat;}/*新主题版块*/
+.tr3 .lock{background:url(images/dhshizheng/lock.gif) 15px center no-repeat;}/*锁定版块*/
+.tr2 td,.tr2 th{padding:5px 5px 3px;color:#666;background:#f7f7f7;border-bottom:1px solid #eaeaea;}
+.tr2 th,.tr3 th{font-weight:100;}
+.tr3 td,.tr3 th{padding:5px;}
+.thread_sort a{color:#014c90;}
+.thread_sort a.s6{color:#666;}
+td.num{color:#444; font-size:11px;-webkit-text-size-adjust:none;}
+td.num em{color:#2A9704;}
+.tr3 td.subject{padding-left:10px;}
+.re{width:220px;}
+.author{width:95px;}
+.author a{color:#444;}
+.author p,.author p a{color:#999;font-size:11px;-webkit-text-size-adjust:none;}
+.view,.fNum,.fNum a,.adminlist a,.adminlist{color:#444;}
+.tr3 td.icon{padding:5px 0;}
+.adminbox{padding:0 0 0 0;margin:-3px 3px 0 0;*margin:0 0 0 -5px;}
+.tr4 td{padding:3px 5px;border-bottom:1px solid #eaeaea;border-top:1px solid #eaeaea;color:#666;background:#fff;}
+.tr4 td .current{color:#000;}
+.t tr:hover td,.t tr:hover th{background-color:#e8f3fd;}
+.tfr tr:hover td,.tfr tr:hover th{ background:#FFF;}
+.tfr tr:hover .floot_left{ background:#e8f3fd;}
+.bt0 td{border-top:0;}
+.tr5 td{border:0;}
+.threadCommon .tr3 td{line-height:1.3;}/*列表行高*/
+.hrA{height:1px; background:#d5e6ed;color:#d5e6ed;border:0;margin:8px 0;overflow:hidden;}
+.tpage{ font-family:Simsun;}
+.subject_t:visited{/*color:#666;*/}
+/*old table*/
+.t3 td{padding:2px 5px;}
+/*发帖回复*/
+.post,.replay{height:30px;overflow:hidden;width:74px; text-align:center; font-weight:700; font-size:14px; line-height:30px;}
+.post:hover,.replay:hover{text-decoration:none;}
+.replay{ background:url(images/dhshizheng/reply.png?101129) no-repeat;color:#d74700;}
+.post{ background:url(images/dhshizheng/post.png?101129) no-repeat;color:#fff;}
+.post:hover{color:#ffea00;}
+/*列表页分类*/
+.pw_ulA{height:auto;background:#eaf1f7;border-bottom:1px solid #c6d9e7;}
+.pw_ulA ul{padding-bottom:8px;*padding-bottom:6px;padding-left:2px;}
+.pw_ulA li{float:left;border-right:1px solid #ccc;margin-top:8px;}
+.pw_ulA li a{line-height:14px;height:14px;padding:0 10px;float:left;color:#1b72af;font-weight:100; white-space:nowrap;}
+.pw_ulA li.current a{color:#333; font-weight:700;}
+/*版主推荐,群组列表*/
+.pw_ulB{padding:10px 0 10px 10px;}
+.pw_ulB li{line-height:22px;height:22px;overflow:hidden;}
+.pw_ulB li a{padding-left:13px;background: url(images/pwicon/related_li.gif) 0 3px no-repeat;}
+.pw_ulB li em a{padding:0;background:none;}
+.pw_ulB .adel{margin:4px 40px 0 0 ;}
+.pw_ulB .one{float:left;width:90px;margin:0 15px 0 0;}
+.pw_ulB .one p,.pw_ulB .two p{text-align:center;height:22px;overflow:hidden;}
+.pw_ulB .two{float:left;width:90px;margin:0 15px 10px 0;height:120px;}
+.pw_ulB .two a{padding-left:0;background:none;}
+/*侧栏版块列表*/
+.pw_ulD{padding:5px;}
+.pw_ulD li{padding:0 5px;line-height:22px;}
+.pw_ulD li:hover{background:#d5e6ed;}
+.pw_ulD li.current{background:#2e84c1;}
+.pw_ulD li.current a{color:#fff;}
+.pw_ulD li a:hover{ text-decoration:none;}
+.pw_ulD li del{margin-top:3px;display:none;}
+.pw_ulD li:hover del,.pw_ulD li.current del,.pw_ulD li.hover del{display:block;}
+.sideForum .pw_ulD{border-top:1px solid #d5e6ed;}
+.sideForum dt{line-height:29px;height:29px;padding:0 10px; background:url(images/dhshizheng/thread/sideForumDt.gif) right 0;cursor:pointer;overflow:hidden;}
+.sideForum dd{display:none;}
+.sideForum .one dt{background-position:right -30px; font-weight:700;}
+.sideForum .one dd{display:block;}
+/*列表侧栏*/
+.sidebar{float:left;overflow:hidden;margin-right:-1px;margin-bottom:-1px;}
+.content_thread{background:#fff;_float:right;}
+.sideClose .content_thread{margin:0;border:0;float:none;}
+.f_tree{background:#F6F6F6;}
+/*列表操作图标*/
+.history,.pw_ulD del,.switch,.keep,.keepOn{background:url(images/dhshizheng/thread/sideicon.gif) 9999px 9999px no-repeat;cursor:pointer;}
+.history,.pw_ulD del{float:right;width:16px;height:16px;overflow:hidden;display:block;text-indent:-2000em;}
+.history{ background-position:0 0;}
+.switch{float:left;width:9px;height:27px;display:block; text-indent:-2000em;overflow:hidden; background-position:0 -40px;margin-top:1px; position:absolute;}
+.switch:hover{ background-position:-9px -40px;}
+.sideClose .switch{background-position:-1px -68px;width:8px;}
+.sideClose .switch:hover{background-position:-10px -68px;}
+.pw_ulD del{ background-position:0 -20px;}
+.pw_ulD del:hover{ background-position:-20px -20px;}
+.keep,.keepOn{float:left;background-position:-120px 0;height:16px;margin:8px 10px 0 0;width:16px;text-indent:-2000em;overflow:hidden;}
+.keep:hover{background-position:-120px -20px;}
+.keepOn,.keepOn:hover{ background-position:-120px -40px;}
+/*侧栏收藏的版块*/
+.myForum h6{color:#666;padding:6px 10px 5px;}
+.myForum .pw_ulD li{height:22px;overflow:hidden;}
+/*列表帖子类型tab*/
+.tabA{border-bottom:1px solid #cad9ea;height:28px;padding:0 5px;}
+.tabA ul{_position:absolute;font-size:14px;overflow:hidden;}
+.tabA li{float:left;margin-left:5px;}
+.tabA li a{float:left;color:#014c90;line-height:1.2;padding:0 20px;overflow:hidden;border:1px solid #e4e4e4;line-height:27px;background:#f7f7f7;border-bottom:0;}
+.tabA li.current a,.tabA li.current a:hover,.tabA li a:hover{color:#333;border-color:#cad9ea;line-height:28px;font-weight:700;background:#eaf1f7;position:relative;}
+.tabA li a:hover{ font-weight:100;line-height:27px; text-decoration:none;}
+/*帖子列表管理操作*/
+.manageCheck{border-bottom:1px solid #d5e6ed;border-top:1px solid #d5e6ed;background:#f3f9fb;padding:5px 7px;margin-top:-1px;}
+/*帖子楼层结构*/
+.floot{ table-layout:fixed;}
+.floot_left{width:160px;background:#E8F3FD;border-right:0; vertical-align:top;}
+.floot_leftdiv{padding:10px 10px 50px 15px;}
+.floot_right{background:#fff;padding:10px 20px 0;vertical-align:top;}
+.floot_bottom{vertical-align:bottom;padding:0 20px;}
+.readTop{background:#F7F7F7;}
+/*楼层间*/
+.flootbg{background:#d5e6ed;height:3px;border-top:1px solid #fff;border-bottom:1px solid #fff;overflow:hidden;table-layout:fixed;}
+/*帖子信息*/
+.tipTop{padding:0 0 10px;border-bottom:1px dotted #ccc;margin-bottom:10px;}
+/*印戳*/
+.overprint{overflow:hidden;position:absolute;margin-left:440px;margin-top:-35px;}
+.overprint_opl {height:200px;overflow:auto;}
+.overprint_opl a{display:block;float:left;padding:3px;margin:3px}
+.overprint_opl a.current{border:1px solid #ccc;padding:2px}
+.overprint_opl a:hover{border:1px solid #ddd;padding:2px;background:#f3f9fb;}
+/*帖子用户信息*/
+.honor{color:#777;overflow:hidden;line-height:1.3;}
+.user-infoWrap2 li{line-height:20px;height:20px;overflow:hidden;}
+.user-infoWrap2 li em{float:left;width:60px;}
+.user-pic{margin-left:-2px;}
+.face_img img{padding:3px;border:1px solid #d5e6ed; background:#FFF;}
+/*帖子操作*/
+.tipBottom{padding:10px 0;border-top:1px dotted #ccc;margin-top:10px;}
+.readbot a{list-style:none;padding:0 0 0 1.5em;margin:0;float:left;cursor:pointer;background:url(images/dhshizheng/read/yin.gif) no-repeat;width:3.5em;height:16px;}
+.readbot .r-quote:hover{background-position:0 0;}
+.readbot .r-reply:hover {background-position:0 -20px;}
+.readbot .r-score:hover {background-position:0 -40px;}
+.readbot .r-keep:hover {background-position:0 -60px;}
+.readbot .r-recommend:hover {background-position:0 -160px;}
+.readbot .r-report:hover{background-position:0 -200px;}
+.readbot .r-quote {background-position:0 -80px;}
+.readbot .r-reply {background-position:0 -100px;}
+.readbot .r-score {background-position:0 -120px;}
+.readbot .r-keep {background-position:0 -140px;}
+.readbot .r-recommend {background-position:0 -180px;}
+.readbot .r-report {background-position:0 -220px;}
+/*帖子标题*/
+h1.read_h1{padding:0 20px;}
+.read_h1,.read_h1 a{font-size:16px;color:#014c90; font-weight:700;line-height:1.2;padding:0;margin:0;}
+/*帖子内容区域*/
+blockquote{margin-left:12px;}
+.tpc_content{padding:0 2px 20px;margin:0;line-height:1.8em;}
+.tpc_content font{line-height:1.5em;}
+.tpc_content a{text-decoration:none;color:#0070AF;}
+.tpc_content a:hover{text-decoration:underline}
+.tpc_content ol,.tpc_content ol li{list-style-type:decimal;}
+.tpc_content ul,.tpc_content ul li{list-style-type:disc;}
+.blockquote{zoom:1;padding:5px 8px 5px;line-height:1.3;background:#fffae1;margin:0 0 10px 0;}
+.tips{border:1px solid #cad9ea;background:#f3f9fb;padding:3px 10px;display:inline-block;_float:left;}
+/*帖子代码*/
+.blockquote2{border: 1px solid; border-color: #c0c0c0 #ededed #ededed #c0c0c0;margin:0px;padding:0 0 0 2em;line-height:2em;overflow:hidden;background:#fff;margin-left:0;}
+.blockquote2 ol{margin:0 0 0 1.5em;padding:0;}
+.blockquote2 ol li{border-left:1px solid #ccc;background:#f7f7f7;padding-left:10px;font-size:12px;list-style-type:decimal-leading-zero;padding-right:1em;}
+.blockquote2 ol li:hover{background:#fff;color:#008ef1;}
+.blockquote2 ol li{list-style-type:decimal;}
+/*帖子引用*/
+.blockquote3{clear:left;border:1px dashed #CCC;background:#f7f7f7 url(images/blockquote3.png) right top no-repeat;padding:5px 10px;margin-left:0;}
+.blockquote3 .quote{color:#999;font-size:12px;}
+.blockquote3 .text{padding:0 10px 10px 10px; font-size:12px;}
+.blockquote3 img{ vertical-align:middle;}
+.blockquote3 span{ font-size:12px;}
+/*帖子表格*/
+.read_form td{height:20px;padding:0 5px; border:0;}
+/*分割线*/
+.sigline {background: url(images/dhshizheng/read/sigline.gif) left bottom no-repeat;height:16px;}
+/*帖子签名*/
+.signature {padding:10px 0 0 0;height:expression(this.scrollHeight>parseInt(this.currentStyle.maxHeight)?this.currentStyle.maxHeight:"auto");}
+/*下载*/
+.tpc_content .down{background:#f0f0f0 url(images/post/down.gif) 5px center no-repeat;padding:5px 5px 5px 30px;border: 1px solid; border-color: #cccccc #999999 #999999 #cccccc;color:#333;margin:0 10px 0 0;line-height:40px;font-size:12px;}
+.tpc_content .down:hover{ text-decoration:none;color:#ff5500;}
+/*分类信息*/
+.cates{margin:0 0 10px;border-top:1px solid #e4e4e4; font-size:12px;}
+.cates .cate-list li{line-height:1.5;font-weight:500;color:#444444;list-style:none;border-bottom:1px solid #e4e4e4;padding:5px 0;_padding:6px 0 4px;}
+.cates .cate-list em{ font-style:normal;width:100px;display:inline-block;text-align:right; font-weight:700;}
+.cates .cate-list cite{font-style:normal; display:inline-block;width:430px;vertical-align:top;font-family:Simsun;line-height:18px;}
+.cates input{ vertical-align:middle;}
+.cates .w{margin-right:10px;}
+.cates .two{background:#f7f7f7;}
+.cate_meg_player {float:right;padding:4px;background:#fff;border:1px solid #e4e4e4;border-top:0 none;}
+/*帖子页flash*/
+.readFlash{position:relative;height:160px;width:200px;overflow:hidden;text-align:center;line-height:160px;}
+.readFlash img{width:100%;}
+.readFlash ul {position:absolute;right:8px;bottom:8px;z-index:3;}
+.readFlash ul li {list-style:none;float:left;width:18px;height:13px;line-height:13px;text-align:center;margin-left:2px;background:#fff;}
+.readFlash ul li a {display:block;width:18px;height:13px;font-size:10px;color:#333333;}
+.readFlash ul li a:hover,.flash ul li a.sel {color:#fff;text-decoration:none;background:#ffa900;}
+/*友情链接*/
+.sharelink{border-bottom:1px dotted #ddd;padding:10px 0;word-break: keep-all;}
+.sharelink dt{padding-top:3px;}
+.sharelink dd a{color:#369;}
+.sharelink2{padding:10px 10px 5px;*padding:10px 10px;}
+.sharelink2 a{margin:0 10px 5px 0;white-space:nowrap;float:left;}
+.sharelink2 img{float:left;}
+/*生日会员*/
+.brithcache span{float:left;width:100px;line-height:22px;height:22px;overflow:hidden;}
+/*底部*/
+#footer:first-letter{text-transform:uppercase;}
+#footer img{vertical-align:top;}
+/*css3.0*/
+.history,del,.keep{-webkit-transition: all 0.2s ease-out;transition: all 0.2s ease-out;}
+/*分页-具体样式在pw_core里*/
+.pages a{border:1px solid #cad9ea;background-color:#f9f9f9;color:#666;}
+.pages b,.pages a:hover{background-color:#72b0d7;color:#ffffff;border:1px solid #72b0d7;}
+.pages .fl{color:#666;}
+.pages input{border:1px solid #cad9ea;}
+.pages button{background-color:#f4f8fb;color:#666;border-left:1px solid #cad9ea;}
+/*menu*/
+.menu{position:absolute;background:#fff;border:1px solid #d5e6ed;}
+.menu a{display:block;padding:4px 8px;}
+/*下拉框*/
+.menu-post{border:1px solid #cad9ea;}
+.menu-post .menu-b{background:#fff;border:3px solid #d5e6ed;}
+.menu_tasksA .menu-b{border-width:8px;}
+/*通用下拉外框*/
+.pw_menu{border:1px solid #cad9ea;background:#fff;/*-webkit-box-shadow:2px 2px 2px #bbb;*/;}
+.pw_menuBg{padding:0 10px 10px;}
+.pw_menu h6{border-color:#cad9ea;background:#fff;}
+/*下拉列表*/
+.menuList{background:#fff;}
+.menuList a:hover{background:#f3f9fb;}
+/*双列下拉*/
+.menuHalf{margin-right:-1px;padding:5px 0;}
+.menuHalf li{float:left;width:50%;border-right:1px dashed #d5e6ed;margin-right:-1px;}
+ul#post_typeChoose a{padding:0;}
+/*关注*/
+.follow,.following{ background:url(u/images/follow.png) no-repeat;line-height:16px;}
+.follow{padding-left:16px; background-position:-4px -43px;_background-position:-4px -40px;}
+.following{padding-left:22px; background-position:-20px -22px;}
+/*全局颜色*/
+.s1{color:#ff0000;}	/*red*/
+.s2{color:#ff6600;}	/*org*/
+.s3{color:#008800;}	/*green*/
+.s4{color:#014c90;}	/*blue*/
+.s5{color:#333333;}	/*black*/
+.s6{color:#666;}/*black*/
+.s7{color:#68b;}/*min blue*/
+.gray{color:#999;}
+.gray2{color:#bbb;}
+ /*自定义css*/
+</style><!--css-->
+<link rel="icon" href="favicon.ico?v=3" type="image/x-icon" />
+<script type="text/javascript" src="js/core/core.js"></script>
+<script type="text/javascript" src="js/pw_ajax.js"></script>
+<script>
+var imgpath = 'images';
+var verifyhash = 'b065e7a0';
+var modeimg = '';
+var modeBase = '';
+var winduid = '';
+var windid	= '';
+var groupid	= 'guest';
+var basename = '';
+var temp_basename = '';
+var db_shiftstyle = '1';
+var pw_baseurl = "http://bbs.dahe.cn";
+function shiftStyle(){
+if(db_shiftstyle == 1){
+if (getObj('widthCfg').innerHTML=='切换到宽版') {
+if(!getObj('fullscreenStyle')) {
+var l = document.createElement('link');
+l.id="fullscreenStyle";
+l.rel="stylesheet";
+l.type="text/css";
+l.href="images/fullscreen.css";
+l.media="all";
+document.body.appendChild(l);
+}else {
+getObj('fullscreenStyle').disabled = false;
+}
+getObj('widthCfg').innerHTML='切换到窄版';
+var widthCfg = 1;
+} else {
+var widthCfg = 0;
+getObj('fullscreenStyle').disabled=true;
+getObj('widthCfg').innerHTML='切换到宽版';
+}
+SetCookie('widthCfg',widthCfg);
+if(typeof goTop!="undefined"){
+goTop.setStyle();
+}
+if(typeof messagetip!="undefined"&&typeof messagetip.db!="undefined"){
+messagetip.setStyle();
+messagetip.update();
+}
+}
+};
+</script>
+<!--[if IE 9 ]>
+<meta name="msapplication-task" content="name=网站首页; action-uri=http://bbs.dahe.cn; icon-uri=favicon.ico" />
+<meta name="msapplication-task" content="name=个人中心; action-uri=u.php; icon-uri=images/ico/home.ico" />
+<meta name="msapplication-task" content="name=我的帖子; action-uri=apps.php?q=article; icon-uri=images/ico/post.ico" />
+<meta name="msapplication-task" content="name=消息中心; action-uri=message.php; icon-uri=images/ico/mail.ico" />
+<meta name="msapplication-task" content="name=我的设置; action-uri=profile.php; icon-uri=images/ico/edit.ico" />
+<![endif]-->
+<link rel='archives' title="大河论坛" href="simple/" />
+<link rel="alternate" type="application/rss+xml" title="RSS" href="http://bbs.dahe.cn/rss.php?fid=450" />
+</head>
+<body>
+
+<div class="wrap">
+<div id="header">
+ <div id="head" class="cc">
+<div class="logo"><a href="http://bbs.dahe.cn/"><img src="images/dhshizheng/logo.png" class="fl" title="大河论坛" /></a></div>
+<div class="logo_ad" style="display:none;">
+</div>
+<form action="login.php" name="login_FORM" method="post" onsubmit="return headerAjaxLogin.login(document.login_FORM);">
+<input type="hidden" name="jumpurl" value="http://bbs.dahe.cn/thread.php?fid-450-search-all-orderway-postdate-asc-DESC-page-1-type-0-special-0.htm" />
+<input type="hidden" name="step" value="2" />
+<input type="hidden" name="ajax" value="1" />
+<div class="header_login fr">
+<table style="table-layout:fixed;">
+<tr>
+<td width="145">
+<span class="fl"><a href="javascript:;" hidefocus="true" title="切换登录方式" class="select_arrow" onclick="showLoginType();">下拉</a></span>
+<div class="fl">
+<div class="pw_menu" id="login_type_list" style="position:absolute;display:none;margin:20px 0 0 0;">
+<ul class="menuList tal" style="width:134px;">
+<li><a href="javascript:;" onclick="selectLoginType('0','用户名')" hidefocus="true">用户名</a></li>
+<li><a href="javascript:;" onclick="selectLoginType('1','UID')" hidefocus="true">UID</a></li>
+<li><a href="javascript:;" onclick="selectLoginType('2','电子邮箱')" hidefocus="true">电子邮箱</a></li>
+</ul>
+</div>
+</div>
+<div class="login_row mb5"><label for="nav_pwuser" class="login_label">用户名</label><input type="text" class="input fl gray" onfocus="navCheckinput(this);" onblur="navCheckinput(this);" name="pwuser" id="nav_pwuser" value="输入用户名"></div>
+<div class="login_row"><label for="showpwd" class="login_label">密　码</label><input type="password" name="pwpwd" id="showpwd" class="input fl"></div>
+</td>
+<td width="75">
+<div class="login_checkbox" title="下次自动登录"><input type="checkbox" id="head_checkbox" name="cktime" value="31536000" checked="checked"><label for="head_checkbox">记住登录</label></div>
+<span class="bt2 fl"><span><button type="submit" name="head_login" style="width:70px;">登录</button></span></span>
+</td>
+<td width="70">
+<a href="sendpwd.php" class="login_forget">找回密码</a>
+<span class="btn2 fl"><span><button type="button" style="width:70px;" onClick="location.href='register.php#breadCrumb';">注册</button></span></span>
+</td>
+</tr>
+</table>
+</div>
+<input type="hidden" name="lgt" id="nav_lgt" value="0">
+</form>
+<link rel="stylesheet" href="u/images/expand/weibologin.css" />
+<div class="loginWays fr">
+<span id="weibo_login" class="firstWay cp">
+<a href="javascript:;" onclick="window.open('http://bbs.dahe.cn/login.php?action=weibologin&type=sinaweibo&from='+self.location.href, 'weiboLogin', 'height=520, width=850, toolbar=no, menubar=no, scrollbars=no, resizable=no, location=no, status=no');"><img src="http://apps.phpwind.net/statics/weibo/icon/sina_n.png" alt="使用微博帐号登录">微博帐号登录</a>
+<span class="icon-down"></span>
+</span>
+<span class="text">内容互通，快速登录</span>
+</div>
+<script type="text/javascript">
+var default_login_type = '0';
+var default_input_value = '输入' + '用户名';
+function showLoginType(){
+var login_type = getObj('login_type_list');
+login_type.style.display = login_type.style.display === 'none' ? '' : 'none';
+if (IsElement('nav_logintab')){
+getObj('nav_logintab').style.display = 'none';
+}
+}
+function navCheckinput(obj){
+if (obj.className.indexOf('gray')!=-1) {
+obj.value = '';
+obj.className = obj.className.replace('gray', 'black');
+} else if (obj.value=='') {
+obj.value = obj.defaultValue = default_input_value;
+if (obj.className.indexOf('black') == -1) {
+obj.className += ' gray';
+} else {
+obj.className = obj.className.replace('black', 'gray');
+}
+}
+}
+function changeDefaultInputValue(text){
+getObj('nav_pwuser').value = text;
+getObj('nav_lgt').value = default_login_type;
+}
+function selectLoginType(type,text){
+var nav_pwuser = getObj('nav_pwuser');
+nav_pwuser.value = '输入'+text;
+if (nav_pwuser.className.indexOf('black') != -1) {
+nav_pwuser.className = nav_pwuser.className.replace('black', 'gray');
+}
+getObj('nav_lgt').value = type;
+getObj('login_type_list').style.display = 'none';
+}
+changeDefaultInputValue(default_input_value);
+var headerAjaxLogin = {
+'username' : '',
+'pwd' : '',
+'login' : function(obj) {
+var _this = this;
+var username = obj.pwuser.value;
+if ((!username || username.indexOf('输入')===0) && !obj.pwpwd.value) {
+document.location.href="login.php";
+return false;
+}
+obj.head_login.disabled = true;
+_this.username = obj.pwuser.value;
+_this.pwd = obj.pwpwd.value;
+_this.submitBasicInfo(obj);
+return false;
+},
+'submitBasicInfo' : function(obj) {
+var url = 'login.php';
+ajax.send(url, obj, function() {
+var rText = ajax.request.responseText.split('	');
+if (rText[0] == 'error') {
+showDlg('error', rText[1], 2);
+obj.head_login.disabled = false;
+} else if (rText[0] == 'success') {
+document.location.href = rText[1];
+} else {
+ajax.get('', '1','',1);
+//临时遮罩
+var dd=document.documentElement;
+var cw=dd.clientWidth;
+var sh=dd.scrollHeight;
+var div=document.createElement("div");
+div.setAttribute("id","headerTmpMask");
+div.style.position="absolute";
+div.style.width=cw+"px";
+div.style.height=sh+"px";
+div.style.left=0;
+div.style.top=0;
+div.style.backgroundColor="#333";
+div.style.opacity="0.5";
+div.style.filter="alpha(opacity=50)";
+div.style.zIndex=1000;
+document.body.appendChild(div);
+//end
+}
+});
+return false;
+},
+'submitCheckInfo' : function(obj) {
+var _this = this;
+var url = 'login.php';
+var ifChangeGdcode = true;
+obj.pwuser.value = _this.username;
+obj.pwpwd.value = _this.pwd;
+ajax.send(url, obj, function() {
+var rText = ajax.request.responseText.split('	');
+if (rText[0] == 'error') {
+if (rText[1] == 'gdcodeerror') {
+getObj('headrajaxlogintip').innerHTML = '验证码不正确或已过期';
+} else if (rText[1] == 'ckquestionerror') {
+getObj('headrajaxlogintip').innerHTML = '请输入正确的验证问题答案';
+} else if (rText[1] == 'safequestionerror') {
+getObj('headrajaxlogintip').innerHTML = '安全问题错误,您还可以尝试 ' + rText[2] + ' 次';
+}
+getObj('headrajaxlogintip').style.display = '';
+} else if (rText[0] == 'success') {
+location.href = rText[1];
+ifChangeGdcode = false;
+} else {
+getObj('headrajaxlogintip').innerHTML = rText[0];
+getObj('headrajaxlogintip').style.display = '';
+}
+if (ifChangeGdcode && getObj('changeGdCode')) getObj('changeGdCode').onclick();
+});
+return false;
+},
+'close' : function(obj) {
+document.login_FORM.head_login.disabled = false;
+closep();
+//清除遮罩
+if(getObj("headerTmpMask")){
+var mask=getObj("headerTmpMask");
+mask.parentNode.removeChild(mask);
+}
+//end
+}
+};
+</script>
+</div>
+<div class="nav_wrap">
+<div id="navA">
+<div class="navA">
+<div id="td_mymenu" style="cursor:pointer" onClick="read.open('menu_mymenu_old','td_mymenu',3);">快捷通道</div>
+<div id="menu_mymenu_old" class="popout" style="display:none;"><table border="0" cellspacing="0" cellpadding="0"><tbody><tr><td class="bgcorner1"></td><td class="pobg1"></td><td class="bgcorner2"></td></tr><tr><td class="pobg4"></td><td><div class="popoutContent">
+<div style="width:250px;">
+<div class="p10">
+<a href="javascript:;" onClick="read.close();" class="adel">关闭</a>
+您还没有登录，快捷通道只有在登录后才能使用。
+<a href="login.php#breadCrumb" class="s4">立即登录</a>
+<div class="divHr mb10"></div>
+还没有帐号？ 赶紧 <a href="register.php" class="s4">注册一个</a>
+</div>
+ </div>
+</div></td><td class="pobg2"></td></tr><tr><td class="bgcorner4"></td><td class="pobg3"></td><td class="bgcorner3"></td></tr></tbody></table></div>
+<ul class="cc">
+<li><a id="nav_key_up_69" href="http://bbs.dahe.cn/" title="" target="_blank">首页</a></li>
+<li class="current" onmouseover="tmpHideAllCross('nav_key_sub_1',false);"><a id="nav_key_up_1" href="index-htm-m-bbs.htm" title="" >版块列表</a></li>
+<li><a id="nav_key_up_11" href="index-htm-m-o.htm" title="" >论坛广场</a></li>
+<li><a id="nav_key_up_2" href="u.php" title="" >个人中心</a></li>
+<li><a id="nav_key_up_76" href="hack.php?H_name=actioncenter" title="" >精彩活动</a></li>
+<li><a id="nav_key_up_72" href="http://bbs.dahe.cn/m/introduce.php" title="" >掌上论坛</a></li>
+<li><a id="nav_key_up_70" href="http://izz.dahe.cn/" title="" target="_blank">IZZ社区</a></li>
+<li><a id="nav_key_up_73" href="http://www.dahe.cn/" title="" >大河网</a></li>
+<li><a id="nav_key_up_74" href="http://bbs.dahe.cn/faq.php" title="" target="_blank">站点帮助</a></li>
+</ul>
+</div>
+</div>
+ </div>
+<script>
+var timeoutSpecifyId = {};
+var navBStyle = '';
+function tmpClose(elementId) {
+timeoutSpecifyId[elementId] = setTimeout(function() {
+getObj(elementId).style.display = 'none';
+}, 100);
+}
+function tmpHideAllCross(currentSubMenuId,showNavB) {
+if(!getObj('navB')) return;
+if (showNavB) {
+getObj('navB').style.display = '';
+}
+var elements = getElementsByClassName('navB', getObj('navB'));
+if(elements.length){
+for (var i=0,len = elements.length; i<len; i++) {
+if (elements[i].id != '' && elements[i].id != currentSubMenuId) elements[i].style.display = 'none';
+}
+}
+}
+function ctrlSubMenu(parentId, subMenuId) {
+try {
+clearTimeout(timeoutSpecifyId[subMenuId]);
+tmpHideAllCross(subMenuId,true);
+getObj(subMenuId).style.display = '';
+getObj(parentId).onmouseout = function() {
+tmpClose(subMenuId);
+ timeoutSpecifyId[parentId] = setTimeout(function() {
+if (navBStyle) {
+getObj('navB').style.display = 'none';
+}
+}, 100);
+getObj(parentId).onmouseout = '';
+};
+getObj(subMenuId).onmouseout = function() {
+tmpClose(subMenuId);
+if (navBStyle) {
+getObj('navB').style.display = 'none';
+}
+};
+getObj(subMenuId).onmouseover = function() {
+clearTimeout(timeoutSpecifyId[subMenuId]);
+clearTimeout(timeoutSpecifyId[parentId]);
+getObj(subMenuId).style.display = '';
+getObj('navB').style.display = '';
+};
+}catch(e){}
+}
+</script>
+<div id="searchA">
+<div class="searchA_right fr">&nbsp;</div>
+<div class="searchA cc">
+<script>
+var ins_method = 'AND';
+var ins_sch_area = '1';
+var ins_time = 'all';
+var ins_fid = '450';
+</script>
+<form action="searcher.php" method="post" onSubmit="return searchInput();">
+<input value="AND" type="hidden" name="method" id="ins_method">
+<input value="1" type="hidden" name="sch_area" id="ins_sch_area">
+<input value="all" type="hidden" name="sch_time" id="ins_time">
+<input value="450" type="hidden" name="fid" id="ins_fid">
+	<input type="hidden" value="b065e7a0" name="verify">
+<input value="2" type="hidden" name="step">
+<input value="thread" type="hidden" id="search_type" name="type">
+<div class="ip"><input id="search_input" type="text" value="搜索其实很简单！" class="gray" name="keyword" onFocus="searchFocus(this)" onBlur="searchBlur(this)" /></div>
+<div class="s_select" onMouseOut="this.firstChild.style.display='none';" onMouseOver="this.firstChild.style.display='block';"><ul onClick="getSearchType(event)"><li type="thread" style="display:none" id="inner_forum">本版</li>
+<li type="thread">帖子</li><li type="user">用户</li><li type="forum">版块</li></ul><h6 class="w">本版</h6></div>
+<button type="submit" class="fl cp">搜索</button>
+</form>
+<div class="s_tags">
+</div>
+</div>
+</div>
+</div>
+<div class="tac mb5">
+<a title="" href="http://sh.dahe.cn/zhuanti/chuying/" target="_blank"><img src="http://bbsimg0.dahe.cn/advpic/20120202030042_1.jpg" width="990" height="70"/></a>
+</div>
+<div class="main-wrap">
+<div id="main">
+<!--ads end-->
+<div id="breadCrumb" class="cc">
+<ul class="fr">
+<li class="mr10"><a href="searcher.php?sch_time=newatc">新帖</a></li>
+<li class="mr5"><a href="searcher.php?digest=1">精华</a></li>
+</ul>
+<img id="td_cate" src="images/dhshizheng/thread/home.gif" title="快速跳转至其他版块" onClick="return pwForumList(false,false,null,this);" class="cp breadHome" /><em class="breadEm"></em><a href="http://bbs.dahe.cn/index.php?m=bbs" title="大河论坛">大河论坛</a><em>&gt;</em><a href="thread-htm-fid-450.htm">洛阳城事</a>
+<a href="rss-htm-fid-450.htm" target="_blank" title="订阅"><img src="images/pwicon/rss.png" align="absmiddle" alt="订阅" /></a>
+</div>
+<div id="pw_content" class="mb10">
+<div id="sidebar" class="f_tree cc">
+<style type="text/css">
+.sidebar{width:120px;}
+.content_thread{margin-left:120px;_margin:0;border-left:1px solid #d5e6ed;}
+.content_ie{float:left;width:100%;}
+.switch{margin-left:120px;}
+.sideClose .switch{margin-left:0;}
+.sideClose .sidebar{display:none;}
+.sidePd10{padding:0 10px;}
+.sideClose .content_thread .sidePd10{padding:0;}
+.sideClose .content_thread .hB{padding-left:10px;}
+.sideClose .threadInfo td{padding-left:1px;}
+.f_tree .floot_left{width:120px;}
+.f_tree .floot_left .pic{width:90px;height:90px;}
+.sideClose .floot_left{display:none;}
+</style>
+<span class="fl"><a href="javascript:;" class="switch mr10" title="侧栏开关" onclick="toggleSidebar()" hidefocus="true">侧栏开关</a></span>
+<div class="sidebar">
+<div class="myForum">
+<h6><a href="javascript:;" class="history" id="readlog" title="最近浏览的帖子" onclick="showViewLog('pw_ajax.php?action=readlog','',this.id);">历史记录</a>我的版块</h6>
+<ul class="pw_ulD" id="shortcutforum">
+</ul>
+</div>
+<div class="sideForum" id="sideForum">
+<dl class="one">
+<dt>时政论坛</dt>
+<dd>
+<ul class="pw_ulD">
+<li ><a href="thread-htm-fid-1016.htm">两会：手机随即报</a></li>
+<li ><a href="thread-htm-fid-173.htm">发展河南</a></li>
+<li ><a href="thread-htm-fid-995.htm">领导留言板</a></li>
+<li ><a href="thread-htm-fid-772.htm">中原经济区</a></li>
+<li ><a href="thread-htm-fid-610.htm">深度河南</a></li>
+<li ><a href="thread-htm-fid-168.htm">焦点网谈</a></li>
+<li ><a href="thread-htm-fid-723.htm">走遍河南</a></li>
+<li ><a href="thread-htm-fid-611.htm">天下网事</a></li>
+<li ><a href="thread-htm-fid-768.htm">新闻跟帖</a></li>
+</ul>
+</dd>
+</dl>
+<dl class="one">
+<dt>第一报料</dt>
+<dd>
+<ul class="pw_ulD">
+<li ><a href="thread-htm-fid-544.htm">民生投诉</a></li>
+<li ><a href="thread-htm-fid-597.htm">追踪反馈</a></li>
+<li ><a href="thread-htm-fid-395.htm">河南媒体</a></li>
+<li ><a href="thread-htm-fid-605.htm">法眼观察</a></li>
+</ul>
+</dd>
+</dl>
+<dl class="one">
+<dt>城市论坛</dt>
+<dd>
+<ul class="pw_ulD">
+<li ><a href="thread-htm-fid-505.htm">鹰城印象</a></li>
+<li ><a href="thread-htm-fid-499.htm">躬耕南阳</a></li>
+<li ><a href="thread-htm-fid-561.htm">魅力郑州</a></li>
+<li class="current"><a href="thread-htm-fid-450.htm">洛阳城事</a></li>
+<li ><a href="thread-htm-fid-552.htm">名城许昌</a></li>
+<li ><a href="thread-htm-fid-554.htm">腾飞焦作</a></li>
+<li ><a href="thread-htm-fid-556.htm">华商之都</a></li>
+<li ><a href="thread-htm-fid-558.htm">淇水鹤壁</a></li>
+<li ><a href="thread-htm-fid-550.htm">洹水安阳</a></li>
+<li ><a href="thread-htm-fid-557.htm">明珠三门峡</a></li>
+<li ><a href="thread-htm-fid-560.htm">天中驻马店</a></li>
+<li ><a href="thread-htm-fid-559.htm">新城济源</a></li>
+<li ><a href="thread-htm-fid-549.htm">龙都周口</a></li>
+<li ><a href="thread-htm-fid-547.htm">锦绣开封</a></li>
+<li ><a href="thread-htm-fid-555.htm">青春漯河</a></li>
+<li ><a href="thread-htm-fid-551.htm">宜居信阳</a></li>
+<li ><a href="thread-htm-fid-548.htm">牧野新乡</a></li>
+<li ><a href="thread-htm-fid-553.htm">龙乡濮阳</a></li>
+</ul>
+</dd>
+</dl>
+<dl class="one">
+<dt>大河帮帮团</dt>
+<dd>
+<ul class="pw_ulD">
+<li ><a href="thread-htm-fid-1012.htm">爱心接力</a></li>
+<li ><a href="thread-htm-fid-1013.htm">寻人寻物</a></li>
+<li ><a href="thread-htm-fid-1014.htm">博爱基金</a></li>
+</ul>
+</dd>
+</dl>
+<dl class="one">
+<dt>文化论坛</dt>
+<dd>
+<ul class="pw_ulD">
+<li ><a href="thread-htm-fid-391.htm">文化遗产</a></li>
+<li ><a href="thread-htm-fid-1017.htm">大河文学</a></li>
+<li ><a href="thread-htm-fid-49.htm">茶  坊</a></li>
+<li ><a href="thread-htm-fid-392.htm">大河诗歌</a></li>
+<li ><a href="thread-htm-fid-718.htm">大河戏曲</a></li>
+<li ><a href="thread-htm-fid-321.htm">收藏鉴赏</a></li>
+<li ><a href="thread-htm-fid-782.htm">大河书画</a></li>
+</ul>
+</dd>
+</dl>
+<dl class="one">
+<dt>娱乐论坛</dt>
+<dd>
+<ul class="pw_ulD">
+<li ><a href="thread-htm-fid-254.htm">幽默地带</a></li>
+<li ><a href="thread-htm-fid-575.htm">八卦娱乐</a></li>
+<li ><a href="thread-htm-fid-10.htm">海纳百川</a></li>
+<li ><a href="thread-htm-fid-445.htm">音乐之声</a></li>
+</ul>
+</dd>
+</dl>
+<dl class="one">
+<dt>社区事务</dt>
+<dd>
+<ul class="pw_ulD">
+<li ><a href="thread-htm-fid-29.htm">社区居委会</a></li>
+<li ><a href="thread-htm-fid-185.htm">版主会议室</a></li>
+<li ><a href="thread-htm-fid-587.htm">新闻中心交流</a></li>
+</ul>
+</dd>
+</dl>
+<dl class="one">
+<dt>领导留言版</dt>
+<dd>
+<ul class="pw_ulD">
+<li ><a href="thread-htm-fid-732.htm">河南省委书记卢展工</a></li>
+<li ><a href="thread-htm-fid-801.htm">河南省省长郭庚茂</a></li>
+<li ><a href="thread-htm-fid-1008.htm">各省直单位领导</a></li>
+<li ><a href="thread-htm-fid-1009.htm">十八地市领导</a></li>
+</ul>
+</dd>
+</dl>
+<dl class="one">
+<dt>郑州社区</dt>
+<dd>
+<ul class="pw_ulD">
+<li ><a href="thread-htm-fid-1004.htm">女性论坛</a></li>
+<li ><a href="thread-htm-fid-1002.htm">视觉论坛</a></li>
+<li ><a href="thread-htm-fid-1003.htm">公益论坛</a></li>
+<li ><a href="thread-htm-fid-1005.htm">生活论坛</a></li>
+<li ><a href="thread-htm-fid-1007.htm">户外运动</a></li>
+</ul>
+</dd>
+</dl>
+</div>
+</div>
+<script type="text/javascript">
+/*侧栏版块展开动态*/
+window.onReady(function(){
+var div = document.getElementById("sideForum");
+var tt = div.getElementsByTagName("dt");
+for(i=0; i<tt.length; i++){
+tt[i].index = i;
+tt[i].onclick= function(){
+document.cookie='hide_'+this.index+'='+(this.parentNode.className == 'one' ? 1 : 0);
+this.parentNode.className = this.parentNode.className == 'one'?'':'one';
+}
+}
+var sfs = document.getElementById('shortcutforum').getElementsByTagName('li');
+for (i=0;i<sfs.length;i++) {
+sfs[i].onmouseover=function(){this.className='hover';}
+sfs[i].onmouseout=function(){this.className='';}
+}
+});
+function toggleSidebar(){
+var sidebar = getObj('sidebar');
+var toggle = (sidebar.className == 'f_tree cc') ? 0: 1;
+SetCookie('toggle',toggle);	
+getObj('sidebar').className = (sidebar.className == 'f_tree cc')?"f_tree cc sideClose":'f_tree cc';
+getObj('header_floot_left').style.display = toggle ? '' : 'none';
+}
+</script>
+<div class="content_thread cc">
+<div class="content_ie">
+<div class="hB mb10" style="padding-right:10px;">
+<span class="fr">
+版主:&nbsp;&nbsp;<a href="u.php?username=ry9666" target="_blank" class=" _cardshow" data-card-url="pw_ajax.php?action=smallcard&type=showcard&username=ry9666" data-card-key=ry9666>ry9666</a> <a href="u.php?username=%C2%E5%C6%D6%B2%BC%D2%C2" target="_blank" class=" _cardshow" data-card-url="pw_ajax.php?action=smallcard&type=showcard&username=%C2%E5%C6%D6%B2%BC%D2%C2" data-card-key=洛浦布衣>洛浦布衣</a> <a href="u.php?username=%B1%F9%C0%B6%C9%AB%B5%C4%D0%C4%C7%E9" target="_blank" class=" _cardshow" data-card-url="pw_ajax.php?action=smallcard&type=showcard&username=%B1%F9%C0%B6%C9%AB%B5%C4%D0%C4%C7%E9" data-card-key=冰蓝色的心情>冰蓝色的心情</a> 
+</span>
+<h2 class="mr5 fl f14">洛阳城事</h2>
+<span id="shortcut">
+<a href="javascript:;" onclick="javascript:shortCut();" title="将本版块添加到我的书签" class="keep">收藏</a>
+</span>
+</div>
+<div class="threadInfo mb10" style="overflow:hidden;">
+<table width="100%">
+<tr class="vt">
+<td width="10">
+</td>
+<td style="padding-right:10px;">
+<p class="mb5 s6 cc">今日: <span class="s2 mr10">380</span><span class="gray2 mr10">|</span>主题: <span class="s2 mr10">84500</span><span class="gray2 mr10">|</span>帖数: <span class="s2">1460756</span></p>
+<p class="s6" style="width:100%;">助力中原 共谋崛起</p>
+</td>
+</tr>
+</table>
+</div>
+<div id="c">
+<div class="sidePd10 mb10">
+
+<div class="t t_dh" id="t_">
+<div class="h"><a class="closeicon fr" style="cursor:pointer;" onClick="return IndexDeploy('children',0)"><img id="img_children" alt="展开收起" src="images/dhshizheng/index/cate_fold.gif" /></a><h3>子版块</h3></div>
+<div class="tTable">
+<table width="100%" style="table-layout:fixed;">
+<tbody id="cate_children" style="">
+<tr class="tr3" id="fid_520">
+<th class="new">
+<h2><a href="thread-htm-fid-520.htm" id="fn_520" class="mr10"  target="_blank">连线政府</a></h2>
+<span class="s2">(今日67)</span>
+<p>助力中原 共谋崛起</p>
+</th>
+<td class="num" style="width:120px;"><em>5992</em>/214951</td>
+<td class="re" width="220">
+<p><a href="read-htm-tid-7073321-page-e.htm#a">Re:洛阳市领导看过来， ..</a></p>
+<p>2011第一场雪</p>
+</td>
+</tr>
+<tr class="tr3" id="fid_620">
+<th class="lock">
+<h2><a href="thread-htm-fid-620.htm" id="fn_620" class="mr10"  target="_blank">回收站</a></h2>
+</th>
+<td class="num" style="width:120px;"><em>3651</em>/21324</td>
+<td class="re" width="220">
+<p>认证版块</p>
+</td>
+</tr>
+<tr class="tr3" id="fid_733">
+<th class="new">
+<h2><a href="thread-htm-fid-733.htm" id="fn_733" class="mr10"  target="_blank">市委书记留言板</a></h2>
+<span class="s2">(今日16)</span>
+<p>版主：
+<a href=u.php?username=tv%C8%CB%C9%FA>tv人生</a> <a href=u.php?username=liukeliang>liukeliang</a> 
+</p>
+</th>
+<td class="num" style="width:120px;"><em>599</em>/5111</td>
+<td class="re" width="220">
+<p><a href="read-htm-tid-7345708-page-e.htm#a">Re:白元乡派出所如何执 ..</a></p>
+<p>网上那点破事</p>
+</td>
+</tr>
+<tr class="tr3" id="fid_979">
+<th class="old">
+<h2><a href="thread-htm-fid-979.htm" id="fn_979" class="mr10"  target="_blank">市长留言版</a></h2>
+<span class="s2">(今日3)</span>
+<p>版主：
+<a href=u.php?username=liukeliang>liukeliang</a> <a href=u.php?username=tv%C8%CB%C9%FA>tv人生</a> 
+</p>
+</th>
+<td class="num" style="width:120px;"><em>118</em>/1030</td>
+<td class="re" width="220">
+<p><a href="read-htm-tid-6666248-page-e.htm#a">工商干部举报局长腐败 ..</a></p>
+<p>dictionary</p>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div id="menu_forumlist" style="display:none;">
+<div class="sbar-box-a" style="width:700px;">
+<div class="sbar-title" style="cursor:pointer" onclick="try{pw_bottom.hiddenTab();read.close();}catch(e){read.close();}">
+<span class="adel">隐藏</span>
+<span id="title_forumlist" class="b">快速跳转</span>
+</div>
+<div class="sbar-box-b">
+<div class="forum-list-popout">
+<dl class="cc">
+<dt>
+<a href="index-htm-cateid-1001.htm">时政论坛</a>
+</dt>
+<dd class="cc">
+<a href="thread-htm-fid-1016.htm" onclick="return pwForumList(true,gIsPost,1016);"><span>两会：手机随即报</span></a>
+<a href="thread-htm-fid-173.htm" onclick="return pwForumList(true,gIsPost,173);"><span>发展河南</span></a>
+<a href="thread-htm-fid-995.htm" onclick="return pwForumList(true,gIsPost,995);"><span>领导留言板</span></a>
+<a href="thread-htm-fid-772.htm" onclick="return pwForumList(true,gIsPost,772);"><span>中原经济区</span></a>
+<a href="thread-htm-fid-610.htm" onclick="return pwForumList(true,gIsPost,610);"><span>深度河南</span></a>
+<a href="thread-htm-fid-168.htm" onclick="return pwForumList(true,gIsPost,168);"><span>焦点网谈</span></a>
+<a href="thread-htm-fid-723.htm" onclick="return pwForumList(true,gIsPost,723);"><span>走遍河南</span></a>
+<a href="thread-htm-fid-611.htm" onclick="return pwForumList(true,gIsPost,611);"><span>天下网事</span></a>
+<a href="thread-htm-fid-768.htm" onclick="return pwForumList(true,gIsPost,768);"><span>新闻跟帖</span></a>
+</dd>
+</dl>
+<dl class="cc">
+<dt>
+<a href="index-htm-cateid-542.htm">第一报料</a>
+</dt>
+<dd class="cc">
+<a href="thread-htm-fid-544.htm" onclick="return pwForumList(true,gIsPost,544);"><span>民生投诉</span></a>
+<a href="thread-htm-fid-597.htm" onclick="return pwForumList(true,gIsPost,597);"><span>追踪反馈</span></a>
+<a href="thread-htm-fid-395.htm" onclick="return pwForumList(true,gIsPost,395);"><span>河南媒体</span></a>
+<a href="thread-htm-fid-605.htm" onclick="return pwForumList(true,gIsPost,605);"><span>法眼观察</span></a>
+</dd>
+</dl>
+<dl class="cc">
+<dt>
+<a href="index-htm-cateid-167.htm">城市论坛</a>
+</dt>
+<dd class="cc">
+<a href="thread-htm-fid-505.htm" onclick="return pwForumList(true,gIsPost,505);"><span>鹰城印象</span></a>
+<a href="thread-htm-fid-499.htm" onclick="return pwForumList(true,gIsPost,499);"><span>躬耕南阳</span></a>
+<a href="thread-htm-fid-561.htm" onclick="return pwForumList(true,gIsPost,561);"><span>魅力郑州</span></a>
+<a href="thread-htm-fid-450.htm" onclick="return pwForumList(true,gIsPost,450);"><span>洛阳城事</span></a>
+<a href="thread-htm-fid-552.htm" onclick="return pwForumList(true,gIsPost,552);"><span>名城许昌</span></a>
+<a href="thread-htm-fid-554.htm" onclick="return pwForumList(true,gIsPost,554);"><span>腾飞焦作</span></a>
+<a href="thread-htm-fid-556.htm" onclick="return pwForumList(true,gIsPost,556);"><span>华商之都</span></a>
+<a href="thread-htm-fid-558.htm" onclick="return pwForumList(true,gIsPost,558);"><span>淇水鹤壁</span></a>
+<a href="thread-htm-fid-550.htm" onclick="return pwForumList(true,gIsPost,550);"><span>洹水安阳</span></a>
+<a href="thread-htm-fid-557.htm" onclick="return pwForumList(true,gIsPost,557);"><span>明珠三门峡</span></a>
+<a href="thread-htm-fid-560.htm" onclick="return pwForumList(true,gIsPost,560);"><span>天中驻马店</span></a>
+<a href="thread-htm-fid-559.htm" onclick="return pwForumList(true,gIsPost,559);"><span>新城济源</span></a>
+<a href="thread-htm-fid-549.htm" onclick="return pwForumList(true,gIsPost,549);"><span>龙都周口</span></a>
+<a href="thread-htm-fid-547.htm" onclick="return pwForumList(true,gIsPost,547);"><span>锦绣开封</span></a>
+<a href="thread-htm-fid-555.htm" onclick="return pwForumList(true,gIsPost,555);"><span>青春漯河</span></a>
+<a href="thread-htm-fid-551.htm" onclick="return pwForumList(true,gIsPost,551);"><span>宜居信阳</span></a>
+<a href="thread-htm-fid-548.htm" onclick="return pwForumList(true,gIsPost,548);"><span>牧野新乡</span></a>
+<a href="thread-htm-fid-553.htm" onclick="return pwForumList(true,gIsPost,553);"><span>龙乡濮阳</span></a>
+</dd>
+</dl>
+<dl class="cc">
+<dt>
+<a href="index-htm-cateid-1010.htm">大河帮帮团</a>
+</dt>
+<dd class="cc">
+<a href="thread-htm-fid-1012.htm" onclick="return pwForumList(true,gIsPost,1012);"><span>爱心接力</span></a>
+<a href="thread-htm-fid-1013.htm" onclick="return pwForumList(true,gIsPost,1013);"><span>寻人寻物</span></a>
+<a href="thread-htm-fid-1014.htm" onclick="return pwForumList(true,gIsPost,1014);"><span>博爱基金</span></a>
+</dd>
+</dl>
+<dl class="cc">
+<dt>
+<a href="index-htm-cateid-386.htm">文化论坛</a>
+</dt>
+<dd class="cc">
+<a href="thread-htm-fid-391.htm" onclick="return pwForumList(true,gIsPost,391);"><span>文化遗产</span></a>
+<a href="thread-htm-fid-1017.htm" onclick="return pwForumList(true,gIsPost,1017);"><span>大河文学</span></a>
+<a href="thread-htm-fid-49.htm" onclick="return pwForumList(true,gIsPost,49);"><span>茶  坊</span></a>
+<a href="thread-htm-fid-392.htm" onclick="return pwForumList(true,gIsPost,392);"><span>大河诗歌</span></a>
+<a href="thread-htm-fid-718.htm" onclick="return pwForumList(true,gIsPost,718);"><span>大河戏曲</span></a>
+<a href="thread-htm-fid-321.htm" onclick="return pwForumList(true,gIsPost,321);"><span>收藏鉴赏</span></a>
+<a href="thread-htm-fid-782.htm" onclick="return pwForumList(true,gIsPost,782);"><span>大河书画</span></a>
+</dd>
+</dl>
+<dl class="cc">
+<dt>
+<a href="index-htm-cateid-573.htm">娱乐论坛</a>
+</dt>
+<dd class="cc">
+<a href="thread-htm-fid-254.htm" onclick="return pwForumList(true,gIsPost,254);"><span>幽默地带</span></a>
+<a href="thread-htm-fid-575.htm" onclick="return pwForumList(true,gIsPost,575);"><span>八卦娱乐</span></a>
+<a href="thread-htm-fid-10.htm" onclick="return pwForumList(true,gIsPost,10);"><span>海纳百川</span></a>
+<a href="thread-htm-fid-445.htm" onclick="return pwForumList(true,gIsPost,445);"><span>音乐之声</span></a>
+</dd>
+</dl>
+<dl class="cc">
+<dt>
+<a href="index-htm-cateid-1.htm">社区事务</a>
+</dt>
+<dd class="cc">
+<a href="thread-htm-fid-29.htm" onclick="return pwForumList(true,gIsPost,29);"><span>社区居委会</span></a>
+<a href="thread-htm-fid-185.htm" onclick="return pwForumList(true,gIsPost,185);"><span>版主会议室</span></a>
+<a href="thread-htm-fid-587.htm" onclick="return pwForumList(true,gIsPost,587);"><span>新闻中心交流</span></a>
+</dd>
+</dl>
+<dl class="cc">
+<dt>
+<a href="index-htm-cateid-731.htm">领导留言版</a>
+</dt>
+<dd class="cc">
+<a href="thread-htm-fid-732.htm" onclick="return pwForumList(true,gIsPost,732);"><span>河南省委书记卢展工</span></a>
+<a href="thread-htm-fid-801.htm" onclick="return pwForumList(true,gIsPost,801);"><span>河南省省长郭庚茂</span></a>
+<a href="thread-htm-fid-1008.htm" onclick="return pwForumList(true,gIsPost,1008);"><span>各省直单位领导</span></a>
+<a href="thread-htm-fid-1009.htm" onclick="return pwForumList(true,gIsPost,1009);"><span>十八地市领导</span></a>
+</dd>
+</dl>
+<dl class="cc">
+<dt>
+<a href="index-htm-cateid-1006.htm">郑州社区</a>
+</dt>
+<dd class="cc">
+<a href="thread-htm-fid-1004.htm" onclick="return pwForumList(true,gIsPost,1004);"><span>女性论坛</span></a>
+<a href="thread-htm-fid-1002.htm" onclick="return pwForumList(true,gIsPost,1002);"><span>视觉论坛</span></a>
+<a href="thread-htm-fid-1003.htm" onclick="return pwForumList(true,gIsPost,1003);"><span>公益论坛</span></a>
+<a href="thread-htm-fid-1005.htm" onclick="return pwForumList(true,gIsPost,1005);"><span>生活论坛</span></a>
+<a href="thread-htm-fid-1007.htm" onclick="return pwForumList(true,gIsPost,1007);"><span>户外运动</span></a>
+</dd>
+</dl>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="cc" style="padding:0 10px 10px;" id="tabA">
+<a href="post.php?fid=450#breadCrumb" class="post fr" id="td_post">发帖</a>
+<div style="padding-top:4px;">
+<div class="pages"><b>1</b><a href="thread-htm-fid-450-search-all-page-2.htm">2</a><a href="thread-htm-fid-450-search-all-page-3.htm">3</a><a href="thread-htm-fid-450-search-all-page-4.htm">4</a><a href="thread-htm-fid-450-search-all-page-5.htm">5</a><a href="thread-htm-fid-450-search-all-page-6.htm">6</a><a href="thread-htm-fid-450-search-all-page-1000.htm">...1000</a><a class="pages_next" href="thread-htm-fid-450-search-all-page-2.htm">&#x4E0B;&#x4E00;&#x9875;</a><div class="fl">&#x5230;&#x7B2C;</div><input type="text" size="3" onkeydown="javascript: if(event.keyCode==13){var value = parseInt(this.value); var page=(value>1000) ? 1000 : value;  location='thread.php?fid=450&search=all&page='+page+''; return false;}"><div class="fl">&#x9875;</div><button onclick="javascript:var value = parseInt(this.previousSibling.previousSibling.value); var page=(value>1000) ? 1000 : value;  location='thread.php?fid=450&search=all&page='+page+''; return false;">&#x786E;&#x8BA4;</button></div>
+</div>
+</div>
+<div id="menu_post" class="pw_menu tac" style="display:none;">
+<ul class="menuList" style="width:70px;">
+<!-- li><a href="post.php?fid=450" title="新帖" hidefocus="true">新帖</a></li -->
+<li><a href="post.php?fid=450&special=1" title="投票" hidefocus="true">投票</a></li>
+<li><a href="post.php?fid=450&special=3" title="悬赏" hidefocus="true">悬赏</a></li>
+<li><a href="post.php?fid=450&special=4" title="商品" hidefocus="true">商品</a></li>
+<li><a href="post.php?fid=450&special=5" title="辩论" hidefocus="true">辩论</a></li>
+</ul>
+</div>
+<div class="sidePd10">
+<div class="tabA">
+<ul class="cc">
+<li class="current"><a href="thread-htm-fid-450-search-all.htm#tabA" hidefocus="true">全部</a></li>
+<li  id="thread_type_digest"><a href="thread-htm-fid-450-search-digest.htm#tabA" hidefocus="true">精华</a></li>
+<li ><a href="thread-htm-fid-450-special-1.htm#tabA" hidefocus="true">投票</a></li>
+<li ><a href="thread-htm-fid-450-special-3.htm#tabA" hidefocus="true">悬赏</a></li>
+<li ><a href="thread-htm-fid-450-special-4.htm#tabA">商品</a></li>
+<li ><a href="thread-htm-fid-450-special-5.htm#tabA" hidefocus="true">辩论</a></li>
+<li id="pw_all_pos_tucool" >
+<div class="fl" id="pw_all_tip_tucool" style="display:none">
+<div style="position:absolute;z-index:99;margin-top:-58px;">
+<table><tr><td>
+<div class="pw_all_tip">
+<a href="javascript:void(0)" class="adel">关闭</a>
+<dl class="cc">
+<dt>图酷升级，快来体验哦！</dt>
+<dd><a class="bb_close" href="javascript:void(0)">知道了</a></dd>
+</dl>
+</div>
+<div class="pw_all_angle_bot"></div>
+</td></tr></table>
+</div>
+</div>
+<a href="thread-htm-fid-450-search-img.htm#tabA" hidefocus="true">图酷帖</a>
+</li>
+</ul>
+</div>
+<div id="ajaxtable">
+<div class="pw_ulA cc">
+<style>
+.pw_ulA{border-bottom:0 none;}
+.tr2 td{background:#eaf1f7;border-bottom:1px solid #c6d9e7;}
+</style>
+<ul class="cc" style="display:none;" id="id_allpcid">
+</ul>
+<ul class="cc" style="display:none;" id="id_allactmid">
+</ul>
+<ul class="cc" style="display:none;" id="id_allmodelid">
+</ul>
+</div>
+<div class="threadCommon">
+
+<style>
+/*旧版本兼容*/
+.tr3 td.subject{padding-left:10px;}
+.tr3 td.subject .adminbox{padding:0 0 0 0;margin:-3px 3px 0 0;*margin:0 0 0 -5px;width:auto;}
+</style>
+<table width="100%" style="table-layout:fixed;">
+<tr class="tr2 thread_sort">
+<td style="padding-left:12px;">
+<span class="checkbox fr mr10" id="newwindows" unselectable="on">新窗</span>
+<script>
+var orderThreadsClass = {
+orderThreads : function(orderway){
+var orderway = orderway || 'lastpost';
+var form = document.createElement("form");
+form.action = "thread.php?fid=450&search=all&page=1#tabA";
+form.method = "post";
+var h_type = this.createInput("hidden","type","0");
+var h_search = this.createInput("hidden","search","1000");
+var h_special = this.createInput("hidden","special","0");
+var h_orderway = this.createInput("hidden","orderway",orderway);
+var h_asc = this.createInput("hidden","asc","DESC");
+form.appendChild(h_type);
+form.appendChild(h_search);
+form.appendChild(h_special);
+form.appendChild(h_orderway);
+form.appendChild(h_asc);
+document.body.appendChild(form);
+setTimeout(function(){/*ie6*/
+form.submit();
+},0);
+return false;
+},
+createInput : function(type,name,value){
+var hidden = document.createElement("input");
+hidden.type = type;
+hidden.name = name;
+hidden.value = value;//↓
+return hidden;
+}
+}
+function orderThreads(orderway){
+orderThreadsClass.orderThreads(orderway);
+}
+</script>
+排序：&nbsp; <a href="thread-htm-fid-450-search-all-orderway-postdate-asc-DESC-page-1-type-0-special-0.htm#tabA" title="按发表时间排序" class='s6 current'>最新发帖</a>&nbsp;|&nbsp;<a href="thread-htm-fid-450-search-all-orderway-lastpost-asc-DESC-page-1-type-0-special-0.htm#tabA" title="按最后回复时间排序" >最后回复</a></td>
+<td class="author">
+<div id="pw_all_pos_usercard" style="width:0;height:0;line-height:0;font-size:0;overflow:hidden;">&nbsp;</div>
+<div class="fl" id="pw_all_tip_usercard" style="display:none;margin-left:-30px;margin-top:-35px;">
+<div style="position:absolute;z-index:99;">
+<table><tr><td style="padding:0;background:none;">
+<div class="pw_all_tip">
+<a href="javascript:void(0)" class="adel">关闭</a>
+<dl class="cc">
+<dt>鼠标上移，会显示小名片呢！</dt>
+<dd><a class="bb_close" href="javascript:void(0)">知道了</a></dd>
+</dl>
+</div>
+<div class="pw_all_angle_bot"></div>
+</td></tr></table>
+</div>
+</div>
+作者</td>
+<td width="60">回复</td>
+<td class="author">最后发表</td>
+</tr>
+</table>
+<table width="100%" style="table-layout:fixed;" class="z">
+<tbody id="threadlist">
+   
+<tr class="tr3 tr3Bc">
+<td class="icon tar" width="30">
+<a href="read-htm-tid-7086144.htm" target="_blank">
+<img src="images/dhshizheng/file/headtopic_3.gif" align="absmiddle" alt="置顶帖" title="置顶帖"/>
+</a>
+</td>
+<td class="subject" id="td_7086144">
+<a href="read-htm-tid-7086144.htm" name="readlink" id="a_ajax_7086144" class="subject_t f14">新春绘蓝图，约“惠”情人节，海尔商城特献筑家甜蜜好礼！</a> <img src="images/dhshizheng/file/img.gif" alt="img" align="absmiddle">&nbsp;<span class="s2 w"></span><span class='gray tpage w'>&#xFF08;+1&#xFF09;</span><span class="w"> &nbsp;<img src="images/dhshizheng/file/multipage.gif" align="absmiddle" alt="pages">&nbsp;<span class="tpage"> <a href="read-htm-tid-7086144-page-2.htm">2</a> <a href="read-htm-tid-7086144-page-3.htm">3</a> <a href="read-htm-tid-7086144-page-4.htm">4</a> <a href="read-htm-tid-7086144-page-5.htm">5</a> .. <a href="read-htm-tid-7086144-page-16.htm">16</a></span> </span><img src="images/dhshizheng/file/new.gif" align="absmiddle" title="新帖" alt="新帖" />
+</td>
+<td class="author">
+<a href="u/845402" class=" _cardshow" data-card-url="pw_ajax.php?action=smallcard&type=showcard&uid=845402" target="_blank" data-card-key="岚子">岚子</a>
+<p >2012-02-10</p></td>
+<td class="num" width="60"><em>226</em>/65388</td>
+<td class="author"><a href="u.php?username=poiuy2233" target="_blank" class=" _cardshow" data-card-url="pw_ajax.php?action=smallcard&type=showcard&username=poiuy2233" data-card-key="poiuy2233">poiuy2233</a><p><a href="read-htm-tid-7086144-page-e.htm#a" title="2012-03-09 10:51">24分钟前</a></p></td>
+</tr>
+   
+<tr class="tr3 ">
+<td class="icon tar" width="30">
+<a href="read-htm-tid-7331343.htm" target="_blank">
+<img src="images/dhshizheng/file/headtopic_3.gif" align="absmiddle" alt="置顶帖" title="置顶帖"/>
+</a>
+</td>
+<td class="subject" id="td_7331343">
+<a href="read-htm-tid-7331343.htm" name="readlink" id="a_ajax_7331343" class="subject_t f14"><b><font color=#FF0000>【八大区域再议中原经济区】欢迎各地网友共话区域合作发展</font></b></a>&nbsp;<span class="s2 w"></span><span class="w"> &nbsp;<img src="images/dhshizheng/file/multipage.gif" align="absmiddle" alt="pages">&nbsp;<span class="tpage"> <a href="read-htm-tid-7331343-page-2.htm">2</a> <a href="read-htm-tid-7331343-page-3.htm">3</a> <a href="read-htm-tid-7331343-page-4.htm">4</a> <a href="read-htm-tid-7331343-page-5.htm">5</a> .. <a href="read-htm-tid-7331343-page-9.htm">9</a></span> </span><img src="images/dhshizheng/file/new.gif" align="absmiddle" title="新帖" alt="新帖" />
+</td>
+<td class="author">
+<a href="u/19423" class=" _cardshow" data-card-url="pw_ajax.php?action=smallcard&type=showcard&uid=19423" target="_blank" data-card-key="青若">青若</a>
+<p >2012-03-06</p></td>
+<td class="num" width="60"><em>134</em>/10821</td>
+<td class="author"><a href="u.php?username=abcc1123" target="_blank" class=" _cardshow" data-card-url="pw_ajax.php?action=smallcard&type=showcard&username=abcc1123" data-card-key="abcc1123">abcc1123</a><p><a href="read-htm-tid-7331343-page-e.htm#a" title="2012-03-09 10:46">29分钟前</a></p></td>
+</tr>
+   
+<tr class="tr3 tr3Bc">
+<td class="icon tar" width="30">
+<a href="read-htm-tid-7340572.htm" target="_blank">
+<img src="images/dhshizheng/file/headtopic_3.gif" align="absmiddle" alt="置顶帖" title="置顶帖"/>
+</a>
+</td>
+<td class="subject" id="td_7340572">
+<a href="read-htm-tid-7340572.htm" name="readlink" id="a_ajax_7340572" class="subject_t f14"><u><b><font color=#FF00FF>大河观影团邀您共赏战地纪实电影《索马里真相》结果出炉……</font></b></u></a>&nbsp;<span class="s2 w"></span><span class="w"> &nbsp;<img src="images/dhshizheng/file/multipage.gif" align="absmiddle" alt="pages">&nbsp;<span class="tpage"> <a href="read-htm-tid-7340572-page-2.htm">2</a> <a href="read-htm-tid-7340572-page-3.htm">3</a> <a href="read-htm-tid-7340572-page-4.htm">4</a> <a href="read-htm-tid-7340572-page-5.htm">5</a> .. <a href="read-htm-tid-7340572-page-104.htm">104</a></span> </span><img src="images/dhshizheng/file/new.gif" align="absmiddle" title="新帖" alt="新帖" />
+</td>
+<td class="author">
+<a href="u/845411" class=" _cardshow" data-card-url="pw_ajax.php?action=smallcard&type=showcard&uid=845411" target="_blank" data-card-key="西楼2046">西楼2046</a>
+<p >2012-03-07</p></td>
+<td class="num" width="60"><em>1550</em>/8274</td>
+<td class="author"><a href="u.php?username=最浪漫爱你" target="_blank" class=" _cardshow" data-card-url="pw_ajax.php?action=smallcard&type=showcard&username=%D7%EE%C0%CB%C2%FE%B0%AE%C4%E3" data-card-key="最浪漫爱你">最浪漫爱你</a><p><a href="read-htm-tid-7340572-page-e.htm#a" title="2012-03-09 10:38">38分钟前</a></p></td>
+</tr>
+   
+<tr class="tr3 ">
+<td class="icon tar" width="30">
+<a href="read-htm-tid-7071166.htm" target="_blank">
+<img src="images/dhshizheng/file/headtopic_3.gif" align="absmiddle" alt="置顶帖" title="置顶帖"/>
+</a>
+</td>
+<td class="subject" id="td_7071166">
+<a href="read-htm-tid-7071166.htm" name="readlink" id="a_ajax_7071166" class="subject_t f14"><b><font color=#FF1493>“3·15”即将到来，关注消费与安全，掏出你的窝心事！</font></b></a> <img src="images/dhshizheng/file/img.gif" alt="img" align="absmiddle">&nbsp;<span class="s2 w"></span><span class='gray tpage w'>&#xFF08;+133&#xFF09;</span><span class="w"> &nbsp;<img src="images/dhshizheng/file/multipage.gif" align="absmiddle" alt="pages">&nbsp;<span class="tpage"> <a href="read-htm-tid-7071166-page-2.htm">2</a> <a href="read-htm-tid-7071166-page-3.htm">3</a> <a href="read-htm-tid-7071166-page-4.htm">4</a> <a href="read-htm-tid-7071166-page-5.htm">5</a> .. <a href="read-htm-tid-7071166-page-32.htm">32</a></span> </span><img src="images/dhshizheng/file/new.gif" align="absmiddle" title="新帖" alt="新帖" />
+</td>
+<td class="author">
+<a href="u/401107" class=" _cardshow" data-card-url="pw_ajax.php?action=smallcard&type=showcard&uid=401107" target="_blank" data-card-key="大河银子">大河银子</a>
+<p >2012-02-07</p></td>
+<td class="num" width="60"><em>474</em>/115344</td>
+<td class="author"><a href="u.php?username=hetangfei" target="_blank" class=" _cardshow" data-card-url="pw_ajax.php?action=smallcard&type=showcard&username=hetangfei" data-card-key="hetangfei">hetangfei</a><p><a href="read-htm-tid-7071166-page-e.htm#a" title="2012-03-09 10:21">55分钟前</a></p></td>
+</tr>
+   
+<tr class="tr3 tr3Bc">
+<td class="icon tar" width="30">
+<a href="read-htm-tid-7295261.htm" target="_blank">
+<img src="images/dhshizheng/file/headtopic_3.gif" align="absmiddle" alt="置顶帖" title="置顶帖"/>
+</a>
+</td>
+<td class="subject" id="td_7295261">
+<a href="read-htm-tid-7295261.htm" name="readlink" id="a_ajax_7295261" class="subject_t f14"><b><font color=#FF0000>票选“河南民生十问” 把您的意见带到全国两会去</font></b></a> <img src="images/dhshizheng/file/img.gif" alt="img" align="absmiddle">&nbsp;<span class="s2 w"></span><span class='gray tpage w'>&#xFF08;+5&#xFF09;</span><span class="w"> &nbsp;<img src="images/dhshizheng/file/multipage.gif" align="absmiddle" alt="pages">&nbsp;<span class="tpage"> <a href="read-htm-tid-7295261-page-2.htm">2</a> <a href="read-htm-tid-7295261-page-3.htm">3</a> <a href="read-htm-tid-7295261-page-4.htm">4</a> <a href="read-htm-tid-7295261-page-5.htm">5</a> .. <a href="read-htm-tid-7295261-page-12.htm">12</a></span> </span></td>
+<td class="author">
+<a href="u/845402" class=" _cardshow" data-card-url="pw_ajax.php?action=smallcard&type=showcard&uid=845402" target="_blank" data-card-key="岚子">岚子</a>
+<p >2012-02-28</p></td>
+<td class="num" width="60"><em>179</em>/34967</td>
+<td class="author"><a href="u.php?username=poiuy2233" target="_blank" class=" _cardshow" data-card-url="pw_ajax.php?action=smallcard&type=showcard&username=poiuy2233" data-card-key="poiuy2233">poiuy2233</a><p><a href="read-htm-tid-7295261-page-e.htm#a" title="2012-03-09 10:03">2小时前</a></p></td>
+</tr>
+   
+<tr class="tr3 ">
+<td class="icon tar" width="30">
+<a href="read-htm-tid-7319707.htm" target="_blank">
+<img src="images/dhshizheng/file/headtopic_3.gif" align="absmiddle" alt="置顶帖" title="置顶帖"/>
+</a>
+</td>
+<td class="subject" id="td_7319707">
+<a href="read-htm-tid-7319707.htm" name="readlink" id="a_ajax_7319707" class="subject_t f14">卢展工三谈河南人精神 讨论：如何做出河南人精气神？</a>&nbsp;<span class="s2 w"></span><span class='gray tpage w'>&#xFF08;+52&#xFF09;</span><span class="w"> &nbsp;<img src="images/dhshizheng/file/multipage.gif" align="absmiddle" alt="pages">&nbsp;<span class="tpage"> <a href="read-htm-tid-7319707-page-2.htm">2</a> <a href="read-htm-tid-7319707-page-3.htm">3</a> <a href="read-htm-tid-7319707-page-4.htm">4</a> <a href="read-htm-tid-7319707-page-5.htm">5</a> .. <a href="read-htm-tid-7319707-page-13.htm">13</a></span> </span></td>
+<td class="author">
+<a href="u/209706" class=" _cardshow" data-card-url="pw_ajax.php?action=smallcard&type=showcard&uid=209706" target="_blank" data-card-key="那株君子兰">那株君子兰</a>
+<p >2012-03-04</p></td>
+<td class="num" width="60"><em>181</em>/108110</td>
+<td class="author"><a href="u.php?username=无助无助" target="_blank" class=" _cardshow" data-card-url="pw_ajax.php?action=smallcard&type=showcard&username=%CE%DE%D6%FA%CE%DE%D6%FA" data-card-key="无助无助">无助无助</a><p><a href="read-htm-tid-7319707-page-e.htm#a" title="2012-03-09 08:29">3小时前</a></p></td>
+</tr>
+   
+<tr class="tr3 tr3Bc">
+<td class="icon tar" width="30">
+<a href="read-htm-tid-7267823.htm" target="_blank">
+<img src="images/dhshizheng/file/headtopic_3.gif" align="absmiddle" alt="置顶帖" title="置顶帖"/>
+</a>
+</td>
+<td class="subject" id="td_7267823">
+<a href="read-htm-tid-7267823.htm" name="readlink" id="a_ajax_7267823" class="subject_t f14"><b><font color=#FF0000>大河爱心花园将揭牌，爱心频道将上线，爱心活动邀您参与！</font></b></a> <img src="images/dhshizheng/file/img.gif" alt="img" align="absmiddle">&nbsp;<span class="s2 w"></span><span class='gray tpage w'>&#xFF08;+1&#xFF09;</span><span class="w"> &nbsp;<img src="images/dhshizheng/file/multipage.gif" align="absmiddle" alt="pages">&nbsp;<span class="tpage"> <a href="read-htm-tid-7267823-page-2.htm">2</a> <a href="read-htm-tid-7267823-page-3.htm">3</a> <a href="read-htm-tid-7267823-page-4.htm">4</a> <a href="read-htm-tid-7267823-page-5.htm">5</a> .. <a href="read-htm-tid-7267823-page-11.htm">11</a></span> </span></td>
+<td class="author">
+<a href="u/337549" class=" _cardshow" data-card-url="pw_ajax.php?action=smallcard&type=showcard&uid=337549" target="_blank" data-card-key="红白蓝">红白蓝</a>
+<p >2012-02-23</p></td>
+<td class="num" width="60"><em>162</em>/22880</td>
+<td class="author"><a href="u.php?username=金秋送爽" target="_blank" class=" _cardshow" data-card-url="pw_ajax.php?action=smallcard&type=showcard&username=%BD%F0%C7%EF%CB%CD%CB%AC" data-card-key="金秋送爽">金秋送爽</a><p><a href="read-htm-tid-7267823-page-e.htm#a" title="2012-03-08 22:56">昨天 22:56</a></p></td>
+</tr>
+   
+<tr class="tr3 ">
+<td class="icon tar" width="30">
+<a href="read-htm-tid-7312047.htm" target="_blank">
+<img src="images/dhshizheng/file/headtopic_3.gif" align="absmiddle" alt="置顶帖" title="置顶帖"/>
+</a>
+</td>
+<td class="subject" id="td_7312047">
+<a href="read-htm-tid-7312047.htm" name="readlink" id="a_ajax_7312047" class="subject_t f14"><b><font color=#FF0000>四种红茶掀起一次次“红茶风暴”，河南茶文化如何传承与创新？</font></b></a> <img src="images/dhshizheng/file/img.gif" alt="img" align="absmiddle">&nbsp;<span class="s2 w"></span><span class='gray tpage w'>&#xFF08;+1&#xFF09;</span><span class="w"> &nbsp;<img src="images/dhshizheng/file/multipage.gif" align="absmiddle" alt="pages">&nbsp;<span class="tpage"> <a href="read-htm-tid-7312047-page-2.htm">2</a> <a href="read-htm-tid-7312047-page-3.htm">3</a> <a href="read-htm-tid-7312047-page-4.htm">4</a> <a href="read-htm-tid-7312047-page-5.htm">5</a> .. <a href="read-htm-tid-7312047-page-12.htm">12</a></span> </span></td>
+<td class="author">
+<a href="u/579751" class=" _cardshow" data-card-url="pw_ajax.php?action=smallcard&type=showcard&uid=579751" target="_blank" data-card-key="hengzskyhd">hengzskyhd</a>
+<p >2012-03-02</p></td>
+<td class="num" width="60"><em>170</em>/13666</td>
+<td class="author"><a href="u.php?username=人民论坛网" target="_blank" class=" _cardshow" data-card-url="pw_ajax.php?action=smallcard&type=showcard&username=%C8%CB%C3%F1%C2%DB%CC%B3%CD%F8" data-card-key="人民论坛网">人民论坛网</a><p><a href="read-htm-tid-7312047-page-e.htm#a" title="2012-03-08 21:20">昨天 21:20</a></p></td>
+</tr>
+   
+<tr class="tr3 tr3Bc">
+<td class="icon tar" width="30">
+<a href="read-htm-tid-7267549.htm" target="_blank">
+<img src="images/dhshizheng/file/headtopic_2.gif" align="absmiddle" alt="置顶帖" title="置顶帖"/>
+</a>
+</td>
+<td class="subject" id="td_7267549">
+<a href="read-htm-tid-7267549.htm" name="readlink" id="a_ajax_7267549" class="subject_t f14">李大伟：嵩县是华夏子孙的外婆家 率先提出打造5A级景区县域</a> <img src="images/dhshizheng/file/img.gif" alt="img" align="absmiddle">&nbsp;<span class="s2 w"></span><span class="w"> &nbsp;<img src="images/dhshizheng/file/multipage.gif" align="absmiddle" alt="pages">&nbsp;<span class="tpage"> <a href="read-htm-tid-7267549-page-2.htm">2</a> <a href="read-htm-tid-7267549-page-3.htm">3</a> <a href="read-htm-tid-7267549-page-4.htm">4</a> <a href="read-htm-tid-7267549-page-5.htm">5</a> .. <a href="read-htm-tid-7267549-page-10.htm">10</a></span> </span></td>
+<td class="author">
+<a href="u/488992" class=" _cardshow" data-card-url="pw_ajax.php?action=smallcard&type=showcard&uid=488992" target="_blank" data-card-key="笑花">笑花</a>
+<p >2012-02-23</p></td>
+<td class="num" width="60"><em>144</em>/160866</td>
+<td class="author"><a href="u.php?username=lyfxw" target="_blank" class=" _cardshow" data-card-url="pw_ajax.php?action=smallcard&type=showcard&username=lyfxw" data-card-key="lyfxw">lyfxw</a><p><a href="read-htm-tid-7267549-page-e.htm#a" title="2012-03-09 08:41">3小时前</a></p></td>
+</tr>
+   
+<tr class="tr3 ">
+<td class="icon tar" width="30">
+<a href="read-htm-tid-7340516.htm" target="_blank">
+<img src="images/dhshizheng/file/headtopic_1.gif" align="absmiddle" alt="置顶帖" title="置顶帖"/>
+</a>
+</td>
+<td class="subject" id="td_7340516">
+<a href="read-htm-tid-7340516.htm" name="readlink" id="a_ajax_7340516" class="subject_t f14"><b><font color=#FF0000>关于陆浑水库保护问题的补充说明</font></b></a> <img src="images/dhshizheng/file/img.gif" alt="img" align="absmiddle">&nbsp;<span class="s2 w"></span><span class="w"> &nbsp;<img src="images/dhshizheng/file/multipage.gif" align="absmiddle" alt="pages">&nbsp;<span class="tpage"> <a href="read-htm-tid-7340516-page-2.htm">2</a> <a href="read-htm-tid-7340516-page-3.htm">3</a></span> </span></td>
+<td class="author">
+<a href="u/646443" class=" _cardshow" data-card-url="pw_ajax.php?action=smallcard&type=showcard&uid=646443" target="_blank" data-card-key="嵩县人民政府">嵩县人民政府</a>
+<p >2012-03-07</p></td>
+<td class="num" width="60"><em>36</em>/409</td>
+<td class="author"><a href="u.php?username=lysxliu" target="_blank" class=" _cardshow" data-card-url="pw_ajax.php?action=smallcard&type=showcard&username=lysxliu" data-card-key="lysxliu">lysxliu</a><p><a href="read-htm-tid-7340516-page-e.htm#a" title="2012-03-09 09:58">2小时前</a></p></td>
+</tr>
+   
+<tr class="tr3 tr3Bc">
+<td class="icon tar" width="30">
+<a href="read-htm-tid-3236120.htm" target="_blank">
+<img src="images/dhshizheng/file/headtopic_1.gif" align="absmiddle" alt="置顶帖" title="置顶帖"/>
+</a>
+</td>
+<td class="subject" id="td_3236120">
+<img class="fr" src="images/dhshizheng/file/digest_1.gif" align="absmiddle" style="margin-top:4px;" alt="精华帖" title="精华帖" />
+<a href="read-htm-tid-3236120.htm" name="readlink" id="a_ajax_3236120" class="subject_t f14"><b><font color=orange>老兵，那遥远的记忆(连载)</font></b></a> <img src="images/dhshizheng/file/img.gif" alt="img" align="absmiddle">&nbsp;<span class="s2 w"></span><span class='gray tpage w'>&#xFF08;+615&#xFF09;</span><span class="w"> &nbsp;<img src="images/dhshizheng/file/multipage.gif" align="absmiddle" alt="pages">&nbsp;<span class="tpage"> <a href="read-htm-tid-3236120-page-2.htm">2</a> <a href="read-htm-tid-3236120-page-3.htm">3</a> <a href="read-htm-tid-3236120-page-4.htm">4</a> <a href="read-htm-tid-3236120-page-5.htm">5</a> .. <a href="read-htm-tid-3236120-page-46.htm">46</a></span> </span></td>
+<td class="author">
+<a href="u/670313" class=" _cardshow" data-card-url="pw_ajax.php?action=smallcard&type=showcard&uid=670313" target="_blank" data-card-key="河洛清波">河洛清波</a>
+<p >2010-11-28</p></td>
+<td class="num" width="60"><em>680</em>/55413</td>
+<td class="author"><a href="u.php?username=曲直是非" target="_blank" class=" _cardshow" data-card-url="pw_ajax.php?action=smallcard&type=showcard&username=%C7%FA%D6%B1%CA%C7%B7%C7" data-card-key="曲直是非">曲直是非</a><p><a href="read-htm-tid-3236120-page-e.htm#a" title="2012-03-08 22:39">昨天 22:39</a></p></td>
+</tr>
+   
+<tr class="tr3 ">
+<td class="icon tar" width="30">
+<a href="read-htm-tid-1243520.htm" target="_blank">
+<img src="images/dhshizheng/file/headtopic_1.gif" align="absmiddle" alt="置顶帖" title="置顶帖"/>
+</a>
+</td>
+<td class="subject" id="td_1243520">
+<a href="read-htm-tid-1243520.htm" name="readlink" id="a_ajax_1243520" class="subject_t f14"><b><font color=purple>洛阳城事版规</font></b></a>&nbsp;<span class="s2 w"></span><span class='gray tpage w'>&#xFF08;+40&#xFF09;</span></td>
+<td class="author">
+<a href="u/159238" class=" _cardshow" data-card-url="pw_ajax.php?action=smallcard&type=showcard&uid=159238" target="_blank" data-card-key="洛阳城事">洛阳城事</a>
+<p >2009-03-16</p></td>
+<td class="num" width="60"><em>1</em>/9741</td>
+<td class="author"><a href="u.php?username=洛阳城事" target="_blank" class=" _cardshow" data-card-url="pw_ajax.php?action=smallcard&type=showcard&username=%C2%E5%D1%F4%B3%C7%CA%C2" data-card-key="洛阳城事">洛阳城事</a><p><a href="read-htm-tid-1243520-page-e.htm#a" title="2012-01-15 19:20">01-15</a></p></td>
+</tr>
+   
+<tr class="tr3 tr3Bc">
+<td class="icon tar" width="30">
+<a href="read-htm-tid-7344230.htm" target="_blank">
+<img src="images/dhshizheng/file/headtopic_3.gif" align="absmiddle" alt="置顶帖" title="置顶帖"/>
+</a>
+</td>
+<td class="subject" id="td_7344230">
+<img src="images/post/emotion/10.gif" alt="10" align="absmiddle"> 
+<a href="read-htm-tid-7344230.htm" name="readlink" id="a_ajax_7344230" class="subject_t f14"><b><font color=#0000FF>大河文学欢迎您</font></b></a>&nbsp;<span class="s2 w">[置顶III]</span><span class="s2 w"></span><span class='gray tpage w'>&#xFF08;+1399&#xFF09;</span><span class="w"> &nbsp;<img src="images/dhshizheng/file/multipage.gif" align="absmiddle" alt="pages">&nbsp;<span class="tpage"> <a href="read-htm-tid-7344230-page-2.htm">2</a> <a href="read-htm-tid-7344230-page-3.htm">3</a></span> </span><img src="images/dhshizheng/file/new.gif" align="absmiddle" title="新帖" alt="新帖" />
+</td>
+<td class="author">
+<a href="u/76283" class=" _cardshow" data-card-url="pw_ajax.php?action=smallcard&type=showcard&uid=76283" target="_blank" data-card-key="流沙语">流沙语</a>
+<p >2012-03-08</p></td>
+<td class="num" width="60"><em>44</em>/856</td>
+<td class="author"><a href="u.php?username=春＆秋" target="_blank" class=" _cardshow" data-card-url="pw_ajax.php?action=smallcard&type=showcard&username=%B4%BA%A3%A6%C7%EF" data-card-key="春＆秋">春＆秋</a><p><a href="read-htm-tid-7344230-page-e.htm#a" title="2012-03-09 11:08">7分钟前</a></p></td>
+</tr>
+<tr class="tr4"><td width="30"></td><td style="padding-left:0;">普通主题</td><td width="95"></td><td width="60"></td><td width="95"></td></tr>
+   
+<tr class="tr3 ">
+<td class="icon tar" width="30">
+<a title="锁定主题 " href="read-htm-tid-7271004.htm" target="_blank"><img src="images/dhshizheng/thread/topiclock.gif" align="absmiddle"></a>	
+</td>
+<td class="subject" id="td_7271004">
+<a href="read-htm-tid-7271004.htm" name="readlink" id="a_ajax_7271004" class="subject_t f14"><b><font color=#FF0000>洛阳城事官方QQ群成立，欢迎大家加入交流沟通</font></b></a>&nbsp;<span class="s2 w"></span><img src="images/dhshizheng/file/new.gif" align="absmiddle" title="新帖" alt="新帖" />
+</td>
+<td class="author">
+<a href="u/159792" class=" _cardshow" data-card-url="pw_ajax.php?action=smallcard&type=showcard&uid=159792" target="_blank" data-card-key="洛浦布衣">洛浦布衣</a>
+<p >2012-02-24</p></td>
+<td class="num" width="60"><em>0</em>/788</td>
+<td class="author"><a href="u.php?username=洛浦布衣" target="_blank" class=" _cardshow" data-card-url="pw_ajax.php?action=smallcard&type=showcard&username=%C2%E5%C6%D6%B2%BC%D2%C2" data-card-key="洛浦布衣">洛浦布衣</a><p><a href="read-htm-tid-7271004-page-e.htm#a" title="2012-03-20 21:14">2012-03-20</a></p></td>
+</tr>
+   
+<tr class="tr3 tr3Bc">
+<td class="icon tar" width="30">
+<a title="锁定主题 " href="read-htm-tid-7322087.htm" target="_blank"><img src="images/dhshizheng/thread/topiclock.gif" align="absmiddle"></a>	
+</td>
+<td class="subject" id="td_7322087">
+<a href="read-htm-tid-7322087.htm" name="readlink" id="a_ajax_7322087" class="subject_t f14"><b><font color=#FF0000>【公告】关于论坛近期保证首页资源的整顿事宜</font></b></a>&nbsp;<span class="s2 w"></span><img src="images/dhshizheng/file/new.gif" align="absmiddle" title="新帖" alt="新帖" />
+</td>
+<td class="author">
+<a href="u/159792" class=" _cardshow" data-card-url="pw_ajax.php?action=smallcard&type=showcard&uid=159792" target="_blank" data-card-key="洛浦布衣">洛浦布衣</a>
+<p >2012-03-04</p></td>
+<td class="num" width="60"><em>0</em>/317</td>
+<td class="author"><a href="u.php?username=洛浦布衣" target="_blank" class=" _cardshow" data-card-url="pw_ajax.php?action=smallcard&type=showcard&username=%C2%E5%C6%D6%B2%BC%D2%C2" data-card-key="洛浦布衣">洛浦布衣</a><p><a href="read-htm-tid-7322087-page-e.htm#a" title="2012-03-17 10:05">2012-03-17</a></p></td>
+</tr>
+   
+<tr class="tr3 ">
+<td class="icon tar" width="30">
+<a title="开放主题" href="read-htm-tid-7345700.htm" target="_blank"><img src="images/dhshizheng/thread/topicnew.gif" align="absmiddle"></a>	
+</td>
+<td class="subject" id="td_7345700">
+<a href="read-htm-tid-7345700.htm" name="readlink" id="a_ajax_7345700" class="subject_t f14">看看我们的人民代表</a> <img src="images/dhshizheng/file/img.gif" alt="img" align="absmiddle">&nbsp;<span class="s2 w"></span><img src="images/dhshizheng/file/new.gif" align="absmiddle" title="新帖" alt="新帖" />
+</td>
+<td class="author">
+<a href="u/819621" class=" _cardshow" data-card-url="pw_ajax.php?action=smallcard&type=showcard&uid=819621" target="_blank" data-card-key="且听风云">且听风云</a>
+<p style="color:#ff5500;">2012-03-09</p></td>
+<td class="num" width="60"><em>6</em>/49</td>
+<td class="author"><a href="u.php?username=R278～" target="_blank" class=" _cardshow" data-card-url="pw_ajax.php?action=smallcard&type=showcard&username=R278%A1%AB" data-card-key="R278～">R278～</a><p><a href="read-htm-tid-7345700-page-e.htm#a" title="2012-03-09 11:11">5分钟前</a></p></td>
+</tr>
+   
+<tr class="tr3 tr3Bc">
+<td class="icon tar" width="30">
+<a title="开放主题" href="read-htm-tid-7345382.htm" target="_blank"><img src="images/dhshizheng/thread/topicnew.gif" align="absmiddle"></a>	
+</td>
+<td class="subject" id="td_7345382">
+<a href="read-htm-tid-7345382.htm" name="readlink" id="a_ajax_7345382" class="subject_t f14">女性开车应注意</a>&nbsp;<span class="s2 w"></span><img src="images/dhshizheng/file/new.gif" align="absmiddle" title="新帖" alt="新帖" />
+</td>
+<td class="author">
+<a href="u/931349" class=" _cardshow" data-card-url="pw_ajax.php?action=smallcard&type=showcard&uid=931349" target="_blank" data-card-key="卧听山风">卧听山风</a>
+<p style="color:#ff5500;">2012-03-09</p></td>
+<td class="num" width="60"><em>12</em>/141</td>
+<td class="author"><a href="u.php?username=R278～" target="_blank" class=" _cardshow" data-card-url="pw_ajax.php?action=smallcard&type=showcard&username=R278%A1%AB" data-card-key="R278～">R278～</a><p><a href="read-htm-tid-7345382-page-e.htm#a" title="2012-03-09 11:10">6分钟前</a></p></td>
+</tr>
+   
+<tr class="tr3 ">
+<td class="icon tar" width="30">
+<a title="开放主题" href="read-htm-tid-5860839.htm" target="_blank"><img src="images/dhshizheng/thread/topicnew.gif" align="absmiddle"></a>	
+</td>
+<td class="subject" id="td_5860839">
+<a href="read-htm-tid-5860839.htm" name="readlink" id="a_ajax_5860839" class="subject_t f14">奇异！  叶子上的疑似蛇图案</a> <img src="images/dhshizheng/file/img.gif" alt="img" align="absmiddle">&nbsp;<span class="s2 w"></span><span class="w"> &nbsp;<img src="images/dhshizheng/file/multipage.gif" align="absmiddle" alt="pages">&nbsp;<span class="tpage"> <a href="read-htm-tid-5860839-page-2.htm">2</a></span> </span><img src="images/dhshizheng/file/new.gif" align="absmiddle" title="新帖" alt="新帖" />
+</td>
+<td class="author">
+<a href="u/823521" class=" _cardshow" data-card-url="pw_ajax.php?action=smallcard&type=showcard&uid=823521" target="_blank" data-card-key="独家报道">独家报道</a>
+<p >2011-08-05</p></td>
+<td class="num" width="60"><em>15</em>/263</td>
+<td class="author"><a href="u.php?username=R278～" target="_blank" class=" _cardshow" data-card-url="pw_ajax.php?action=smallcard&type=showcard&username=R278%A1%AB" data-card-key="R278～">R278～</a><p><a href="read-htm-tid-5860839-page-e.htm#a" title="2012-03-09 11:09">6分钟前</a></p></td>
+</tr>
+   
+<tr class="tr3 tr3Bc">
+<td class="icon tar" width="30">
+<a title="开放主题" href="read-htm-tid-7341223.htm" target="_blank"><img src="images/dhshizheng/thread/topicnew.gif" align="absmiddle"></a>	
+</td>
+<td class="subject" id="td_7341223">
+<a href="read-htm-tid-7341223.htm" name="readlink" id="a_ajax_7341223" class="subject_t f14">展示一下俺的钢笔字</a> <img src="images/dhshizheng/file/img.gif" alt="img" align="absmiddle">&nbsp;<span class="s2 w"></span><span class="w"> &nbsp;<img src="images/dhshizheng/file/multipage.gif" align="absmiddle" alt="pages">&nbsp;<span class="tpage"> <a href="read-htm-tid-7341223-page-2.htm">2</a> <a href="read-htm-tid-7341223-page-3.htm">3</a></span> </span><img src="images/dhshizheng/file/new.gif" align="absmiddle" title="新帖" alt="新帖" />
+</td>
+<td class="author">
+<a href="u/683787" class=" _cardshow" data-card-url="pw_ajax.php?action=smallcard&type=showcard&uid=683787" target="_blank" data-card-key="fffff1">fffff1</a>
+<p >2012-03-07</p></td>
+<td class="num" width="60"><em>36</em>/718</td>
+<td class="author"><a href="u.php?username=且听风云" target="_blank" class=" _cardshow" data-card-url="pw_ajax.php?action=smallcard&type=showcard&username=%C7%D2%CC%FD%B7%E7%D4%C6" data-card-key="且听风云">且听风云</a><p><a href="read-htm-tid-7341223-page-e.htm#a" title="2012-03-09 11:08">8分钟前</a></p></td>
+</tr>
+   
+<tr class="tr3 ">
+<td class="icon tar" width="30">
+<a title="开放主题" href="read-htm-tid-7344312.htm" target="_blank"><img src="images/dhshizheng/thread/topicnew.gif" align="absmiddle"></a>	
+</td>
+<td class="subject" id="td_7344312">
+<a href="read-htm-tid-7344312.htm" name="readlink" id="a_ajax_7344312" class="subject_t f14">洛阳交警罚款代替一切</a>&nbsp;<span class="s2 w"></span><span class="w"> &nbsp;<img src="images/dhshizheng/file/multipage.gif" align="absmiddle" alt="pages">&nbsp;<span class="tpage"> <a href="read-htm-tid-7344312-page-2.htm">2</a> <a href="read-htm-tid-7344312-page-3.htm">3</a></span> </span><img src="images/dhshizheng/file/new.gif" align="absmiddle" title="新帖" alt="新帖" />
+</td>
+<td class="author">
+<a href="u/961556" class=" _cardshow" data-card-url="pw_ajax.php?action=smallcard&type=showcard&uid=961556" target="_blank" data-card-key="洛阳人2012">洛阳人2012</a>
+<p >2012-03-08</p></td>
+<td class="num" width="60"><em>30</em>/312</td>
+<td class="author"><a href="u.php?username=俊宇" target="_blank" class=" _cardshow" data-card-url="pw_ajax.php?action=smallcard&type=showcard&username=%BF%A1%D3%EE" data-card-key="俊宇">俊宇</a><p><a href="read-htm-tid-7344312-page-e.htm#a" title="2012-03-09 11:08">8分钟前</a></p></td>
+</tr>
+   
+<tr class="tr3 tr3Bc">
+<td class="icon tar" width="30">
+<a title="开放主题" href="read-htm-tid-7345398.htm" target="_blank"><img src="images/dhshizheng/thread/topicnew.gif" align="absmiddle"></a>	
+</td>
+<td class="subject" id="td_7345398">
+<a href="read-htm-tid-7345398.htm" name="readlink" id="a_ajax_7345398" class="subject_t f14">事件：男子失忆4天竟被割肾</a>&nbsp;<span class="s2 w"></span><img src="images/dhshizheng/file/new.gif" align="absmiddle" title="新帖" alt="新帖" />
+</td>
+<td class="author">
+<a href="u/941090" class=" _cardshow" data-card-url="pw_ajax.php?action=smallcard&type=showcard&uid=941090" target="_blank" data-card-key="真事真人">真事真人</a>
+<p style="color:#ff5500;">2012-03-09</p></td>
+<td class="num" width="60"><em>6</em>/101</td>
+<td class="author"><a href="u.php?username=apple5" target="_blank" class=" _cardshow" data-card-url="pw_ajax.php?action=smallcard&type=showcard&username=apple5" data-card-key="apple5">apple5</a><p><a href="read-htm-tid-7345398-page-e.htm#a" title="2012-03-09 11:07">8分钟前</a></p></td>
+</tr>
+   
+<tr class="tr3 ">
+<td class="icon tar" width="30">
+<a title="开放主题" href="read-htm-tid-7340378.htm" target="_blank"><img src="images/dhshizheng/thread/topicnew.gif" align="absmiddle"></a>	
+</td>
+<td class="subject" id="td_7340378">
+<a href="read-htm-tid-7340378.htm" name="readlink" id="a_ajax_7340378" class="subject_t f14">喜讯，牡丹文化节期间&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;旅游年票分段用</a>&nbsp;<span class="s2 w"></span><img src="images/dhshizheng/file/new.gif" align="absmiddle" title="新帖" alt="新帖" />
+</td>
+<td class="author">
+<a href="u/307385" class=" _cardshow" data-card-url="pw_ajax.php?action=smallcard&type=showcard&uid=307385" target="_blank" data-card-key="旅游年票">旅游年票</a>
+<p >2012-03-07</p></td>
+<td class="num" width="60"><em>7</em>/135</td>
+<td class="author"><a href="u.php?username=旅游年票" target="_blank" class=" _cardshow" data-card-url="pw_ajax.php?action=smallcard&type=showcard&username=%C2%C3%D3%CE%C4%EA%C6%B1" data-card-key="旅游年票">旅游年票</a><p><a href="read-htm-tid-7340378-page-e.htm#a" title="2012-03-09 11:07">9分钟前</a></p></td>
+</tr>
+   
+<tr class="tr3 tr3Bc">
+<td class="icon tar" width="30">
+<a title="开放主题" href="read-htm-tid-7345735.htm" target="_blank"><img src="images/dhshizheng/thread/topicnew.gif" align="absmiddle"></a>	
+</td>
+<td class="subject" id="td_7345735">
+<a href="read-htm-tid-7345735.htm" name="readlink" id="a_ajax_7345735" class="subject_t f14">肇事者撞人后自称扶摔倒老人被诬 监控证实说谎</a>&nbsp;<span class="s2 w"></span><img src="images/dhshizheng/file/new.gif" align="absmiddle" title="新帖" alt="新帖" />
+</td>
+<td class="author">
+<a href="u/962023" class=" _cardshow" data-card-url="pw_ajax.php?action=smallcard&type=showcard&uid=962023" target="_blank" data-card-key="旧城明天">旧城明天</a>
+<p style="color:#ff5500;">2012-03-09</p></td>
+<td class="num" width="60"><em>2</em>/26</td>
+<td class="author"><a href="u.php?username=俊宇" target="_blank" class=" _cardshow" data-card-url="pw_ajax.php?action=smallcard&type=showcard&username=%BF%A1%D3%EE" data-card-key="俊宇">俊宇</a><p><a href="read-htm-tid-7345735-page-e.htm#a" title="2012-03-09 11:06">9分钟前</a></p></td>
+</tr>
+   
+<tr class="tr3 ">
+<td class="icon tar" width="30">
+<a title="开放主题" href="read-htm-tid-7341988.htm" target="_blank"><img src="images/dhshizheng/thread/topicnew.gif" align="absmiddle"></a>	
+</td>
+<td class="subject" id="td_7341988">
+<a href="read-htm-tid-7341988.htm" name="readlink" id="a_ajax_7341988" class="subject_t f14">如此行事，让人气愤</a>&nbsp;<span class="s2 w"></span><img src="images/dhshizheng/file/new.gif" align="absmiddle" title="新帖" alt="新帖" />
+</td>
+<td class="author">
+<a href="u/659640" class=" _cardshow" data-card-url="pw_ajax.php?action=smallcard&type=showcard&uid=659640" target="_blank" data-card-key="伊河情">伊河情</a>
+<p >2012-03-07</p></td>
+<td class="num" width="60"><em>3</em>/172</td>
+<td class="author"><a href="u.php?username=且听风云" target="_blank" class=" _cardshow" data-card-url="pw_ajax.php?action=smallcard&type=showcard&username=%C7%D2%CC%FD%B7%E7%D4%C6" data-card-key="且听风云">且听风云</a><p><a href="read-htm-tid-7341988-page-e.htm#a" title="2012-03-09 11:06">9分钟前</a></p></td>
+</tr>
+   
+<tr class="tr3 tr3Bc">
+<td class="icon tar" width="30">
+<a title="开放主题" href="read-htm-tid-7114736.htm" target="_blank"><img src="images/dhshizheng/thread/topicnew.gif" align="absmiddle"></a>	
+</td>
+<td class="subject" id="td_7114736">
+<a href="read-htm-tid-7114736.htm" name="readlink" id="a_ajax_7114736" class="subject_t f14">一篇吓死老师的学生作文</a>&nbsp;<span class="s2 w"></span><span class="w"> &nbsp;<img src="images/dhshizheng/file/multipage.gif" align="absmiddle" alt="pages">&nbsp;<span class="tpage"> <a href="read-htm-tid-7114736-page-2.htm">2</a> <a href="read-htm-tid-7114736-page-3.htm">3</a></span> </span><img src="images/dhshizheng/file/new.gif" align="absmiddle" title="新帖" alt="新帖" />
+</td>
+<td class="author">
+<a href="u/812138" class=" _cardshow" data-card-url="pw_ajax.php?action=smallcard&type=showcard&uid=812138" target="_blank" data-card-key="金JYF">金JYF</a>
+<p >2012-02-13</p></td>
+<td class="num" width="60"><em>34</em>/1157</td>
+<td class="author"><a href="u.php?username=俊宇" target="_blank" class=" _cardshow" data-card-url="pw_ajax.php?action=smallcard&type=showcard&username=%BF%A1%D3%EE" data-card-key="俊宇">俊宇</a><p><a href="read-htm-tid-7114736-page-e.htm#a" title="2012-03-09 11:05">10分钟前</a></p></td>
+</tr>
+   
+<tr class="tr3 ">
+<td class="icon tar" width="30">
+<a title="开放主题" href="read-htm-tid-7345638.htm" target="_blank"><img src="images/dhshizheng/thread/topicnew.gif" align="absmiddle"></a>	
+</td>
+<td class="subject" id="td_7345638">
+<a href="read-htm-tid-7345638.htm" name="readlink" id="a_ajax_7345638" class="subject_t f14">让事实说话：拂袖而去！</a>&nbsp;<span class="s2 w"></span><img src="images/dhshizheng/file/new.gif" align="absmiddle" title="新帖" alt="新帖" />
+</td>
+<td class="author">
+<a href="u/377820" class=" _cardshow" data-card-url="pw_ajax.php?action=smallcard&type=showcard&uid=377820" target="_blank" data-card-key="长沙世第">长沙世第</a>
+<p style="color:#ff5500;">2012-03-09</p></td>
+<td class="num" width="60"><em>5</em>/51</td>
+<td class="author"><a href="u.php?username=apple5" target="_blank" class=" _cardshow" data-card-url="pw_ajax.php?action=smallcard&type=showcard&username=apple5" data-card-key="apple5">apple5</a><p><a href="read-htm-tid-7345638-page-e.htm#a" title="2012-03-09 11:05">11分钟前</a></p></td>
+</tr>
+   
+<tr class="tr3 tr3Bc">
+<td class="icon tar" width="30">
+<a title="开放主题" href="read-htm-tid-7343329.htm" target="_blank"><img src="images/dhshizheng/thread/topicnew.gif" align="absmiddle"></a>	
+</td>
+<td class="subject" id="td_7343329">
+<a href="read-htm-tid-7343329.htm" name="readlink" id="a_ajax_7343329" class="subject_t f14">老百姓为什么爱看这些新闻</a>&nbsp;<span class="s2 w"></span><span class="w"> &nbsp;<img src="images/dhshizheng/file/multipage.gif" align="absmiddle" alt="pages">&nbsp;<span class="tpage"> <a href="read-htm-tid-7343329-page-2.htm">2</a></span> </span><img src="images/dhshizheng/file/new.gif" align="absmiddle" title="新帖" alt="新帖" />
+</td>
+<td class="author">
+<a href="u/539593" class=" _cardshow" data-card-url="pw_ajax.php?action=smallcard&type=showcard&uid=539593" target="_blank" data-card-key="乔子山">乔子山</a>
+<p >2012-03-08</p></td>
+<td class="num" width="60"><em>15</em>/253</td>
+<td class="author"><a href="u.php?username=且听风云" target="_blank" class=" _cardshow" data-card-url="pw_ajax.php?action=smallcard&type=showcard&username=%C7%D2%CC%FD%B7%E7%D4%C6" data-card-key="且听风云">且听风云</a><p><a href="read-htm-tid-7343329-page-e.htm#a" title="2012-03-09 11:04">11分钟前</a></p></td>
+</tr>
+   
+<tr class="tr3 ">
+<td class="icon tar" width="30">
+<a title="开放主题" href="read-htm-tid-7345380.htm" target="_blank"><img src="images/dhshizheng/thread/topicnew.gif" align="absmiddle"></a>	
+</td>
+<td class="subject" id="td_7345380">
+<a href="read-htm-tid-7345380.htm" name="readlink" id="a_ajax_7345380" class="subject_t f14">女司机为何事故率较低</a>&nbsp;<span class="s2 w"></span><img src="images/dhshizheng/file/new.gif" align="absmiddle" title="新帖" alt="新帖" />
+</td>
+<td class="author">
+<a href="u/931349" class=" _cardshow" data-card-url="pw_ajax.php?action=smallcard&type=showcard&uid=931349" target="_blank" data-card-key="卧听山风">卧听山风</a>
+<p style="color:#ff5500;">2012-03-09</p></td>
+<td class="num" width="60"><em>7</em>/109</td>
+<td class="author"><a href="u.php?username=apple5" target="_blank" class=" _cardshow" data-card-url="pw_ajax.php?action=smallcard&type=showcard&username=apple5" data-card-key="apple5">apple5</a><p><a href="read-htm-tid-7345380-page-e.htm#a" title="2012-03-09 11:04">12分钟前</a></p></td>
+</tr>
+   
+<tr class="tr3 tr3Bc">
+<td class="icon tar" width="30">
+<a title="开放主题" href="read-htm-tid-7345386.htm" target="_blank"><img src="images/dhshizheng/thread/topicnew.gif" align="absmiddle"></a>	
+</td>
+<td class="subject" id="td_7345386">
+<a href="read-htm-tid-7345386.htm" name="readlink" id="a_ajax_7345386" class="subject_t f14">河南考大学比外省难</a> <img src="images/dhshizheng/file/img.gif" alt="img" align="absmiddle">&nbsp;<span class="s2 w"></span><img src="images/dhshizheng/file/new.gif" align="absmiddle" title="新帖" alt="新帖" />
+</td>
+<td class="author">
+<a href="u/931349" class=" _cardshow" data-card-url="pw_ajax.php?action=smallcard&type=showcard&uid=931349" target="_blank" data-card-key="卧听山风">卧听山风</a>
+<p style="color:#ff5500;">2012-03-09</p></td>
+<td class="num" width="60"><em>10</em>/100</td>
+<td class="author"><a href="u.php?username=apple5" target="_blank" class=" _cardshow" data-card-url="pw_ajax.php?action=smallcard&type=showcard&username=apple5" data-card-key="apple5">apple5</a><p><a href="read-htm-tid-7345386-page-e.htm#a" title="2012-03-09 11:03">13分钟前</a></p></td>
+</tr>
+   
+<tr class="tr3 ">
+<td class="icon tar" width="30">
+<a title="开放主题" href="read-htm-tid-7318680.htm" target="_blank"><img src="images/dhshizheng/thread/topicnew.gif" align="absmiddle"></a>	
+</td>
+<td class="subject" id="td_7318680">
+<a href="read-htm-tid-7318680.htm" name="readlink" id="a_ajax_7318680" class="subject_t f14"><b><font color=#0000FF>关于假记者问题的一点思考</font></b></a>&nbsp;<span class="s2 w"></span><span class="w"> &nbsp;<img src="images/dhshizheng/file/multipage.gif" align="absmiddle" alt="pages">&nbsp;<span class="tpage"> <a href="read-htm-tid-7318680-page-2.htm">2</a> <a href="read-htm-tid-7318680-page-3.htm">3</a> <a href="read-htm-tid-7318680-page-4.htm">4</a> <a href="read-htm-tid-7318680-page-5.htm">5</a></span> </span><img src="images/dhshizheng/file/new.gif" align="absmiddle" title="新帖" alt="新帖" />
+</td>
+<td class="author">
+<a href="u/775114" class=" _cardshow" data-card-url="pw_ajax.php?action=smallcard&type=showcard&uid=775114" target="_blank" data-card-key="洛阳人事">洛阳人事</a>
+<p >2012-03-03</p></td>
+<td class="num" width="60"><em>74</em>/1007</td>
+<td class="author"><a href="u.php?username=且听风云" target="_blank" class=" _cardshow" data-card-url="pw_ajax.php?action=smallcard&type=showcard&username=%C7%D2%CC%FD%B7%E7%D4%C6" data-card-key="且听风云">且听风云</a><p><a href="read-htm-tid-7318680-page-e.htm#a" title="2012-03-09 11:02">14分钟前</a></p></td>
+</tr>
+   
+<tr class="tr3 tr3Bc">
+<td class="icon tar" width="30">
+<a title="开放主题" href="read-htm-tid-7345744.htm" target="_blank"><img src="images/dhshizheng/thread/topicnew.gif" align="absmiddle"></a>	
+</td>
+<td class="subject" id="td_7345744">
+<a href="read-htm-tid-7345744.htm" name="readlink" id="a_ajax_7345744" class="subject_t f14">“玩火”的代价有多大</a>&nbsp;<span class="s2 w"></span><img src="images/dhshizheng/file/new.gif" align="absmiddle" title="新帖" alt="新帖" />
+</td>
+<td class="author">
+<a href="u/962023" class=" _cardshow" data-card-url="pw_ajax.php?action=smallcard&type=showcard&uid=962023" target="_blank" data-card-key="旧城明天">旧城明天</a>
+<p style="color:#ff5500;">2012-03-09</p></td>
+<td class="num" width="60"><em>4</em>/26</td>
+<td class="author"><a href="u.php?username=billandc" target="_blank" class=" _cardshow" data-card-url="pw_ajax.php?action=smallcard&type=showcard&username=billandc" data-card-key="billandc">billandc</a><p><a href="read-htm-tid-7345744-page-e.htm#a" title="2012-03-09 11:02">14分钟前</a></p></td>
+</tr>
+   
+<tr class="tr3 ">
+<td class="icon tar" width="30">
+<a title="开放主题" href="read-htm-tid-7340151.htm" target="_blank"><img src="images/dhshizheng/thread/topicnew.gif" align="absmiddle"></a>	
+</td>
+<td class="subject" id="td_7340151">
+<a href="read-htm-tid-7340151.htm" name="readlink" id="a_ajax_7340151" class="subject_t f14">古人喝酒气势爽 原来竟因水分大</a>&nbsp;<span class="s2 w"></span><span class="w"> &nbsp;<img src="images/dhshizheng/file/multipage.gif" align="absmiddle" alt="pages">&nbsp;<span class="tpage"> <a href="read-htm-tid-7340151-page-2.htm">2</a></span> </span><img src="images/dhshizheng/file/new.gif" align="absmiddle" title="新帖" alt="新帖" />
+</td>
+<td class="author">
+<a href="u/931349" class=" _cardshow" data-card-url="pw_ajax.php?action=smallcard&type=showcard&uid=931349" target="_blank" data-card-key="卧听山风">卧听山风</a>
+<p >2012-03-07</p></td>
+<td class="num" width="60"><em>16</em>/288</td>
+<td class="author"><a href="u.php?username=R278～" target="_blank" class=" _cardshow" data-card-url="pw_ajax.php?action=smallcard&type=showcard&username=R278%A1%AB" data-card-key="R278～">R278～</a><p><a href="read-htm-tid-7340151-page-e.htm#a" title="2012-03-09 11:00">15分钟前</a></p></td>
+</tr>
+   
+<tr class="tr3 tr3Bc">
+<td class="icon tar" width="30">
+<a title="开放主题" href="read-htm-tid-7345403.htm" target="_blank"><img src="images/dhshizheng/thread/topicnew.gif" align="absmiddle"></a>	
+</td>
+<td class="subject" id="td_7345403">
+<a href="read-htm-tid-7345403.htm" name="readlink" id="a_ajax_7345403" class="subject_t f14">女性问题分析</a>&nbsp;<span class="s2 w"></span><img src="images/dhshizheng/file/new.gif" align="absmiddle" title="新帖" alt="新帖" />
+</td>
+<td class="author">
+<a href="u/931349" class=" _cardshow" data-card-url="pw_ajax.php?action=smallcard&type=showcard&uid=931349" target="_blank" data-card-key="卧听山风">卧听山风</a>
+<p style="color:#ff5500;">2012-03-09</p></td>
+<td class="num" width="60"><em>6</em>/100</td>
+<td class="author"><a href="u.php?username=apple5" target="_blank" class=" _cardshow" data-card-url="pw_ajax.php?action=smallcard&type=showcard&username=apple5" data-card-key="apple5">apple5</a><p><a href="read-htm-tid-7345403-page-e.htm#a" title="2012-03-09 10:57">19分钟前</a></p></td>
+</tr>
+   
+<tr class="tr3 ">
+<td class="icon tar" width="30">
+<a title="开放主题" href="read-htm-tid-7345680.htm" target="_blank"><img src="images/dhshizheng/thread/topicnew.gif" align="absmiddle"></a>	
+</td>
+<td class="subject" id="td_7345680">
+<a href="read-htm-tid-7345680.htm" name="readlink" id="a_ajax_7345680" class="subject_t f14">白元乡派出所如何执法我被逼得想跳楼请毛万春书记看看</a> <img src="images/dhshizheng/file/img.gif" alt="img" align="absmiddle">&nbsp;<span class="s2 w"></span><img src="images/dhshizheng/file/new.gif" align="absmiddle" title="新帖" alt="新帖" />
+</td>
+<td class="author">
+<a href="u/962404" class=" _cardshow" data-card-url="pw_ajax.php?action=smallcard&type=showcard&uid=962404" target="_blank" data-card-key="被逼我想跳楼">被逼我想跳楼</a>
+<p style="color:#ff5500;">2012-03-09</p></td>
+<td class="num" width="60"><em>3</em>/40</td>
+<td class="author"><a href="u.php?username=白疙瘩寨人" target="_blank" class=" _cardshow" data-card-url="pw_ajax.php?action=smallcard&type=showcard&username=%B0%D7%B8%ED%B4%F1%D5%AF%C8%CB" data-card-key="白疙瘩寨人">白疙瘩寨人</a><p><a href="read-htm-tid-7345680-page-e.htm#a" title="2012-03-09 10:56">19分钟前</a></p></td>
+</tr>
+   
+<tr class="tr3 tr3Bc">
+<td class="icon tar" width="30">
+<a title="开放主题" href="read-htm-tid-7053231.htm" target="_blank"><img src="images/dhshizheng/thread/topicnew.gif" align="absmiddle"></a>	
+</td>
+<td class="subject" id="td_7053231">
+<a href="read-htm-tid-7053231.htm" name="readlink" id="a_ajax_7053231" class="subject_t f14">卢舍那大佛 一代女皇武则天的影子？</a>&nbsp;<span class="s2 w"></span><img src="images/dhshizheng/file/new.gif" align="absmiddle" title="新帖" alt="新帖" />
+</td>
+<td class="author">
+<a href="u/744232" class=" _cardshow" data-card-url="pw_ajax.php?action=smallcard&type=showcard&uid=744232" target="_blank" data-card-key="洛阳青铜器">洛阳青铜器</a>
+<p >2012-01-31</p></td>
+<td class="num" width="60"><em>12</em>/597</td>
+<td class="author"><a href="u.php?username=奔腾的洛水" target="_blank" class=" _cardshow" data-card-url="pw_ajax.php?action=smallcard&type=showcard&username=%B1%BC%CC%DA%B5%C4%C2%E5%CB%AE" data-card-key="奔腾的洛水">奔腾的洛水</a><p><a href="read-htm-tid-7053231-page-e.htm#a" title="2012-03-09 10:51">24分钟前</a></p></td>
+</tr>
+   
+<tr class="tr3 ">
+<td class="icon tar" width="30">
+<a title="开放主题" href="read-htm-tid-7326181.htm" target="_blank"><img src="images/dhshizheng/thread/topicnew.gif" align="absmiddle"></a>	
+</td>
+<td class="subject" id="td_7326181">
+<a href="read-htm-tid-7326181.htm" name="readlink" id="a_ajax_7326181" class="subject_t f14">震惊：中国人的胃一直在默默地保护着世界</a> <img src="images/dhshizheng/file/img.gif" alt="img" align="absmiddle">&nbsp;<span class="s2 w"></span><img src="images/dhshizheng/file/new.gif" align="absmiddle" title="新帖" alt="新帖" />
+</td>
+<td class="author">
+<a href="u/957868" class=" _cardshow" data-card-url="pw_ajax.php?action=smallcard&type=showcard&uid=957868" target="_blank" data-card-key="陆浑秋色">陆浑秋色</a>
+<p >2012-03-05</p></td>
+<td class="num" width="60"><em>9</em>/260</td>
+<td class="author"><a href="u.php?username=奔腾的洛水" target="_blank" class=" _cardshow" data-card-url="pw_ajax.php?action=smallcard&type=showcard&username=%B1%BC%CC%DA%B5%C4%C2%E5%CB%AE" data-card-key="奔腾的洛水">奔腾的洛水</a><p><a href="read-htm-tid-7326181-page-e.htm#a" title="2012-03-09 10:50">25分钟前</a></p></td>
+</tr>
+   
+<tr class="tr3 tr3Bc">
+<td class="icon tar" width="30">
+<a title="开放主题" href="read-htm-tid-7343593.htm" target="_blank"><img src="images/dhshizheng/thread/topicnew.gif" align="absmiddle"></a>	
+</td>
+<td class="subject" id="td_7343593">
+<img src="images/post/emotion/1.gif" alt="1" align="absmiddle"> 
+<a href="read-htm-tid-7343593.htm" name="readlink" id="a_ajax_7343593" class="subject_t f14">【原创】“兵妈妈”乔文娟：心系警营，情动民警！</a> <img src="images/dhshizheng/file/img.gif" alt="img" align="absmiddle">&nbsp;<span class="s2 w"></span><img src="images/dhshizheng/file/new.gif" align="absmiddle" title="新帖" alt="新帖" />
+</td>
+<td class="author">
+<a href="u/116610" class=" _cardshow" data-card-url="pw_ajax.php?action=smallcard&type=showcard&uid=116610" target="_blank" data-card-key="嵩山剑客">嵩山剑客</a>
+<p >2012-03-08</p></td>
+<td class="num" width="60"><em>2</em>/90</td>
+<td class="author"><a href="u.php?username=奔腾的洛水" target="_blank" class=" _cardshow" data-card-url="pw_ajax.php?action=smallcard&type=showcard&username=%B1%BC%CC%DA%B5%C4%C2%E5%CB%AE" data-card-key="奔腾的洛水">奔腾的洛水</a><p><a href="read-htm-tid-7343593-page-e.htm#a" title="2012-03-09 10:50">26分钟前</a></p></td>
+</tr>
+   
+<tr class="tr3 ">
+<td class="icon tar" width="30">
+<a title="开放主题" href="read-htm-tid-7344562.htm" target="_blank"><img src="images/dhshizheng/thread/topicnew.gif" align="absmiddle"></a>	
+</td>
+<td class="subject" id="td_7344562">
+<a href="read-htm-tid-7344562.htm" name="readlink" id="a_ajax_7344562" class="subject_t f14">安徽4名女公务员乘飞机时偷救生衣 称回家游泳用(图)</a>&nbsp;<span class="s2 w"></span><span class="w"> &nbsp;<img src="images/dhshizheng/file/multipage.gif" align="absmiddle" alt="pages">&nbsp;<span class="tpage"> <a href="read-htm-tid-7344562-page-2.htm">2</a></span> </span><img src="images/dhshizheng/file/new.gif" align="absmiddle" title="新帖" alt="新帖" />
+</td>
+<td class="author">
+<a href="u/920064" class=" _cardshow" data-card-url="pw_ajax.php?action=smallcard&type=showcard&uid=920064" target="_blank" data-card-key="专诸">专诸</a>
+<p >2012-03-08</p></td>
+<td class="num" width="60"><em>17</em>/343</td>
+<td class="author"><a href="u.php?username=白疙瘩寨人" target="_blank" class=" _cardshow" data-card-url="pw_ajax.php?action=smallcard&type=showcard&username=%B0%D7%B8%ED%B4%F1%D5%AF%C8%CB" data-card-key="白疙瘩寨人">白疙瘩寨人</a><p><a href="read-htm-tid-7344562-page-e.htm#a" title="2012-03-09 10:49">27分钟前</a></p></td>
+</tr>
+   
+<tr class="tr3 tr3Bc">
+<td class="icon tar" width="30">
+<a title="开放主题" href="read-htm-tid-7344559.htm" target="_blank"><img src="images/dhshizheng/thread/topicnew.gif" align="absmiddle"></a>	
+</td>
+<td class="subject" id="td_7344559">
+<a href="read-htm-tid-7344559.htm" name="readlink" id="a_ajax_7344559" class="subject_t f14">住建部部长姜伟新：七八个大城市的房价一定得降下来</a>&nbsp;<span class="s2 w"></span><img src="images/dhshizheng/file/new.gif" align="absmiddle" title="新帖" alt="新帖" />
+</td>
+<td class="author">
+<a href="u/920064" class=" _cardshow" data-card-url="pw_ajax.php?action=smallcard&type=showcard&uid=920064" target="_blank" data-card-key="专诸">专诸</a>
+<p >2012-03-08</p></td>
+<td class="num" width="60"><em>5</em>/73</td>
+<td class="author"><a href="u.php?username=奔腾的洛水" target="_blank" class=" _cardshow" data-card-url="pw_ajax.php?action=smallcard&type=showcard&username=%B1%BC%CC%DA%B5%C4%C2%E5%CB%AE" data-card-key="奔腾的洛水">奔腾的洛水</a><p><a href="read-htm-tid-7344559-page-e.htm#a" title="2012-03-09 10:49">27分钟前</a></p></td>
+</tr>
+   
+<tr class="tr3 ">
+<td class="icon tar" width="30">
+<a title="开放主题" href="read-htm-tid-7344567.htm" target="_blank"><img src="images/dhshizheng/thread/topicnew.gif" align="absmiddle"></a>	
+</td>
+<td class="subject" id="td_7344567">
+<a href="read-htm-tid-7344567.htm" name="readlink" id="a_ajax_7344567" class="subject_t f14">北大教授：群众暴力事件背后往往有剩男的影子</a>&nbsp;<span class="s2 w"></span><img src="images/dhshizheng/file/new.gif" align="absmiddle" title="新帖" alt="新帖" />
+</td>
+<td class="author">
+<a href="u/920064" class=" _cardshow" data-card-url="pw_ajax.php?action=smallcard&type=showcard&uid=920064" target="_blank" data-card-key="专诸">专诸</a>
+<p >2012-03-08</p></td>
+<td class="num" width="60"><em>2</em>/82</td>
+<td class="author"><a href="u.php?username=奔腾的洛水" target="_blank" class=" _cardshow" data-card-url="pw_ajax.php?action=smallcard&type=showcard&username=%B1%BC%CC%DA%B5%C4%C2%E5%CB%AE" data-card-key="奔腾的洛水">奔腾的洛水</a><p><a href="read-htm-tid-7344567-page-e.htm#a" title="2012-03-09 10:48">28分钟前</a></p></td>
+</tr>
+   
+<tr class="tr3 tr3Bc">
+<td class="icon tar" width="30">
+<a title="开放主题" href="read-htm-tid-7261739.htm" target="_blank"><img src="images/dhshizheng/thread/topicnew.gif" align="absmiddle"></a>	
+</td>
+<td class="subject" id="td_7261739">
+<a href="read-htm-tid-7261739.htm" name="readlink" id="a_ajax_7261739" class="subject_t f14">洛阳牡丹好看吗</a> <img src="images/dhshizheng/file/img.gif" alt="img" align="absmiddle">&nbsp;<span class="s2 w"></span><span class='gray tpage w'>&#xFF08;+42&#xFF09;</span><span class="w"> &nbsp;<img src="images/dhshizheng/file/multipage.gif" align="absmiddle" alt="pages">&nbsp;<span class="tpage"> <a href="read-htm-tid-7261739-page-2.htm">2</a> <a href="read-htm-tid-7261739-page-3.htm">3</a></span> </span><img src="images/dhshizheng/file/new.gif" align="absmiddle" title="新帖" alt="新帖" />
+</td>
+<td class="author">
+<a href="u/899171" class=" _cardshow" data-card-url="pw_ajax.php?action=smallcard&type=showcard&uid=899171" target="_blank" data-card-key="fan87">fan87</a>
+<p >2012-02-21</p></td>
+<td class="num" width="60"><em>32</em>/549</td>
+<td class="author"><a href="u.php?username=奔腾的洛水" target="_blank" class=" _cardshow" data-card-url="pw_ajax.php?action=smallcard&type=showcard&username=%B1%BC%CC%DA%B5%C4%C2%E5%CB%AE" data-card-key="奔腾的洛水">奔腾的洛水</a><p><a href="read-htm-tid-7261739-page-e.htm#a" title="2012-03-09 10:47">28分钟前</a></p></td>
+</tr>
+   
+<tr class="tr3 ">
+<td class="icon tar" width="30">
+<a title="开放主题" href="read-htm-tid-7325101.htm" target="_blank"><img src="images/dhshizheng/thread/topicnew.gif" align="absmiddle"></a>	
+</td>
+<td class="subject" id="td_7325101">
+<a href="read-htm-tid-7325101.htm" name="readlink" id="a_ajax_7325101" class="subject_t f14">刚才拉大便拉到茅坑外面了...... 原创希望版主加精</a>&nbsp;<span class="s2 w"></span><span class="w"> &nbsp;<img src="images/dhshizheng/file/multipage.gif" align="absmiddle" alt="pages">&nbsp;<span class="tpage"> <a href="read-htm-tid-7325101-page-2.htm">2</a></span> </span><img src="images/dhshizheng/file/new.gif" align="absmiddle" title="新帖" alt="新帖" />
+</td>
+<td class="author">
+<a href="u/683787" class=" _cardshow" data-card-url="pw_ajax.php?action=smallcard&type=showcard&uid=683787" target="_blank" data-card-key="fffff1">fffff1</a>
+<p >2012-03-05</p></td>
+<td class="num" width="60"><em>23</em>/401</td>
+<td class="author"><a href="u.php?username=奔腾的洛水" target="_blank" class=" _cardshow" data-card-url="pw_ajax.php?action=smallcard&type=showcard&username=%B1%BC%CC%DA%B5%C4%C2%E5%CB%AE" data-card-key="奔腾的洛水">奔腾的洛水</a><p><a href="read-htm-tid-7325101-page-e.htm#a" title="2012-03-09 10:47">29分钟前</a></p></td>
+</tr>
+   
+<tr class="tr3 tr3Bc">
+<td class="icon tar" width="30">
+<a title="开放主题" href="read-htm-tid-7342485.htm" target="_blank"><img src="images/dhshizheng/thread/topicnew.gif" align="absmiddle"></a>	
+</td>
+<td class="subject" id="td_7342485">
+<a href="read-htm-tid-7342485.htm" name="readlink" id="a_ajax_7342485" class="subject_t f14">台夫妇沉迷网游不舍买奶粉 饿死女儿</a>&nbsp;<span class="s2 w"></span><img src="images/dhshizheng/file/new.gif" align="absmiddle" title="新帖" alt="新帖" />
+</td>
+<td class="author">
+<a href="u/261530" class=" _cardshow" data-card-url="pw_ajax.php?action=smallcard&type=showcard&uid=261530" target="_blank" data-card-key="老婆饼">老婆饼</a>
+<p >2012-03-07</p></td>
+<td class="num" width="60"><em>6</em>/136</td>
+<td class="author"><a href="u.php?username=apple5" target="_blank" class=" _cardshow" data-card-url="pw_ajax.php?action=smallcard&type=showcard&username=apple5" data-card-key="apple5">apple5</a><p><a href="read-htm-tid-7342485-page-e.htm#a" title="2012-03-09 10:46">29分钟前</a></p></td>
+</tr>
+   
+<tr class="tr3 ">
+<td class="icon tar" width="30">
+<a title="开放主题" href="read-htm-tid-7307219.htm" target="_blank"><img src="images/dhshizheng/thread/topicnew.gif" align="absmiddle"></a>	
+</td>
+<td class="subject" id="td_7307219">
+<img class="fr" src="images/dhshizheng/file/digest_2.gif" align="absmiddle" style="margin-top:4px;" alt="精华帖" title="精华帖" />
+<a href="read-htm-tid-7307219.htm" name="readlink" id="a_ajax_7307219" class="subject_t f14"><b><font color=#008000>【洛阳人】龙门石窟讲解员——曹燕</font></b></a>&nbsp;<span class="s2 w"></span><span class='gray tpage w'>&#xFF08;+13&#xFF09;</span><span class="w"> &nbsp;<img src="images/dhshizheng/file/multipage.gif" align="absmiddle" alt="pages">&nbsp;<span class="tpage"> <a href="read-htm-tid-7307219-page-2.htm">2</a> <a href="read-htm-tid-7307219-page-3.htm">3</a></span> </span><img src="images/dhshizheng/file/new.gif" align="absmiddle" title="新帖" alt="新帖" />
+</td>
+<td class="author">
+<a href="u/579726" class=" _cardshow" data-card-url="pw_ajax.php?action=smallcard&type=showcard&uid=579726" target="_blank" data-card-key="飞雪夜归狼">飞雪夜归狼</a>
+<p >2012-03-01</p></td>
+<td class="num" width="60"><em>43</em>/1545</td>
+<td class="author"><a href="u.php?username=奔腾的洛水" target="_blank" class=" _cardshow" data-card-url="pw_ajax.php?action=smallcard&type=showcard&username=%B1%BC%CC%DA%B5%C4%C2%E5%CB%AE" data-card-key="奔腾的洛水">奔腾的洛水</a><p><a href="read-htm-tid-7307219-page-e.htm#a" title="2012-03-09 10:46">30分钟前</a></p></td>
+</tr>
+   
+<tr class="tr3 tr3Bc">
+<td class="icon tar" width="30">
+<a title="开放主题" href="read-htm-tid-7345048.htm" target="_blank"><img src="images/dhshizheng/thread/topicnew.gif" align="absmiddle"></a>	
+</td>
+<td class="subject" id="td_7345048">
+<a href="read-htm-tid-7345048.htm" name="readlink" id="a_ajax_7345048" class="subject_t f14">揭秘“12亿像素”政协开幕照 由数百张照片拼成</a> <img src="images/dhshizheng/file/img.gif" alt="img" align="absmiddle">&nbsp;<span class="s2 w"></span><img src="images/dhshizheng/file/new.gif" align="absmiddle" title="新帖" alt="新帖" />
+</td>
+<td class="author">
+<a href="u/579726" class=" _cardshow" data-card-url="pw_ajax.php?action=smallcard&type=showcard&uid=579726" target="_blank" data-card-key="飞雪夜归狼">飞雪夜归狼</a>
+<p >2012-03-08</p></td>
+<td class="num" width="60"><em>8</em>/127</td>
+<td class="author"><a href="u.php?username=奔腾的洛水" target="_blank" class=" _cardshow" data-card-url="pw_ajax.php?action=smallcard&type=showcard&username=%B1%BC%CC%DA%B5%C4%C2%E5%CB%AE" data-card-key="奔腾的洛水">奔腾的洛水</a><p><a href="read-htm-tid-7345048-page-e.htm#a" title="2012-03-09 10:45">31分钟前</a></p></td>
+</tr>
+   
+<tr class="tr3 ">
+<td class="icon tar" width="30">
+<a title="开放主题" href="read-htm-tid-7321530.htm" target="_blank"><img src="images/dhshizheng/thread/topicnew.gif" align="absmiddle"></a>	
+</td>
+<td class="subject" id="td_7321530">
+<a href="read-htm-tid-7321530.htm" name="readlink" id="a_ajax_7321530" class="subject_t f14">洛阳，酒店卫生间服务不一般（附图）</a> <img src="images/dhshizheng/file/img.gif" alt="img" align="absmiddle">&nbsp;<span class="s2 w"></span><span class="w"> &nbsp;<img src="images/dhshizheng/file/multipage.gif" align="absmiddle" alt="pages">&nbsp;<span class="tpage"> <a href="read-htm-tid-7321530-page-2.htm">2</a> <a href="read-htm-tid-7321530-page-3.htm">3</a> <a href="read-htm-tid-7321530-page-4.htm">4</a></span> </span><img src="images/dhshizheng/file/new.gif" align="absmiddle" title="新帖" alt="新帖" />
+</td>
+<td class="author">
+<a href="u/443251" class=" _cardshow" data-card-url="pw_ajax.php?action=smallcard&type=showcard&uid=443251" target="_blank" data-card-key="花开山岗上">花开山岗上</a>
+<p >2012-03-04</p></td>
+<td class="num" width="60"><em>57</em>/1886</td>
+<td class="author"><a href="u.php?username=别让我拍你" target="_blank" class=" _cardshow" data-card-url="pw_ajax.php?action=smallcard&type=showcard&username=%B1%F0%C8%C3%CE%D2%C5%C4%C4%E3" data-card-key="别让我拍你">别让我拍你</a><p><a href="read-htm-tid-7321530-page-e.htm#a" title="2012-03-09 10:44">31分钟前</a></p></td>
+</tr>
+   
+<tr class="tr3 tr3Bc">
+<td class="icon tar" width="30">
+<a title="开放主题" href="read-htm-tid-7345158.htm" target="_blank"><img src="images/dhshizheng/thread/topicnew.gif" align="absmiddle"></a>	
+</td>
+<td class="subject" id="td_7345158">
+<a href="read-htm-tid-7345158.htm" name="readlink" id="a_ajax_7345158" class="subject_t f14">深圳警方新部署 下月起警察将全部上街巡逻(图</a>&nbsp;<span class="s2 w"></span><img src="images/dhshizheng/file/new.gif" align="absmiddle" title="新帖" alt="新帖" />
+</td>
+<td class="author">
+<a href="u/393104" class=" _cardshow" data-card-url="pw_ajax.php?action=smallcard&type=showcard&uid=393104" target="_blank" data-card-key="笑看云跳舞">笑看云跳舞</a>
+<p >2012-03-08</p></td>
+<td class="num" width="60"><em>5</em>/90</td>
+<td class="author"><a href="u.php?username=奔腾的洛水" target="_blank" class=" _cardshow" data-card-url="pw_ajax.php?action=smallcard&type=showcard&username=%B1%BC%CC%DA%B5%C4%C2%E5%CB%AE" data-card-key="奔腾的洛水">奔腾的洛水</a><p><a href="read-htm-tid-7345158-page-e.htm#a" title="2012-03-09 10:43">32分钟前</a></p></td>
+</tr>
+   
+<tr class="tr3 ">
+<td class="icon tar" width="30">
+<a title="开放主题" href="read-htm-tid-7344995.htm" target="_blank"><img src="images/dhshizheng/thread/topicnew.gif" align="absmiddle"></a>	
+</td>
+<td class="subject" id="td_7344995">
+<a href="read-htm-tid-7344995.htm" name="readlink" id="a_ajax_7344995" class="subject_t f14">一件小事儿 让我对北京肃然起敬 ~~~~~~~~~~</a>&nbsp;<span class="s2 w"></span><img src="images/dhshizheng/file/new.gif" align="absmiddle" title="新帖" alt="新帖" />
+</td>
+<td class="author">
+<a href="u/683787" class=" _cardshow" data-card-url="pw_ajax.php?action=smallcard&type=showcard&uid=683787" target="_blank" data-card-key="fffff1">fffff1</a>
+<p >2012-03-08</p></td>
+<td class="num" width="60"><em>9</em>/140</td>
+<td class="author"><a href="u.php?username=奔腾的洛水" target="_blank" class=" _cardshow" data-card-url="pw_ajax.php?action=smallcard&type=showcard&username=%B1%BC%CC%DA%B5%C4%C2%E5%CB%AE" data-card-key="奔腾的洛水">奔腾的洛水</a><p><a href="read-htm-tid-7344995-page-e.htm#a" title="2012-03-09 10:42">33分钟前</a></p></td>
+</tr>
+</tbody>
+</table>
+<script>
+function delload(){
+var objTrs = getElementsByClassName('tr3',getObj('threadlist'));
+var mover =	 function (){
+var delObj = getElementsByClassName('s6 w',this);
+if(delObj.length>0){
+delObj[0].style.display='';
+}
+};
+var mout = function (){
+var delObj = getElementsByClassName('s6 w',this);
+if(delObj.length>0){
+delObj[0].style.display='none';
+}
+};
+for (var i=0;i<objTrs.length ; i++ ){
+objTrs[i].onmouseover = mover;
+objTrs[i].onmouseout =  mout;
+}
+}
+window.onReady(function(){
+delload();
+//调用气泡
+var pw_bubble=new Bubble([{"name":"pw_all_tip_tucool","id":"pw_all_pos_tucool"},{"name":"pw_all_tip_usercard","id":"pw_all_pos_usercard"}]);
+pw_bubble.init();
+//新窗口切换
+var openwin=new openWin();
+openwin.init();	
+});
+
+//新窗口切换功能
+var openWin=function(){
+this.obj=document.getElementById("newwindows");
+this.links=document.getElementsByName("readlink");
+this.cookieName="newwindows";
+}
+openWin.prototype={
+init:function(){
+var self=this;
+var ck=FetchCookie(this.cookieName);
+if(ck!=1){
+this.add();
+}else{
+this.remove();
+}
+addEvent(this.obj,"click",function(){
+self.toggle();
+})
+this.obj.onselectstart=function(){
+return false;
+}
+},
+add:function(){
+if(hasClass(this.obj,"checkbox_checked")){
+return false;
+}else 
+if(!hasClass(this.obj,"checkbox")){
+addClass(this.obj,"checkbox_checked");
+}else{
+var classname=this.obj.className;
+this.obj.className=classname.replace("checkbox","checkbox_checked");
+}
+for (i=0;i<this.links.length;i++) {
+this.links[i].setAttribute("target","_blank");
+}
+SetCookie("newwindows",0);
+},
+remove:function(){
+if(hasClass(this.obj,"checkbox")){
+return false;
+}else 
+if(!hasClass(this.obj,"checkbox_checked")){
+addClass(this.obj,"checkbox");
+}else{
+var classname=this.obj.className;
+this.obj.className=classname.replace("checkbox_checked","checkbox");
+}
+for (i=0;i<this.links.length;i++) {
+this.links[i].setAttribute("target","_self");
+}
+SetCookie("newwindows",1);
+},
+toggle:function(){
+if (hasClass(this.obj,"checkbox_checked")) {
+this.remove();
+}else{
+this.add();
+}
+}
+}
+</script>
+</div>
+</div>
+<div class="cc p10">
+<a href="post.php?fid=450#breadCrumb" class="post fr" id="td_post1">发帖</a>
+<div class="fl" style="padding-top:4px;"><div class="pages"><b>1</b><a href="thread-htm-fid-450-search-all-page-2.htm">2</a><a href="thread-htm-fid-450-search-all-page-3.htm">3</a><a href="thread-htm-fid-450-search-all-page-4.htm">4</a><a href="thread-htm-fid-450-search-all-page-5.htm">5</a><a href="thread-htm-fid-450-search-all-page-6.htm">6</a><a href="thread-htm-fid-450-search-all-page-1000.htm">...1000</a><a class="pages_next" href="thread-htm-fid-450-search-all-page-2.htm">&#x4E0B;&#x4E00;&#x9875;</a><div class="fl">&#x5230;&#x7B2C;</div><input type="text" size="3" onkeydown="javascript: if(event.keyCode==13){var value = parseInt(this.value); var page=(value>1000) ? 1000 : value;  location='thread.php?fid=450&search=all&page='+page+''; return false;}"><div class="fl">&#x9875;</div><button onclick="javascript:var value = parseInt(this.previousSibling.previousSibling.value); var page=(value>1000) ? 1000 : value;  location='thread.php?fid=450&search=all&page='+page+''; return false;">&#x786E;&#x8BA4;</button></div></div>
+</div>
+<div class="sidePd10">
+<div class="t">
+<div class="f_two" style="padding:5px 10px;border-top:1px solid #d5e6ed;border-bottom:1px solid #d5e6ed;">在线用户:共30人在线，30位会员(0位隐身)</div>
+<div class="p10">
+<table width="100%" class="vt">
+<tr><td style="width:12%;padding:0 0 5px 20px;background:url(images/dhshizheng/group/6.gif) no-repeat"><a href="u/657579">太阳风暴</a></td><td style="width:12%;padding:0 0 5px 20px;background:url(images/dhshizheng/group/6.gif) no-repeat"><a href="u/945151">xiayuanqunzh</a></td><td style="width:12%;padding:0 0 5px 20px;background:url(images/dhshizheng/group/6.gif) no-repeat"><a href="u/812129">河南紫葡萄</a></td><td style="width:12%;padding:0 0 5px 20px;background:url(images/dhshizheng/group/6.gif) no-repeat"><a href="u/613827">洛阳不远</a></td><td style="width:12%;padding:0 0 5px 20px;background:url(images/dhshizheng/group/6.gif) no-repeat"><a href="u/159096">006</a></td><td style="width:12%;padding:0 0 5px 20px;background:url(images/dhshizheng/group/6.gif) no-repeat"><a href="u/678536">sigejiu</a></td><td style="width:12%;padding:0 0 5px 20px;background:url(images/dhshizheng/group/6.gif) no-repeat"><a href="u/540553">丑老头</a></td><td style="width:12%;padding:0 0 5px 20px;background:url(images/dhshizheng/group/6.gif) no-repeat"><a href="u/933275">和谐城关</a></td></tr><tr><td style="width:12%;padding:0 0 5px 20px;background:url(images/dhshizheng/group/6.gif) no-repeat"><a href="u/936962">63pp</a></td><td style="width:12%;padding:0 0 5px 20px;background:url(images/dhshizheng/group/6.gif) no-repeat"><a href="u/181089">hnlych1978</a></td><td style="width:12%;padding:0 0 5px 20px;background:url(images/dhshizheng/group/6.gif) no-repeat"><a href="u/804662">billandc</a></td><td style="width:12%;padding:0 0 5px 20px;background:url(images/dhshizheng/group/6.gif) no-repeat"><a href="u/663331">善待他人</a></td><td style="width:12%;padding:0 0 5px 20px;background:url(images/dhshizheng/group/6.gif) no-repeat"><a href="u/750694">asd2004</a></td><td style="width:12%;padding:0 0 5px 20px;background:url(images/dhshizheng/group/6.gif) no-repeat"><a href="u/946678">五月迷情</a></td><td style="width:12%;padding:0 0 5px 20px;background:url(images/dhshizheng/group/6.gif) no-repeat"><a href="u/740525">俊宇</a></td><td style="width:12%;padding:0 0 5px 20px;background:url(images/dhshizheng/group/6.gif) no-repeat"><a href="u/192273">二点不通</a></td></tr><tr><td style="width:12%;padding:0 0 5px 20px;background:url(images/dhshizheng/group/6.gif) no-repeat"><a href="u/958817">白疙瘩寨人</a></td><td style="width:12%;padding:0 0 5px 20px;background:url(images/dhshizheng/group/6.gif) no-repeat"><a href="u/631879">龙门之声</a></td><td style="width:12%;padding:0 0 5px 20px;background:url(images/dhshizheng/group/6.gif) no-repeat"><a href="u/518656">邙山老农</a></td><td style="width:12%;padding:0 0 5px 20px;background:url(images/dhshizheng/group/6.gif) no-repeat"><a href="u/961556">洛阳人2012</a></td><td style="width:12%;padding:0 0 5px 20px;background:url(images/dhshizheng/group/6.gif) no-repeat"><a href="u/908493">洛宁网络发言</a></td><td style="width:12%;padding:0 0 5px 20px;background:url(images/dhshizheng/group/6.gif) no-repeat"><a href="u/957435">喜乐年华</a></td><td style="width:12%;padding:0 0 5px 20px;background:url(images/dhshizheng/group/6.gif) no-repeat"><a href="u/819621">且听风云</a></td><td style="width:12%;padding:0 0 5px 20px;background:url(images/dhshizheng/group/6.gif) no-repeat"><a href="u/746227">Zero861226</a></td></tr><tr><td style="width:12%;padding:0 0 5px 20px;background:url(images/dhshizheng/group/6.gif) no-repeat"><a href="u/917514">奔腾的洛水</a></td><td style="width:12%;padding:0 0 5px 20px;background:url(images/dhshizheng/group/6.gif) no-repeat"><a href="u/479885">2313</a></td><td style="width:12%;padding:0 0 5px 20px;background:url(images/dhshizheng/group/6.gif) no-repeat"><a href="u/962174">lylh7205</a></td><td style="width:12%;padding:0 0 5px 20px;background:url(images/dhshizheng/group/6.gif) no-repeat"><a href="u/962023">旧城明天</a></td><td style="width:12%;padding:0 0 5px 20px;background:url(images/dhshizheng/group/6.gif) no-repeat"><a href="u/837835">R278～</a></td><td style="width:12%;padding:0 0 5px 20px;background:url(images/dhshizheng/group/6.gif) no-repeat"><a href="u/929199">鼠式</a></td></tr>
+</table>
+</div>
+</div>
+</div>
+<script type="text/javascript">
+var fid = '450';
+var forumtitle = "洛阳城事";
+var imgok = "keep";
+var imgno = "keepOn";
+var myshortcut = false;
+function Fjump(value){
+if(value!=''){
+window.location=('http://bbs.dahe.cn/thread.php?fid='+value);
+}
+}
+function Ajump(value){
+if(value!= ''){
+window.location=('http://bbs.dahe.cn/u.php?username='+value);
+}
+}
+var totalpage = parseInt('1000');
+var page = parseInt('1');
+if(totalpage > 1){
+document.onkeydown=function(e){
+var e = window.event || e;
+var element=e.target||e.srcElement;
+var tagname = element.tagName || element.tagName;
+if(tagname == 'INPUT' || tagname == 'TEXTAREA'){
+return;
+}
+actualCode = e.keyCode ? e.keyCode : e.charCode;
+if(actualCode == 39 && page<totalpage) {
+window.location = 'thread.php?fid=450&search=all&page=' + (page+1);
+}
+if(actualCode == 37 && page>1){
+window.location = 'thread.php?fid=450&search=all&page=' + (page-1);
+}
+}
+}
+function unshortCut(fid){
+ajax.send('pw_ajax.php?action=shortcut&type=delete&fid='+fid,'',function(){
+var short = getObj("shortcut_side_"+fid);
+short.parentNode.removeChild(short);
+ajax.guide();
+});
+}
+function shortCut() {
+ajax.send('pw_ajax.php?action=shortcut&fid='+fid,'',function(){
+ajax.guide();
+var rText = ajax.request.responseText.split('	');
+try {
+if (typeof(rText[1]) != 'undefined' && rText[1] == 'successok') {
+getObj('shortcut').innerHTML = "<a href=\"javascript:;\" onclick=\"javascript:shortCut();\" title=\"将本版块移除出我的书签\" class=\"keepOn\">已收藏</a>";
+var shortcutforum = getObj('shortcutforum');
+var forumBooks = getObj('forumBooks');
+if (myshortcut == false) {
+var shortcutname = getObj('shortcutname');
+shortcutname.innerHTML = "收藏的版块:&nbsp;";
+shortcutforum.innerHTML = "<li id=\"scf_"+fid+"\"><del onclick=\"unshortCut("+fid+");\">删除</del><a href=\"thread.php?fid="+fid+"\">"+forumtitle+"</a>&nbsp;</li>";
+forumBooks.innerHTML = "<li><a href=\"thread.php?fid="+fid+"\">"+forumtitle+"</a>&nbsp;</li>";
+} else {
+if (IsElement('shortcutforum')) {
+var li = document.createElement('li');
+li.id = 'shortcut_side_'+fid;
+li.innerHTML = '<del onclick=\"unshortCut('+fid+');\">删除</del><a href=\"thread.php?fid='+fid+'\">'+forumtitle+'</a>&nbsp;';
+shortcutforum.appendChild(li);
+}
+if (IsElement('forumBooks')) {
+var li = document.createElement('li');
+li.innerHTML = '<a href=\"thread.php?fid='+fid+'\">'+forumtitle+'</a>';
+forumBooks.appendChild(li);
+}
+}
+} else if (typeof(rText[1]) != 'undefined' && rText[1] == 'successno') {
+getObj('shortcut').innerHTML = "<a href=\"javascript:;\" onclick=\"javascript:shortCut();\" title=\"将本版块添加到我的书签\" class=\"keep mr10\">收藏</a>";
+if (IsElement('shortcut_side_'+fid)) {
+var thisnode = getObj('shortcut_side_'+fid);
+var shortcutforum = thisnode.parentNode;
+shortcutforum.removeChild(thisnode);
+var li = shortcutforum.childNodes;
+for (var i=0; i<li.length; i++) {
+if (li[i].nodeType == 1) {
+return false;
+}
+}
+myshortcut = false;
+var shortcutname = getObj('shortcutname');
+shortcutname.innerHTML = "热门版块:&nbsp;";
+shortcutforum.innerHTML = getObj('db_shortcutforum').innerHTML;
+}
+}
+}catch(e){}
+});
+}
+function showThreadUl(){
+var arrayType = Array('allmodelid','allpcid','allactmid','all');
+for (var i=0;i<4;i++) {
+if ('all'!=arrayType[i] && getObj('id_'+arrayType[i])) {
+getObj('id_'+arrayType[i]).style.display='none';
+}
+}
+if (getObj('id_all') != undefined ) {
+getObj('id_all').style.display='';
+}else{
+if (getObj('id_all')) {
+getObj('id_all').style.display='';
+}
+}
+}
+window.onReady(showThreadUl);
+</script>
+<script type="text/javascript" src="js/Deploy.js"></script>
+<script>
+setCurrent('thread_type_all','thread_type_all','current');
+/*显示or隐藏版主推荐的帖子的删除功能*/
+function show_del(o){
+var d = o.getElementsByTagName('del');
+if (d.length > 0) {
+d[0].style.display = (d[0].style.display == 'none') ? '' : 'none';
+}
+}
+/*发送请求删除版主推荐的帖子，请求成功后，删除节点*/
+function comments_del(o,params){
+ajax.send('pw_ajax.php?action=commend&fid='+params.fid+'&tid='+params.tid,'',function(){
+var rText = eval('('+ajax.request.responseText+')');
+if(true == rText.success){
+o.parentNode.removeChild(o);
+}
+});
+}
+</script>
+</div></div></div>
+</div>
+<div id="menu_forumlist" style="display:none;">
+<div class="sbar-box-a" style="width:700px;">
+<div class="sbar-title" style="cursor:pointer" onclick="try{pw_bottom.hiddenTab();read.close();}catch(e){read.close();}">
+<span class="adel">隐藏</span>
+<span id="title_forumlist" class="b">快速跳转</span>
+</div>
+<div class="sbar-box-b">
+<div class="forum-list-popout">
+<dl class="cc">
+<dt>
+<a href="index-htm-cateid-1001.htm">时政论坛</a>
+</dt>
+<dd class="cc">
+<a href="thread-htm-fid-1016.htm" onclick="return pwForumList(true,gIsPost,1016);"><span>两会：手机随即报</span></a>
+<a href="thread-htm-fid-173.htm" onclick="return pwForumList(true,gIsPost,173);"><span>发展河南</span></a>
+<a href="thread-htm-fid-995.htm" onclick="return pwForumList(true,gIsPost,995);"><span>领导留言板</span></a>
+<a href="thread-htm-fid-772.htm" onclick="return pwForumList(true,gIsPost,772);"><span>中原经济区</span></a>
+<a href="thread-htm-fid-610.htm" onclick="return pwForumList(true,gIsPost,610);"><span>深度河南</span></a>
+<a href="thread-htm-fid-168.htm" onclick="return pwForumList(true,gIsPost,168);"><span>焦点网谈</span></a>
+<a href="thread-htm-fid-723.htm" onclick="return pwForumList(true,gIsPost,723);"><span>走遍河南</span></a>
+<a href="thread-htm-fid-611.htm" onclick="return pwForumList(true,gIsPost,611);"><span>天下网事</span></a>
+<a href="thread-htm-fid-768.htm" onclick="return pwForumList(true,gIsPost,768);"><span>新闻跟帖</span></a>
+</dd>
+</dl>
+<dl class="cc">
+<dt>
+<a href="index-htm-cateid-542.htm">第一报料</a>
+</dt>
+<dd class="cc">
+<a href="thread-htm-fid-544.htm" onclick="return pwForumList(true,gIsPost,544);"><span>民生投诉</span></a>
+<a href="thread-htm-fid-597.htm" onclick="return pwForumList(true,gIsPost,597);"><span>追踪反馈</span></a>
+<a href="thread-htm-fid-395.htm" onclick="return pwForumList(true,gIsPost,395);"><span>河南媒体</span></a>
+<a href="thread-htm-fid-605.htm" onclick="return pwForumList(true,gIsPost,605);"><span>法眼观察</span></a>
+</dd>
+</dl>
+<dl class="cc">
+<dt>
+<a href="index-htm-cateid-167.htm">城市论坛</a>
+</dt>
+<dd class="cc">
+<a href="thread-htm-fid-505.htm" onclick="return pwForumList(true,gIsPost,505);"><span>鹰城印象</span></a>
+<a href="thread-htm-fid-499.htm" onclick="return pwForumList(true,gIsPost,499);"><span>躬耕南阳</span></a>
+<a href="thread-htm-fid-561.htm" onclick="return pwForumList(true,gIsPost,561);"><span>魅力郑州</span></a>
+<a href="thread-htm-fid-450.htm" onclick="return pwForumList(true,gIsPost,450);"><span>洛阳城事</span></a>
+<a href="thread-htm-fid-552.htm" onclick="return pwForumList(true,gIsPost,552);"><span>名城许昌</span></a>
+<a href="thread-htm-fid-554.htm" onclick="return pwForumList(true,gIsPost,554);"><span>腾飞焦作</span></a>
+<a href="thread-htm-fid-556.htm" onclick="return pwForumList(true,gIsPost,556);"><span>华商之都</span></a>
+<a href="thread-htm-fid-558.htm" onclick="return pwForumList(true,gIsPost,558);"><span>淇水鹤壁</span></a>
+<a href="thread-htm-fid-550.htm" onclick="return pwForumList(true,gIsPost,550);"><span>洹水安阳</span></a>
+<a href="thread-htm-fid-557.htm" onclick="return pwForumList(true,gIsPost,557);"><span>明珠三门峡</span></a>
+<a href="thread-htm-fid-560.htm" onclick="return pwForumList(true,gIsPost,560);"><span>天中驻马店</span></a>
+<a href="thread-htm-fid-559.htm" onclick="return pwForumList(true,gIsPost,559);"><span>新城济源</span></a>
+<a href="thread-htm-fid-549.htm" onclick="return pwForumList(true,gIsPost,549);"><span>龙都周口</span></a>
+<a href="thread-htm-fid-547.htm" onclick="return pwForumList(true,gIsPost,547);"><span>锦绣开封</span></a>
+<a href="thread-htm-fid-555.htm" onclick="return pwForumList(true,gIsPost,555);"><span>青春漯河</span></a>
+<a href="thread-htm-fid-551.htm" onclick="return pwForumList(true,gIsPost,551);"><span>宜居信阳</span></a>
+<a href="thread-htm-fid-548.htm" onclick="return pwForumList(true,gIsPost,548);"><span>牧野新乡</span></a>
+<a href="thread-htm-fid-553.htm" onclick="return pwForumList(true,gIsPost,553);"><span>龙乡濮阳</span></a>
+</dd>
+</dl>
+<dl class="cc">
+<dt>
+<a href="index-htm-cateid-1010.htm">大河帮帮团</a>
+</dt>
+<dd class="cc">
+<a href="thread-htm-fid-1012.htm" onclick="return pwForumList(true,gIsPost,1012);"><span>爱心接力</span></a>
+<a href="thread-htm-fid-1013.htm" onclick="return pwForumList(true,gIsPost,1013);"><span>寻人寻物</span></a>
+<a href="thread-htm-fid-1014.htm" onclick="return pwForumList(true,gIsPost,1014);"><span>博爱基金</span></a>
+</dd>
+</dl>
+<dl class="cc">
+<dt>
+<a href="index-htm-cateid-386.htm">文化论坛</a>
+</dt>
+<dd class="cc">
+<a href="thread-htm-fid-391.htm" onclick="return pwForumList(true,gIsPost,391);"><span>文化遗产</span></a>
+<a href="thread-htm-fid-1017.htm" onclick="return pwForumList(true,gIsPost,1017);"><span>大河文学</span></a>
+<a href="thread-htm-fid-49.htm" onclick="return pwForumList(true,gIsPost,49);"><span>茶  坊</span></a>
+<a href="thread-htm-fid-392.htm" onclick="return pwForumList(true,gIsPost,392);"><span>大河诗歌</span></a>
+<a href="thread-htm-fid-718.htm" onclick="return pwForumList(true,gIsPost,718);"><span>大河戏曲</span></a>
+<a href="thread-htm-fid-321.htm" onclick="return pwForumList(true,gIsPost,321);"><span>收藏鉴赏</span></a>
+<a href="thread-htm-fid-782.htm" onclick="return pwForumList(true,gIsPost,782);"><span>大河书画</span></a>
+</dd>
+</dl>
+<dl class="cc">
+<dt>
+<a href="index-htm-cateid-573.htm">娱乐论坛</a>
+</dt>
+<dd class="cc">
+<a href="thread-htm-fid-254.htm" onclick="return pwForumList(true,gIsPost,254);"><span>幽默地带</span></a>
+<a href="thread-htm-fid-575.htm" onclick="return pwForumList(true,gIsPost,575);"><span>八卦娱乐</span></a>
+<a href="thread-htm-fid-10.htm" onclick="return pwForumList(true,gIsPost,10);"><span>海纳百川</span></a>
+<a href="thread-htm-fid-445.htm" onclick="return pwForumList(true,gIsPost,445);"><span>音乐之声</span></a>
+</dd>
+</dl>
+<dl class="cc">
+<dt>
+<a href="index-htm-cateid-1.htm">社区事务</a>
+</dt>
+<dd class="cc">
+<a href="thread-htm-fid-29.htm" onclick="return pwForumList(true,gIsPost,29);"><span>社区居委会</span></a>
+<a href="thread-htm-fid-185.htm" onclick="return pwForumList(true,gIsPost,185);"><span>版主会议室</span></a>
+<a href="thread-htm-fid-587.htm" onclick="return pwForumList(true,gIsPost,587);"><span>新闻中心交流</span></a>
+</dd>
+</dl>
+<dl class="cc">
+<dt>
+<a href="index-htm-cateid-731.htm">领导留言版</a>
+</dt>
+<dd class="cc">
+<a href="thread-htm-fid-732.htm" onclick="return pwForumList(true,gIsPost,732);"><span>河南省委书记卢展工</span></a>
+<a href="thread-htm-fid-801.htm" onclick="return pwForumList(true,gIsPost,801);"><span>河南省省长郭庚茂</span></a>
+<a href="thread-htm-fid-1008.htm" onclick="return pwForumList(true,gIsPost,1008);"><span>各省直单位领导</span></a>
+<a href="thread-htm-fid-1009.htm" onclick="return pwForumList(true,gIsPost,1009);"><span>十八地市领导</span></a>
+</dd>
+</dl>
+<dl class="cc">
+<dt>
+<a href="index-htm-cateid-1006.htm">郑州社区</a>
+</dt>
+<dd class="cc">
+<a href="thread-htm-fid-1004.htm" onclick="return pwForumList(true,gIsPost,1004);"><span>女性论坛</span></a>
+<a href="thread-htm-fid-1002.htm" onclick="return pwForumList(true,gIsPost,1002);"><span>视觉论坛</span></a>
+<a href="thread-htm-fid-1003.htm" onclick="return pwForumList(true,gIsPost,1003);"><span>公益论坛</span></a>
+<a href="thread-htm-fid-1005.htm" onclick="return pwForumList(true,gIsPost,1005);"><span>生活论坛</span></a>
+<a href="thread-htm-fid-1007.htm" onclick="return pwForumList(true,gIsPost,1007);"><span>户外运动</span></a>
+</dd>
+</dl>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div></div><!--.main-wrap,#main End-->
+<div class="footer-wrap">
+<div id="bottom"></div>
+<div class="mb5 tac cc"><a title="" href="http://a903.oadz.com/link/C/903/1393/jOEAXwGHbgfWjHbLjnqdmvNavtI_/p007/73/http://www.jac-car.com.cn/market/rfhc_all/" target="_blank"><img src="attachment/advpic/20111201084546_1.jpg"/></a></div>
+<div id="footer">
+<div class="mb5">
+<div class="bottom tac">
+<span class="mr10"><a id="nav_key_up_78" href="http://www.dahe.cn/2011/5170/lutan/" title="" target="_blank">广告服务</a></span><span class="gray mr10">|</span><span class="mr10"><a id="nav_key_up_12" href="sendemail.php" title="" >联系我们</a></span><span class="gray mr10">|</span><span class="mr10"><a id="nav_key_up_13" href="simple/" title="" >无图版</a></span><span class="gray mr10">|</span><span class="mr10"><a id="nav_key_up_14" href="m/introduce.php" title="" >手机浏览</a></span><span class="gray mr10">|</span><a href="job.php?action=erasecookie&verify=0e7f6a8e">清除Cookies</a>
+</div>
+</div>
+<div class="f10 s6 tac">
+<p class="mb5">Powered by <a href="http://www.phpwind.net/" target="_blank" class="s4">phpwind v8.7</a>&nbsp;<a href="http://www.phpwind.com/certificate.php?host=bbs.dahe.cn" target="_blank">Certificate</a> Copyright Time now is:03-09 11:15 <br />&copy;2003-2011 <a href="/" target="_blank">大河论坛</a> 版权所有 Gzip enabled <a href="http://www.miibeian.gov.cn" target="_blank">豫ICP备07006354号-1</a> <span id="windspend">Total 0.069487(s) query 4,</span>  <span id="stats"></span>
+</p>
+</div>
+</div>
+</div>
+</div>
+<script type="text/javascript" src="js/global.js"></script>
+<script type="text/javascript" src="mode/area/js/adminview.js"></script>
+</body></html>
+<script type="text/javascript" src="js/app_global.js"></script>
+<script>
+var openmenu = {'td_sort' : 'menu_sort','td_post' : 'menu_post','td_post1' : 'menu_post','td_special' : 'menu_special'};
+var messagetip=null;
+window.onReady(function(){
+read.InitMenu();
+//消息提示
+messagetip=new messageTip(90);
+messagetip.init();
+});
+WINDOW_LOADED=1;
+</script>

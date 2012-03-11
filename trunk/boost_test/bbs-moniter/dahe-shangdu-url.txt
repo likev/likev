@@ -1,0 +1,17 @@
+大河论坛-洛阳城事
+phpwind v8.7(20110928)
+charset="gbk"
+http://bbs.dahe.cn/thread-htm-fid-450.htm
+http://bbs.dahe.cn/bbs/forum-450-1.html
+
+最新发帖
+http://bbs.dahe.cn/thread-htm-fid-450-search-all-orderway-postdate-asc-DESC-page-1-type-0-special-0.htm
+
+洛阳信息港--洛阳城事
+phpwind v8.5(20110425)
+charset=gbk
+http://bbs.ly.shangdu.com/thread-htm-fid-29.html
+
+最新发帖
+http://bbs.ly.shangdu.com/thread.php?fid=29&search=all&page=1
+post type=0&search=1000&special=0&orderway=postdate&asc=DESC

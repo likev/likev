@@ -3,6 +3,10 @@ Microsoft Visual Studio Solution File, Format Version 10.00
 # Visual Studio 2008
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "boost_test", "boost_test\boost_test.vcproj", "{D0D1E61B-26AE-4657-B976-C5867ED3A5DA}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "bbs-moniter", "bbs-moniter\bbs-moniter.vcproj", "{7DA7796B-2FD0-45A7-AFAC-310F1B1D3BB5}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "prog-config", "prog-config\prog-config.vcproj", "{FC4E6C61-B062-4213-9068-EBE8EA4A6A1E}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Win32 = Debug|Win32
@@ -13,6 +17,14 @@ Global
 		{D0D1E61B-26AE-4657-B976-C5867ED3A5DA}.Debug|Win32.Build.0 = Debug|Win32
 		{D0D1E61B-26AE-4657-B976-C5867ED3A5DA}.Release|Win32.ActiveCfg = Release|Win32
 		{D0D1E61B-26AE-4657-B976-C5867ED3A5DA}.Release|Win32.Build.0 = Release|Win32
+		{7DA7796B-2FD0-45A7-AFAC-310F1B1D3BB5}.Debug|Win32.ActiveCfg = Debug|Win32
+		{7DA7796B-2FD0-45A7-AFAC-310F1B1D3BB5}.Debug|Win32.Build.0 = Debug|Win32
+		{7DA7796B-2FD0-45A7-AFAC-310F1B1D3BB5}.Release|Win32.ActiveCfg = Release|Win32
+		{7DA7796B-2FD0-45A7-AFAC-310F1B1D3BB5}.Release|Win32.Build.0 = Release|Win32
+		{FC4E6C61-B062-4213-9068-EBE8EA4A6A1E}.Debug|Win32.ActiveCfg = Debug|Win32
+		{FC4E6C61-B062-4213-9068-EBE8EA4A6A1E}.Debug|Win32.Build.0 = Debug|Win32
+		{FC4E6C61-B062-4213-9068-EBE8EA4A6A1E}.Release|Win32.ActiveCfg = Release|Win32
+		{FC4E6C61-B062-4213-9068-EBE8EA4A6A1E}.Release|Win32.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
