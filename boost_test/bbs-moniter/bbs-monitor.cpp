@@ -89,6 +89,8 @@ bool bbs_monitor::check_items()
 				
 				if(alarm_history.count(this_url) ) break;
 				
+				alarming_item = item;
+				
 				std::string newinfo = 
 				"在网站"+host+"发现新帖子:\n"
 				"----------------------------------------------\n"
@@ -101,22 +103,14 @@ bool bbs_monitor::check_items()
 
 				log_to_file("monitor.log", newinfo);
 
-				std::cout<<"正在发送短信...\n";
 				start_send_sms();
-				std::cout<<"短信已发送！\n\n";
-
-				log_to_file("monitor.log", "短信已发送!");
-
-				std::cout<<"开启声音报警(请按任意键关闭)...";
-				log_to_file("monitor.log", "开启声音报警...");
 
 				start_sound_alarm();
 				
-				std::cout<<"\n用户关闭本次声音报警...\n";
-				log_to_file("monitor.log", "用户关闭声音报警...");
-
 				find_keyword = true;
 				addto_alarm_history(this_url);
+
+				break;
 			}
 		}
 	}
@@ -126,15 +120,41 @@ bool bbs_monitor::check_items()
 
 void bbs_monitor::start_send_sms()
 {
+	std::string this_url = "http://"+host+'/'+ alarming_item.url;
+	
+	std::string smsinfo1 = 
+				"[监测到新帖]:" + alarming_item.title
+				+" 发布时间:"+ alarming_item.timestr,
+
+				smsinfo2 = "链接地址: " + this_url;
+
+	std::cout<<"正在发送短信...\n";
+
+	BOOST_FOREACH(const std::string& phone, phone_numbers)
+	{
+		send_short_message(smsinfo1, phone);
+		send_short_message(smsinfo2, phone);
+	}
+
+	std::cout<<"已向 "<<phone_numbers.size()<<" 人发送短信！\n\n";
+	log_to_file("monitor.log", "短信已发送!");
 
 }
 
 void bbs_monitor::start_sound_alarm()
 {
 	close_alert = false;
+
+	std::cout<<"开启声音报警(请按任意键关闭)...";
+	log_to_file("monitor.log", "开启声音报警...");
 	
 	AfxBeginThread(MyThreadProc,NULL);
 
-	if(_getch() ) close_alert = true;
+	if(_getch() )
+	{
+		close_alert = true;
+		std::cout<<"\n用户关闭本次声音报警...\n";
+		log_to_file("monitor.log", "用户关闭声音报警...");
+	}
 
 }
