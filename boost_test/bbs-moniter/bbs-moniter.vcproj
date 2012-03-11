@@ -2,9 +2,9 @@
 <VisualStudioProject
 	ProjectType="Visual C++"
 	Version="9.00"
-	Name="boost_test"
-	ProjectGUID="{D0D1E61B-26AE-4657-B976-C5867ED3A5DA}"
-	RootNamespace="boost_test"
+	Name="bbs-moniter"
+	ProjectGUID="{7DA7796B-2FD0-45A7-AFAC-310F1B1D3BB5}"
+	RootNamespace="bbsmoniter"
 	Keyword="Win32Proj"
 	TargetFrameworkVersion="196613"
 	>
@@ -21,7 +21,8 @@
 			OutputDirectory="$(SolutionDir)$(ConfigurationName)"
 			IntermediateDirectory="$(ConfigurationName)"
 			ConfigurationType="1"
-			CharacterSet="1"
+			UseOfMFC="1"
+			CharacterSet="2"
 			>
 			<Tool
 				Name="VCPreBuildEventTool"
@@ -61,7 +62,6 @@
 			<Tool
 				Name="VCLinkerTool"
 				LinkIncremental="2"
-				AdditionalLibraryDirectories=""
 				GenerateDebugInformation="true"
 				SubSystem="1"
 				TargetMachine="1"
@@ -93,7 +93,8 @@
 			OutputDirectory="$(SolutionDir)$(ConfigurationName)"
 			IntermediateDirectory="$(ConfigurationName)"
 			ConfigurationType="1"
-			CharacterSet="1"
+			UseOfMFC="1"
+			CharacterSet="2"
 			WholeProgramOptimization="1"
 			>
 			<Tool
@@ -172,7 +173,23 @@
 			UniqueIdentifier="{4FC737F1-C7A5-4376-A066-2A32D752A2FF}"
 			>
 			<File
-				RelativePath=".\main1.cpp"
+				RelativePath=".\bbs-monitor.cpp"
+				>
+			</File>
+			<File
+				RelativePath=".\download-webpage.cpp"
+				>
+			</File>
+			<File
+				RelativePath=".\main.cpp"
+				>
+			</File>
+			<File
+				RelativePath=".\process-html.cpp"
+				>
+			</File>
+			<File
+				RelativePath="..\..\common-files\string-trans.cpp"
 				>
 			</File>
 		</Filter>
@@ -181,6 +198,18 @@
 			Filter="h;hpp;hxx;hm;inl;inc;xsd"
 			UniqueIdentifier="{93995380-89BD-4b04-88EB-625FBE52EBFB}"
 			>
+			<File
+				RelativePath=".\bbs-monitor.h"
+				>
+			</File>
+			<File
+				RelativePath=".\download-webpage.h"
+				>
+			</File>
+			<File
+				RelativePath=".\process-html.h"
+				>
+			</File>
 		</Filter>
 		<Filter
 			Name="资源文件"
