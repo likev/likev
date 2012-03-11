@@ -45,10 +45,7 @@ std::string DownHttpPage(const std::string& hostName, const std::string& pathNam
  
 			//std::cout<<result<<std::endl;//ÏÔÊ¾·µ»ØÄÚÈÝ
 		}
-		else
-		{
-			return "";
-		}
+
 		delete pFile;
 		delete pServer;
  

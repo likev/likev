@@ -98,7 +98,7 @@ public:
 		
 		if(! check_items() )
 		{
-			std::cout<<"没有在网页"<<host<<"发现关键词\n\n";
+			std::cout<<"没有在网页"<<host<<"发现关键词\n";
 		}
 		std::cout<<"\n\n";
 
@@ -121,7 +121,10 @@ private:
 	{
 		BOOST_FOREACH(item_describe& item, items)
 		{
-			std::cout<<"\ntitle: "<<item.title<<"\nurl: "<<item.url<<"\ntime: "<<item.timestr<<"\nauthor: "<<item.author<<std::endl;
+			std::cout<<"\ntitle: "<<item.title
+				<<"\nurl: "<<item.url
+				<<"\ntime: "<<item.timestr
+				<<"\nauthor: "<<item.author<<std::endl;
 		}
 	}
 

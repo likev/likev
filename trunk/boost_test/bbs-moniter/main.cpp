@@ -10,15 +10,15 @@ int main()
 
 	std::string appinfo = 
 		"BBS网站 内容关键词监测程序(1.0)\n"
-		"作者:许方璐 2012年3月10日\n"
-		"修改配置方法: 请编辑程序所在目录下的config.ini文件\n\n";
+		"作者:许方璐 2012年3月11日\n"
+		"修改配置方法: 请编辑程序所在目录下的config.ini文件\n\n\n";
 	
 	
 	std::cout<<appinfo;
 	
 	while(true)
 	{
-		std::cout<<"开始监测网页...\n\n";
+		std::cout<<"开始监测网页...\n\n\n";
 		dahe.monitor_once();
 		shangdu.monitor_once();
 
@@ -28,7 +28,7 @@ int main()
 		long interval = ini.GetLongValue("monitor","interval",10);
 
 		std::cout<<"本次监测结束, "<<interval<<"分钟后将再次监测...\n"
-			"----------------------------------------------\n\n";
+			"------------------------------------------------------\n\n";
 		
 		std::cout<<appinfo;
 
