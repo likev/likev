@@ -1,0 +1,56 @@
+<!doctype html>
+<html>
+<head>
+<meta charset='utf-8'>
+<title> Javascript绘制等值线</title>
+
+<style>
+
+</style>
+<script src="jquery-1.6.2.min.js"></script>
+<script src='Contour.js'></script>
+
+<script>
+$(function(){
+
+	
+	function grid(_x,_y,_v){
+		return {
+			x : _x,
+			y : _y,
+			value : _v
+		}
+	}
+	var data = [
+		[ grid(0,0,1),  grid(0,100,3.5),  grid(0,200,5.3)],
+		[ grid(100,0,3),  grid(100,100,4.3),  grid(100,200,7)],
+		[ grid(200,0,5),  grid(200,100,7),  grid(200,200,8)]
+	];
+	var con = new Contour(data);
+	
+	con.setContourLevel([2,4,6]);
+	var all_iso_line = con.track();
+	
+	var dc = $('#draw')[0].getContext('2d');
+	dc.beginPath();
+	for(var i in all_iso_line){
+		var line = all_iso_line[i].path;
+		dc.moveTo(line[0].x, line[0].y);
+		for(var j=1; j< line.length; j++){
+			dc.lineTo(line[j].x, line[j].y);
+		}
+	}
+	dc.stroke();
+	
+})
+</script>
+</head>
+
+<body>
+<div id='log'/>
+<canvas id='draw' width=800 height=400>
+浏览器不支持canvas！
+</canvas>
+</body>
+</html>
+
