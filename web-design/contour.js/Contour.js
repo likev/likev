@@ -1,3 +1,13 @@
+
+//定义一个网格点
+function grid(_x,_y,_v){
+	return {
+		x : _x,
+		y : _y,
+		value : _v
+	}
+}
+
 /*      网格点标识如下:
 
 (i+1,j) ·---------·(i+1,j+1)
@@ -53,12 +63,20 @@ function Contour(initArgument){
 	this.track = function(){
 		for (var i = 0; i < contourLevel.length; i++){
 			cur_follow_value = contourLevel[i];
+			
+			log("<br>cur_follow_value: "+ cur_follow_value + "<br>");
 
 			interpolate_tracing_value(); //扫描并计算纵、横边上等值点的情况
+			
+			log('interpolate_tracing_value over! <br>');
 
 			tracing_non_closed_contour();  //追踪开等值线
+			
+			log('tracing_non_closed_contour over! <br>');
 
 			tracing_closed_contour();    //追踪封闭等值线
+			
+			log('tracing_closed_contour over! <br>');
 		}
 		
 		return all_iso_line;
@@ -139,7 +157,11 @@ function Contour(initArgument){
 		
 		for(var i=0; i<edgeRows; i++){
 			for(var j=0; j<edgeCols; j++){
-				log('('+i+','+j+'):' + edgeInfoX[i][j].have_iso_point+ ' '+ edgeInfoX[i][j].rate );
+				if(edgeInfoX[i][j].have_iso_point){
+					log('('+i+','+j+'):' + edgeInfoX[i][j].rate );
+				}else{
+					log('('+i+','+j+'): -1' );
+				}
 			}
 			log('<br>');
 		}
@@ -223,7 +245,7 @@ function Contour(initArgument){
 		
 		while(!over)
 		{
-			trace_next_point();
+			if(!trace_next_point() ) break;
 			pre_iso_point = cur_iso_point;
 			cur_iso_point = next_iso_point;
 
@@ -244,17 +266,17 @@ function Contour(initArgument){
 		var row = point.row, col = point.col;
 		var is_h = point.isHorizon;
 		
-		var x= xMin + col*deltX,
-			y= yMin + row*deltY;
+		var x= xMin + row*deltX,
+			y= yMin + col*deltY;
 			
 		if(is_h)
 		{
-			x += edgeInfoX[row][col].rate * deltX;
+			y += edgeInfoX[row][col].rate * deltY;
 			edgeInfoX[row][col].have_iso_point = false;
 		}
 		else
 		{
-			y += edgeInfoY[row][col].rate * deltY;
+			x += edgeInfoY[row][col].rate * deltX;
 			edgeInfoY[row][col].have_iso_point = false;
 		}
 
@@ -343,11 +365,16 @@ function Contour(initArgument){
 
 			var points = [left, right, oppsite];
 			
-			for(var i in points){
+			var success = false;
+			for(var i=0; i<3; i++){
 				if(isHaveIsoPoint(points[i]) ){
 					dealIsoPoint( points[i] );
+					success = true;
+					break;
 				}
 			}
+			
+			return success;
         }
 		
 		var tracing_closed_contour = function(){
@@ -355,8 +382,8 @@ function Contour(initArgument){
 			for(j=0; j<edgeCols; j++){
 				for(i=0; i<edgeRows; i++){//每一列的各层
 					if(edgeInfoY[i][j].have_iso_point){//垂直边上是否有等值点
-						pre_iso_point = iso_point(i,0,false);
-						cur_iso_point = iso_point(i,j,false);
+						pre_iso_point = new IsoPointPos(i,0,false);
+						cur_iso_point = new IsoPointPos(i,j,false);
 
 						tracing_one_closed_contour();
 					}
@@ -378,7 +405,7 @@ function Contour(initArgument){
 
 			while(!over)
 			{
-				trace_next_point();
+				if(!trace_next_point() ) break;
 
 				pre_iso_point = cur_iso_point;
 				cur_iso_point = next_iso_point;
@@ -393,5 +420,5 @@ function Contour(initArgument){
 }
 
 var log = function(html){
-	$('#log').append(html);
+	//$('#log').append(html);
 }
