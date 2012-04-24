@@ -72,7 +72,39 @@ $(function(){
 		for(var j=0; j<lonCount; j++){
 			lon = 2.5*j + beginLon;
 			mydata[i][j] = grid(lat, lon, odata[k++]);
+/*			
+		  var marker = new google.maps.Marker({
+			  position: new google.maps.LatLng(lat, lon), 
+			  map: map, 
+			  title: ' '+mydata[i][j].value
+		  });
+		  */
 		}
+	}
+	
+	for(var lat=beginLat; lat >= endLat; lat -= 2.5){
+	
+		var flightPath = new google.maps.Polyline({
+			path: [new google.maps.LatLng(lat, beginLon), new google.maps.LatLng(lat, endLon)],
+			strokeColor: "#666666",
+			strokeOpacity: 0.8,
+			strokeWeight: 1
+		});
+
+		flightPath.setMap(map);
+	
+	}
+	for(var lon=beginLon; lon <= endLon; lon += 2.5){
+	
+		var flightPath = new google.maps.Polyline({
+			path: [new google.maps.LatLng(beginLat, lon), new google.maps.LatLng(endLat, lon)],
+			strokeColor: "#666666",
+			strokeOpacity: 0.8,
+			strokeWeight: 1
+		});
+
+		flightPath.setMap(map);
+	
 	}
 /*	
 //test data read
@@ -89,32 +121,15 @@ $(function(){
 		mylevel[mylevel.length] = l;
 	}
 	
-	console.log(mydata);
-	console.log(mylevel);
+//	console.log(mydata);
+//	console.log(mylevel);
 	
 	
 	var con = new Contour(mydata);
 	
 	con.setContourLevel(mylevel);
 	var all_iso_line = con.track();
-	/*
-	var dc = $('#draw')[0].getContext('2d');
-	
-	 
-	dc.translate(0, 800);
-	dc.scale(10,-10);
-	dc.translate(-30, -10);
-	dc.lineWidth = 0.2;
-	dc.beginPath();
-	for(var i in all_iso_line){
-		var line = all_iso_line[i].path;
-		dc.moveTo(line[0].y, line[0].x);
-		for(var j=1; j< line.length; j++){
-			dc.lineTo(line[j].y, line[j].x);
-		}
-	}
-	dc.stroke();
-	*/
+
 	
 	for(var i in all_iso_line){
 		var line = all_iso_line[i].path;
