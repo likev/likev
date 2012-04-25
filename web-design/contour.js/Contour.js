@@ -360,10 +360,11 @@ function Contour(initArgument){
 		var isHaveIsoPoint = function(position){
 			
 			var r = position.row, c = position.col, h = position.isHorizon;
-			
+/*			
 			if( r <gridRows-1 && c<gridCols-1 &&  cur_follow_value==580){
 				console.log('row='+r+' col='+c+' Horizon='+h+' x.rate: '+edgeInfoX[r][c].rate.toFixed(3)+' y.rate: '+edgeInfoY[r][c].rate.toFixed(3));
 			}
+			*/
 			if(h){
 				return edgeInfoX[r][c].have_iso_point;
 			}else{
