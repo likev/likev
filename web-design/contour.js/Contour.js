@@ -157,20 +157,24 @@ function Contour(initArgument){
 
 	}
 
-	function IsoPointPos(_row, _col, _isHorizon){
-		this.row = _row;
-		this.col = _col;
-		this.isHorizon = _isHorizon;
+	var isoPointPosClone = function(pointA){
+		 this.row = pointA.row, 
+		 this.col = pointA.col, 
+		 this.isHorizon = pointA.isHorizon;
 	}
-	IsoPointPos.clone = function(pointA, pointB){
-		 pointB.row = pointA.row, 
-		 pointB.col = pointA.col, 
-		 pointB.isHorizon = pointA.isHorizon;
+	function isoPointPos(_row, _col, _isHorizon){
+		return{
+			row: _row || 0,
+			col: _col || 0,
+			isHorizon: _isHorizon || 0,
+			clone: isoPointPosClone
+		}
 	}
 	
-	var pre_iso_point = new IsoPointPos(),
-		cur_iso_point = new IsoPointPos(),
-		next_iso_point = new IsoPointPos();
+	
+	var pre_iso_point = isoPointPos(),
+		cur_iso_point = isoPointPos(),
+		next_iso_point = isoPointPos();
 
 	//追踪开等值线
 	var tracing_non_closed_contour = function(){
@@ -181,8 +185,8 @@ function Contour(initArgument){
 		{
 			if (edgeInfoY[i][0].have_iso_point)
 			{
-				pre_iso_point = new IsoPointPos(i,-1,false);
-				cur_iso_point = new IsoPointPos(i, 0,false);
+				pre_iso_point = isoPointPos(i,-1,false);
+				cur_iso_point = isoPointPos(i, 0,false);
 
 				tracing_one_non_closed_contour();
 			}
@@ -192,8 +196,8 @@ function Contour(initArgument){
 		{
 			if (edgeInfoX[gridRows-1][j].have_iso_point)
 			{
-				pre_iso_point = new IsoPointPos(gridRows,j,true);
-				cur_iso_point = new IsoPointPos(gridRows-1,j,true);
+				pre_iso_point = isoPointPos(gridRows,j,true);
+				cur_iso_point = isoPointPos(gridRows-1,j,true);
 
 				tracing_one_non_closed_contour();
 			}
@@ -203,8 +207,8 @@ function Contour(initArgument){
 		{
 			if (edgeInfoY[i][gridCols-1].have_iso_point)
 			{
-				pre_iso_point = new IsoPointPos(i,gridCols,false);
-				cur_iso_point = new IsoPointPos(i,gridCols-1,false);
+				pre_iso_point = isoPointPos(i,gridCols,false);
+				cur_iso_point = isoPointPos(i,gridCols-1,false);
 
 				tracing_one_non_closed_contour();
 			}
@@ -214,8 +218,8 @@ function Contour(initArgument){
 		{
 			if (edgeInfoX[0][j].have_iso_point)
 			{
-				pre_iso_point = new IsoPointPos(-1,j,true);
-				cur_iso_point = new IsoPointPos(0, j,true);
+				pre_iso_point = isoPointPos(-1,j,true);
+				cur_iso_point = isoPointPos(0, j,true);
 
 				tracing_one_non_closed_contour();
 			}
@@ -249,10 +253,8 @@ function Contour(initArgument){
 		
 	}
 	
-	//追踪到等值点时进行处理
-	var dealIsoPoint = function(point){
-		//计算坐标并将此点加入当前等值线中
-		
+	//追踪到等值点时计算x y 坐标
+	var getXY = function(point){
 		var row = point.row, col = point.col;
 		var is_h = point.isHorizon;
 		
@@ -262,15 +264,35 @@ function Contour(initArgument){
 		if(is_h)
 		{
 			y += edgeInfoX[row][col].rate * deltY;
-			edgeInfoX[row][col].have_iso_point = false;
 		}
 		else
 		{
 			x += edgeInfoY[row][col].rate * deltX;
+		}
+		
+		return {
+			'x':x,
+			'y':y
+		}
+	}
+	
+	//追踪到等值点时进行处理
+	var dealIsoPoint = function(point){
+		//计算坐标并将此点加入当前等值线中
+		
+		var row = point.row, col = point.col;
+		var is_h = point.isHorizon;
+		
+		if(is_h)
+		{
+			edgeInfoX[row][col].have_iso_point = false;
+		}
+		else
+		{
 			edgeInfoY[row][col].have_iso_point = false;
 		}
 
-		now_iso_line.path.push( {'x':x,'y':y} );
+		now_iso_line.path.push( getXY(point) );
 
 		next_iso_point = point;
 	}
@@ -281,54 +303,54 @@ function Contour(initArgument){
 			//判断从网格哪边进入
             if (cur_iso_point.row > pre_iso_point.row) //从下至上
             {
-				IsoPointPos.clone(cur_iso_point, left); 
+				left.clone(cur_iso_point); 
 				left.isHorizon = false;
 
-				IsoPointPos.clone(left, right); 
+				right.clone(left); 
 				right.col += 1;
 
-				IsoPointPos.clone(cur_iso_point, oppsite); 
+				oppsite.clone(cur_iso_point); 
 				oppsite.row += 1;
 				
                 return;
             }
             else if (cur_iso_point.col > pre_iso_point.col)  //从左至右
             {
-				IsoPointPos.clone(cur_iso_point, right); 
+				right.clone(cur_iso_point); 
 				right.isHorizon = true;
 				
-				IsoPointPos.clone(right, left);
+				left.clone(right);
 				left.row += 1;
 
-				IsoPointPos.clone(cur_iso_point, oppsite);
+				oppsite.clone(cur_iso_point);
 				oppsite.col += 1;
 
                 return;
             }
 			else if (cur_iso_point.isHorizon)  //从上至下
             {
-				IsoPointPos.clone(cur_iso_point, right); 
+				right.clone(cur_iso_point); 
 				right.row -= 1;
 				right.isHorizon = false;
 				
-				IsoPointPos.clone(right, left);
+				left.clone(right);
 				left.col += 1;
 
-				IsoPointPos.clone(cur_iso_point, oppsite); 
+				oppsite.clone(cur_iso_point); 
 				oppsite.row -= 1;
 
                 return;
             }
             else                               //从右至左
             {
-				IsoPointPos.clone(cur_iso_point, left);
+				left.clone(cur_iso_point);
 				left.col -= 1;
 				left.isHorizon = true;
 
-				IsoPointPos.clone(left, right); 
+				right.clone(left); 
 				right.row += 1;
 
-				IsoPointPos.clone(cur_iso_point, oppsite ); 
+				oppsite.clone(cur_iso_point); 
 				oppsite.col -= 1;
 
                 return;
@@ -336,11 +358,11 @@ function Contour(initArgument){
 		}
 		
 		var isHaveIsoPoint = function(position){
-			//log('<br>position: row ' + position.row +' col '+position.col+ ' isHorizon:' + position.isHorizon);
+			
 			var r = position.row, c = position.col, h = position.isHorizon;
 			
-			if( beql(cur_follow_value, 572) ){
-				//console.log('row='+r+' col='+c+' Horizon='+h+' x.rate: '+edgeInfoX[r][c].rate.toFixed(3)+' y.rate: '+edgeInfoY[r][c].rate.toFixed(3));
+			if( r <gridRows-1 && c<gridCols-1 &&  cur_follow_value==580){
+				console.log('row='+r+' col='+c+' Horizon='+h+' x.rate: '+edgeInfoX[r][c].rate.toFixed(3)+' y.rate: '+edgeInfoY[r][c].rate.toFixed(3));
 			}
 			if(h){
 				return edgeInfoX[r][c].have_iso_point;
@@ -348,26 +370,51 @@ function Contour(initArgument){
 				return edgeInfoY[r][c].have_iso_point;
 			}
 		}
+		
+		var getDistance = function(pointA, pointB){
+			var xyA = getXY(pointA), xyB = getXY(pointB);
+			var xd = xyA.x - xyB.x, yd = xyA.y - xyB.y;
+			
+			return Math.sqrt(xd*xd + yd*yd);
+		}
 
 		//追踪下一点
         var trace_next_point = function()
         {
-			var left = new IsoPointPos(),
-				right = new IsoPointPos(),
-				oppsite = new IsoPointPos();
+			var left = isoPointPos(),
+				right = isoPointPos(),
+				oppsite = isoPointPos();
 
 			determine_direction(left,right,oppsite);
 
 			var points = [left, right, oppsite];
+			var bHaveIso = [];
 			
 			var success = false;
 			for(var i=0; i<3; i++){
-				if(isHaveIsoPoint(points[i]) ){
-					dealIsoPoint( points[i] );
-					success = true;
-					break;
+				bHaveIso[i] = isHaveIsoPoint(points[i])
+			}
+			
+			if(bHaveIso[0] && bHaveIso[1] && bHaveIso[2] ){//一个网格内有另外三个等值点
+				if( getDistance(cur_iso_point, points[0] )
+					< getDistance(cur_iso_point, points[1] ) ){
+					dealIsoPoint( points[0] );
+				}else{
+					dealIsoPoint( points[1] );
+				}
+				
+				success = true;
+			}else{
+				for(var i=0; i<3; i++){
+					if(bHaveIso[i]){
+						dealIsoPoint( points[i] );
+						success = true;
+						break;
+					}		
 				}
 			}
+			
+			
 			
 			return success;
         }
@@ -377,8 +424,8 @@ function Contour(initArgument){
 			for(j=0; j<gridCols-1; j++){
 				for(i=0; i<gridRows-1; i++){//每一列的各层
 					if(edgeInfoY[i][j].have_iso_point){//垂直边上是否有等值点
-						pre_iso_point = new IsoPointPos(i,0,false);
-						cur_iso_point = new IsoPointPos(i,j,false);
+						pre_iso_point = isoPointPos(i,0,false);
+						cur_iso_point = isoPointPos(i,j,false);
 
 						tracing_one_closed_contour();
 					}
@@ -395,7 +442,7 @@ function Contour(initArgument){
 			path :[] 
 			};
 			
-			dealIsoPoint(cur_iso_point);
+			now_iso_line.path.push( getXY(cur_iso_point) );
 			var over = false;
 
 			while(!over)
@@ -406,7 +453,7 @@ function Contour(initArgument){
 				cur_iso_point = next_iso_point;
 
 				over = (cur_iso_point.row==start_r) && (cur_iso_point.col == start_c)
-					&& (!cur_iso_point.is_horizon);
+					&& (!cur_iso_point.isHorizon);
 			}
 
 			all_iso_line.push(now_iso_line);
