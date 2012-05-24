@@ -1,5 +1,5 @@
 // RadProjection.cpp: implementation of the CRadEPrj class.
-//
+//就是地球坐标系的定位，雷达数据转换为经纬网格数据
 //////////////////////////////////////////////////////////////////////
 
 #include <stdlib>
