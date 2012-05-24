@@ -1,5 +1,5 @@
 // RadProjection.h: interface for the CRadEPrj class.
-//
+//就是地球坐标系的定位，雷达数据转换为经纬网格数据
 //////////////////////////////////////////////////////////////////////
 
 #if !defined(AFX_RADPROJECTION_H__B0D62835_14C8_41CB_A125_5FE50444D39E__INCLUDED_)
