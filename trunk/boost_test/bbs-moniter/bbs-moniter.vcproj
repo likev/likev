@@ -210,6 +210,10 @@
 				RelativePath=".\process-html.h"
 				>
 			</File>
+			<File
+				RelativePath="..\..\..\libs\simpleini\SimpleIni.h"
+				>
+			</File>
 		</Filter>
 		<Filter
 			Name="资源文件"

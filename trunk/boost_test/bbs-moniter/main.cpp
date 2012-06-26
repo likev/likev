@@ -9,8 +9,8 @@ int main()
 		shangdu("bbs.ly.shangdu.com","thread-htm-fid-29.html","type=0&search=1000&special=0&orderway=postdate&asc=DESC");
 
 	std::string appinfo = 
-		"BBS网站 内容关键词监测程序(1.0)\n"
-		"作者:许方璐 2012年3月11日\n"
+		"BBS网站 内容关键词监测程序(2.0)\n"
+		"作者:许方璐 2012年6月26日\n"
 		"修改配置方法: 请编辑程序所在目录下的config.ini文件\n\n\n";
 	
 	
