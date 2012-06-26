@@ -33,6 +33,8 @@ class bbs_monitor
 	std::vector<std::string> keywords, phone_numbers;
 	std::set<std::string> alarm_history;
 
+	bool enable_sound, enable_sms;
+
 public:
 
 	bbs_monitor(){};
@@ -96,6 +98,7 @@ public:
 		load_keyword();
 		load_phone_numbers();
 		load_alarm_history();
+		load_alarm_control();
 		
 		if(! check_items() )
 		{
@@ -174,6 +177,19 @@ private:
 
 		std::string phone_str = ini.GetValue("sms","phone-numbers");
 		get_pat_list(phone_numbers, phone_str, boost::regex("[#\\s\\|]*(\\d{11})[#\\s\\|]*"));
+
+		//out_vector(phone_numbers);
+		
+		return true;
+	}
+
+	bool load_alarm_control()
+	{
+		CSimpleIniA ini;
+		ini.LoadFile("config.ini");
+
+		enable_sound = ini.GetBoolValue("alarm", "sound", true);
+		enable_sms = ini.GetBoolValue("alarm", "message", true);
 
 		//out_vector(phone_numbers);
 		
