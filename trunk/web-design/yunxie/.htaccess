@@ -1,0 +1,5 @@
+RewriteEngine on
+
+RewriteBase /
+
+RewriteRule ^([a-zA-Z0-9]{1,16})$ edit.php?name=$1 [L]
