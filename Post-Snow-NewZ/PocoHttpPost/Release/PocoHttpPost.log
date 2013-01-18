@@ -1,0 +1,17 @@
+﻿生成启动时间为 2013-01-18 18:11:05。
+     1>项目“E:\cppcode\Post-Snow-NewZ\PocoHttpPost\PocoHttpPost.vcxproj”在节点 2 上(build 个目标)。
+     1>InitializeBuildStatus:
+         正在创建“Release\Post-Snow-NewZ.unsuccessfulbuild”，因为已指定“AlwaysCreate”。
+       ClCompile:
+         所有输出均为最新。
+       Link:
+         所有输出均为最新。
+         PocoHttpPost.vcxproj -> E:\cppcode\Post-Snow-NewZ\Release\Post-Snow-NewZ.exe
+       FinalizeBuildStatus:
+         正在删除文件“Release\Post-Snow-NewZ.unsuccessfulbuild”。
+         正在对“Release\Post-Snow-NewZ.lastbuildstate”执行 Touch 任务。
+     1>已完成生成项目“E:\cppcode\Post-Snow-NewZ\PocoHttpPost\PocoHttpPost.vcxproj”(build 个目标)的操作。
+
+生成成功。
+
+已用时间 00:00:00.04
