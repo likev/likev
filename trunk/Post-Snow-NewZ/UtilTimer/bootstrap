@@ -1,0 +1,16 @@
+#! /bin/sh
+
+for f in AUTHORS COPYING INSTALL NEWS ChangeLog README
+do
+  if [ ! -f $f ] ; then
+	  echo + touch $f
+	  touch $f
+  fi
+done
+
+set -x
+aclocal
+#libtoolize --force --copy
+autoheader
+automake --add-missing --copy
+autoconf

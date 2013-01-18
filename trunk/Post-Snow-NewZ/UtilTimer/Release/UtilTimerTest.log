@@ -1,0 +1,21 @@
+﻿生成启动时间为 2012-12-17 21:27:02。
+     1>项目“E:\cppcode\PocoHttpPost\UtilTimer\UtilTimerTest.vcxproj”在节点 2 上(build 个目标)。
+     1>InitializeBuildStatus:
+         正在创建“Release\UtilTimerTest.unsuccessfulbuild”，因为已指定“AlwaysCreate”。
+       ClCompile:
+         C:\Program Files\Microsoft Visual Studio 10.0\VC\bin\CL.exe /c /IE:\cppcode\mylibs\include /Zi /nologo /W3 /WX- /O2 /Oy- /D POCO_STATIC /D WIN32 /D NDEBUG /D _CONSOLE /Gm- /EHsc /MT /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Release\\" /Fd"Release\vc100.pdb" /Gd /TP /analyze- /errorReport:prompt UtilTimerTest.cpp
+         UtilTimerTest.cpp
+       Link:
+         C:\Program Files\Microsoft Visual Studio 10.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"Release\UtilTimerTest.exe" /INCREMENTAL:NO /NOLOGO /LIBPATH:E:\cppcode\mylibs\lib kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /ManifestFile:"Release\UtilTimerTest.exe.intermediate.manifest" /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /DEBUG /PDB:"E:\cppcode\PocoHttpPost\UtilTimer\Release\UtilTimerTest.pdb" /SUBSYSTEM:CONSOLE /OPT:REF /OPT:ICF /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"Release\UtilTimerTest.lib" /MACHINE:X86 Release\ScopedLogMessage.obj
+         Release\UtilTimerTest.obj
+         UtilTimerTest.vcxproj -> E:\cppcode\PocoHttpPost\UtilTimer\Release\UtilTimerTest.exe
+       Manifest:
+         C:\Program Files\Microsoft SDKs\Windows\v7.0A\bin\mt.exe /nologo /verbose /outputresource:"Release\UtilTimerTest.exe;#1" /manifest Release\UtilTimerTest.exe.intermediate.manifest
+       FinalizeBuildStatus:
+         正在删除文件“Release\UtilTimerTest.unsuccessfulbuild”。
+         正在对“Release\UtilTimerTest.lastbuildstate”执行 Touch 任务。
+     1>已完成生成项目“E:\cppcode\PocoHttpPost\UtilTimer\UtilTimerTest.vcxproj”(build 个目标)的操作。
+
+生成成功。
+
+已用时间 00:00:01.02
