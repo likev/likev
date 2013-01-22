@@ -1,0 +1,22 @@
+﻿生成启动时间为 2013-01-22 13:00:03。
+     1>项目“E:\cppcode\ice-accretion-forcast\read-ec-850t\read-ec-850t.vcxproj”在节点 2 上(build 个目标)。
+     1>InitializeBuildStatus:
+         正在创建“Release\read-t639-850t.unsuccessfulbuild”，因为已指定“AlwaysCreate”。
+       ClCompile:
+         C:\Program Files\Microsoft Visual Studio 10.0\VC\bin\CL.exe /c /IE:\cppcode\mylibs\include /Zi /nologo /W3 /WX- /O2 /Oi /Oy- /GL /D WIN32 /D NDEBUG /D _CONSOLE /D _UNICODE /D UNICODE /Gm- /EHsc /MT /GS /Gy /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Release\\" /Fd"Release\vc100.pdb" /Gd /TP /analyze- /errorReport:prompt readT639.cpp
+         readT639.cpp
+       Link:
+         C:\Program Files\Microsoft Visual Studio 10.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"E:\cppcode\ice-accretion-forcast\Release\read-t639-850t.exe" /INCREMENTAL:NO /NOLOGO /LIBPATH:E:\cppcode\mylibs\lib kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /ManifestFile:"Release\read-t639-850t.exe.intermediate.manifest" /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /DEBUG /PDB:"E:\cppcode\ice-accretion-forcast\Release\read-t639-850t.pdb" /SUBSYSTEM:CONSOLE /OPT:REF /OPT:ICF /LTCG /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"E:\cppcode\ice-accretion-forcast\Release\read-t639-850t.lib" /MACHINE:X86 Release\readT639.obj
+         正在生成代码
+         已完成代码的生成
+         read-ec-850t.vcxproj -> E:\cppcode\ice-accretion-forcast\Release\read-t639-850t.exe
+       Manifest:
+         C:\Program Files\Microsoft SDKs\Windows\v7.0A\bin\mt.exe /nologo /verbose /outputresource:"E:\cppcode\ice-accretion-forcast\Release\read-t639-850t.exe;#1" /manifest "Release\read-t639-850t.exe.intermediate.manifest"
+       FinalizeBuildStatus:
+         正在删除文件“Release\read-t639-850t.unsuccessfulbuild”。
+         正在对“Release\read-t639-850t.lastbuildstate”执行 Touch 任务。
+     1>已完成生成项目“E:\cppcode\ice-accretion-forcast\read-ec-850t\read-ec-850t.vcxproj”(build 个目标)的操作。
+
+生成成功。
+
+已用时间 00:00:02.32
