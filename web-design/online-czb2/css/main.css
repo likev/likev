@@ -1,0 +1,194 @@
+
+html, body{
+	margin:0;
+	padding:0;
+}
+
+#container{
+	padding:0px 70px;
+}
+
+#toolbar {
+	padding:8px 10px;
+	display: inline-block;
+}
+
+#time-select {
+float:left;
+margin-top:10px;
+}
+
+#time-select-mark {
+clear:left;
+float:left;
+}
+#time-select-mark ul{
+list-style:none;
+margin:-15px 20px 0 0;
+text-align:right;
+padding-left:0;
+}
+#time-select-mark li{
+padding:5px 0 0 0;
+width:40px;
+font-size:1.1em;
+font-family:arial;
+border-radius: 4px;
+}
+
+.time-mark-hover {
+cursor: pointer;
+padding-right:3px;
+background-color:#fee;
+}
+.time-mark-edited {
+background-color:#eef;
+color: #000;
+}
+.time-mark-current {
+background-color:#eee;
+color:red;
+}
+
+.time-mark-disabled {
+color:#ccc;
+}
+
+#time-slider {
+float:left;
+height:450px;
+width:0.7em;
+}
+
+#new-czb {
+margin:40px 0 0 0;
+}
+
+#edit-czb{
+float:left;
+margin: 0 0 0 40px;
+}
+
+#edit-czb tr.station:hover{
+background-color:#fee;
+}
+
+#edit-czb tr.disabled:hover{
+background-color:transparent;
+}
+
+#forcast-select ul{
+list-style:none;
+padding:0;
+margin:0;
+display:none;
+position:absolute;
+color:blue;
+background-color:#fff;
+border:solid 1px #ECE9D8;
+font-family: arial;
+}
+
+#forcast-select ul li{
+	padding:5px 12px;
+}
+#forcast-select ul li:hover{
+	padding:5px 6px;
+	cursor:pointer;
+	background-color:#eee;
+}
+
+#forcast-select .curValue {
+	background-color:#fee;
+}
+
+#part-zdb {
+	float:left;
+	clear:both;
+	margin:20px 0 0 0;
+	padding:15px 50px 15px 20px;
+	background-color: #eee;
+}
+
+#part-zdb  .title{
+	margin:0;
+}
+
+#zdb {
+	border-collapse: collapse;
+	font-size: 14px;
+	margin:20px 0 0 0;
+}
+
+#zdb td {
+	padding: 5px 30px;
+	border: 1px solid #aaaaaa;
+}
+
+#zdb .name{
+	padding: 4px 20px;
+	border:none;
+}
+
+#zdb .highlight {
+	background-color: #fde;
+}
+
+#preview-czb {
+	font-size: 0.8em;
+}
+
+#cur-forcast-span{
+	margin: 30px 10px 50px 20px;
+	font-size:1.2em;
+	color:blue;
+}
+
+#edit {
+    border-collapse: collapse;
+	font-size: 16px;
+	width:600px;
+	border: 1px solid #aaaaaa;
+}
+
+#edit th{
+	border: 1px solid #aaaaaa;
+	padding: 4px 0;
+}
+
+#edit thead{
+	background-color: #F0F0F0;
+}
+
+#edit td{
+	border: 1px solid #aaaaaa;
+	padding: 8px 15px;
+}
+
+#edit td.name{
+	border:none;
+}
+
+#edit td.value:hover {
+    border-bottom: 2px solid blue;
+	cursor:text;
+}
+
+#edit td.editing {
+    border-bottom: 3px solid blue;
+}
+
+#edit td.disabled, #edit td.disabled:hover {
+    background-color: #eeeeee;
+	border: 1px solid #aaaaaa;
+}
+
+#edit tr.base td{
+	padding: 20px 15px;
+}
+
+.cls {
+	margin:0;
+	padding:0;
+	clear:both;
+}
