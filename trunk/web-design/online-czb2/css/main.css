@@ -6,6 +6,7 @@ html, body{
 
 #container{
 	padding:0px 70px;
+	display:none;
 }
 
 #toolbar {
