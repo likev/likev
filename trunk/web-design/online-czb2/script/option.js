@@ -18,8 +18,8 @@ czbConfig.stationMap = {
 		'57078':{ name:'汝阳',lon:'112.28',lat:'34.09',height:"336.5",highTdiff:0,lowTdiff:0 }
 	};
 	
-czbConfig.defaultHighT = 15;
-czbConfig.defaultLowT = -6;
+czbConfig.defaultHighT = 10;
+czbConfig.defaultLowT = -2;
 	
 czbConfig.cityCode = 'BFLB';
 czbConfig.cityName = '洛阳市气象台';
