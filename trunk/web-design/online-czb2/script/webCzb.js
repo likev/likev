@@ -585,7 +585,7 @@ function WebCzb(option) {
 			},
 			function(data) {
 			  $('#preview-czb').html(data);
-			  $('#dialog-preview').dialog( "option" , {title:''}).dialog( "open" );
+			  $('#dialog-preview').dialog( "option" , {title:'返回信息'}).dialog( "open" );
 			},'text')
 		.done(function() { //alert("second success"); 
 		})
