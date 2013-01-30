@@ -268,15 +268,15 @@ function WebCzb(option) {
 	this.onBaseChange = function(dom){
 		if(! ($(dom).parents(".base").length ) ) return;
 		
-		if( 'high-t' == $(dom).attr('name') ){
-			$('#edit td[name="high-t"]').each(function(){
+		if( 'high-t' === $(dom).attr('name') ){
+			$('#edit td.high-t').each(function(){
 				if(this != dom){
 					var diff = stationMap[$(this).parent('.station').attr('num')].highTdiff
 					$(this).text( $(dom).text() - (-diff) );
 				}
 			})
-		}else if( 'low-t' == $(dom).attr('name') ){
-			$('#edit td[name="low-t"]').each(function(){
+		}else if( 'low-t' === $(dom).attr('name') ){
+			$('#edit td.low-t').each(function(){
 				if(this != dom){
 					var diff = stationMap[$(this).parent('.station').attr('num')].lowTdiff
 					$(this).text( $(dom).text() - (-diff) );
@@ -284,7 +284,7 @@ function WebCzb(option) {
 			})
 		}else{
 			//console.log(dom.name + dom.value + $(dom).attr('code'));
-			$('#edit td[name="' + $(dom).attr('name') + '"]')
+			$('#edit td.' + $(dom).attr('name') )
 				.text($(dom).text() )
 				.attr('code',$(dom).attr('code'));
 		}
@@ -396,11 +396,11 @@ function WebCzb(option) {
 			//console.log(forcast);
 			var jdom = $('#zdb .station[num="'+ id +'"]');
 						
-			$('td[name="weather"]',jdom).attr('code',forcast.weather).text(weatherMap[forcast.weather]);
-			$('td[name="wind-dire"]',jdom).attr('code',forcast.dire).text(windDireMap[forcast.dire]);
-			$('td[name="wind-level"]',jdom).attr('code',forcast.level).text(windLevelMap[forcast.level]);
-			$('td[name="high-t"]',jdom).text(Number(forcast.highT).toFixed(0) );
-			$('td[name="low-t"]',jdom).text(Number(forcast.lowT).toFixed(0) );
+			$('td.weather', jdom).attr('code',forcast.weather).text(weatherMap[forcast.weather]);
+			$('td.wind-dire', jdom).attr('code',forcast.dire).text(windDireMap[forcast.dire]);
+			$('td.wind-level', jdom).attr('code',forcast.level).text(windLevelMap[forcast.level]);
+			$('td.high-t', jdom).text(Number(forcast.highT).toFixed(0) );
+			$('td.low-t', jdom).text(Number(forcast.lowT).toFixed(0) );
 			
 		}
 	}
@@ -430,19 +430,19 @@ function WebCzb(option) {
 			
 			var jdom = $('#edit .station[num="'+ id +'"]');
 						
-			$('td[name="weather"]',jdom).attr('code',forcast.weather).text(weatherMap[forcast.weather]);
-			$('td[name="wind-dire"]',jdom).attr('code',forcast.dire).text(windDireMap[forcast.dire]);
-			$('td[name="wind-level"]',jdom).attr('code',forcast.level).text(windLevelMap[forcast.level]);
-			$('td[name="high-t"]',jdom).text(Number(forcast.highT).toFixed(0) );
-			$('td[name="low-t"]',jdom).text(Number(forcast.lowT).toFixed(0) );
+			$('td.weather', jdom).attr('code',forcast.weather).text(weatherMap[forcast.weather]);
+			$('td.wind-dire', jdom).attr('code',forcast.dire).text(windDireMap[forcast.dire]);
+			$('td.wind-level', jdom).attr('code',forcast.level).text(windLevelMap[forcast.level]);
+			$('td.high-t', jdom).text(Number(forcast.highT).toFixed(0) );
+			$('td.low-t', jdom).text(Number(forcast.lowT).toFixed(0) );
 			
 		}
 		
 		this.updateZDBFromCode();
 		
 		if((this.timeValue/12)%2){
-			$('.station td[name="high-t"]').text('');
-			$('.station td[name="low-t"]').text('');
+			$('.station td.high-t').text('');
+			$('.station td.low-t').text('');
 		}
 	}
 	
@@ -456,11 +456,11 @@ function WebCzb(option) {
 			
 			var f = forcastJsonCode[id][times];
 			
-			f.weather = $('td[name="weather"]', lidom).attr('code');
-			f.dire = $('td[name="wind-dire"]', lidom).attr('code');
-			f.level = $('td[name="wind-level"]', lidom).attr('code');
-			f.highT = $('td[name="high-t"]', lidom).text();
-			f.lowT =  $('td[name="low-t"]', lidom).text();
+			f.weather = $('td.weather', lidom).attr('code');
+			f.dire = $('td.wind-dire', lidom).attr('code');
+			f.level = $('td.wind-level', lidom).attr('code');
+			f.highT = $('td.high-t', lidom).text();
+			f.lowT =  $('td.low-t', lidom).text();
 
 		}
 	}
