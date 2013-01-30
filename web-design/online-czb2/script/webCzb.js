@@ -154,7 +154,7 @@ function WebCzb(option) {
 
 	
 	var lastestZdbForcast = {};
-	var lastestZdbBegin;
+	var lastestZdbBegin = new Date(0);
 	
 	var lastestZdbFilename;
 	this.getZdbName = function(){
