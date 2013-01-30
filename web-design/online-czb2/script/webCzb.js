@@ -328,7 +328,7 @@ function WebCzb(option) {
 	
 	//根据thisBegin,lastBegin 获取天气 高低温的偏移量
 	var getForcastOffset = function(thisBegin,lastBegin){
-		var diffHours = (thisBegin.getTime() - lastBegin.getTime())/1000/3600;
+		var diffHours = moment.duration(thisBegin.getTime() - lastBegin.getTime() ).asHours();
 		var lastHour = lastBegin.getHours();
 		
 		var offset = {
