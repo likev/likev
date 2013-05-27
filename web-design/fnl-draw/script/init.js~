@@ -1,0 +1,115 @@
+$(function(){
+	//core function
+	
+	function addone(timestr){
+	
+		var newone = $('#nextone')
+						.clone()
+						.removeAttr('id')
+						.attr('timestr',timestr);
+		newone.children('.overlay').remove();
+		
+		var title = timestr.substr(0,4)+'-'+timestr.substr(4,2)+'-'+timestr.substr(6,2)+'日 '+timestr.substr(8,2)+'时';
+		
+		var newoverlay = $('#nextone .overlay').clone();
+
+		var para = $('#app-set input,#app-set select').serialize();
+		
+		$('#overlay-set input:checked').each(function(){
+			var url = 'ncl.php?overlay='+$(this).attr('overlay')+ '&datetime='+ timestr + '&' + para;
+			
+			newoverlay.find('img.fnlpic').attr('src',url);
+			
+			newone.append(newoverlay.clone());	
+		});
+		
+		
+		$('.onetime').each(function(){
+		
+			if( $(this).attr('timestr') > timestr){
+				$(this).before(newone);
+				return false;
+			}
+		})
+	}
+	
+	//ui
+	$("#select-datetime-dialog" )
+		.dialog({ 
+			autoOpen: false, 
+			modal:true, 
+			width:480, 
+			height:460,
+			buttons: {
+				"取消": function() {
+					$( this ).dialog( "close" );
+				},
+				"确定": function() {
+					
+					$( this ).dialog( "close" );
+					
+					var timestr = $.trim($('#addoneDate').val() ).replace(/-/g,'');
+					timestr += $('#addoneHour').val();
+					
+					addone(timestr);
+					
+					$('#description').show();
+				}
+			}
+		});
+	
+	$('#addoneDate').datepicker({
+			dateFormat: 'yy-mm-dd',
+			minDate:'2010-01-01',
+			maxDate:'2012-01-06',
+			changeMonth: true,
+			changeYear: true,
+			//showButtonPanel: true,
+			showOtherMonths: true,
+			selectOtherMonths: true,
+			onSelect: function(dateText, inst) {
+				
+			}
+		});
+	
+	//events
+	$('#display-set').click(function(){
+		$('#app-set').show();
+		
+		$(this).hide();
+		$('#cancle-set').show();
+	})
+	
+	$('#app-set').change(function(){
+		$('#apply-set').show();
+		
+	});
+	
+	$('#apply-set').click(function(){
+		$('#apply-set').hide();
+		$('#cancle-set').hide();
+		$('#app-set').hide();
+		$('#display-set').show();
+	});
+	$('#cancle-set').click(function(){
+		$('#apply-set').hide();
+		$('#cancle-set').hide();
+		$('#app-set').hide();
+		$('#display-set').show();
+	});
+	
+	$('#content').on('click', '.delete-one', function(){
+		$(this).parents('.onetime').remove();
+		
+		if(!$('.onetime:visible').length){
+			$('#description').hide();
+		}
+	})
+	
+	$('#addone').click(function(){
+		$("#select-datetime-dialog" ).dialog('open');
+	})
+	
+	//exec
+	addone('2011062400');
+})
