@@ -179,7 +179,7 @@ class EditCZB
 		}
 		
 		foreach($forcast as $key => $value){
-			preg_match_all('/\n[\t\040]*(?:[\d.]+[\t\040]+){11}(-?[\d.]+)[\t\040]+(-?[\d.]+)[\t\040]+(?:[\d.]+[\t\040]+){6}([\d.]+)[\t\040]+([\d.]+)[\t\040]+([\d.]+)[\t\040\r]*/',$value,$matchs,PREG_SET_ORDER);//
+			preg_match_all('/\n[\t\040]*(?:[\d]+[\t\040]+)(?:-?[\d.]+[\t\040]+){10}(-?[\d.]+)[\t\040]+(-?[\d.]+)[\t\040]+(?:[\d.]+[\t\040]+){6}([\d.]+)[\t\040]+([\d.]+)[\t\040]+([\d.]+)[\t\040\r]*/',$value,$matchs,PREG_SET_ORDER);//
 			
 			$result['forcast'][$key] = array();
 			foreach($matchs as $key2 => $value2){
